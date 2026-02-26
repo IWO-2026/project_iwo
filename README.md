@@ -1,22 +1,21 @@
 # SPECYFIKACJA WYMAGAŃ
 
-## System XYZ
+## System wpierający organizację komnatowych wydarzeń LARP
 
-**Redaktor:** smial  
+**Redaktor:** zespół projektu  
 **Status:**  
 
 **Wersja:** 1.0  
-**Data modyfikacji:** 14.02.2023 22:44:26  
+**Data modyfikacji:** 26.02.2026   
 
 **Abstrakt:**  
-Dokument zawiera specyfikację wymagań dla systemu XYZ składającą się z wizji systemu, wymagań użytkownika oraz wymagań oprogramowania dla pierwszych iteracji projektu.
+Dokument zawiera specyfikację wymagań dla systemu wpierającego organizację komnatowych wydarzeń LARP składającą się z wizji systemu, wymagań użytkownika oraz wymagań oprogramowania dla pierwszych iteracji projektu.
 
 ---
 
 ## Historia zmian:
 
-- **14.02.2023** – smial – Zmiana dosyć duża...
-- **14.02.2023** – smial – Zmiana nieco większa...
+- **26.02.2023** – Maksym Andrushchenko - dodany dokument md
 
 ---
 
@@ -70,36 +69,26 @@ Problem związany z .... dotyczący... co powoduje ... można rozwiązać ...
 
 ## 3.3 Cechy funkcjonalne
 
-**Diagram:** Cechy funkcjonalne  
 
-**F011: System musi umożliwiać obsługę zadań naprawy samochodów**  
-- Typ: «Funkcjonalne»  
-- Wersja: 1.0 (15.02.2023)  
-- Odpowiedzialny: smial  
-- Priorytet i trudność: Kluczowe 1  
-- Wydanie: 1.0  
 
-**F023: System powinien wspomagać większość zadań wykonywanych przez mistrzów serwisu**  
-- Typ: «Funkcjonalne»  
-- Wersja: 1.0 (15.02.2023)  
-- Odpowiedzialny: smial  
-- Priorytet i trudność: Istotne 1  
-- Wydanie: 1.0  
+
+
+
+
+
 
 ---
 
 ## 3.4 Cechy jakościowe
 
-**Diagram:** Cechy jakościowe  
 
-**J022: System powinien spowodować znaczące przyspieszenie rejestracji awarii**  
-- Typ: «Jakosciowe»  
-- Wersja: 1.0 (15.02.2023)  
-- Odpowiedzialny: kowal  
-- Priorytet i trudność: Istotne 1  
-- Wydanie: 1.0  
 
-To jest opis wymagania...
+
+
+
+
+
+
 
 ---
 
