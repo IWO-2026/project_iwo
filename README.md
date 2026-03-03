@@ -187,9 +187,7 @@ F20: System powinien umożliwiać wyświetlanie ocen i opinii wybranego wydarzen
 | Priorytet i trudność: Przydatne || Wydanie: 1.0 |
 | Podczas wyszukiwania wydarzeń użytkownik powinien mieć możliwość zobaczenia średniej oceny danego wydarzenia (lub organizatora — na podstawie ocen z jego poprzednich wydarzeń) oraz zapoznania się z opiniami w opisie tego wydarzenia. |
 
----
-
-F18: System powinien informować użytkowników o odwołaniu gry.
+F21: System powinien informować użytkowników o odwołaniu gry.
 | Typ: _funkcjonalne_ | Wersja: 1.0 (02.03.2026) | Odpowiedzialny: FilobokHlib |
 | :--- | :--- | :--- |
 | Priorytet i trudność: Istotne || Wydanie: 1.0 |
