@@ -72,27 +72,36 @@ Problem związany z .... dotyczący... co powoduje ... można rozwiązać ...
 ---
 
 ## 3.3 Cechy funkcjonalne
+F01: System powinien umożliwiać wystawienie oceny wydarzeniu, w którym brał udział użytkownik.
+| Typ: _funkcjonalne_ | Wersja: 1.0 (28.02.2026) | Odpowiedzialny: Mac-Ban-04 |
+| :--- | :--- | :--- |
+| Priorytet i trudność: Istotne || Wydanie: 1.0 |
+| Zaimplementowanie opcji umożliwiającej wystawienie oceny danemu wydarzeniu w skali od 1 do 5 gwiazdek. Ocenę można wystawić tylko wtedy, gdy użytkownik był zgłoszony na dane wydarzenie i zarejestrowano jego udział. |
 
-
-
+F02: System powinien umożliwiać usunięcie konta użytkownika.
+| Typ: _funkcjonalne_ | Wersja: 1.0 (28.02.2026) | Odpowiedzialny: Mac-Ban-04 |
+| :--- | :--- | :--- |
+| Priorytet i trudność: Kluczowe || Wydanie: 1.0 |
+| Zaimplementowanie opcji usunięcia konta użytkownika. Ta opcja powinna być jasno przedstawiona użytkownikowi i opatrzona ostrzeżeniami przed przypadkowym usunięciem konta, jednak musi byc łatwo dostępna. |
 
 F03: System powinien umożliwiać tworzenie profili postaci.
 | Typ: _funkcjonalne_ | Wersja: 1.0 (01.03.2026) | Odpowiedzialny: Polina |
 | :--- | :--- | :--- |
 | Priorytet i trudność: Kluczowe || Wydanie: 1.0 |
 | Zaimplementowanie funkcjonalności umożliwiającej użytkownikowi tworzenie nowych profili postaci do gry LARP. Użytkownik powinien móc zdefiniować podstawowe atrybuty postaci (imię, klasa/rasa np. elf, krasnolud, rycerz, poziom doświadczenia), dodać opis biografii oraz wybrać wygląd postaci. Każda utworzona postać jest automatycznie powiązana z kontem użytkownika, który ją stworzył. |
+
 F04: System powinien umożliwiać edycję i przeglądanie szczegółów postaci.
 | Typ: _funkcjonalne_ | Wersja: 1.0 (01.03.2026) | Odpowiedzialny: Polina |
 | :--- | :--- | :--- |
 | Priorytet i trudność: Istotne || Wydanie: 1.0 |
+|Zaimplementowanie funkcjonalności pozwalającej użytkownikowi na edycję wszystkich danych istniejącej postaci (imię, biografia, atrybuty, ekwipunek) oraz przeglądanie jej szczegółowych statystyk. System powinien wyświetlać informacje o poziomie doświadczenia, posiadanych przedmiotach, osiągnięciach z poprzednich sesji oraz historię rozgrywek daną postacią. Edycja postaci powinna być możliwa tylko gdy postać nie bierze aktualnie udziału w trwającej sesji LARP. |
 
-| Zaimplementowanie funkcjonalności pozwalającej użytkownikowi na edycję wszystkich danych istniejącej postaci (imię, biografia, atrybuty, ekwipunek) oraz przeglądanie jej szczegółowych statystyk. System powinien wyświetlać informacje o poziomie doświadczenia, posiadanych przedmiotach, osiągnięciach z poprzednich sesji oraz historię rozgrywek daną postacią. Edycja postaci powinna być możliwa tylko gdy postać nie bierze aktualnie udziału w trwającej sesji LARP. |
 F05: System powinien umożliwiać przeglądanie historii uczestnictwa w wydarzeniach.
 | Typ: _funkcjonalne_ | Wersja: 1.0 (01.03.2026) | Odpowiedzialny: Polina |
 | :--- | :--- | :--- |
 | Priorytet i trudność: Istotne || Wydanie: 1.0 |
-
 | Zaimplementowanie sekcji pozwalającej użytkownikowi na przeglądanie pełnej historii wydarzeń LARP, w których brał udział. System powinien wyświetlać listę wszystkich ukończonych sesji z podstawowymi informacjami (data, nazwa wydarzenia, lokalizacja, odegrana postać, czas trwania), a także prezentować zagregowane statystyki takie jak: całkowita liczba ukończonych sesji, najczęściej grane role, ulubione scenariusze i typy wydarzeń. Historia powinna być sortowalna według daty oraz filtrowalna według typu wydarzenia, odgrywanej postaci lub organizatora. |
+
 F06: System powinien umożliwiać edycję danych osobowych w profilu użytkownika.
 | Typ: _funkcjonalne_ | Wersja: 1.0 (01.03.2026) | Odpowiedzialny: Polina |
 | :--- | :--- | :--- |
@@ -116,7 +125,6 @@ F09: System powinien umożliwiać logowanie metodą dwuetapową.
 | :--- | :--- | :--- |
 | Priorytet i trudność: Użyteczne || Wydanie: 1.0 |
 | Zaimplementowanie funkcjonalności umożliwiającej użytkownikowi dwuetapowe potwierdzenie tożsamości, pierwszy raz za pomocą hasła i drugi raz np. za pomocą kodu QR pochodzącego od dezygnowanej aaplikacji. Użytkownik powinien mieć możliwość włączenia tej opcji wedle życzenia, oraz wyłączenia jej przy pomocy np. adresu mailowego.|
-
 
 F10: System powinien umożliwiać interakcję z otoczeniem poprzez kody QR.
 | Typ: _funkcjonalne_ | Wersja: 1.0 (02.03.2026) | Odpowiedzialny: Tomasz2004 |
@@ -174,13 +182,13 @@ F16: System powinien umożliwiać wystawianie oceny użytkownikom
 | Priorytet i trudność: Istotne || Wydanie: 1.0 |
 | Użytkownik powinien być w stanie wystawić opinię na temat innego użytkownika. Użytkownik nie może wystawić wielu opinii dla jednego użytkownika. System powinien analizować zachowanie zgłaszających w celu oflagowania podejrzanych zgłoszeń. |
 
-F17: System powinien umożliwaić wyświetlanie oceny użytkownika
+F18: System powinien umożliwaić wyświetlanie oceny użytkownika
 | Typ: _funkcjonalne_ | Wersja 1.0 (02.03.2025) | Odpowiedzialny: lzajka |
 | :--- | :--- | :--- |
 | Priorytet i trudność: Istotne || Wydanie: 1.0 |
 | System ma zapewniać organizatorom wyłączny dostęp do ocen użytkowników w celu sprawnej selekcji uczestników wydarzenia. Interfejs musi prezentować zarówno średnią, jak i szczegółową listę wszystkich wystawionych opinii wraz z ich treścią. W przypadku wykrycia podejrzanych wpisów mechanizm powinien umożliwiać nałożenie ostrzeżenia, obniżenie ich wpływu na wynik ogólny lub usunięcie. |
 
-F18: System powinien umożliwiać zgłaszanie nieprzyzwoitych zachowań użytkowników
+F19: System powinien umożliwiać zgłaszanie nieprzyzwoitych zachowań użytkowników
 | Typ: _funkcjonalne_ | Wersja 1.0 (02.03.2025) | Odpowiedzialny: lzajka |
 | :--- | :--- | :--- |
 | Priorytet i trudność: Istotne || Wydanie: 1.0 |
@@ -188,37 +196,45 @@ F18: System powinien umożliwiać zgłaszanie nieprzyzwoitych zachowań użytkow
 W przypadku złamania reguły wydarzenia zgłaszający wybiera — użytkownika, wydarzenie, złamaną regułę, dodaję opis incydentu oraz ewentualnie załączniki. Zgłoszenie trafia do organizatorów wydarzenia.
 W przypadku złamania reguły serwisu zgłaszający wybiera — użytkownika, wydarzenie (opcjonalnie), złamaną regułę serwisu, dodaje opis incydentu oraz ewentualne załączniki. Zgłoszenie trafia do administracji serwisu. |
 
-F19: System powinien umożliwiać wystawienie oceny i opinii o wydarzeniu LARP.
+F20: System powinien umożliwiać wystawienie oceny i opinii o wydarzeniu LARP.
 | Typ: _funkcjonalne_ | Wersja: 1.0 (02.03.2026) | Odpowiedzialny: FilobokHlib |
 | :--- | :--- | :--- |
 | Priorytet i trudność: Przydatne || Wydanie: 1.0 |
 | Po zakończeniu wydarzenia użytkownik powinien mieć możliwość wystawienia oceny (np. w skali 1–5 gwiazdek) oraz dodania krótkiej opinii tekstowej. |
 
-F20: System powinien umożliwiać wyświetlanie ocen i opinii wybranego wydarzenia LARP.
+F21: System powinien umożliwiać wyświetlanie ocen i opinii wybranego wydarzenia LARP.
 | Typ: _funkcjonalne_ | Wersja: 1.0 (02.03.2026) | Odpowiedzialny: FilobokHlib |
 | :--- | :--- | :--- |
 | Priorytet i trudność: Przydatne || Wydanie: 1.0 |
 | Podczas wyszukiwania wydarzeń użytkownik powinien mieć możliwość zobaczenia średniej oceny danego wydarzenia (lub organizatora — na podstawie ocen z jego poprzednich wydarzeń) oraz zapoznania się z opiniami w opisie tego wydarzenia. |
 
-F21: System powinien informować użytkowników o odwołaniu gry.
+F22: System powinien informować użytkowników o odwołaniu gry.
 | Typ: _funkcjonalne_ | Wersja: 1.0 (02.03.2026) | Odpowiedzialny: FilobokHlib |
 | :--- | :--- | :--- |
 | Priorytet i trudność: Istotne || Wydanie: 1.0 |
 | W przypadku odwołania wydarzenia z przyczyn technicznych lub z powodu niewystarczającej liczby uczestników (nieosiągnięcia minimalnego limitu), system powinien wysłać powiadomienie w aplikacji (w zakładce „Wiadomości”) oraz kopię powiadomienia na adres e-mail użytkownika. |
 
-F22: System powinien umożliwiać wymianę wirtualnych zasobów pomiędzy graczami.
+F23: System powinien umożliwiać wymianę wirtualnych zasobów pomiędzy graczami.
 | Typ: _funkcjonalne_ | Wersja: 1.0 (03.03.2026) | Odpowiedzialny: rufiix |
 | :--- | :--- | :--- |
 | Priorytet i trudność: Istotne || Wydanie: 1.0 |
 | Zaimplementowanie modułu handlu pozwalającego graczom na bezpieczną wymianę posiadanych przedmiotów i wirtualnej waluty za pomocą aplikacji mobilnej. Proces wymiany powinien wymagać potwierdzenia transakcji przez obie strony (np. poprzez zeskanowanie jednorazowego kodu QR wygenerowanego na ekranie urządzenia jednego z graczy). System musi na bieżąco aktualizować stany ekwipunków zaangażowanych postaci i zapisywać historię transakcji w logach. |
 
-F23: System powinien udostępniać interaktywną mapę terenu gry.
+F24: System powinien udostępniać interaktywną mapę terenu gry.
 | Typ: _funkcjonalne_ | Wersja: 1.0 (03.03.2026) | Odpowiedzialny: rufiix |
 | :--- | :--- | :--- |
 | Priorytet i trudność: Przydatne || Wydanie: 1.0 |
 | Zaimplementowanie w aplikacji widoku mapy przedstawiającej plan układu pomieszczeń (komnat) wydarzenia. Mapa powinna dynamicznie dostosowywać się do posiadanych przez postać uprawnień, odkrywając przed graczem strefy, do których uzyskał dostęp (np. po zdobyciu odpowiedniego klucza lub przedmiotu questowego), oraz ukrywając obszary, które są dla niego niedostępne lub tajne. |
 ---
+
+
 ## 3.4 Cechy jakościowe
+
+J01: System powinien być intuicyjny w obsłudze.
+| Typ: _jakościowe_ | Wersja: 1.0 (28.02.2026) | Odpowiedzialny: Mac-Ban-04 |
+| :--- | :--- | :--- |
+| Priorytet i trudność: Kluczowe || Wydanie: 1.0 |
+| Użytkownik nie powinien mieć trudności w poruszaniu się po systemie. System powinien mieć dostępne wszystkie najważniejsze funkcje w jednym, widocznym miejscu. Mniej ważne funkcje mogą się znajdować w pobocznych menu, ale nie mogą się zagnieżdżać w sobie na więcej niż dwa poziomy. |
 
 J02: System powinien wyświetlać dezygnowane ekrany oczekiwania w momentach ładowania się strony.
 | Typ: _jakościowe_ | Wersja: 1.0 (02.03.2026) | Odpowiedzialny: cojarobietu9 |
