@@ -104,13 +104,13 @@ Organizator wydarzeń odpowiada za przygotowanie i przeprowadzenie wydarzeń LAR
 
 ## 3.3 Cechy funkcjonalne
 F01: System powinien umożliwiać wystawienie oceny wydarzeniu, w którym brał udział użytkownik.
-| Typ: _funkcjonalne_ | Wersja: 1.0 (28.02.2026) | Odpowiedzialny: Mac-Ban-04 |
+| Typ: _funkcjonalne_ | Wersja: 1.0 (28.02.2026) | Odpowiedzialny: Maciej Bankiewicz |
 | :--- | :--- | :--- |
 | Priorytet: Istotne || Wydanie: 1.0 |
 | Zaimplementowanie opcji umożliwiającej wystawienie oceny danemu wydarzeniu w skali od 1 do 5 gwiazdek. Ocenę można wystawić tylko wtedy, gdy użytkownik był zgłoszony na dane wydarzenie i zarejestrowano jego udział. |
 
 F02: System powinien umożliwiać usunięcie konta użytkownika.
-| Typ: _funkcjonalne_ | Wersja: 1.0 (28.02.2026) | Odpowiedzialny: Mac-Ban-04 |
+| Typ: _funkcjonalne_ | Wersja: 1.0 (28.02.2026) | Odpowiedzialny: Maciej Bankiewicz |
 | :--- | :--- | :--- |
 | Priorytet: Kluczowe || Wydanie: 1.0 |
 | Zaimplementowanie opcji usunięcia konta użytkownika. Ta opcja powinna być jasno przedstawiona użytkownikowi i opatrzona ostrzeżeniami przed przypadkowym usunięciem konta, jednak musi byc łatwo dostępna. |
@@ -164,20 +164,20 @@ F10: System powinien umożliwiać interakcję z otoczeniem poprzez kody QR.
 | Zaimplementowanie w aplikacji mobilnej skanera kodów QR, który pozwoli graczom na wchodzenie w interakcję z fizycznymi elementami gry. Po zeskanowaniu kodu system powinien wyświetlić opis obiektu, dodać przedmiot do ekwipunku lub uruchomić przypisaną akcję fabularną. |
 
 F11: System powinien pozwalać użytkownikom na wybór postaci przed rozpoczęciem gry.
-| Typ: Funkcjonalne | Wersja: 1.0 (2.03.2026) | Odpowiedzialny: mkkami |
+| Typ: Funkcjonalne | Wersja: 1.0 (2.03.2026) | Odpowiedzialny: Michał Marciniak |
 | :--- | :--- | :--- |
 | Priorytet: Kluczowe || Wydanie: 1.0|
 | Uczestnicy powinni mieć możliwość wyboru roli z listy przypisanej do gry. System powinien prezentować listę dostępnych postaci wraz z ich opisami i umożliwiać zgłoszenie chęci odgrywania konkretnej postaci przez użytkownika. ||
 
 F12: System powinien wspierać mechanizm priorytetyzacji wyboru ról.
 
-| Typ: Funkcjonalne | Wersja: 1.0 (2.03.2026) | Odpowiedzialny: mkkami |
+| Typ: Funkcjonalne | Wersja: 1.0 (2.03.2026) | Odpowiedzialny: Michał Marciniak |
 | :--- | :--- | :--- |
 | Priorytet: Istotne || Wydanie: 1.0|
 | Uczestnicy, którzy nie grali danej roli powinni mieć priorytet w zapisach, aby umożliwić im zdobycie nowych doświadczeń. Jednocześnie uczestnicy, którzy ostatnio odgrywali dane role powinni mieć mniejszy priorytet. ||
 
 F13: System powinien umożliwiać obsługę płatności za wydarzenia poprzez integrację z systemem zewnętrznym.
-| Typ: Funkcjonalne | Wersja: 1.0 (2.03.2026) | Odpowiedzialny: mkkami |
+| Typ: Funkcjonalne | Wersja: 1.0 (2.03.2026) | Odpowiedzialny: Michał Marciniak |
 | :--- | :--- | :--- |
 | Priorytet: Kluczowe || Wydanie: 1.0|
 | Zapewnienie uczestnikom możliwości opłacenia udziału w wydarzeniu bezpośrednio po zatwierdzeniu ich zgłoszenia. System powinien integrować się z zewnętrznymi systemami płatności i automatycznie aktualizować status zapisu uczestnika po otrzymaniu potwierdzenia transakcji. ||
@@ -497,7 +497,7 @@ F58: System powinien udostępniać publiczne API.
 ## 3.4 Cechy jakościowe
 
 J01: System powinien być intuicyjny w obsłudze.
-| Typ: _jakościowe_ | Wersja: 1.0 (28.02.2026) | Odpowiedzialny: Mac-Ban-04 |
+| Typ: _jakościowe_ | Wersja: 1.0 (28.02.2026) | Odpowiedzialny: Maciej Bankiewicz |
 | :--- | :--- | :--- |
 | Priorytet: Kluczowe || Wydanie: 1.0 |
 | Użytkownik nie powinien mieć trudności w poruszaniu się po systemie. System powinien mieć dostępne wszystkie najważniejsze funkcje w jednym, widocznym miejscu. Mniej ważne funkcje mogą się znajdować w pobocznych menu, ale nie mogą się zagnieżdżać w sobie na więcej niż dwa poziomy. |
