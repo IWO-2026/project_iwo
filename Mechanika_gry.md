@@ -1,10 +1,9 @@
 ```mermaid
-
 flowchart LR
 
 projektant["Projektant gry"]
 
-subgraph Mechanika_i_projektowanie_gry["Mechanika i projektowanie gry"]
+subgraph "Mechanika i projektowanie gry"
 
 UC0(("Projektowanie mechaniki gry"))
 
@@ -19,23 +18,24 @@ UC7(("Definiowanie poziomu trudności gry"))
 UC8(("Ustawienie limitu czasu gry"))
 UC9(("Aktywacja zaawansowanego trybu gry"))
 
-UC0 -. "<<include>>" .-> UC1
-UC0 -. "<<include>>" .-> UC2
-UC0 -. "<<include>>" .-> UC3
-UC0 -. "<<include>>" .-> UC4
-UC0 -. "<<include>>" .-> UC5
-UC0 -. "<<include>>" .-> UC6
-UC0 -. "<<include>>" .-> UC7
-UC0 -. "<<include>>" .-> UC8
-UC0 -. "<<include>>" .-> UC9
+UC0 -. include .-> UC1
+UC0 -. include .-> UC2
+UC0 -. include .-> UC3
+UC0 -. include .-> UC4
+UC0 -. include .-> UC5
+UC0 -. include .-> UC6
+UC0 -. include .-> UC7
+UC0 -. include .-> UC8
+UC0 -. include .-> UC9
 
 end
 
-projektant 
+projektant --> UC0
 
 ```
 
 
 
 
-> UC0
+
+
