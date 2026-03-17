@@ -1,4 +1,4 @@
-<div hidden>
+<!--
 ```
 @startuml igorOchocki
 left to right direction
@@ -8,11 +8,10 @@ usecase "Zdefiniowanie gry" as GDF
 usecase "Zdefiniowanie akcji" as ADF
 usecase "Przesłanie komunikatu do recenzenta" as SCR
 
-TG --> GDF
+TG -> GDF
 GDF ..> ADF : <<invokes>>
 GDF ..> SCR : <<invokes>>
 @enduml
-```
-</div>
+-->
 
 ![](igorOchocki.png)
