@@ -1,12 +1,1 @@
-```mermaid
-flowchart LR
-gracz((Gracz))
-
-    uc1([Skanowanie QR kodu])
-    uc2([Granie w mini-grę])
-    uc3([Walczenie z kimś])
-
-    gracz --> uc1
-    gracz --> uc2
-    gracz --> uc3
-```
+![Diagram przypadków użycia](https://www.plantuml.com/plantuml/svg/XPBDQkim48NtUeh1gvj5SlUNO182DuN-r748tHJAr9wwYcGfbUGQk_H1-Zvzi5fA3H5jwSg6-SwPESTUM8V6DRLaaXuSE0s6LuyEIcweS5mhnh1msa2oDbZq2Q25J697XZ5FeAeaGR8yI2wms2DSBFCiWHS60D1OAj0Euwr0fLjKd43eie5D7ensgxjD7iWONvk0jb1pnQULUNyRyKkk-1fhYlaRb4LFNj83LwgheVB7KZtA_ljCtoowTgRlwh1COMLqsOsAd5eqPKndUW0jfsCCPKcqf8ezlrL_jWSiIS1P1dzXvmmwX8FfgQovTiraD5rvqLCpYCZ6rkSeHID3WUtmwYsl4EwnvmJMeUkiwyGaYhCQGhDNnevV0wRJzBDF5XumcwMdZS4_cC-vUjQ2qZH6WbqyPwVAW8sLnDnNB0ePmspSvT4eHyn5arzTO_hdKzc2LEb_z0y0)
