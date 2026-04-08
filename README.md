@@ -1002,6 +1002,31 @@ Zgłoszenie wysyłane przez użytkownika w celu poinformowania organizatora lub 
 
 ---
 
+### 4.1.3 Projektowanie świata gry
+
+**PU201: Zdefiniowanie gry**
+- Wersja: 1.0 (08.04.2026)
+- Odpowiedzialny: Igor Ochocki
+- Priorytet i trudność: Istotne
+- Wydanie: 1.0
+- **Opis:** Twórca wprowadza dane podstawowe szablonu: tytuł, opis świata przedstawionego oraz określa limity uczestników i czas trwania rozgrywki.
+
+**PU202: Zdefiniowanie akcji**
+- Wersja: 1.0 (08.04.2026)
+- Odpowiedzialny: Igor Ochocki
+- Priorytet i trudność: Kluczowe
+- Wydanie: 1.0
+- **Opis:** Twórca definiuje typy akcji (czasowe, czujnika, przedmiotu) i przypisuje im konkretne skutki fabularne lub systemowe (np. otrzymanie wskazówki).
+
+**PU203: Przesłanie komunikatu do recenzenta**
+- Wersja: 1.0 (08.04.2026)
+- Odpowiedzialny: Igor Ochocki
+- Priorytet i trudność: Istotne
+- Wydanie: 1.0
+- **Opis:** Twórca przesyła wyjaśnienia lub odpowiedzi na uwagi zgłoszone przez Recenzenta w trakcie weryfikacji projektu gry przed jej publikacją.
+
+---
+
 ## 4.2 Wymagania jakościowe i ograniczenia
 
 **Diagram:** Wymagania jakościowe i ograniczenia
@@ -1038,6 +1063,45 @@ Przeprowadzenie serii rejestracji zgodnie ze scenariuszem TS003 (…)
 
 ---
 
+**J011-1: System powinien zapewniać natychmiastową responsywność Panelu Projektanta**
+| Typ: _efektywność wydajnościowa - czas_ | Wersja: 1.0 (08.04.2026) | Odpowiedzialny: Igor Ochocki |
+| :--- | :--- | :--- |
+| Priorytet: Istotne || Wydanie: 1.0 |
+
+**Opis:** Interfejs edycji akcji i parametrów gry musi reagować na działania użytkownika bez zauważalnych opóźnień, zapewniając płynność pracy twórczej (dotyczy PU201, PU202).
+
+**Sposób pomiaru:** Pomiar czasu odpowiedzi interfejsu przy zapisie zmian w akcji.
+
+**Oczekiwane wartości:** 95% interakcji poniżej 200 ms.
+
+---
+
+**J011-2: System powinien gwarantować integralność Szablonu Gry podczas recenzji**
+| Typ: _bezpieczeństwo - integralność_ | Wersja: 1.0 (08.04.2026) | Odpowiedzialny: Igor Ochocki |
+| :--- | :--- | :--- |
+| Priorytet: Kluczowe || Wydanie: 1.0 |
+
+**Opis:** System musi uniemożliwiać modyfikację danych Szablonu Gry (opisów, akcji, przedmiotów), gdy posiada on status "Do recenzji", aby zapewnić spójność procesu weryfikacji.
+
+**Sposób pomiaru:** Próba zapisu zmian danych gry poprzez API lub interfejs w trakcie trwania aktywnego procesu recenzji.
+
+**Oczekiwane wartości:** 100% odrzuconych prób modyfikacji (zwrócenie błędu uprawnień).
+
+---
+
+**J011-3: System powinien gwarantować bezpieczeństwo danych podczas edycji (Autozapis)**
+| Typ: _niezawodność - odtwarzalność_ | Wersja: 1.0 (08.04.2026) | Odpowiedzialny: Igor Ochocki |
+| :--- | :--- | :--- |
+| Priorytet: Kluczowe || Wydanie: 1.0 |
+
+**Opis:** System musi chronić postęp prac Twórcy przed utratą danych w wyniku nagłego zamknięcia przeglądarki lub awarii łącza.
+
+**Sposób pomiaru:** Symulacja utraty połączenia w trakcie wprowadzania opisu świata gry. Sprawdzenie stanu danych po ponownym zalogowaniu.
+
+**Oczekiwane wartości:** Maksymalna utrata danych nie może przekraczać ostatnich 30 sekund pracy.
+
+---
+
 ## 4.3 Słownik
 
 ### 4.3.1 Aktorzy
@@ -1061,6 +1125,9 @@ Przeprowadzenie serii rejestracji zgodnie ze scenariuszem TS003 (…)
 - Pozycja cennika
 - Samochód
 - Zamówienie na samochód
+- **Szablon Gry** - (Pojęcie domenowe) Kompletny projekt logiczny i fabularny wydarzenia LARP stworzony przez Twórcę. Stanowi wzorzec (scenariusz), z którego Organizator tworzy konkretne Wydarzenia.
+- **Akcja Systemowa** - (Pojęcie domenowe) Reguła logiczna określająca efekt (np. komunikat, zmiana statystyk) wywołany przez zewnętrzną akcję (czas, czujnik, kod QR).
+- **Status Gry** - (Pojęcie domenowe) Znacznik etapu gotowości Szablonu Gry, określający dostępność do edycji lub publikacji (np. W edycji, Do recenzji, Zatwierdzony).
 
 ---
 
