@@ -1002,6 +1002,30 @@ Zgłoszenie wysyłane przez użytkownika w celu poinformowania organizatora lub 
 
 ---
 
+
+### 4.1.4 Rejestracja i zapis przed wydarzeniem
+**PU301: Wyszukiwanie wydarzenia**
+- Wersja: 1.0 (08.04.2026)
+- Odpowiedzialny: Michał Marciniak
+- Priorytet i trudność: Istotne
+- Wydanie: 1.0
+- **Opis:** Gracz wybiera filtry: lokalizacja, kategoria, data, trudność, a system wyświetla listę wydarzeń spełniających wybrane kryteria.
+
+**PU302: Akceptacja zaproszenia**
+- Wersja: 1.0 (08.04.2026)
+- Odpowiedzialny: Michał Marciniak
+- Priorytet i trudność: Kluczowe 
+- Wydanie: 1.0
+- **Opis:** Gracz akceptuje zaproszenie z listy.
+
+**PU303: Dołączenie do wydarzenia**
+- Wersja: 1.0 (08.04.2026)
+- Odpowiedzialny: Michał Marciniak
+- Priorytet i trudność: Kluczowe 
+- Wydanie: 1.0
+- **Opis:** Gracz otrzymuje powiadomienie, które umożliwia dołączenie do wydarzenia.
+
+
 ## 4.2 Wymagania jakościowe i ograniczenia
 
 **Diagram:** Wymagania jakościowe i ograniczenia
