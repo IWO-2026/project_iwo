@@ -45,32 +45,32 @@ Po przejściu do zakładki „Przyjaciele” z głównej strony wyświetlana jes
 
 # Słownik dziedziny 
 
-Organizator
+Organizator                  
 Osoba zarządzająca grą, odpowiedzialna za rezerwacje, przegląd zgłoszeń i komunikację z uczestnikami.
 
-Kalendarz
+Kalendarz                 
 Widok zawierający dostępne i zajęte terminy, umożliwiający planowanie rozgrywek.
 
-Rezerwacja
+Rezerwacja           
 Proces przypisania konkretnego terminu w kalendarzu do planowanej gry.
 
-Termin / slot czasowy
+Termin / slot czasowy               
 Określony przedział czasu dostępny do zarezerwowania na grę.
 
-Gra
+Gra                
 Wydarzenie lub rozgrywka organizowana w określonym czasie dla uczestników.
 
-Zgłoszenie
+Zgłoszenie              
 Prośba uczestnika o udział w grze, oczekująca na decyzję organizatora.
 
-Uczestnik
+Uczestnik                
 Osoba zgłaszająca się do udziału w grze.
 
-Akceptacja zgłoszenia
+Akceptacja zgłoszenia                      
 Zatwierdzenie udziału uczestnika w grze przez organizatora.
 
-Odrzucenie zgłoszenia
+Odrzucenie zgłoszenia                
 Odmowa udziału uczestnika w grze.
 
-Zaproszenie
+Zaproszenie                       
 Wiadomość wysyłana do uczestnika z informacją o przydzieleniu do gry i jej szczegółach.
