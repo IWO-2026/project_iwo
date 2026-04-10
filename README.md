@@ -1002,6 +1002,43 @@ Zgłoszenie wysyłane przez użytkownika w celu poinformowania organizatora lub 
 
 ---
 
+
+### 4.1.4 Rejestracja i zapis przed wydarzeniem
+**PU301: Wyświetlenie listy wydarzeń**
+- Wersja: 1.0 (09.04.2026)
+- Odpowiedzialny: Michał Marciniak
+- Priorytet i trudność: Kluczowe 
+- Wydanie: 1.0
+- **Opis:** System wyświetla listę wydarzeń. Gracz może wybrać filtry wydarzeń, a system wyświetli wydarzenia spełniające kryteria.
+
+**PU302: Wyświetlenie listy zaproszeń**
+- Wersja: 1.0 (09.04.2026)
+- Odpowiedzialny: Michał Marciniak
+- Priorytet i trudność: Kluczowe 
+- Wydanie: 1.0
+- **Opis:** System wyświetla listę otrzymanych zaproszeń na wydarzenie, które nie zostały jeszcze rozpatrzone przez gracza.
+
+**PU303: Akceptacja zaproszenia**
+- Wersja: 1.0 (09.04.2026)
+- Odpowiedzialny: Michał Marciniak
+- Priorytet i trudność: Kluczowe 
+- Wydanie: 1.0
+- **Opis:** Gracz zatwierdza wybrane zaproszenie. System dodaje gracza do listy zarejestrowanych na wydarzenie.
+
+**PU304: Dołączenie do wydarzenia**
+- Wersja: 1.0 (09.04.2026)
+- Odpowiedzialny: Michał Marciniak
+- Priorytet i trudność: Kluczowe 
+- Wydanie: 1.0
+- **Opis:** Gracz inicjuje udział w wydarzeniu, na które został wcześniej zarejestrowany. System przenosi gracza do sesji wydarzenia.
+
+**PU305: Wyświetlenie listy rejestracji na wydarzenie**
+- Wersja: 1.0 (09.04.2026)
+- Odpowiedzialny: Michał Marciniak
+- Priorytet i trudność: Kluczowe 
+- Wydanie: 1.0
+- **Opis:** System wyświetla listę wydarzeń, na które gracz jest zarejestrowany.
+
 ## 4.2 Wymagania jakościowe i ograniczenia
 
 **Diagram:** Wymagania jakościowe i ograniczenia
@@ -1061,7 +1098,8 @@ Przeprowadzenie serii rejestracji zgodnie ze scenariuszem TS003 (…)
 - Pozycja cennika
 - Samochód
 - Zamówienie na samochód
-
+- Filtry wydarzeń - Zbiór parametrów (lokalizacja, data, poziom trudności, kategoria) wg. których gracz może dopasować listę wydarzeń 
+- Sesja wydarzenia - Aktywna faza wydarzenia, w której odbywa się właściwa rozgrywka. Umożliwia interakcję z innymi uczestnikami i grą w czasie rzeczywistym.
 ---
 
 # 5. Scenariusze i scenopisy
