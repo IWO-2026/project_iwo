@@ -1,8 +1,16 @@
 ```mermaid
 flowchart LR
 
-    Gracz --> UCg["Wyświetlenie kalendarza przez gracza"]
-    Organizator --> UCo["Wyświetlenie kalendarza przez organizatora"]
+g((Gracz))
+o((Organizator))
 
-    UCg -->|generalization| UC["Wyświetlenie kalendarza"]
-    UCo -->|generalization| UC
+ucg(["Wyświetlenie kalendarza przez gracza"])
+uco(["Wyświetlenie kalendarza przez organizatora"])
+uc(["Wyświetlenie kalendarza"])
+
+g --> ucg
+o --> uco
+
+ucg --generalization--> uc
+uco --generalization--> uc
+```

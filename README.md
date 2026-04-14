@@ -1002,6 +1002,20 @@ Zgłoszenie wysyłane przez użytkownika w celu poinformowania organizatora lub 
 
 ---
 
+### 4.1.x Zarządzanie organizacją wydarzeń
+
+**PU991: Wyświetlenie kalendarza przez organizatora**
+- Wersja: 1.0(14.04.2026)
+- Odpowiedzialna: Alicja Rosiak
+- Wydanie: 1.0
+
+### 4.1.y Zapisy na wydarzenia
+
+**PU981: Wyświetlenie kalendarza przez gracza**
+- Wersja: 1.0(14.04.2026)
+- Odpowiedzialna: Alicja Rosiak
+- Wydanie: 1.0
+
 ## 4.2 Wymagania jakościowe i ograniczenia
 
 **Diagram:** Wymagania jakościowe i ograniczenia
