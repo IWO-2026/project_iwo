@@ -916,89 +916,74 @@ Zgłoszenie wysyłane przez użytkownika w celu poinformowania organizatora lub 
 
 ## 4.1 Wymagania funkcjonalne
 
-### 4.1.1 Zarządzanie ofertą
-
-**Diagram:** Zarządzanie ofertą
-
-**PU001: Dodanie nowego samochodu**
-
-- Wersja: 1.0 (15.02.2023)
-- Odpowiedzialny: smial
-- Priorytet i trudność: Istotne 1
-- Wydanie: 1.0
-
-**PU002: Przejrzenie cennika**
-
-- Wersja: 1.0 (15.02.2023)
-- Odpowiedzialny: kamil
-- Priorytet i trudność: Istotne 1
-- Wydanie: 1.0
-
-**PU003: Wygenerowanie raportu sprzedaży**
-
-- Wersja: 1.0 (15.02.2023)
-- Odpowiedzialny: kamil
-- Wydanie: 1.0
-
-**PU004: Zmiana ceny samochodu**
-
-- Wersja: 1.0 (15.02.2023)
-- Odpowiedzialny: kamil
-- Wydanie: 1.0
 
 ---
+## 4.1.10 Administracja kont
+DIAGRAM:
+```mermaid
+flowchart LR
+    Admin([Admin])
+    Czas([Czas])
 
-### 4.1.2 Zarządzanie sprzedażą
+    u1["Wyświetl listę błędów systemowych"]
+    u2["Wyświetl listę użytkowników ze zgłoszeniami"]
+    u3["Zablokuj konto użytkownika na ograniczony czas"]
+    u5["Dezaktywuj konto użytkownika"]
+    u6["Wyświetl pełny log błędu"]
+    u7["Odblokuj konto po określonym czasie"]
 
-**Diagram:** Specyfikowanie wymagań użytkownika
+    Admin --> u1
+    Admin --> u2
 
-**PU101: Dokonanie płatności online**
+    u2 -.->|invoke| u3
+    u2 -.->|invoke| u5
+    u1 -.->|invoke| u6
 
-- Wersja: 1.0 (15.02.2023)
-- Odpowiedzialny: kamil
+    Czas --> u7
+```
+
+**PU1001: Wyświetlenie listy  użytkowników ze zgłoszeniami **
+- Wersja: 1.0 (14.04.2026)
+- Odpowiedzialna: Karolina Wiśniewska
 - Wydanie: 1.0
+- Opis: System wyświetla menu administratora. Administrator wybiera opcję wyświetlenia listy użytkowników, którzy zostali zgłoszeni za łamanie regulaminu/ zasad społeczności. system wyświetla listę
 
-**PU102: Dokonanie zamówienia na samochód**
-
-- Wersja: 1.0 (15.02.2023)
-- Odpowiedzialny: kamil
+  
+**PU1002: Zablokowanie konta użytkownika na ograniczony czas **
+- Wersja: 1.0 (14.04.2026)
+- Odpowiedzialna: Karolina Wiśniewska
 - Wydanie: 1.0
+- Opis: Invoked by PU1001. Administrator wybiera wybrane konto uczestnika. System wyświetla zapytanie o blokowanie lub dezaktywację konta. Administrator wybiera opcję zablokowania konta na ustalony czas. System nadaje kontu status zablokowanego  na określony czas.
 
-**PU103: Pokazanie listy samochodów**
-
-- Wersja: 1.0 (15.02.2023)
-- Odpowiedzialny: kamil
+  
+**PU1003: Zablokowanie konta użytkownika na ograniczony czas **
+- Wersja: 1.0 (14.04.2026)
+- Odpowiedzialna: Karolina Wiśniewska
 - Wydanie: 1.0
+- Opis: Invoked by PU1001. Administrator wybiera wybrane konto uczestnika. System wyświetla zapytanie o blokowanie lub dezaktywację konta. Administrator wybiera opcję dezaktywacji konta. System usuwa konto z listy kont aktywnych. System zmienia status konta na zdezaktywowane
 
-**PU104: Potwierdzenie zamówienia na samochód**
-
-- Wersja: 1.0 (15.02.2023)
-- Odpowiedzialny: kamil
+  
+**PU1004: Odblokowanie konta po określonym czasie **
+- Wersja: 1.0 (14.04.2026)
+- Odpowiedzialna: Karolina Wiśniewska
 - Wydanie: 1.0
+- Opis: System odblokowuje konto po upływie określonego czasu.
 
-**PU105: Przejrzenie listy zamówień**
-
-- Wersja: 1.0 (15.02.2023)
-- Odpowiedzialny: kamil
+  
+  **PU1005: Wyświetlenie listy  błędów systemowych**
+- Wersja: 1.0 (14.04.2026)
+- Odpowiedzialna: Karolina Wiśniewska
 - Wydanie: 1.0
+- Opis: System wyświetla menu administratora. Administrator wybiera opcję wyświetlenia listy błędów systemowych.  System wyświetla listę błędów.
 
-**PU106: Wydanie samochodu do sprzedaży**
-
-- Wersja: 1.0 (15.02.2023)
-- Odpowiedzialny: kamil
+  
+  **PU1006: Wyświetlenie pełnego logu błędu**
+- Wersja: 1.0 (14.04.2026)
+- Odpowiedzialna: Karolina Wiśniewska
 - Wydanie: 1.0
+- Opis: Invoked by PU1005. Administrator wybiera dowolny log błędu. System wyświetla szczegółowy zapis logu błędu systemowego
 
-**PU107: Zarejestrowanie wydania samochodu**
 
-- Wersja: 1.0 (15.02.2023)
-- Odpowiedzialny: kamil
-- Wydanie: 1.0
-
-**PU108: Złożenie zamówienia specjalnego**
-
-- Wersja: 1.0 (15.02.2023)
-- Odpowiedzialny: kamil
-- Wydanie: 1.0
 
 ---
 
