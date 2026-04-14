@@ -589,6 +589,17 @@ F56: System powinien umożliwiać komunikację tekstową między graczami.
 
 
 ### 3.3.9 Projektowanie świata gry
+
+#### Priorytet wysoki
+
+F61: System powinien na wyświetlanie listy tworzonych/utworzonych gier
+
+| Typ: _funkcjonalne_ | Wersja: 1.0 (15.0.4.2025) | Odpowiedzialny: Łukasz Czajka |
+| :--- | :--- | :--- |
+| Priorytet: Istotne | | Wydanie: 1.0|
+| Twórcy gier mają możliwość wyświetlania listy gier, których są twórcami. Wybranie pozycji z listy pozwala na czynności takie jak edycja. | |
+
+
 #### Priorytet Średni
 
 F57: System powinien pozwalać na zgłaszanie własnych pomysłów na grę.
@@ -610,10 +621,12 @@ F59: System powinien dać możliwość zamówienia niestandardowych obiektów
 | Użytkownik powinien mieć możliwość zamówienia niestandardowych obiektów na potrzeby tworzonej przez siebie gry. Ocena wykonalności oraz wycena takiego obiektu musi zostać dokonana przez pracownika. 
 
 
-
-
-
-
+### 3.3.10 Recenzja gry
+#### Wysoki priorytet
+| Typ: _funkcjonalne_ | Wersja: 1.0 (15.0.4.2025) | Odpowiedzialny: Łukasz Czajka |
+| :--- | :--- | :--- |
+| Priorytet: Istotne | | Wydanie: 1.0|
+| System pozwalający recenzentom na przesyłanie uwag dotyczących tworzonej gry. | |
 
 
 ---
@@ -664,6 +677,12 @@ J07: Interfejs aplikacji powinien posiadać tryb 'Dark-Mode'.
 | :--- | :--- | :--- |
 | Priorytet: Istotne || Wydanie: 1.0 |
 | Interfejs aplikacji mobilnej musi być dostosowany do pracy w warunkach niskiego oświetlenia. |
+
+J08: Wiadomości powinny przychodzić szybko.
+| Typ _jakościowe_ | Wersja: 1.0 (15.04.2026) | Odpowiedzialny: Łukasz Czajka |
+| :--- | :--- | :--- |
+| Priortytet: _istotne_ | | Wydanie: 1.0 |
+| Czas między wysłaniem wiadomości a otrzymaniem jej przez adresata powinien mieścić się w określonym czasie. W przypadku komunikacji recenzent-twórca, czas ten powinien wynosić maksymalnie 30 minut. W przypadku komunikacji między graczami powinna być możliwość, przesłania wiadomości w czasie 1 sekundy. | |
 
 
 ## 3.5 Słownik
@@ -912,6 +931,17 @@ Zgłoszenie wysyłane przez użytkownika w celu poinformowania organizatora lub 
 
 ---
 
+**Wiadomość**
+- Typ: pojęcie systemowe
+- Wersja: 1.0 (15.04.2026)
+- Odpowiedzialny: Łukasz Czajka
+- Wydanie: 1.0
+
+Wiadomość wysłana przez jednego użytkownika do drugiego. Wiadomość może zawierać tekst, obrazy lub inne pliki.
+Tyko użytkownik, do którego dana wiadomość została wysłana jest w stanie ją zobaczyć.
+
+---
+
 # 4. Wymagania użytkownika
 
 ## 4.1 Wymagania funkcjonalne
@@ -1035,6 +1065,8 @@ Przeprowadzenie serii rejestracji zgodnie ze scenariuszem TS003 (…)
 
 **Oczekiwane wartości:**  
 średni czas wynosi < 1 min, maksymalny czas wynosi (…)
+
+
 
 ---
 
