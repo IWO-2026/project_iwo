@@ -1,17 +1,20 @@
-<!--
+```mermaid
+flowchart LR
+
+%% ===== AKTORZY =====
+subgraph AKTORZY
+TG((Twórca gier))
+end
+
+%% ===== FUNKCJE TWORCY =====
+subgraph FUNKCJE_TWORCY
+GDF([Zdefiniowanie gry])
+ADF([Zdefiniowanie akcji])
+SCR([Przesłanie komunikatu do recenzenta])
+end
+
+%% ===== RELACJE =====
+TG --> GDF
+GDF -. "&lt;&lt;invoke&gt;&gt;" .-> ADF
+GDF -. "&lt;&lt;invoke&gt;&gt;" .-> SCR
 ```
-@startuml igorOchocki
-left to right direction
-
-actor "Twórca gier" as TG
-usecase "Zdefiniowanie gry" as GDF
-usecase "Zdefiniowanie akcji" as ADF
-usecase "Przesłanie komunikatu do recenzenta" as SCR
-
-TG -> GDF
-GDF ..> ADF : <<invokes>>
-GDF ..> SCR : <<invokes>>
-@enduml
--->
-
-![](igorOchocki.png)
