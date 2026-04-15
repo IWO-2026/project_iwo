@@ -590,16 +590,6 @@ F56: System powinien umożliwiać komunikację tekstową między graczami.
 
 ### 3.3.9 Projektowanie świata gry
 
-#### Priorytet wysoki
-
-F61: System powinien na wyświetlanie listy tworzonych/utworzonych gier
-
-| Typ: _funkcjonalne_ | Wersja: 1.0 (15.0.4.2025) | Odpowiedzialny: Łukasz Czajka |
-| :--- | :--- | :--- |
-| Priorytet: Istotne | | Wydanie: 1.0|
-| Twórcy gier mają możliwość wyświetlania listy gier, których są twórcami. Wybranie pozycji z listy pozwala na czynności takie jak edycja. | |
-
-
 #### Priorytet Średni
 
 F57: System powinien pozwalać na zgłaszanie własnych pomysłów na grę.
@@ -619,14 +609,6 @@ F59: System powinien dać możliwość zamówienia niestandardowych obiektów
 | :--- | :--- | :--- |
 | Priorytet i trudność: Przydatne || Wydanie: 1.0 |
 | Użytkownik powinien mieć możliwość zamówienia niestandardowych obiektów na potrzeby tworzonej przez siebie gry. Ocena wykonalności oraz wycena takiego obiektu musi zostać dokonana przez pracownika. 
-
-
-### 3.3.10 Recenzja gry
-#### Wysoki priorytet
-| Typ: _funkcjonalne_ | Wersja: 1.0 (15.0.4.2025) | Odpowiedzialny: Łukasz Czajka |
-| :--- | :--- | :--- |
-| Priorytet: Istotne | | Wydanie: 1.0|
-| System pozwalający recenzentom na przesyłanie uwag dotyczących tworzonej gry. | |
 
 
 ---
@@ -677,12 +659,6 @@ J07: Interfejs aplikacji powinien posiadać tryb 'Dark-Mode'.
 | :--- | :--- | :--- |
 | Priorytet: Istotne || Wydanie: 1.0 |
 | Interfejs aplikacji mobilnej musi być dostosowany do pracy w warunkach niskiego oświetlenia. |
-
-J08: Wiadomości powinny przychodzić szybko.
-| Typ _jakościowe_ | Wersja: 1.0 (15.04.2026) | Odpowiedzialny: Łukasz Czajka |
-| :--- | :--- | :--- |
-| Priortytet: _istotne_ | | Wydanie: 1.0 |
-| Czas między wysłaniem wiadomości a otrzymaniem jej przez adresata powinien mieścić się w określonym czasie. W przypadku komunikacji recenzent-twórca, czas ten powinien wynosić maksymalnie 30 minut. W przypadku komunikacji między graczami powinna być możliwość, przesłania wiadomości w czasie 1 sekundy. | |
 
 
 ## 3.5 Słownik
@@ -1030,6 +1006,50 @@ Tyko użytkownik, do którego dana wiadomość została wysłana jest w stanie j
 - Odpowiedzialny: kamil
 - Wydanie: 1.0
 
+### 4.1.3 Tworzenie gier
+```mermaid
+flowchart LR
+
+subgraph Aktorzy
+rec((Recenzent))
+org((Organizator))
+tworca((Twórca))
+end
+
+subgraph Przypadki użycia
+pu_lista_gier_tw([Wyświetlenie listy swoich gier])
+pu_komunikat([Przesłanie komunikatu do twórcy])
+pu_lista_gier_org([Wyświetlenie listy gier przez organizatora])
+pu_lista_gier([Wyświetlenie listy gier])
+pu_recenzja_gry([Recenzja gry])
+
+tworca --> pu_lista_gier_tw
+org --> pu_lista_gier_org
+rec --> pu_recenzja_gry
+
+pu_lista_gier_org ~~~ pu_lista_gier
+pu_lista_gier_tw ~~~ pu_lista_gier
+pu_lista_gier_org --> pu_lista_gier 
+pu_lista_gier_tw --> pu_lista_gier
+pu_recenzja_gry -."&lt;&lt;invoke&gt;&gt;".-> pu_komunikat
+
+end
+```
+
+**PU109: Wyświetlenie listy gier przez twórcę** 
+- Wersja: 1.0 (15.04.2026)
+- Odpowiedzialny: Łukasz Czajka
+- Opis: Twórcy gier mają możliwość wyświetlania listy gier, których są twórcami. Wybranie pozycji z listy pozwala na czynności takie jak edycja.
+
+**PU110: Wyświetlenie listy gier przez organizatora** 
+- Wersja: 1.0 (15.04.2026)
+- Odpowiedzialny: Łukasz Czajka
+- Opis: Organizatorzy mają możliwość wyświetlania gier, które mogą zostać zorganizowane.
+
+**PU111: Przesłanie komunikatu do twórcy** 
+- Wersja: 1.0 (15.04.2026)
+- Odpowiedzialny: Łukasz Czajka
+- Opis: Recenzenci mają możliwość przesłania uwag dotyczących recenzowanej gry.
 ---
 
 ## 4.2 Wymagania jakościowe i ograniczenia
