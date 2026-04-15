@@ -1145,19 +1145,51 @@ flowchart LR
 
 ---
 
-### 4.1.x Zarządzanie organizacją wydarzeń
+### 4.1.12 Zarządzanie organizacją wydarzeń
+
+DIAGRAM:
+```mermaid
+flowchart LR
+
+o((Organizator))
+
+uco(["Wyświetlenie kalendarza przez organizatora"])
+uc(["Wyświetlenie kalendarza"])
+
+o --> uco
+
+uco --generalization--> uc
+```
 
 **PU991: Wyświetlenie kalendarza przez organizatora**
 - Wersja: 1.0(14.04.2026)
 - Odpowiedzialna: Alicja Rosiak
 - Wydanie: 1.0
+- Opis: System wyświetla kalendarz wydarzeń organizatora. Organizator widzi
+  nadchodzące wydarzenia oraz wolne terminy.
 
-### 4.1.y Zapisy na wydarzenia
+### 4.1.13 Zapisy na wydarzenia
+
+DIAGRAM:
+```mermaid
+flowchart LR
+
+g((Gracz))
+
+ucg(["Wyświetlenie kalendarza przez gracza"])
+uc(["Wyświetlenie kalendarza"])
+
+g --> ucg
+
+ucg --generalization--> uc
+```
 
 **PU981: Wyświetlenie kalendarza przez gracza**
 - Wersja: 1.0(14.04.2026)
 - Odpowiedzialna: Alicja Rosiak
 - Wydanie: 1.0
+- Opis: System wyświetla kalendarz wydarzeń gracza. Gracz widzi dostępne
+  wydarzenia, wydarzenia w których bierze udział.
 
 ## 4.2 Wymagania jakościowe i ograniczenia
 
