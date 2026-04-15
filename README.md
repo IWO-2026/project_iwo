@@ -930,7 +930,7 @@ Opis uwag i spostrzeżeń dotyczących recenzowanej gry. Jest uzasadnieniem decy
 
 ### 4.1.1 Zarządzanie ofertą
 
-**Diagram:** Zarządzanie ofertą
+**Diagram:** 
 
 **PU001: Wyświetlenie listy gier**
 
@@ -955,15 +955,6 @@ Opis uwag i spostrzeżeń dotyczących recenzowanej gry. Jest uzasadnieniem decy
 - Priorytet i trudność: Istotne
 - Wydanie: 1.0
 - **Opis:** System wyświetla okno do zapisu tekstu. [Recenzent] zapisuje [recenzję] i zatwierdza ją.
-
-**PU004: Zmiana ceny samochodu**
-
-- Wersja: 1.0 (15.02.2023)
-- Odpowiedzialny: kamil
-- Priorytet i trudność: 
-- Wydanie: 1.0
-
----
 
 ### 4.1.2 Zarządzanie sprzedażą
 
