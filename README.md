@@ -912,93 +912,236 @@ Zgłoszenie wysyłane przez użytkownika w celu poinformowania organizatora lub 
 
 ---
 
+**Sesja**
+
+- Typ: pojęcie systemowe
+- Wersja: 1.0 (15.04.2026)
+- Odpowiedzialna: Polina Nesterova
+- Priorytet i trudność: Kluczowe
+- Wydanie: 1.0
+
+Aktywny okres korzystania z systemu przez zalogowanego użytkownika. Sesja jest identyfikowana przez token sesji, ma ograniczony czas ważności (wygasa po zdefiniowanym czasie nieaktywności) i może zostać zakończona przez wylogowanie lub unieważniona przez system (np. po zmianie hasła).
+
+---
+
+**Link aktywacyjny**
+
+- Typ: pojęcie systemowe
+- Wersja: 1.0 (15.04.2026)
+- Odpowiedzialna: Polina Nesterova
+- Priorytet i trudność: Istotne
+- Wydanie: 1.0
+
+Jednorazowy odnośnik wysyłany na adres e-mail podany przy rejestracji, służący do potwierdzenia tożsamości użytkownika i aktywacji konta. Po kliknięciu w link konto zmienia status z „nieaktywne" na „aktywne".
+
+---
+
+**Link resetu hasła**
+
+- Typ: pojęcie systemowe
+- Wersja: 1.0 (15.04.2026)
+- Odpowiedzialna: Polina Nesterova
+- Priorytet i trudność: Istotne
+- Wydanie: 1.0
+
+Jednorazowy odnośnik wysyłany na adres e-mail użytkownika w odpowiedzi na żądanie zmiany zapomnianego hasła. Link jest ważny przez określony czas (1 godzina), a jego użycie powoduje unieważnienie go przez system.
+
+---
+
+**Historia wydarzeń**
+
+- Typ: pojęcie domenowe
+- Wersja: 1.0 (15.04.2026)
+- Odpowiedzialna: Polina Nesterova
+- Priorytet i trudność: Istotne
+- Wydanie: 1.0
+
+Chronologiczny zbiór wydarzeń LARP, w których użytkownik brał udział. Każda pozycja zawiera nazwę wydarzenia, datę, lokalizację, odgrywaną postać, czas trwania oraz status wydarzenia.
+
+---
+
+**Statystyki uczestnictwa**
+
+- Typ: pojęcie domenowe
+- Wersja: 1.0 (15.04.2026)
+- Odpowiedzialna: Polina Nesterova
+- Priorytet i trudność: Przydatne
+- Wydanie: 1.0
+
+Zagregowane dane liczbowe dotyczące aktywności użytkownika w systemie wyliczane na podstawie historii wydarzeń: liczba ukończonych sesji, sumaryczny czas uczestnictwa, najczęściej grane typy postaci, ulubione scenariusze i ranking organizatorów.
+
+---
+
+**Blokada konta**
+
+- Typ: pojęcie systemowe
+- Wersja: 1.0 (15.04.2026)
+- Odpowiedzialna: Polina Nesterova
+- Priorytet i trudność: Istotne
+- Wydanie: 1.0
+
+Tymczasowe wstrzymanie dostępu do konta użytkownika w reakcji na zdarzenie bezpieczeństwa (np. przekroczenie limitu nieudanych prób logowania) lub decyzję administratora. Blokada uniemożliwia logowanie do czasu odblokowania — automatycznego po upływie zdefiniowanego czasu lub ręcznego przez reset hasła.
+
+---
+
 # 4. Wymagania użytkownika
 
 ## 4.1 Wymagania funkcjonalne
 
-### 4.1.1 Zarządzanie ofertą
-
-**Diagram:** Zarządzanie ofertą
-
-**PU001: Dodanie nowego samochodu**
-
-- Wersja: 1.0 (15.02.2023)
-- Odpowiedzialny: smial
-- Priorytet i trudność: Istotne 1
-- Wydanie: 1.0
-
-**PU002: Przejrzenie cennika**
-
-- Wersja: 1.0 (15.02.2023)
-- Odpowiedzialny: kamil
-- Priorytet i trudność: Istotne 1
-- Wydanie: 1.0
-
-**PU003: Wygenerowanie raportu sprzedaży**
-
-- Wersja: 1.0 (15.02.2023)
-- Odpowiedzialny: kamil
-- Wydanie: 1.0
-
-**PU004: Zmiana ceny samochodu**
-
-- Wersja: 1.0 (15.02.2023)
-- Odpowiedzialny: kamil
-- Wydanie: 1.0
 
 ---
+## 4.1.10 Administracja kont
+DIAGRAM:
+```mermaid
+flowchart LR
+    Admin([Admin])
+    Czas([Czas])
 
-### 4.1.2 Zarządzanie sprzedażą
+    u1["Wyświetl listę błędów systemowych"]
+    u2["Wyświetl listę użytkowników ze zgłoszeniami"]
+    u3["Zablokuj konto użytkownika na ograniczony czas"]
+    u5["Dezaktywuj konto użytkownika"]
+    u6["Wyświetl pełny log błędu"]
+    u7["Odblokuj konto po określonym czasie"]
 
-**Diagram:** Specyfikowanie wymagań użytkownika
+    Admin --> u1
+    Admin --> u2
 
-**PU101: Dokonanie płatności online**
+    u2 -.->|invoke| u3
+    u2 -.->|invoke| u5
+    u1 -.->|invoke| u6
 
-- Wersja: 1.0 (15.02.2023)
-- Odpowiedzialny: kamil
+    Czas --> u7
+```
+
+**PU1001: Wyświetlenie listy  użytkowników ze zgłoszeniami **
+- Wersja: 1.0 (14.04.2026)
+- Odpowiedzialna: Karolina Wiśniewska
 - Wydanie: 1.0
+- Opis: System wyświetla menu administratora. Administrator wybiera opcję wyświetlenia listy użytkowników, którzy zostali zgłoszeni za łamanie regulaminu/ zasad społeczności. system wyświetla listę
 
-**PU102: Dokonanie zamówienia na samochód**
-
-- Wersja: 1.0 (15.02.2023)
-- Odpowiedzialny: kamil
+  
+**PU1002: Zablokowanie konta użytkownika na ograniczony czas **
+- Wersja: 1.0 (14.04.2026)
+- Odpowiedzialna: Karolina Wiśniewska
 - Wydanie: 1.0
+- Opis: Invoked by PU1001. Administrator wybiera wybrane konto uczestnika. System wyświetla zapytanie o blokowanie lub dezaktywację konta. Administrator wybiera opcję zablokowania konta na ustalony czas. System nadaje kontu status zablokowanego  na określony czas.
 
-**PU103: Pokazanie listy samochodów**
-
-- Wersja: 1.0 (15.02.2023)
-- Odpowiedzialny: kamil
+  
+**PU1003: Zablokowanie konta użytkownika na ograniczony czas **
+- Wersja: 1.0 (14.04.2026)
+- Odpowiedzialna: Karolina Wiśniewska
 - Wydanie: 1.0
+- Opis: Invoked by PU1001. Administrator wybiera wybrane konto uczestnika. System wyświetla zapytanie o blokowanie lub dezaktywację konta. Administrator wybiera opcję dezaktywacji konta. System usuwa konto z listy kont aktywnych. System zmienia status konta na zdezaktywowane
 
-**PU104: Potwierdzenie zamówienia na samochód**
-
-- Wersja: 1.0 (15.02.2023)
-- Odpowiedzialny: kamil
+  
+**PU1004: Odblokowanie konta po określonym czasie **
+- Wersja: 1.0 (14.04.2026)
+- Odpowiedzialna: Karolina Wiśniewska
 - Wydanie: 1.0
+- Opis: System odblokowuje konto po upływie określonego czasu.
 
-**PU105: Przejrzenie listy zamówień**
-
-- Wersja: 1.0 (15.02.2023)
-- Odpowiedzialny: kamil
+  
+  **PU1005: Wyświetlenie listy  błędów systemowych**
+- Wersja: 1.0 (14.04.2026)
+- Odpowiedzialna: Karolina Wiśniewska
 - Wydanie: 1.0
+- Opis: System wyświetla menu administratora. Administrator wybiera opcję wyświetlenia listy błędów systemowych.  System wyświetla listę błędów.
 
-**PU106: Wydanie samochodu do sprzedaży**
-
-- Wersja: 1.0 (15.02.2023)
-- Odpowiedzialny: kamil
+  
+  **PU1006: Wyświetlenie pełnego logu błędu**
+- Wersja: 1.0 (14.04.2026)
+- Odpowiedzialna: Karolina Wiśniewska
 - Wydanie: 1.0
+- Opis: Invoked by PU1005. Administrator wybiera dowolny log błędu. System wyświetla szczegółowy zapis logu błędu systemowego
 
-**PU107: Zarejestrowanie wydania samochodu**
 
-- Wersja: 1.0 (15.02.2023)
-- Odpowiedzialny: kamil
+
+---
+## 4.1.11 Autentykacja i historia wydarzeń
+DIAGRAM:
+```mermaid
+flowchart LR
+    User([Użytkownik])
+
+    u1["Rejestracja konta"]
+    u2["Aktywacja konta przez link e-mail"]
+    u3["Logowanie"]
+    u4["Reset hasła"]
+    u5["Wylogowanie"]
+    u6["Wyświetl historię wydarzeń"]
+    u7["Filtruj i sortuj historię wydarzeń"]
+    u8["Wyświetl statystyki uczestnictwa"]
+    u9["Wyświetl szczegóły wydarzenia z historii"]
+
+    User --> u1
+    User --> u3
+    User --> u4
+    User --> u5
+    User --> u6
+
+    u1 -.->|invoke| u2
+    u3 -.->|requires| u2
+    u6 -.->|requires| u3
+    u6 -.->|invoke| u7
+    u6 -.->|invoke| u8
+    u6 -.->|invoke| u9
+```
+
+**PU1007: Rejestracja konta**
+- Wersja: 1.0 (15.04.2026)
+- Odpowiedzialna: Polina Nesterova
 - Wydanie: 1.0
+- Opis: System wyświetla formularz rejestracji. Użytkownik podaje imię, nazwisko, adres e-mail oraz hasło (dwukrotnie). System weryfikuje unikalność adresu e-mail w bazie, zapisuje konto ze statusem „nieaktywne" i wysyła na podany adres e-mail wiadomość z linkiem aktywacyjnym.
 
-**PU108: Złożenie zamówienia specjalnego**
-
-- Wersja: 1.0 (15.02.2023)
-- Odpowiedzialny: kamil
+**PU1008: Aktywacja konta przez link e-mail**
+- Wersja: 1.0 (15.04.2026)
+- Odpowiedzialna: Polina Nesterova
 - Wydanie: 1.0
+- Opis: Invoked by PU1007. Użytkownik klika w link aktywacyjny otrzymany w wiadomości e-mail. System weryfikuje poprawność i ważność linku, zmienia status konta na „aktywne" oraz umożliwia logowanie.
+
+**PU1009: Logowanie**
+- Wersja: 1.0 (15.04.2026)
+- Odpowiedzialna: Polina Nesterova
+- Wydanie: 1.0
+- Opis: System wyświetla ekran logowania. Użytkownik podaje adres e-mail oraz hasło. System weryfikuje dane uwierzytelniające oraz status konta (aktywne / nieaktywne / zablokowane). Po poprawnej autoryzacji system tworzy sesję użytkownika i przyznaje dostęp do funkcji systemu. Po przekroczeniu 5 nieudanych prób w ciągu 15 minut system tymczasowo blokuje konto.
+
+**PU1010: Reset hasła**
+- Wersja: 1.0 (15.04.2026)
+- Odpowiedzialna: Polina Nesterova
+- Wydanie: 1.0
+- Opis: Użytkownik wybiera opcję „Nie pamiętam hasła" i podaje adres e-mail. System wysyła na ten adres jednorazowy link do resetu hasła (ważny 1 godzinę). Użytkownik po kliknięciu w link ustala nowe hasło, a system aktualizuje dane konta i unieważnia dotychczasową sesję.
+
+**PU1011: Wylogowanie**
+- Wersja: 1.0 (15.04.2026)
+- Odpowiedzialna: Polina Nesterova
+- Wydanie: 1.0
+- Opis: Zalogowany użytkownik wybiera opcję wylogowania. System kończy sesję użytkownika, unieważnia token sesji i przekierowuje na ekran logowania.
+
+**PU1012: Wyświetlenie historii wydarzeń**
+- Wersja: 1.0 (15.04.2026)
+- Odpowiedzialna: Polina Nesterova
+- Wydanie: 1.0
+- Opis: Zalogowany użytkownik wybiera zakładkę „Historia wydarzeń". System pobiera listę wydarzeń, w których użytkownik brał udział, i wyświetla ją w porządku chronologicznym wraz z podstawowymi informacjami (nazwa wydarzenia, data, lokalizacja, odgrywana postać, czas trwania, status).
+
+**PU1013: Filtrowanie i sortowanie historii wydarzeń**
+- Wersja: 1.0 (15.04.2026)
+- Odpowiedzialna: Polina Nesterova
+- Wydanie: 1.0
+- Opis: Invoked by PU1012. Użytkownik wybiera filtry (przedział czasowy, typ wydarzenia, status, lokalizacja) lub sposób sortowania (data rosnąco/malejąco, nazwa wydarzenia). System aktualizuje wyświetlaną listę zgodnie z wybranymi kryteriami.
+
+**PU1014: Wyświetlenie statystyk uczestnictwa**
+- Wersja: 1.0 (15.04.2026)
+- Odpowiedzialna: Polina Nesterova
+- Wydanie: 1.0
+- Opis: Invoked by PU1012. System agreguje dane z historii użytkownika i prezentuje statystyki: liczbę ukończonych sesji, całkowity czas uczestnictwa, najczęściej grane typy postaci, ulubione scenariusze oraz ranking organizatorów.
+
+**PU1015: Wyświetlenie szczegółów wydarzenia z historii**
+- Wersja: 1.0 (15.04.2026)
+- Odpowiedzialna: Polina Nesterova
+- Wydanie: 1.0
+- Opis: Invoked by PU1012. Użytkownik wybiera konkretne wydarzenie z listy. System wyświetla szczegółowy widok wydarzenia — pełny opis postaci, przebieg sesji, współuczestników oraz dodatkowe materiały powiązane z wydarzeniem.
+
 
 ---
 
@@ -1112,3 +1255,60 @@ Przeprowadzenie serii rejestracji zgodnie ze scenariuszem TS003 (…)
 
 1-2. -"-  
 3a. System wyświetla komunikat
+
+---
+
+## 5.4 PU1009: Logowanie
+
+- Wersja: 1.0 (15.04.2026)
+- Odpowiedzialna: Polina Nesterova
+- Wydanie: 1.0
+- Aktor główny: Użytkownik
+- Warunek początkowy: Użytkownik posiada zarejestrowane i aktywowane konto.
+- Warunek końcowy (sukces): Użytkownik jest zalogowany, system utworzył sesję i wyświetla ekran główny.
+
+**Scenariusz główny**
+
+1. Użytkownik uruchamia aplikację i wybiera opcję „Zaloguj się".
+2. System wyświetla formularz logowania z polami adres e-mail oraz hasło.
+3. Użytkownik wprowadza adres e-mail oraz hasło i potwierdza przyciskiem „Zaloguj".
+4. System weryfikuje poprawność danych uwierzytelniających w bazie użytkowników.
+5. System sprawdza status konta (aktywne / nieaktywne / zablokowane).
+6. System tworzy nową sesję użytkownika i generuje token sesji.
+7. System zapisuje informację o zalogowaniu (data, godzina, adres IP) w historii konta.
+8. System przekierowuje użytkownika na ekran główny i wyświetla powitanie.
+
+**Scenariusz alternatywny A: Niepoprawne dane uwierzytelniające**
+
+4a. System nie znajduje użytkownika o podanym adresie e-mail lub hasło nie pasuje do zapisanego w bazie.
+1. System wyświetla komunikat „Niepoprawny adres e-mail lub hasło" bez wskazywania, które pole jest błędne.
+2. System inkrementuje licznik nieudanych prób logowania dla tego konta.
+3. Scenariusz wraca do kroku 2 scenariusza głównego.
+
+**Scenariusz alternatywny B: Konto nieaktywowane**
+
+5a. System stwierdza, że konto ma status „nieaktywne".
+1. System wyświetla komunikat „Konto nie zostało jeszcze aktywowane. Sprawdź skrzynkę e-mail i kliknij w link aktywacyjny".
+2. System oferuje opcję ponownego wysłania linku aktywacyjnego.
+3. Użytkownik wybiera opcję wysłania linku lub zamyka formularz.
+
+**Scenariusz alternatywny C: Konto zablokowane**
+
+5b. System stwierdza, że konto ma status „zablokowane".
+1. System wyświetla komunikat „Konto zostało tymczasowo zablokowane. Spróbuj ponownie za [pozostały czas] lub zresetuj hasło".
+2. System oferuje opcję resetu hasła.
+3. Logowanie zostaje przerwane.
+
+**Scenariusz alternatywny D: Przekroczenie limitu prób**
+
+4b. Licznik nieudanych prób przekracza 5 w ciągu 15 minut.
+1. System zmienia status konta na „zablokowane" na okres 15 minut.
+2. System wysyła na adres e-mail użytkownika powiadomienie o próbach logowania i blokadzie.
+3. System wyświetla komunikat o blokadzie konta.
+4. Logowanie zostaje przerwane.
+
+**Scenariusz alternatywny E: Zapomniane hasło**
+
+3a. Użytkownik wybiera opcję „Nie pamiętam hasła" zamiast potwierdzania logowania.
+1. System przekierowuje do przypadku użycia PU1010 (Reset hasła).
+
