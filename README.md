@@ -930,7 +930,13 @@ Opis uwag i spostrzeżeń dotyczących recenzowanej gry. Jest uzasadnieniem decy
 
 ### 4.1.1 Zarządzanie ofertą
 
-**Diagram:** 
+**Diagram:** Funkcje recenzenta
+
+```mermaid
+flowchart TB
+ A["Recenzent gry"] --> n1(["Wyświetlenie listy gier przez recenzenta"]) -->|generalization| n2(["Wyświetlenie listy gier"])
+ A -->|&lt;&lt;invoke&gt;&gt;| n3(["Recenzja gry"])
+```
 
 **PU001: Wyświetlenie listy gier**
 
