@@ -862,7 +862,7 @@ Aktywny okres korzystania z systemu przez zalogowanego użytkownika. Sesja jest 
 ```mermaid
 flowchart TB
  A["Recenzent gry"] --> n1(["Wyświetlenie listy gier przez recenzenta"]) -->|generalization| n2(["Wyświetlenie listy gier"])
- A -->|&lt;&lt;invoke&gt;&gt;| n3(["Recenzja gry"])
+ A -->|&lt;&lt;invoke&gt;&gt;| n3(["Zrecenzowanie gry"])
 ```
 
 **PU001: Wyświetlenie listy gier**
@@ -871,7 +871,7 @@ flowchart TB
 - Odpowiedzialny: Maciej Bankiewicz
 - Priorytet i trudność: Istotne
 - Wydanie: 1.0
-- **Opis:** System wyświetla listę zawierającą wszystkie stworzone uprzednio [gry].
+- **Opis:** System wyświetla listę zawierającą wszystkie stworzone uprzednio [gry]. Listę można przewijać, filtrować, wyszukiwać konkretne [gry]. Lista jest stronicowana - na jedną stronę listy przypada maksymalnie 30 [gier]; strony mogą być zmieniane u góry i dołu listy.
 
 **PU002: Wyświetlenie listy gier przez recenzenta**
 
@@ -879,15 +879,15 @@ flowchart TB
 - Odpowiedzialny: Maciej Bankiewicz
 - Priorytet i trudność: Istotne
 - Wydanie: 1.0
-- **Opis:** System wyświetla listę zawierającą wszystkie stworzone uprzednio [gry] dodając do każdego rekordu opcję recenzji [gry].
+- **Opis:** Spełnia to co _PU001: Wyświetlenie listy gier_. Dodatkowo do każdej [gry] dodaje opcję [recenzji].
 
-**PU003: Recenzja gry**
+**PU003: Zrecenzowanie gry**
 
 - Wersja: 1.0 (14.04.2026)
 - Odpowiedzialny: Maciej Bankiewicz
 - Priorytet i trudność: Istotne
 - Wydanie: 1.0
-- **Opis:** System wyświetla okno do zapisu tekstu. [Recenzent] zapisuje [recenzję] i zatwierdza ją.
+- **Opis:** System wyświetla okno do zapisu recenzji. [Recenzent] zatwierdza [recenzję], a System ją zapisuje.
 
 **Blokada konta**
 
