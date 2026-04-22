@@ -672,7 +672,7 @@ Osoba posiadająca konto w systemie i korzystająca z jego funkcjonalności.
 
 - Typ: aktor systemu
 - Wersja: 1.0 (16.03.2026)
-- Odpowiedzialny: Zespół projektowy
+- Odpowiedzialny: Hlib Filobok
 - Priorytet i trudność: Przydatne
 - Wydanie: 1.0
 
@@ -720,7 +720,7 @@ Komunikat wysłany przez jednego [Użytkownika] do drugiego. [Wiadomość] może
 
 - Typ: pojęcie systemowe
 - Wersja: 1.0 (16.03.2026)
-- Odpowiedzialny: Zespół projektowy
+- Odpowiedzialny: Hlib Filobok
 - Priorytet i trudność: Istotne
 - Wydanie: 1.0
 
@@ -756,7 +756,7 @@ Ocena i weryfikacja [Gry] dokonana przez [Recenzenta] zawierająca tekst recenzj
 
 - Typ: pojęcie systemowe
 - Wersja: 1.0 (16.03.2026)
-- Odpowiedzialny: Zespół projektowy
+- Odpowiedzialny: Hlib Filobok
 - Priorytet i trudność: Istotne
 - Wydanie: 1.0
 
@@ -780,7 +780,7 @@ Zdefiniowany zestaw zasad określających interakcje między uczestnikami system
 
 - Typ: pojęcie domenowe
 - Wersja: 1.0 (16.03.2026)
-- Odpowiedzialny: Zespół projektowy
+- Odpowiedzialny: Hlib Filobok
 - Priorytet i trudność: Istotne
 - Wydanie: 1.0
 
