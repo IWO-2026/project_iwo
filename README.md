@@ -1774,3 +1774,53 @@ Scenariusz alternatywny H: Wybrany termin stanie się niedostępny
 4. Scenariusz wraca do kroku 9 scenariusza głównego.
 
 ---
+
+## 5.6 PU203: Przesłanie komunikatu do recenzenta
+- Wersja 1.0 (22.04.2026)
+- Odpowiedzialny: Michał Marciniak
+- Wydanie: 1.0
+- Aktor główny: Twórca gry
+- Warunek początkowy: Twórca gry jest zalogowany i znajduje się w formularzu opisu ogólnego gry.
+- Warunek końcowy (sukces): Komunikat został wysłany.
+- Warunek końcowy (porażka): Komunikat nie został wysłany, treść pozostaje w formularzu.
+
+**Scenariusz główny**
+
+1. Twórca gry wybiera opcję przesłania komunikatu do recenzenta.
+2. System wyświetla okno komunikacji twórcy gry z recenzentem.
+3. Twórca gry wpisuje komunikat.
+4. Twórca gry wybiera opcję "Wyślij".
+[komunikat poprawny]
+5. System wysyła komunikat.
+6. System wyświetla potwierdzenie wysłania komunikatu.
+7. System dodaje wiadomość do okna komunikacji.
+
+Koniec: sukces
+
+**Scenariusz alternatywny A: Pusty komunikat**
+
+1-4. Jak w scenariuszu głównym. \
+[komunikat pusty] \
+5a. System wyświetla komunikat o braku danych. \
+6a. Twórca gry wybiera "Ok". \
+
+Powrót do kroku 3. w scenariuszu głównym
+
+**Scenariusz alternatywny B: Przekroczenie limitu znaków**
+
+1-4. Jak w scenariuszu głównym. \
+[komunikat zbyt długi] \
+5b. System wyświetla komunikat o przekroczeniu limitu znaków. \
+6b. Twórca gry wybiera "Ok". \
+
+Powrót do kroku 3. w scenariuszu głównym
+
+**Scenariusz alternatywny C: Błąd połączenia**
+
+1-4. Jak w scenariuszu głównym. \
+5c. System próbuje wysłać komunikat.
+[błąd połączenia / brak odpowiedzi serwera] \
+6c. System wyświetla komunikat o błędzie wysłania. \
+7c. Twórca gry wybiera "Ok". \
+
+Powrót do kroku 3. w scenariuszu głównym
