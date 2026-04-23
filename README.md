@@ -652,7 +652,7 @@ Obiekt w świecie gry, który może być posiadany przez postać. Przedmiot moż
 - Priorytet i trudność: Istotne
 - Wydanie: 1.0
 
-Reprezentacja przestrzeni, w której odbywa się gra. Mapa zawiera pomieszczenia, przejścia, przeszkody oraz inne elementy środowiska gry.
+Reprezentacja przestrzeni, w której odbywa się gra. Mapa zawiera komnaty (strefy), przejścia, przeszkody oraz inne elementy środowiska gry.
 
 ---
 
@@ -878,7 +878,7 @@ Tymczasowe wstrzymanie dostępu do konta użytkownika w reakcji na zdarzenie bez
 - Priorytet i trudność: Istotne
 - Wydanie: 1.0
 
-Wydzielony fizycznie i wirtualnie obszar terenu gry. Strefy mogą być ukryte na interaktywnej mapie gracza, dopóki jego postać nie zdobędzie odpowiednich uprawnień. Atrybuty: nazwa komnaty, ograniczenia dostępności, widoczność na mapie, rozmieszczenie kodów QR, wyposażenie komnaty, rozmieszczenie wyposażenia.
+Wydzielony fizycznie i wirtualnie obszar terenu gry. Strefy mogą być ukryte na interaktywnej mapie gracza, dopóki jego postać nie zdobędzie odpowiednich uprawnień. Atrybuty: id komnaty, nazwa komnaty (wyświetlana graczom), ograniczenia dostępności (uprawnienia), widoczność na mapie, rozmieszczenie kodów QR, wyposażenie komnaty, rozmieszczenie wyposażenia. Operacja sprawdzenia poprawności danych komnaty polega na upewnieniu się co do obecności nazwy komnaty oraz dostępności wybranego wyposażenia w magazynie.
 
 ---
 
