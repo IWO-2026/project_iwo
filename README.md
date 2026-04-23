@@ -1743,12 +1743,14 @@ Scenariusz alternatywny H: Wybrany termin stanie się niedostępny
 3. System oferuje organizatorowi powrót do kalendarza w celu wybrania innych dostępnych terminów.
 4. Scenariusz wraca do kroku 9 scenariusza głównego.
 
+---
+
 ## 5.7 PU204: Edycja komnaty
 - Wersja: 1.0 (22.04.2026)
 - Odpowiedzialny: Maciej Bankiewicz
 - Wydanie: 1.0
 - Aktor główny: Twórca gier
-- Warunek początkowy: Twórca gry jest zalogowany i wybiera opcję edycji w definicji gry.
+- Warunek początkowy: Twórca gry jest zalogowany i wybiera opcję edycji komnaty w definicji gry.
 - Warunek końcowy (sukces): Zmiany w komnacie zostały zapisane.  
 - Warunek końcowy (porażka): Zmiany w komnacie nie zostały zapisane, dane pozostały bez zmian.
 
