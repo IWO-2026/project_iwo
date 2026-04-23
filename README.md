@@ -878,7 +878,7 @@ Tymczasowe wstrzymanie dostępu do konta użytkownika w reakcji na zdarzenie bez
 - Priorytet i trudność: Istotne
 - Wydanie: 1.0
 
-Wydzielony fizycznie i wirtualnie obszar terenu gry, który może posiadać własne ograniczenia dostępu. Strefy mogą być ukryte na interaktywnej mapie gracza, dopóki jego postać nie zdobędzie odpowiednich uprawnień.
+Wydzielony fizycznie i wirtualnie obszar terenu gry. Strefy mogą być ukryte na interaktywnej mapie gracza, dopóki jego postać nie zdobędzie odpowiednich uprawnień. Atrybuty: nazwa komnaty, ograniczenia dostępności, widoczność na mapie, rozmieszczenie kodów QR, wyposażenie komnaty, rozmieszczenie wyposażenia.
 
 ---
 
@@ -1750,40 +1750,44 @@ Scenariusz alternatywny H: Wybrany termin stanie się niedostępny
 - Odpowiedzialny: Maciej Bankiewicz
 - Wydanie: 1.0
 - Aktor główny: Twórca gier
-- Warunek początkowy: Twórca gry jest zalogowany i wybiera opcję edycji komnaty w definicji gry.
-- Warunek końcowy (sukces): Zmiany w komnacie zostały zapisane.  
-- Warunek końcowy (porażka): Zmiany w komnacie nie zostały zapisane, dane pozostały bez zmian.
+- Warunek początkowy: Twórca gry jest zalogowany i jest w oknie definicji gry. 
 
 **Scenariusz główny**
 
 1. Twórca gry wybiera opcję edycji komnaty.
-2. System wyświetla formularz edycji komnaty z możliwością zmiany wyposażenia, dostępności, widoczności na mapie oraz rozmieszczenia kodów QR.
-3. Twórca gry dokonuje zmian w wyposażeniu komnaty, dostępności, widoczności oraz kodach QR.
-4. Twórca gry wybiera opcję „Zapisz zmiany”.
-5. System sprawdza zgodność wyposażenia z dostępnością w magazynie.
-   - [wszystko zgodne z magazynem]  
-6. System zapisuje zmiany w komnacie.
-7. System wyświetla potwierdzenie zapisania zmian.
-8. System aktualizuje stan komnaty na mapie interaktywnej.
+2. System pobiera dane komnaty.
+[dane pobrane pomyślnie]
+3. System wyświetla formularz edycji komnaty.
+4. Twórca gry dokonuje edycji danych komnaty.
+5. Twórca gry wybiera opcję „Zapisz zmiany”.
+6. System sprawdza poprawność danych.
+[dane poprawne]  
+7. System zapisuje zmiany.
+[dane zapisane pomyślnie]
+8. System wyświetla potwierdzenie zapisania zmian.
 
-Koniec: sukces
+**Scenariusz alternatywny A: Błąd pobierania danych komnaty**
 
-**Scenariusz alternatywny A: Brak wymaganych przedmiotów w magazynie**
+1-2. Jak w scenriuszu głównym.
+[błąd pobierania danych]
+3. System wyświetla komunikat o błędzie pobierania danych komnaty.
+4. Twórca gry wybiera "Ok".
+5. Dane pozostają bez zmian.
 
-1-4. Jak w scenariuszu głównym.  
-[przedmiot w komnacie brak w magazynie]  
-5a. System wyświetla komunikat o braku przedmiotu w magazynie.  
-6a. Twórca gry wybiera „Ok”.  
+**Scenariusz alternatywny B: Wprowadzone dane są niepoprawne**
+
+1-6. Jak w scenariuszu głównym.  
+[dane niepoprawne]  
+7a. System wyświetla komunikat o braku przedmiotu w magazynie.  
+8a. Twórca gry wybiera „Ok”.  
 Powrót do kroku 3. w scenariuszu głównym.
 
-**Scenariusz alternatywny B: Błąd zapisu zmian**
+**Scenariusz alternatywny C: Błąd zapisu zmian**
 
-1-4. Jak w scenariuszu głównym.  
-5c. System próbuje zapisać zmiany.  
+1-7. Jak w scenariuszu głównym.  
 [błąd zapisu / problem z połączeniem]  
-6c. System wyświetla komunikat o błędzie zapisu zmian.  
-7c. Twórca gry wybiera „Ok”.  
-
-Koniec: porażka
+8c. System wyświetla komunikat o błędzie zapisu zmian.  
+9c. Twórca gry wybiera „Ok”.  
+10c. Zmiany w komnacie nie zostają zapisane, dane pozostają bez zmian.
 
 ---
