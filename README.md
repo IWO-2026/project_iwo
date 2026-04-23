@@ -521,7 +521,7 @@ F58: System powinien udostępniać edytor komnat
 | Typ: _funkcjonalne_ | Wersja: 1.0 (04.03.2026) | Odpowiedzialny: Julian Stefan |
 | :--- | :--- | :--- |
 | Priorytet: Przydatne || Wydanie: 1.0 |
-| Stworzenie edytora pozwalającego użytkownikowi na samodzielne dostosowanie komnat do potrzeb gry stworzonej przez siebie. Lista dostępnych materiałów, z których można tworzyć komnaty, musi pokrywać się z dostępnym stanem magazynowym.
+| Stworzenie edytora pozwalającego użytkownikowi na samodzielne dostosowanie komnat do potrzeb gry stworzonej przez siebie. Lista dostępnego wyposażenia, z którym można tworzyć komnaty, musi pokrywać się z dostępnym stanem magazynowym.
 
 F59: System powinien dać możliwość zamówienia niestandardowych obiektów
 | Typ: _funkcjonalne_ | Wersja: 1.0 (04.03.2026) | Odpowiedzialny: Julian Stefan |
@@ -1230,9 +1230,9 @@ rec --> pu_lista_recenzent
 
 pu_lista_gier_org ~~~ pu_lista_gier
 pu_lista_gier_tw ~~~ pu_lista_gier
-pu_lista_gier_org ==>|generalization| pu_lista_gier 
-pu_lista_gier_tw ==>|generalization| pu_lista_gier
-pu_lista_recenzent ==>|generalization| pu_lista_gier
+pu_lista_gier_org -->|generalization| pu_lista_gier 
+pu_lista_gier_tw -->|generalization| pu_lista_gier
+pu_lista_recenzent -->|generalization| pu_lista_gier
 pu_recenzja_gry -."&lt;&lt;invoke&gt;&gt;".-> pu_komunikat
 
 end
@@ -1554,7 +1554,7 @@ GDF -. "&lt;&lt;invoke&gt;&gt;" .-> KED
 - Odpowiedzialny: Maciej Bankiewicz
 - Priorytet i trudność: Istotne
 - Wydanie: 1.0
-- **Opis:** System wyświetla [panel edycji komnaty (strefy)]. Twórca gry edytuje takie elementy jak: wyposażenie, rozmieszczenie kodów QR, dostępność komnaty, widoczność komnaty na interaktywnej mapie. System zapisuje dane i wyświetla informację o potwierdzeniu zapisania zmian.
+- **Opis:** System wyświetla panel edycji [komnaty (strefy)]. Twórca gry edytuje takie elementy jak: wyposażenie, rozmieszczenie [kodów QR], dostępność [komnaty], widoczność [komnaty] na interaktywnej [mapie]. System zapisuje dane i wyświetla informację o potwierdzeniu zapisania zmian.
 
 ---
 
