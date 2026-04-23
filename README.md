@@ -1127,35 +1127,31 @@ flowchart LR
     u4["Reset hasła"]
     u5["Wylogowanie"]
     u6["Wyświetl historię wydarzeń"]
-    u7["Filtruj i sortuj historię wydarzeń"]
     u8["Wyświetl statystyki uczestnictwa"]
     u9["Wyświetl szczegóły wydarzenia z historii"]
 
     User --> u1
+    User --> u2
     User --> u3
     User --> u4
     User --> u5
     User --> u6
 
-    u1 -.->|invoke| u2
-    u3 -.->|requires| u2
-    u6 -.->|requires| u3
-    u6 -.->|invoke| u7
     u6 -.->|invoke| u8
     u6 -.->|invoke| u9
 ```
 
 **PU1101: Rejestracja konta**
-- Wersja: 1.0 (15.04.2026)
+- Wersja: 1.1 (16.04.2026)
 - Odpowiedzialna: Polina Nesterova
 - Wydanie: 1.0
-- Opis: System wyświetla formularz rejestracji. Użytkownik podaje imię, nazwisko, adres e-mail oraz hasło (dwukrotnie). System weryfikuje unikalność adresu e-mail w bazie, zapisuje konto ze statusem „nieaktywne" i wysyła na podany adres e-mail wiadomość z linkiem aktywacyjnym.
+- Opis: System wyświetla formularz rejestracji. Użytkownik podaje [dane użytkownika]. System weryfikuje poprawność i unikalność podanych [danych użytkownika], zapisuje konto ze statusem „nieaktywne" i wysyła na wskazany kanał kontaktu wiadomość zawierającą link aktywacyjny. Rejestracja kończy się komunikatem o konieczności potwierdzenia konta przed pierwszym logowaniem — faktyczne potwierdzenie realizuje odrębny przypadek użycia PU1102 (Aktywacja konta przez link e-mail), wywoływany przez użytkownika po otrzymaniu wiadomości.
 
 **PU1102: Aktywacja konta przez link e-mail**
-- Wersja: 1.0 (15.04.2026)
+- Wersja: 1.1 (16.04.2026)
 - Odpowiedzialna: Polina Nesterova
 - Wydanie: 1.0
-- Opis: Invoked by PU1101. Użytkownik klika w link aktywacyjny otrzymany w wiadomości e-mail. System weryfikuje poprawność i ważność linku, zmienia status konta na „aktywne" oraz umożliwia logowanie.
+- Opis: Przypadek użycia inicjowany przez użytkownika po otrzymaniu wiadomości z linkiem aktywacyjnym wysłanej w ramach PU1101 (Rejestracja konta). Użytkownik klika w link aktywacyjny. System weryfikuje poprawność i ważność linku, zmienia status konta na „aktywne" oraz umożliwia logowanie.
 
 **PU1103: Logowanie**
 - Wersja: 1.0 (15.04.2026)
@@ -1176,16 +1172,10 @@ flowchart LR
 - Opis: Zalogowany użytkownik wybiera opcję wylogowania. System kończy sesję użytkownika, unieważnia token sesji i przekierowuje na ekran logowania.
 
 **PU1106: Wyświetlenie historii wydarzeń**
-- Wersja: 1.0 (15.04.2026)
+- Wersja: 1.1 (16.04.2026)
 - Odpowiedzialna: Polina Nesterova
 - Wydanie: 1.0
-- Opis: Zalogowany użytkownik wybiera zakładkę „Historia wydarzeń". System pobiera listę wydarzeń, w których użytkownik brał udział, i wyświetla ją w porządku chronologicznym wraz z podstawowymi informacjami (nazwa wydarzenia, data, lokalizacja, odgrywana postać, czas trwania, status).
-
-**PU1107: Filtrowanie i sortowanie historii wydarzeń**
-- Wersja: 1.0 (15.04.2026)
-- Odpowiedzialna: Polina Nesterova
-- Wydanie: 1.0
-- Opis: Invoked by PU1106. Użytkownik wybiera filtry (przedział czasowy, typ wydarzenia, status, lokalizacja) lub sposób sortowania (data rosnąco/malejąco, nazwa wydarzenia). System aktualizuje wyświetlaną listę zgodnie z wybranymi kryteriami.
+- Opis: Zalogowany użytkownik wybiera zakładkę „Historia wydarzeń". System pobiera listę wydarzeń, w których użytkownik brał udział, i wyświetla ją w porządku chronologicznym wraz z podstawowymi informacjami (nazwa wydarzenia, data, lokalizacja, odgrywana postać, czas trwania, status). W ramach widoku użytkownik może zawęzić listę za pomocą filtrów (przedział czasowy, typ wydarzenia, status, lokalizacja) oraz zmienić porządek sortowania (data rosnąco/malejąco, nazwa wydarzenia) — system każdorazowo aktualizuje wyświetlaną listę zgodnie z wybranymi kryteriami.
 
 **PU1108: Wyświetlenie statystyk uczestnictwa**
 - Wersja: 1.0 (15.04.2026)
@@ -1304,6 +1294,31 @@ end
 - Wersja: 1.0 (15.04.2026)
 - Odpowiedzialny: Łukasz Czajka
 - Opis: Recenzenci mają możliwość przesłania uwag dotyczących recenzowanej gry.
+
+**PU112: Wyświetlenie listy gier**
+
+- Wersja: 1.0 (14.04.2026)
+- Odpowiedzialny: Maciej Bankiewicz
+- Priorytet i trudność: Istotne
+- Wydanie: 1.0
+- **Opis:** System wyświetla listę zawierającą wszystkie stworzone uprzednio [gry].
+
+**PU113: Wyświetlenie listy gier przez recenzenta**
+
+- Wersja: 1.0 (14.04.2026)
+- Odpowiedzialny: Maciej Bankiewicz
+- Priorytet i trudność: Istotne
+- Wydanie: 1.0
+- **Opis:** Specjalizacja przypadku PU112. System wyświetla listę zawierającą wszystkie stworzone uprzednio [gry], dodając do każdego rekordu opcję recenzji [gry].
+
+**PU114: Recenzja gry**
+
+- Wersja: 1.0 (14.04.2026)
+- Odpowiedzialny: Maciej Bankiewicz
+- Priorytet i trudność: Istotne
+- Wydanie: 1.0
+- **Opis:** [Recenzent] wybiera grę z listy wyświetlonej w PU113. System wyświetla okno do zapisu tekstu. [Recenzent] zapisuje [recenzję] i zatwierdza ją.
+
 ---
 
 ## 4.1.12 Akcje Gracza w trakcie gry (Cezary Rybiński)
