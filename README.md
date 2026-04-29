@@ -1943,3 +1943,59 @@ final: failure
 POST: recenzja nie została przesłana; wprowadzona treść zachowana jako szkic powiązany z kontem recenzenta.
 
 ---
+
+## 5.8 PU112: Wyświetlenie listy gier
+
+- Wersja: 1.0 (29.04.2026)
+- Odpowiedzialny: Kacper Koziara
+- Wydanie: 1.0
+- Aktor główny: Użytkownik
+- Warunek początkowy: Użytkownik jest zalogowany w systemie i posiada aktywną sesję. Powinien znajdować się na ekranie umożliwiającym nawigację do listy gier.
+- Warunek końcowy (sukces): System poprawnie pobiera i wyświetla przefiltrowaną oraz posortowaną listę gier (w zadanym układzie i limitach), po której użytkownik może nawigować.
+
+**Scenariusz główny**
+
+1. Użytkownik wybiera z głównego menu bocznego/górnego opcję „Lista gier” / „Przeglądaj gry”.
+2. System weryfikuje ważność tokenu sesji użytkownika.
+3. System wysyła zapytanie do bazy danych o domyślną listę gier (pierwsza strona, limit 30 pozycji, sortowanie od najnowszych, status: dostępne).
+4. System wyświetla ekran główny z paskiem wyszukiwania, panelem zaawansowanych filtrów i siatką kafelków reprezentujących gry. Każdy kafelek zawiera miniaturę, tytuł, typ gry, poziom trudności i informacje o dostępnych miejscach.
+5. Użytkownik wprowadza frazę w pole wyszukiwania tekstowego i aktywuje kilka opcji w panelu filtrów (np. kategoria: thriller, wolne miejsca: tak, czas trwania: poniżej 3h).
+6. System zatrzymuje odświeżanie na czas wpisywania (debounce) i po krótkiej pauzie inicjuje nowe zapytanie z zaaplikowanymi filtrami.
+7. System wyświetla wskaźnik ładowania (np. szkielety kafelków - skeleton loader) na obszarze wyników.
+8. System zwraca nową paczkę danych i płynnie aktualizuje listę, prezentując jedynie te gry, które ściśle odpowiadają wyszukiwaniu.
+9. Użytkownik przewija wyniki na sam dół i korzysta z paginacji (np. przycisk „Następna strona” / „Pokaż więcej”), po czym system ładuje i dołącza kolejne pozycje z zestawienia bez utraty wybranch filtrów.
+
+**Scenariusz alternatywny A: Brak wyników (Pusta lista po filtrach)**
+
+8a. System stwierdza po stronie serwera, że nie ma rekordów dla żądanej kombinacji parametrów wyszukiwania.
+1. System wyświetla komunikat wizualny pustego stanu na liście: „Nie znaleźliśmy gier spełniających Twoje kryteria.”
+2. System wyświetla przycisk CTA „Wyczyść filtry”.
+3. Użytkownik klika „Wyczyść filtry”.
+4. System resetuje lokalne stany formularzy szukania/filtrów i ponownie wykonuje zapytanie o domyślną listę gier, wracając do kroku 3 głównego scenariusza.
+
+**Scenariusz alternatywny B: Przekroczenie czasu oczekiwania na odpowiedź serwera (Timeout / Błąd bazy)**
+
+3a. Baza danych po stronie serwera jest nieosiągalna lub trwa zbyt długa odpowiedź, co skutkuje przerwaniem żądania po stronie systemu.
+1. System przerywa wyświetlanie animacji ładowania ekranu.
+2. System wyświetla komunikat błędu (tzw. ekran błędu 500): „Ups! Mamy problemy z pobraniem danych. Spróbuj ponownie lub odczekaj kilka minut.”
+3. System prezentuje przycisk „Spróbuj ponownie”.
+4. Użytkownik klika „Spróbuj ponownie”, po czym system podejmuje kolejną próbę załadowania struktury listy (powrót do kroku 3 scenariusza głównego).
+
+**Scenariusz alternatywny C: Awaria łączności po stronie klienta w trakcie filtrowania**
+
+6a. System wykrywa utratę dostępu do internetu u użytkownika w trakcie wysyłania zapytania z nowymi parametrami.
+1. Aplikacja/System przechwytuje wyjątek związany z awarią sieci.
+2. System zdejmuje loader z list, pozostawiając listę gier nieruszoną na stanie sprzed wyszukiwania.
+3. System wstrzymuje aktualizację widoku i wyświetla globalny, czerwony toast (baner u góry ekranu): „Brak dostępu do sieci. Działasz w trybie offline, dane mogą być nieaktualne.”
+4. Użytkownik odzyskuje zasięg – aplikacja wykrywa stan `online`, zdejmuje baner błędu i automatycznie ponawia zapytanie, wznawiając główny scenariusz od kroku 7.
+
+**Scenariusz alternatywny D: Wygaszona w międzyczasie sesja**
+
+9a. Użytkownik przegląda listę długi czas bez interakcji, po czym klika na przycisk następnej strony.
+1. System wysyła do serwera żądanie z wygasłym tokenem z powodu braku aktywności w tle.
+2. Aplikacja przechwytuje kod błędu autoryzacji (HTTP 401).
+3. System lokalnie zapisuje stan wyszukiwania (tzw. stan URL z filtrami) w Storage (local/session).
+4. System przekierowuje Użytkownika dyskretnie do widoku logowania z komunikatem: „Twoja sesja przedawniła się dla względów bezpieczeństwa. Zaloguj się, aby kontynuować.”
+5. (Po pomyślnym zalogowaniu poprzez PU1103) System używa zapisanych lokalnie parametrów, automatycznie odświeżając i odtwarzając użytkownikowi widok listy gier z wybranymi opcjami paginacji i filtroania z dokładnego punktu w którym przestał działać.
+
+---
