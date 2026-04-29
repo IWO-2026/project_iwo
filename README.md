@@ -580,7 +580,46 @@ J07: Interfejs aplikacji powinien posiadać tryb 'Dark-Mode'.
 
 ## 3.5 Słownik
 
-**Diagram:** Słownik
+```mermaid
+title: Diagram słownika
+---
+
+classDiagram
+    class Recenzent
+    class Administrator
+    class Sesja
+    class Gra
+    class Wydarzenie
+    class Recenzja
+    class BazaRecenzji["Baza recenzji"]
+    class TworcaGier["Twórca gier"]
+    class Kalendarz["Kalendarz wydarzeń"]
+
+    class Czujnik
+    class Mapa
+    class Akcja
+    class Komnata
+    class KodQR["Kod QR"]
+
+    class BlokadaKonta["Blokada konta"]
+
+    Gra <-- Wydarzenie
+
+    BazaRecenzji *-- Recenzja
+    Recenzent <-- Recenzja
+    Gra <-- Recenzja
+
+    Gra *-- Mapa
+    Mapa o-- Czujnik
+    Mapa *-- Komnata
+    Akcja <-- Czujnik
+    Akcja <-- KodQR
+
+    Kalendarz o-- Wydarzenie
+
+    BlokadaKonta <-- Administrator
+
+```
 
 ---
 
@@ -763,6 +802,20 @@ Osoba prowadząca wydarzenie i kontrolująca jego przebieg w trakcie rozgrywki.
 Użytkownik odpowiedzialny za ocenę i weryfikację zgłoszonych gier.
 
 ---
+
+**Recenzja**
+
+- Typ: pojęcie systemowe
+- Wersja: 1.0 (29.04.2026)
+- Odpowiedzialny: Julian Stefan
+- Priorytet i trudność: Przydatne
+- Wydanie: 1.0
+
+Ocena i opinia o złgoszonej grze. Wymagana do uruchamiania gier zgłoszonych przez
+zewnętrznego twórcę gier.
+
+---
+
 
 **Administrator**
 
