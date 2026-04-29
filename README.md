@@ -578,104 +578,274 @@ J07: Interfejs aplikacji powinien posiadać tryb 'Dark-Mode'.
 | Interfejs aplikacji mobilnej musi być dostosowany do pracy w warunkach niskiego oświetlenia. |
 
 ## 3.5 Słownik
+# Słownik pojęć systemu – Diagramy klas
 
+---
+
+## 1. Użytkownicy i bezpieczeństwo konta
+
+```mermaid
+classDiagram
+    direction TB
+
+    class Uzytkownik {
+        +imie: String
+        +nazwisko: String
+        +email: String
+        +haslo: String
+        +numerTelefonu: String
+    }
+
+    class DaneUzytkownika {
+        +imie: String
+        +nazwisko: String
+        +email: String
+        +haslo: String
+        +numerTelefonu: String
+        +zmianaWymagaAutoryzacji: Boolean
+    }
+
+    class Sesja {
+        +tokenSesji: String
+        +czasWaznosci: DateTime
+        +aktywna: Boolean
+    }
+
+    class BlokadaKonta {
+        +przyczyna: String
+        +dataBlokady: DateTime
+        +czyAktywna: Boolean
+    }
+
+    class Gracz {
+    }
+
+    class Organizator {
+    }
+
+    class OrganizatorZewnetrzny {
+    }
+
+    class TworcaGier {
+    }
+
+    class MistrzWydarzenia {
+    }
+
+    class Recenzent {
+    }
+
+    class Administrator {
+    }
+
+    Uzytkownik <|-- Gracz
+    Uzytkownik <|-- Organizator
+    Uzytkownik <|-- TworcaGier
+    Uzytkownik <|-- MistrzWydarzenia
+    Uzytkownik <|-- Recenzent
+    Uzytkownik <|-- Administrator
+    Uzytkownik <|-- OrganizatorZewnetrzny
+
+    Uzytkownik "1" *-- "1"  DaneUzytkownika : przechowuje
+    Uzytkownik "1" *-- "0..*" Sesja : posiada
+    Uzytkownik "1" *-- "0..*" BlokadaKonta : moze miec
+```
+
+---
+
+## 2. Struktura gry
+
+```mermaid
+classDiagram
+    direction TB
+
+    class TworcaGier {
+    }
+
+    class OrganizatorZewnetrzny {
+    }
+
+    class Gra {
+        +zasady: String
+    }
+
+    class Mapa {
+    }
+
+    class Pomieszczenie {
+    }
+
+    class Strefa {
+        +ukryta: Boolean
+        +ograniczeniaDostepu: Boolean
+    }
+
+    class Postac {
+        +atrybuty: Map
+    }
+
+    class Ekwipunek {
+        +wirtualnaWaluta: Number
+    }
+
+    class Przedmiot {
+        +efekty: String
+    }
+
+    class MiniGra {
+        +opis: String
+    }
+
+    class Akcja {
+        +typ: String
+    }
+
+    TworcaGier "1"        --> "0..*" Gra       : definiuje
+    OrganizatorZewnetrzny "1" --> "0..*" Gra   : tworzy
+
+    Gra "1" *-- "1"    Mapa    : zawiera
+    Gra "1" *-- "0..*" Postac  : zawiera
+    Gra "1" *-- "0..*" Akcja   : dopuszcza
+
+    Mapa "1" *-- "0..*" Pomieszczenie : zawiera
+    Mapa "1" *-- "0..*" Strefa        : zawiera
+
+    Postac "1" *-- "1"    Ekwipunek  : posiada
+    Postac "1" --> "0..*" Przedmiot  : nosi
+    Postac "1" --> "0..*" Akcja      : moze wykonac
+
+    Ekwipunek "1" *-- "0..*" Przedmiot : zawiera
+
+    MiniGra --|> Gra : jest rodzajem
+```
+
+---
+
+## 3. Wydarzenie i rozgrywka
+
+```mermaid
+classDiagram
+    direction TB
+
+    class Gra {
+        +zasady: String
+    }
+
+    class Organizator {
+    }
+
+    class MistrzWydarzenia {
+    }
+
+    class Gracz {
+    }
+
+    class Wydarzenie {
+        +czas: DateTime
+        +miejsce: String
+    }
+
+    class KalendarzWydarzen {
+    }
+
+    class Zaproszenie {
+    }
+
+    Organizator    "1" --> "0..*" Wydarzenie : zarzadza
+    MistrzWydarzenia "1" --> "0..*" Wydarzenie : prowadzi
+
+    Wydarzenie "0..*" --> "1"    Gra    : jest instancja
+    Wydarzenie "1"    -- "0..*" Gracz  : uczestnicza
+
+    KalendarzWydarzen "1" --> "0..*" Wydarzenie : prezentuje
+
+    Zaproszenie "0..*" --> "1" Gracz      : wysylane do
+    Zaproszenie "0..*" -- "1" Wydarzenie : dotyczy
+```
+
+---
+
+## 4. Interakcje i transakcje
+
+```mermaid
+classDiagram
+    direction TB
+
+    class Gracz {
+    }
+
+    class Przedmiot {
+        +efekty: String
+    }
+
+    class Akcja {
+        +typ: String
+    }
+
+    class Interakcja {
+        +cooldown: Duration
+    }
+
+    class KodQR {
+        +zawartosc: String
+    }
+
+    class TransakcjaWymiany {
+        +status: String
+        +zatwierdzona: Boolean
+    }
+
+    Interakcja "0..*" --> "1"    Gracz    : inicjuje
+    Interakcja "0..*" --> "1"    Przedmiot : dotyczy
+    Interakcja "0..*" --> "1"    KodQR    : wymaga
+    Interakcja "1"    --|> "0..*" Akcja    : wyzwala
+
+    TransakcjaWymiany "0..*" --> "2" Gracz : miedzy graczami
+    TransakcjaWymiany "0..*" --> "1" KodQR : autoryzowana przez
+```
+
+---
+
+## 5. Komunikacja
+
+```mermaid
+classDiagram
+    direction TB
+
+    class Uzytkownik {
+        +imie: String
+        +nazwisko: String
+        +email: String
+    }
+
+    class Wydarzenie {
+        +czas: DateTime
+        +miejsce: String
+    }
+
+    class Zaproszenie {
+    }
+
+    class Wiadomosc {
+        +tresc: String
+        +dataWyslania: DateTime
+        +zawieraZalacznik: Boolean
+    }
+
+    class Skarga {
+        +tresc: String
+        +dataZgloszenia: DateTime
+    }
+
+    Zaproszenie "0..*" --> "1" Uzytkownik : wysylane do
+    Zaproszenie "0..*" --> "1" Wydarzenie : dotyczy
+
+    Wiadomosc "0..*" --> "1" Uzytkownik : nadawca
+    Wiadomosc "0..*" --> "1" Uzytkownik : odbiorca
+
+    Skarga "0..*" --> "1" Uzytkownik : zglaszajacy
+```
 **Diagram:** Słownik
-
----
-
-**Gra**
-
-- Typ: pojęcie domenowe
-- Wersja: 1.0 (16.03.2026)
-- Odpowiedzialny: Zespół projektowy
-- Priorytet i trudność: Istotne
-- Wydanie: 1.0
-
-Zdefiniowany zestaw zasad określających interakcje między uczestnikami systemu. Gra zawiera elementy takie jak mapa, postacie, przedmioty oraz możliwe akcje wykonywane przez graczy.
-
----
-
-**Wydarzenie**
-
-- Typ: pojęcie domenowe
-- Wersja: 1.0 (16.03.2026)
-- Odpowiedzialny: Zespół projektowy
-- Priorytet i trudność: Istotne
-- Wydanie: 1.0
-
-Konkretna instancja gry uruchomiona w określonym czasie i miejscu. W wydarzeniu uczestniczą gracze wykonujący akcje zgodnie z zasadami gry.
-
----
-
-**Interakcja**
-
-- Typ: pojęcie domenowe
-- Wersja: 1.0 (08.04.2026)
-- Odpowiedzialny: Tomasz Rogalski
-- Priorytet i trudność: Istotne
-- Wydanie: 1.0
-
-Akcja zachodząca między graczem a przedmiotem (np. mini-grą) lub innym graczem (np. walka). Interakcja wymaga zeskanowania kodu QR i wiąże się bezpośrednio z nałożeniem na gracza ograniczeń czasowych (cooldown) uniemożliwiających natychmiastowe powtórzenie tej samej akcji wobec tego samego przedmiotu lub gracza.
-
----
-
-**Postać**
-
-- Typ: pojęcie domenowe
-- Wersja: 1.0 (16.03.2026)
-- Odpowiedzialny: Zespół projektowy
-- Priorytet i trudność: Istotne
-- Wydanie: 1.0
-
-Rola przypisana graczowi podczas wydarzenia. Postać posiada określone atrybuty, przedmioty oraz możliwe akcje w trakcie rozgrywki.
-
----
-
-**Przedmiot**
-
-- Typ: pojęcie domenowe
-- Wersja: 1.0 (16.03.2026)
-- Odpowiedzialny: Zespół projektowy
-- Priorytet i trudność: Przydatne
-- Wydanie: 1.0
-
-Obiekt w świecie gry, który może być posiadany przez postać. Przedmiot może umożliwiać wykonanie określonych akcji lub wywoływać efekty w grze.
-
----
-
-**Mapa**
-
-- Typ: pojęcie domenowe
-- Wersja: 1.0 (16.03.2026)
-- Odpowiedzialny: Zespół projektowy
-- Priorytet i trudność: Istotne
-- Wydanie: 1.0
-
-Reprezentacja przestrzeni, w której odbywa się gra. Mapa zawiera komnaty (strefy), przejścia, przeszkody oraz inne elementy środowiska gry.
-
----
-
-**Pomieszczenie**
-
-- Typ: pojęcie domenowe
-- Wersja: 1.0 (16.03.2026)
-- Odpowiedzialny: Zespół projektowy
-- Priorytet i trudność: Przydatne
-- Wydanie: 1.0
-
-Element mapy reprezentujący konkretną lokalizację w świecie gry. Pomieszczenie może zawierać przedmioty, zdarzenia lub inne elementy interakcji.
-
----
-
-**Akcja**
-
-- Typ: pojęcie domenowe
-- Wersja: 1.0 (16.03.2026)
-- Odpowiedzialny: Zespół projektowy
-- Priorytet i trudność: Istotne
-- Wydanie: 1.0
-
-Działanie wykonywane przez system w wyniku interakcji użytkownika, postaci lub zdarzeń w świecie gry.
 
 ---
 
@@ -722,7 +892,7 @@ Osoba posiadająca konto w systemie i korzystająca z jego funkcjonalności.
 - Priorytet i trudność: Kluczowe
 - Wydanie: 1.0
 
-Użytkownik uczestniczący w wydarzeniu i wykonujący akcje w trakcie rozgrywki.
+[Użytkownik] uczestniczący w [Wydarzeniu] i wykonujący [Akcje] w trakcie rozgrywki.
 
 ---
 
@@ -734,55 +904,7 @@ Użytkownik uczestniczący w wydarzeniu i wykonujący akcje w trakcie rozgrywki.
 - Priorytet i trudność: Kluczowe
 - Wydanie: 1.0
 
-Użytkownik odpowiedzialny za tworzenie i zarządzanie wydarzeniami w systemie.
-
----
-
-**Organizator zewnętrzny**
-
-- Typ: aktor systemu
-- Wersja: 1.0 (16.03.2026)
-- Odpowiedzialny: Zespół projektowy
-- Priorytet i trudność: Przydatne
-- Wydanie: 1.0
-
-Podmiot zewnętrzny mający dostęp do wybranych funkcji systemu. Osoba tworzy grę w systemie (wypełnia formularz gdzie można zdefiniować małe poprawki), rezerwuje czas dla swoich wydarzeń, przegląd zgłoszeń i komunikację z uczestnikami.
-
----
-
-**Twórca gier**
-
-- Typ: aktor systemu
-- Wersja: 1.0 (16.03.2026)
-- Odpowiedzialny: Zespół projektowy
-- Priorytet i trudność: Istotne
-- Wydanie: 1.0
-
-Użytkownik odpowiedzialny za definiowanie struktury gry, w tym mapy, postaci oraz akcji dostępnych w rozgrywce.
-
----
-
-**Mistrz wydarzenia**
-
-- Typ: aktor systemu
-- Wersja: 1.0 (16.03.2026)
-- Odpowiedzialny: Zespół projektowy
-- Priorytet i trudność: Istotne
-- Wydanie: 1.0
-
-Osoba prowadząca wydarzenie i kontrolująca jego przebieg w trakcie rozgrywki.
-
----
-
-**Recenzent**
-
-- Typ: aktor systemu
-- Wersja: 1.0 (16.03.2026)
-- Odpowiedzialny: Zespół projektowy
-- Priorytet i trudność: Przydatne
-- Wydanie: 1.0
-
-Użytkownik odpowiedzialny za ocenę i weryfikację zgłoszonych gier.
+[Użytkownik] odpowiedzialny za tworzenie i zarządzanie [Wydarzeniami] w systemie.
 
 ---
 
@@ -794,79 +916,55 @@ Użytkownik odpowiedzialny za ocenę i weryfikację zgłoszonych gier.
 - Priorytet i trudność: Kluczowe
 - Wydanie: 1.0
 
-Użytkownik posiadający najwyższe uprawnienia w systemie odpowiedzialny za moderowanie i zarządzanie systemem.
+[Użytkownik] posiadający najwyższe uprawnienia w systemie odpowiedzialny za moderowanie i zarządzanie systemem.
 
 ---
 
-**Kalendarz wydarzeń**
+**Twórca gier**
 
-- Typ: pojęcie systemowe
+- Typ: aktor systemu
 - Wersja: 1.0 (16.03.2026)
 - Odpowiedzialny: Zespół projektowy
 - Priorytet i trudność: Istotne
 - Wydanie: 1.0
 
-Widok systemowy umożliwiający przeglądanie wydarzeń w ujęciu czasowym i planowanie wydarzeń.
+[Użytkownik] odpowiedzialny za definiowanie struktury [Gry], w tym [Mapy], [Postaci] oraz [Akcji] dostępnych w rozgrywce.
 
 ---
 
-**Zaproszenie**
+**Mistrz wydarzenia**
 
-- Typ: pojęcie systemowe
+- Typ: aktor systemu
 - Wersja: 1.0 (16.03.2026)
 - Odpowiedzialny: Zespół projektowy
 - Priorytet i trudność: Istotne
 - Wydanie: 1.0
 
-Powiadomienie wysyłane do użytkownika umożliwiające dołączenie do wydarzenia.
+[Użytkownik] prowadzący [Wydarzenie] i kontrolujący jego przebieg w trakcie rozgrywki.
 
 ---
 
-**Kod QR**
+**Recenzent**
 
-- Typ: pojęcie techniczne
+- Typ: aktor systemu
 - Wersja: 1.0 (16.03.2026)
 - Odpowiedzialny: Zespół projektowy
 - Priorytet i trudność: Przydatne
 - Wydanie: 1.0
 
-Kod graficzny wykorzystywany do identyfikacji elementów gry oraz inicjowania interakcji w aplikacji.
+[Użytkownik] odpowiedzialny za ocenę i weryfikację zgłoszonych [Gier].
 
 ---
 
-**Mini-gra**
+**Organizator zewnętrzny**
 
-- Typ: pojęcie domenowe
+- Typ: aktor systemu
 - Wersja: 1.0 (16.03.2026)
-- Odpowiedzialny: Zespół projektowy
+- Odpowiedzialny: Hlib Filobok
 - Priorytet i trudność: Przydatne
 - Wydanie: 1.0
 
-Dodatkowa aktywność dostępna w trakcie wydarzenia umożliwiająca wykonanie krótkiej interakcji lub zadania.
-
----
-
-**Skarga**
-
-- Typ: pojęcie systemowe
-- Wersja: 1.0 (16.03.2026)
-- Odpowiedzialny: Zespół projektowy
-- Priorytet i trudność: Istotne
-- Wydanie: 1.0
-
-Zgłoszenie wysyłane przez użytkownika w celu poinformowania organizatora lub administratora o problemie.
-
----
-
-**Wiadomość**
-
-- Typ: pojęcie systemowe
-- Wersja: 1.0 (15.04.2026)
-- Odpowiedzialny: Łukasz Czajka
-- Wydanie: 1.0
-
-Wiadomość wysłana przez jednego użytkownika do drugiego. Wiadomość może zawierać tekst, obrazy lub inne pliki.
-Tyko użytkownik, do którego dana wiadomość została wysłana jest w stanie ją zobaczyć.
+[Organizator] będący podmiotem zewnętrznym mający dostęp do wybranych funkcji systemu. Tworzy [Gry] w systemie, rezerwuje czas dla swoich [Wydarzeń], przegląda [Skargi] i komunikuje się z uczestnikami.
 
 ---
 
@@ -878,8 +976,9 @@ Tyko użytkownik, do którego dana wiadomość została wysłana jest w stanie j
 - Priorytet i trudność: Kluczowe
 - Wydanie: 1.0
 
-Aktywny okres korzystania z systemu przez zalogowanego użytkownika. Sesja jest identyfikowana przez token sesji, ma ograniczony czas ważności (wygasa po zdefiniowanym czasie nieaktywności) i może zostać zakończona przez wylogowanie lub unieważniona przez system (np. po zmianie hasła).
+Aktywny okres korzystania z systemu przez zalogowanego [Użytkownika]. [Sesja] jest identyfikowana przez token sesji, ma ograniczony czas ważności (wygasa po zdefiniowanym czasie nieaktywności) i może zostać zakończona przez wylogowanie lub unieważniona przez system (np. po zmianie hasła).
 
+---
 
 **Blokada konta**
 
@@ -889,11 +988,119 @@ Aktywny okres korzystania z systemu przez zalogowanego użytkownika. Sesja jest 
 - Priorytet i trudność: Istotne
 - Wydanie: 1.0
 
-Tymczasowe wstrzymanie dostępu do konta użytkownika w reakcji na zdarzenie bezpieczeństwa (np. przekroczenie limitu nieudanych prób logowania) lub decyzję administratora. Blokada uniemożliwia logowanie do czasu odblokowania — automatycznego po upływie zdefiniowanego czasu lub ręcznego przez reset hasła.
+Tymczasowe wstrzymanie dostępu do konta [Użytkownika] w reakcji na zdarzenie bezpieczeństwa (np. przekroczenie limitu nieudanych prób logowania) lub decyzję [Administratora]. [Blokada konta] uniemożliwia logowanie do czasu odblokowania — automatycznego po upływie zdefiniowanego czasu lub ręcznego przez reset hasła.
 
 ---
 
-**Strefa (Komnata)**
+**Wiadomość**
+
+- Typ: pojęcie systemowe
+- Wersja: 1.0 (15.04.2026)
+- Odpowiedzialny: Łukasz Czajka
+- Priorytet i trudność: Istotne
+- Wydanie: 1.0
+
+Komunikat wysłany przez jednego [Użytkownika] do drugiego. [Wiadomość] może zawierać tekst, obrazy lub inne pliki. Tylko [Użytkownik], do którego dana [Wiadomość] została wysłana, jest w stanie ją zobaczyć.
+
+---
+
+**Zaproszenie**
+
+- Typ: pojęcie systemowe
+- Wersja: 1.0 (16.03.2026)
+- Odpowiedzialny: Hlib Filobok
+- Priorytet i trudność: Istotne
+- Wydanie: 1.0
+
+[Wiadomość] wysyłana do [Użytkownika] umożliwiająca dołączenie do [Wydarzenia].
+
+---
+
+**Skarga**
+
+- Typ: pojęcie systemowe
+- Wersja: 1.0 (16.03.2026)
+- Odpowiedzialny: Zespół projektowy
+- Priorytet i trudność: Istotne
+- Wydanie: 1.0
+
+Zgłoszenie wysyłane przez [Użytkownika] w celu poinformowania [Organizatora] lub [Administratora] o problemie.
+
+---
+
+**Recenzja**
+
+- Typ: pojęcie systemowe
+- Wersja: 1.0 (15.04.2026)
+- Odpowiedzialny: Maciej Bankiewicz
+- Priorytet i trudność: Istotne
+- Wydanie: 1.0
+
+Ocena i weryfikacja [Gry] dokonana przez [Recenzenta] zawierająca tekst recenzji i decyzję o zatwierdzeniu.
+
+---
+
+**Kalendarz wydarzeń**
+
+- Typ: pojęcie systemowe
+- Wersja: 1.0 (16.03.2026)
+- Odpowiedzialny: Hlib Filobok
+- Priorytet i trudność: Istotne
+- Wydanie: 1.0
+
+Widok systemowy umożliwiający przeglądanie [Wydarzeń] w ujęciu czasowym i planowanie [Wydarzeń].
+
+---
+
+**Gra**
+
+- Typ: pojęcie domenowe
+- Wersja: 1.0 (16.03.2026)
+- Odpowiedzialny: Zespół projektowy
+- Priorytet i trudność: Istotne
+- Wydanie: 1.0
+
+Zdefiniowany zestaw zasad określających interakcje między uczestnikami systemu. [Gra] zawiera elementy takie jak [Mapa], [Postaci], [Przedmioty] oraz możliwe [Akcje] wykonywane przez [Graczy].
+
+---
+
+**Wydarzenie**
+
+- Typ: pojęcie domenowe
+- Wersja: 1.0 (16.03.2026)
+- Odpowiedzialny: Hlib Filobok
+- Priorytet i trudność: Istotne
+- Wydanie: 1.0
+
+Konkretna instancja [Gry] uruchomiona w określonym czasie i miejscu. W [Wydarzeniu] uczestniczą [Gracze] wykonujący [Akcje] zgodnie z zasadami [Gry].
+
+---
+
+**Mapa**
+
+- Typ: pojęcie domenowe
+- Wersja: 1.0 (16.03.2026)
+- Odpowiedzialny: Zespół projektowy
+- Priorytet i trudność: Istotne
+- Wydanie: 1.0
+
+Reprezentacja przestrzeni, w której odbywa się [Gra]. [Mapa] zawiera [Pomieszczenia], [Strefy], przejścia, przeszkody oraz inne elementy środowiska [Gry].
+
+---
+
+**Pomieszczenie**
+
+- Typ: pojęcie domenowe
+- Wersja: 1.0 (16.03.2026)
+- Odpowiedzialny: Zespół projektowy
+- Priorytet i trudność: Przydatne
+- Wydanie: 1.0
+
+Element [Mapy] reprezentujący konkretną lokalizację w świecie [Gry]. [Pomieszczenie] może zawierać [Przedmioty], [Strefy], zdarzenia lub inne elementy [Interakcji].
+
+---
+
+**Strefa**
 
 - Typ: pojęcie domenowe
 - Wersja: 1.0 (15.04.2026)
@@ -901,7 +1108,19 @@ Tymczasowe wstrzymanie dostępu do konta użytkownika w reakcji na zdarzenie bez
 - Priorytet i trudność: Istotne
 - Wydanie: 1.0
 
-Wydzielony fizycznie i wirtualnie obszar terenu gry. Strefy mogą być ukryte na interaktywnej mapie gracza, dopóki jego postać nie zdobędzie odpowiednich uprawnień. Atrybuty: id komnaty, nazwa komnaty (wyświetlana graczom), ograniczenia dostępności (uprawnienia), widoczność na mapie, rozmieszczenie kodów QR, wyposażenie komnaty, rozmieszczenie wyposażenia. Operacja sprawdzenia poprawności danych komnaty polega na upewnieniu się co do obecności nazwy komnaty oraz dostępności wybranego wyposażenia w magazynie.
+Wydzielony fizycznie i wirtualnie obszar terenu [Gry], który może posiadać własne ograniczenia dostępu. [Strefy] mogą być ukryte na interaktywnej [Mapie] [Gracza], dopóki jego [Postać] nie zdobędzie odpowiednich uprawnień.
+
+---
+
+**Postać**
+
+- Typ: pojęcie domenowe
+- Wersja: 1.0 (16.03.2026)
+- Odpowiedzialny: Zespół projektowy
+- Priorytet i trudność: Istotne
+- Wydanie: 1.0
+
+Rola przypisana [Graczowi] podczas [Wydarzenia]. [Postać] posiada określone atrybuty, [Ekwipunek] oraz możliwe [Akcje] w trakcie rozgrywki.
 
 ---
 
@@ -913,7 +1132,67 @@ Wydzielony fizycznie i wirtualnie obszar terenu gry. Strefy mogą być ukryte na
 - Priorytet i trudność: Kluczowe
 - Wydanie: 1.0
 
-Zbiór wirtualnych zasobów (przedmiotów questowych, kluczy, wirtualnej waluty) przypisanych do danej postaci w konkretnym wydarzeniu. Stan ekwipunku może ulegać zmianie poprzez akcje w grze oraz system handlu.
+Zbiór wirtualnych zasobów ([Przedmiotów], kluczy, wirtualnej waluty) przypisanych do danej [Postaci] w konkretnym [Wydarzeniu]. Stan [Ekwipunku] może ulegać zmianie poprzez [Akcje] w [Grze] oraz system handlu.
+
+---
+
+**Przedmiot**
+
+- Typ: pojęcie domenowe
+- Wersja: 1.0 (16.03.2026)
+- Odpowiedzialny: Zespół projektowy
+- Priorytet i trudność: Przydatne
+- Wydanie: 1.0
+
+Obiekt w świecie [Gry], który może być posiadany przez [Postać] w [Ekwipunku]. [Przedmiot] może umożliwiać wykonanie określonych [Akcji] lub wywoływać efekty w [Grze].
+
+---
+
+**Akcja**
+
+- Typ: pojęcie domenowe
+- Wersja: 1.0 (16.03.2026)
+- Odpowiedzialny: Zespół projektowy
+- Priorytet i trudność: Istotne
+- Wydanie: 1.0
+
+Działanie wykonywane przez system w wyniku [Interakcji] [Użytkownika], [Postaci] lub zdarzeń w świecie [Gry].
+
+---
+
+**Interakcja**
+
+- Typ: pojęcie domenowe
+- Wersja: 1.0 (08.04.2026)
+- Odpowiedzialny: Tomasz Rogalski
+- Priorytet i trudność: Istotne
+- Wydanie: 1.0
+
+[Akcja] zachodząca między [Graczem] a [Przedmiotem] (np. [Mini-grą]) lub innym [Graczem] (np. walka). [Interakcja] wymaga zeskanowania [Kodu QR] i wiąże się bezpośrednio z nałożeniem na [Gracza] ograniczeń czasowych (cooldown) uniemożliwiających natychmiastowe powtórzenie tej samej [Akcji] wobec tego samego [Przedmiotu] lub [Gracza].
+
+---
+
+**Mini-gra**
+
+- Typ: pojęcie domenowe
+- Wersja: 1.0 (16.03.2026)
+- Odpowiedzialny: Zespół projektowy
+- Priorytet i trudność: Przydatne
+- Wydanie: 1.0
+
+Dodatkowa aktywność dostępna w trakcie [Wydarzenia] umożliwiająca wykonanie krótkiej [Interakcji] lub zadania.
+
+---
+
+**Kod QR**
+
+- Typ: pojęcie techniczne
+- Wersja: 1.0 (16.03.2026)
+- Odpowiedzialny: Zespół projektowy
+- Priorytet i trudność: Przydatne
+- Wydanie: 1.0
+
+Kod graficzny wykorzystywany do identyfikacji elementów [Gry] oraz inicjowania [Interakcji] w aplikacji.
 
 ---
 
@@ -925,29 +1204,10 @@ Zbiór wirtualnych zasobów (przedmiotów questowych, kluczy, wirtualnej waluty)
 - Priorytet i trudność: Istotne
 - Wydanie: 1.0
 
-Bezpieczny transfer zasobów wirtualnych między dwoma graczami, autoryzowany za pomocą aplikacji mobilnej (np. poprzez skanowanie kodu QR). Wymaga obecności obu stron transakcji i zatwierdzenia jej w systemie.
+Bezpieczny transfer zasobów wirtualnych z [Ekwipunku] między dwoma [Graczami], autoryzowany za pomocą aplikacji mobilnej (np. poprzez skanowanie [Kodu QR]). Wymaga obecności obu stron [Transakcji wymiany] i zatwierdzenia jej w systemie.
 
 ---
 
-**Komunikat do recenzenta**
-- Typ: pojęcie domenowe
-- Wersja: 1.0 (29.04.2026)
-- Odpowiedzialny: Michał Marciniak
-- Wydanie: 1.0
-
-Treść tekstowa napisana przez twórcę gier do recenzenta, w celu wyeliminowania niejasności dotyczących mechanik gry lub odpowiedzi na pytanie.
-
----
-
-**Okno komunikacji twórcy gry z recenzentem**
-- Typ: pojęcie domenowe
-- Wersja: 1.0 (29.04.2026)
-- Odpowiedzialny: Michał Marciniak
-- Wydanie: 1.0
-
-Okno zawierające historię kontaktu z recenzentem wraz z funkcją wysłania komunikatów do recenzenta.
-
----
 
 # 4. Wymagania użytkownika
 
@@ -967,9 +1227,11 @@ UC2(("Rezerwacja czasu dla gry"))
 UC3(("Wyświetlenie listy zgłoszeń do gry"))
 UC4(("Akceptacja / odrzucenie zgłoszenia"))
 UC5(("Wysłanie zaproszenia na grę"))
+UC6(("Płatność"))
 
-UC1 -. include .-> UC2
-UC3 -. include .-> UC4
+UC1 -. invoke .-> UC2
+UC3 -. invoke .-> UC4
+UC2 -. invoke .-> UC6
 
 end
 
@@ -1030,7 +1292,7 @@ organizator --> UC5
 **Priorytet i trudność:** Istotne  
 **Wydanie:** 1.0
 
-**Opis:** Organizator przechodzi do zakładki "Przyjaciele" i wybiera użytkownika. Po naciśnięciu "Zaproś" system wyświetla listę aktualnych gier. Po wyborze gry zaproszenie zostaje wysłane użytkownikowi.
+**Opis:** Organizator przechodzi do zakładki "Przyjaciele" i wybiera użytkownika. Po naciśnięciu "Zaproś" system wyświetla listę aktualnych gier. Po wyborze gry zaproszenie zostaje wysłane użytkownikowi na skrzynkę wewnętrzną (w systemie).
 
 ---
 
@@ -1621,6 +1883,46 @@ GDF -. "&lt;&lt;invoke&gt;&gt;" .-> KED
 - Wydanie: 1.0
 - **Opis:** Twórca gry wprowadza treść [komunikatu do recenzenta] a następnie klika wyślij. System wyświetla informację o potwierdzeniu przesłania komunikatu i dodaje ją do [okna komunikacji twórcy gry z recenzentem].
 
+
+**PU52: Wyświetlenie listy gier**
+
+- Wersja: 1.0 (14.04.2026)
+- Odpowiedzialny: Maciej Bankiewicz
+- Priorytet i trudność: Istotne
+- Wydanie: 1.0
+- **Opis:** System wyświetla listę zawierającą wszystkie stworzone uprzednio [Gry].
+
+---
+
+**PU53: Wyświetlenie listy gier przez recenzenta**
+
+- Wersja: 1.0 (14.04.2026)
+- Odpowiedzialny: Maciej Bankiewicz
+- Priorytet i trudność: Istotne
+- Wydanie: 1.0
+- **Opis:** System wyświetla listę zawierającą wszystkie stworzone uprzednio [Gry] dodając do każdego rekordu opcję [Recenzji] [Gry].
+
+---
+
+**PU54: Recenzja gry**
+
+- Wersja: 1.0 (14.04.2026)
+- Odpowiedzialny: Maciej Bankiewicz
+- Priorytet i trudność: Istotne
+- Wydanie: 1.0
+- **Opis:** System wyświetla okno do zapisu tekstu. [Recenzent] zapisuje [Recenzję] i zatwierdza ją.
+
+---
+
+**Diagram:** Funkcje recenzenta
+
+```mermaid
+flowchart TB
+ A["Recenzent"] --> n1(["Wyświetlenie listy gier przez recenzenta"]) -->|generalization| n2(["Wyświetlenie listy gier"])
+ A -->|<<invoke>>| n3(["Recenzja gry"])
+```
+
+
 ### 4.1.11 Edycja scenariusza gry (projektant gier)
 
 DIAGRAM:
@@ -1635,7 +1937,7 @@ flowchart LR
     PU52 -->|"<<invoke>>"| PU53
 ```
 
-**PU52: Wyświetlenie scenariusza gry w edytorze**
+**PU55: Wyświetlenie scenariusza gry w edytorze**
 - Wersja: 1.0 (29.04.2026)
 - Odpowiedzialny: Igor Ochocki
 - Priorytet i trudność: Istotne
@@ -1643,7 +1945,7 @@ flowchart LR
 - Aktor główny: Projektant gier
 - **Opis:** Projektant wybiera istniejącą grę lub scenariusz i otwiera go w module edycji. System wczytuje zapis scenariusza z bazy i prezentuje widok edytora (struktura scenariusza, m.in. lista zadań i metadane - szczegóły UI w scenopisie). Ten przypadek **poprzedza** projektowanie nowych zadań (**PU53**): dodawanie zadania ma miejsce dopiero przy już wyświetlonym w edytorze scenariuszu.
 
-**PU53: Projektowanie zadań w scenariuszu gry**
+**PU56: Projektowanie zadań w scenariuszu gry**
 - Wersja: 1.0 (29.04.2026)
 - Odpowiedzialny: Igor Ochocki
 - Priorytet i trudność: Istotne (zgodnie z F28)
