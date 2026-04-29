@@ -205,19 +205,19 @@ F15: System powinien umożliwiać zapraszanie graczy do wydarzenia.
 | Priorytet: Istotne || Wydanie: 1.0 |
 | Organizator wydarzenia powinien mieć możliwość wyszukiwania użytkowników systemu oraz wysyłania im zaproszeń do udziału w konkretnym wydarzeniu. Zaproszeni użytkownicy powinni otrzymać powiadomienie w systemie oraz możliwość zaakceptowania lub odrzucenia zaproszenia. |
 
-F15: System powinien udostępniać panel zarządzania wydarzeniem dla organizatora.
+F16: System powinien udostępniać panel zarządzania wydarzeniem dla organizatora.
 | Typ: _funkcjonalne_ | Wersja: 1.0 (08.03.2026) | Odpowiedzialny: Maksym Andrushchenko |
 | :--- | :--- | :--- |
 | Priorytet: Istotne || Wydanie: 1.0 |
 | Organizator powinien mieć dostęp do panelu zarządzania wydarzeniem umożliwiającego przeglądanie listy uczestników, zarządzanie zapisami, wysyłanie komunikatów do graczy oraz kontrolowanie przebiegu wydarzenia w trakcie jego trwania. |
 
-F16: System powinien informować użytkowników o odwołaniu gry.
+F17: System powinien informować użytkowników o odwołaniu gry.
 | Typ: _funkcjonalne_ | Wersja: 1.0 (02.03.2026) | Odpowiedzialny: Filobok Hlib |
 | :--- | :--- | :--- |
 | Priorytet: Istotne || Wydanie: 1.0 |
 | W przypadku odwołania wydarzenia z przyczyn technicznych lub z powodu niewystarczającej liczby uczestników (nieosiągnięcia minimalnego limitu), system powinien wysłać powiadomienie w aplikacji (w zakładce „Wiadomości”) oraz kopię powiadomienia na adres e-mail użytkownika. |
 
-F17: System powinien umożliwiać zarządzanie kalendarzem wydarzeń.
+F18: System powinien umożliwiać zarządzanie kalendarzem wydarzeń.
 | Typ: _funkcjonalne_ | Wersja: 1.0 (08.03.2026) | Odpowiedzialny: Maksym Andrushchenko |
 | :--- | :--- | :--- |
 | Priorytet: Istotne || Wydanie: 1.0 |
@@ -225,19 +225,19 @@ F17: System powinien umożliwiać zarządzanie kalendarzem wydarzeń.
 
 #### Niski Priorytet
 
-F18: System powinien umożliwiać dodanie wydarzenia do osobistego kalendarza użytkownika.
+F19: System powinien umożliwiać dodanie wydarzenia do osobistego kalendarza użytkownika.
 | Typ: _funkcjonalne_ | Wersja: 1.0 (08.03.2026) | Odpowiedzialny: Maksym Andrushchenko |
 | :--- | :--- | :--- |
 | Priorytet: Przydatne || Wydanie: 1.0 |
 | Użytkownik powinien mieć możliwość dodania wybranego wydarzenia do swojego osobistego kalendarza w systemie lub eksportowania go do zewnętrznych aplikacji kalendarzowych. |
 
-F19: System powinien umożliwiać rekomendowanie wydarzeń użytkownikom.
+F20: System powinien umożliwiać rekomendowanie wydarzeń użytkownikom.
 | Typ: _funkcjonalne_ | Wersja: 1.0 (08.03.2026) | Odpowiedzialny: Maksym Andrushchenko |
 | :--- | :--- | :--- |
 | Priorytet: Przydatne || Wydanie: 1.0 |
 | System powinien analizować historię aktywności użytkownika oraz jego preferencje dotyczące typów wydarzeń LARP i na tej podstawie rekomendować wydarzenia, które mogą być dla niego interesujące. |
 
-F20: System powinien udostępniać podsumowanie wydarzenia po jego zakończeniu.
+F21: System powinien udostępniać podsumowanie wydarzenia po jego zakończeniu.
 | Typ: _funkcjonalne_ | Wersja: 1.0 (08.03.2026) | Odpowiedzialny: Maksym Andrushchenko |
 | :--- | :--- | :--- |
 | Priorytet: Przydatne || Wydanie: 1.0 |
@@ -247,31 +247,31 @@ F20: System powinien udostępniać podsumowanie wydarzenia po jego zakończeniu.
 
 #### Wysoki Priorytet
 
-F21: System powinien umożliwiać zgłoszenie problemu w trakcie rozgrywki.
+F22: System powinien umożliwiać zgłoszenie problemu w trakcie rozgrywki.
 | Typ: _funkcjonalne_ | Wersja: 1.0 (03.03.2026) | Odpowiedzialny: Cezary Rybiński |
 | :--- | :--- | :--- |
 | Priorytet: Kluczowe || Wydanie: 1.0 |
 | System powinien umożliwiać zgłoszenie problemu w trakcie rozgrywki poprzez wybranie opcji w menu i opisanie problemu. Zgłoszenie nie przerywa automatycznie rozgrywki a powiadamia jedynie organizatora o konieczności interwencji. |
 
-F22: System powinien umożliwiać definiowanie warunków zwycięstwa w scenariuszu gry.
+F23: System powinien umożliwiać definiowanie warunków zwycięstwa w scenariuszu gry.
 | Typ: _funkcjonalne_ | Wersja: 1.0 (08.03.2026) | Odpowiedzialny: Maksym Andrushchenko |
 | :--- | :--- | :--- |
 | Priorytet: Kluczowe || Wydanie: 1.0 |
 | Organizator wydarzenia powinien mieć możliwość określenia warunków zwycięstwa dla uczestników lub frakcji w scenariuszu gry. Warunki te mogą obejmować zdobycie określonej liczby punktów, wykonanie konkretnych zadań. |
 
-F23: System powinien umożliwiać definiowanie limitu czasu trwania gry.
+F24: System powinien umożliwiać definiowanie limitu czasu trwania gry.
 | Typ: _funkcjonalne_ | Wersja: 1.0 (08.03.2026) | Odpowiedzialny: Maksym Andrushchenko |
 | :--- | :--- | :--- |
 | Priorytet: Kluczowe || Wydanie: 1.0 |
 | Organizator wydarzenia powinien mieć możliwość określenia maksymalnego czasu trwania rozgrywki. Po upływie zdefiniowanego czasu system powinien automatycznie zakończyć wydarzenie oraz zapisać wyniki gry. |
 
-F24: System powinien umożliwiać zarządzanie punktacją graczy w trakcie gry.
+F25: System powinien umożliwiać zarządzanie punktacją graczy w trakcie gry.
 | Typ: _funkcjonalne_ | Wersja: 1.0 (08.03.2026) | Odpowiedzialny: Maksym Andrushchenko |
 | :--- | :--- | :--- |
 | Priorytet: Kluczowe || Wydanie: 1.0 |
 | System powinien automatycznie rejestrować zdobywane przez graczy punkty podczas wykonywania zadań lub interakcji z elementami gry. Punkty powinny być przypisywane do odpowiedniej postaci oraz zapisywane w historii rozgrywki. |
 
-F25: System powinien umożliwiać obsługę sytuacji awaryjnych w trakcie gry.
+F26: System powinien umożliwiać obsługę sytuacji awaryjnych w trakcie gry.
 | Typ: _funkcjonalne_ | Wersja: 1.0 (08.03.2026) | Odpowiedzialny: Maksym Andrushchenko |
 | :--- | :--- | :--- |
 | Priorytet: Kluczowe || Wydanie: 1.0 |
@@ -279,25 +279,25 @@ F25: System powinien umożliwiać obsługę sytuacji awaryjnych w trakcie gry.
 
 #### Średni Priorytet
 
-F26: System powinien umożliwiać definiowanie poziomu trudności scenariusza gry.
+F27: System powinien umożliwiać definiowanie poziomu trudności scenariusza gry.
 | Typ: _funkcjonalne_ | Wersja: 1.0 (08.03.2026) | Odpowiedzialny: Maksym Andrushchenko |
 | :--- | :--- | :--- |
 | Priorytet: Istotne || Wydanie: 1.0 |
 | Organizator wydarzenia powinien mieć możliwość określenia poziomu trudności scenariusza gry (np. łatwy, średni, trudny). Poziom trudności może wpływać na parametry rozgrywki takie jak liczba zadań, dostępność wskazówek lub liczba przeciwników. |
 
-F27: System powinien umożliwiać tworzenie frakcji graczy w wydarzeniu.
+F28: System powinien umożliwiać tworzenie frakcji graczy w wydarzeniu.
 | Typ: _funkcjonalne_ | Wersja: 1.0 (08.03.2026) | Odpowiedzialny: Maksym Andrushchenko |
 | :--- | :--- | :--- |
 | Priorytet: Istotne || Wydanie: 1.0 |
 | Organizator wydarzenia powinien mieć możliwość podziału uczestników na frakcje. System powinien umożliwiać przypisywanie graczy do frakcji oraz śledzenie postępów każdej z nich podczas rozgrywki. |
 
-F28: System powinien umożliwiać projektowanie zadań w scenariuszu gry.
+F29: System powinien umożliwiać projektowanie zadań w scenariuszu gry.
 | Typ: _funkcjonalne_ | Wersja: 1.0 (08.03.2026) | Odpowiedzialny: Maksym Andrushchenko |
 | :--- | :--- | :--- |
 | Priorytet: Istotne || Wydanie: 1.0 |
 | Organizator wydarzenia powinien mieć możliwość tworzenia zadań fabularnych dla graczy. Zadania mogą wymagać wykonania określonych akcji, odnalezienia przedmiotów lub rozwiązania zagadek. System powinien umożliwiać śledzenie postępów graczy w realizacji tych zadań. |
 
-F29: System powinien udostępniać interaktywną mapę terenu gry.
+F30: System powinien udostępniać interaktywną mapę terenu gry.
 | Typ: _funkcjonalne_ | Wersja: 1.0 (03.03.2026) | Odpowiedzialny: Kacper Koziara |
 | :--- | :--- | :--- |
 | Priorytet: Przydatne || Wydanie: 1.0 |
@@ -307,13 +307,13 @@ F29: System powinien udostępniać interaktywną mapę terenu gry.
 
 #### Wysoki Priorytet
 
-F30: System powinien umożliwiać interakcję z otoczeniem poprzez kody QR.
+F31: System powinien umożliwiać interakcję z otoczeniem poprzez kody QR.
 | Typ: _funkcjonalne_ | Wersja: 1.0 (02.03.2026) | Odpowiedzialny: Tomasz Rogalski |
 | :--- | :--- | :--- |
 | Priorytet: Istotne || Wydanie: 1.0 |
 | Zaimplementowanie w aplikacji mobilnej skanera kodów QR, który pozwoli graczom na wchodzenie w interakcję z fizycznymi elementami gry. Po zeskanowaniu kodu system powinien wyświetlić opis obiektu, dodać przedmiot do ekwipunku lub uruchomić przypisaną akcję fabularną. |
 
-F31: System powinien umożliwiać definiowanie logicznych powiązań między czujnikami a zdarzeniami w grze.
+F32: System powinien umożliwiać definiowanie logicznych powiązań między czujnikami a zdarzeniami w grze.
 | Typ: _funkcjonalne_ | Wersja: 1.0 (02.03.2026) | Odpowiedzialny: Igor Ochocki |
 | :--- | :--- | :--- |
 | Priorytet: Istotne || Wydanie: 1.0 |
@@ -321,13 +321,13 @@ F31: System powinien umożliwiać definiowanie logicznych powiązań między czu
 
 #### Średni Priorytet
 
-F32: System powinien umożliwiać odblokowywanie materiałów multimedialnych przez użytkowników.
+F33: System powinien umożliwiać odblokowywanie materiałów multimedialnych przez użytkowników.
 | Typ: _funkcjonalne_ | Wersja: 1.0 (03.03.2026) | Odpowiedzialny: Cezary Rybiński |
 | :--- | :--- | :--- |
 | Priorytet: Przydatne || Wydanie: 1.0 |
 | System powinien umożliwiać odblokowywanie materiałów multimedialnych (nagrania audio, tajne dokumenty PDF, fragmenty wideo) po wejściu w interakcję z obiektem w świecie gry. Materiały te są trwale zapisywane w "dzienniku" postaci, umożliwiając ich późniejszą analizę. |
 
-F33: System powinien umożliwiać wymianę wirtualnych zasobów pomiędzy graczami.
+F34: System powinien umożliwiać wymianę wirtualnych zasobów pomiędzy graczami.
 | Typ: _funkcjonalne_ | Wersja: 1.0 (03.03.2026) | Odpowiedzialny: Kacper Koziara |
 | :--- | :--- | :--- |
 | Priorytet: Istotne || Wydanie: 1.0 |
@@ -337,19 +337,19 @@ F33: System powinien umożliwiać wymianę wirtualnych zasobów pomiędzy gracza
 
 #### Wysoki Priorytet
 
-F34: System powinien umożliwiać obsługę płatności za wydarzenia poprzez integrację z systemem zewnętrznym.
+F35: System powinien umożliwiać obsługę płatności za wydarzenia poprzez integrację z systemem zewnętrznym.
 | Typ: Funkcjonalne | Wersja: 1.0 (2.03.2026) | Odpowiedzialny: Michał Marciniak |
 | :--- | :--- | :--- |
 | Priorytet: Kluczowe || Wydanie: 1.0|
 | Zapewnienie uczestnikom możliwości opłacenia udziału w wydarzeniu bezpośrednio po zatwierdzeniu ich zgłoszenia. System powinien integrować się z zewnętrznymi systemami płatności i automatycznie aktualizować status zapisu uczestnika po otrzymaniu potwierdzenia transakcji. ||
 
-F35: System powinien umożliwiać wstępną wycenę wydarzenia LARP.
+F36: System powinien umożliwiać wstępną wycenę wydarzenia LARP.
 | Typ: _funkcjonalne_ | Wersja: 1.0 (08.03.2026) | Odpowiedzialny: Maksym Andrushchenko |
 | :--- | :--- | :--- |
 | Priorytet: Kluczowe || Wydanie: 1.0 |
 | Podczas tworzenia wydarzenia system powinien umożliwiać organizatorowi oszacowanie kosztu organizacji wydarzenia na podstawie wybranych elementów takich jak liczba pomieszczeń, wykorzystane dekoracje, liczba uczestników oraz dodatkowe zasoby. System powinien wyświetlać przybliżony koszt organizacji wydarzenia. |
 
-F36: System powinien umożliwiać obsługę ostatecznej wyceny wydarzenia.
+F37: System powinien umożliwiać obsługę ostatecznej wyceny wydarzenia.
 | Typ: _funkcjonalne_ | Wersja: 1.0 (08.03.2026) | Odpowiedzialny: Maksym Andrushchenko |
 | :--- | :--- | :--- |
 | Priorytet: Kluczowe || Wydanie: 1.0 |
@@ -357,13 +357,13 @@ F36: System powinien umożliwiać obsługę ostatecznej wyceny wydarzenia.
 
 #### Średni Priorytet
 
-F37: System powinien umożliwiać zwrot zaliczki za wydarzenie.
+F38: System powinien umożliwiać zwrot zaliczki za wydarzenie.
 | Typ: _funkcjonalne_ | Wersja: 1.0 (08.03.2026) | Odpowiedzialny: Maksym Andrushchenko |
 | :--- | :--- | :--- |
 | Priorytet: Istotne || Wydanie: 1.0 |
 | W przypadku odwołania wydarzenia lub rezygnacji użytkownika w dopuszczalnym terminie system powinien umożliwiać automatyczny zwrot zaliczki poprzez zintegrowany system płatności. |
 
-F38: System powinien umożliwiać zarządzanie rabatami dla użytkowników.
+F39: System powinien umożliwiać zarządzanie rabatami dla użytkowników.
 | Typ: _funkcjonalne_ | Wersja: 1.0 (08.03.2026) | Odpowiedzialny: Maksym Andrushchenko |
 | :--- | :--- | :--- |
 | Priorytet: Istotne || Wydanie: 1.0 |
@@ -373,13 +373,13 @@ F38: System powinien umożliwiać zarządzanie rabatami dla użytkowników.
 
 #### Wysoki Priorytet
 
-F39: System powinien umożliwiać przywrócenie stanu gry po awarii.
+F40: System powinien umożliwiać przywrócenie stanu gry po awarii.
 | Typ: _funkcjonalne_ | Wersja: 1.0 (08.03.2026) | Odpowiedzialny: Maksym Andrushchenko |
 | :--- | :--- | :--- |
 | Priorytet: Kluczowe || Wydanie: 1.0 |
 | System powinien automatycznie zapisywać stan gry w regularnych odstępach czasu, aby umożliwić przywrócenie rozgrywki w przypadku awarii systemu lub utraty połączenia z serwerem. |
 
-F40: System powinien umożliwiać obsługę sytuacji awaryjnych w trakcie gry.
+F41: System powinien umożliwiać obsługę sytuacji awaryjnych w trakcie gry.
 | Typ: _funkcjonalne_ | Wersja: 1.0 (08.03.2026) | Odpowiedzialny: Maksym Andrushchenko |
 | :--- | :--- | :--- |
 | Priorytet: Kluczowe || Wydanie: 1.0 |
@@ -387,13 +387,13 @@ F40: System powinien umożliwiać obsługę sytuacji awaryjnych w trakcie gry.
 
 #### Średni Priorytet
 
-F41: System powinien umożliwiać proces akceptacji nowych scenariuszy wydarzeń.
+F42: System powinien umożliwiać proces akceptacji nowych scenariuszy wydarzeń.
 | Typ: _funkcjonalne_ | Wersja: 1.0 (08.03.2026) | Odpowiedzialny: TBD |
 | :--- | :--- | :--- |
 | Priorytet i trudność: Istotne || Wydanie: 1.0 |
 | Scenariusze wydarzeń zgłoszone przez użytkowników powinny przechodzić proces weryfikacji przez pracownika systemu przed ich publikacją. |
 
-F42: System powinien umożliwiać udostępnianie instrukcji do budowy wydarzenia.
+F43: System powinien umożliwiać udostępnianie instrukcji do budowy wydarzenia.
 | Typ: _funkcjonalne_ | Wersja: 1.0 (08.03.2026) | Odpowiedzialny: Maksym Andrushchenko |
 | :--- | :--- | :--- |
 | Priorytet: Przydatne || Wydanie: 1.0 |
@@ -401,7 +401,7 @@ F42: System powinien umożliwiać udostępnianie instrukcji do budowy wydarzenia
 
 #### Niski Priorytet
 
-F43: System powinien udostępniać publiczne API.
+F44: System powinien udostępniać publiczne API.
 | Typ: _funkcjonalne_ | Wersja: 1.0 (08.03.2026) | Odpowiedzialny: Maksym Andrushchenko |
 | :--- | :--- | :--- |
 | Priorytet: Przydatne || Wydanie: 1.0 |
@@ -411,13 +411,13 @@ F43: System powinien udostępniać publiczne API.
 
 #### Wysoki priorytet
 
-F44: System powinien umożliwiać wystawienie oceny wydarzeniu, w którym brał udział użytkownik.
+F45: System powinien umożliwiać wystawienie oceny wydarzeniu, w którym brał udział użytkownik.
 | Typ: _funkcjonalne_ | Wersja: 1.0 (28.02.2026) | Odpowiedzialny: Maciej Bankiewicz |
 | :--- | :--- | :--- |
 | Priorytet: Istotne || Wydanie: 1.0 |
 | Zaimplementowanie opcji umożliwiającej wystawienie oceny danemu wydarzeniu w skali od 1 do 5 gwiazdek. Ocenę można wystawić tylko wtedy, gdy użytkownik był zgłoszony na dane wydarzenie i zarejestrowano jego udział. |
 
-F45: System powinien umożliwiać wystawianie oceny użytkownikom
+F46: System powinien umożliwiać wystawianie oceny użytkownikom
 | Typ: _funkcjonalne_ | Wersja 1.0 (02.03.2025) | Odpowiedzialny: Łukasz Czajka |
 | :--- | :--- | :--- |
 | Priorytet i trudność: Istotne || Wydanie: 1.0 |
@@ -425,13 +425,13 @@ F45: System powinien umożliwiać wystawianie oceny użytkownikom
 
 #### Średni Priorytet
 
-F46: System powinien umożliwaić wyświetlanie oceny użytkownika
+F47: System powinien umożliwaić wyświetlanie oceny użytkownika
 | Typ: _funkcjonalne_ | Wersja 1.0 (02.03.2025) | Odpowiedzialny: Łukasz Czajka |
 | :--- | :--- | :--- |
 | Priorytet: Istotne || Wydanie: 1.0 |
 | System ma zapewniać organizatorom wyłączny dostęp do ocen użytkowników w celu sprawnej selekcji uczestników wydarzenia. Interfejs musi prezentować zarówno średnią, jak i szczegółową listę wszystkich wystawionych opinii wraz z ich treścią. W przypadku wykrycia podejrzanych wpisów mechanizm powinien umożliwiać nałożenie ostrzeżenia, obniżenie ich wpływu na wynik ogólny lub usunięcie. |
 
-F47: System powinien umożliwiać zgłaszanie nieprzyzwoitych zachowań użytkowników
+F48: System powinien umożliwiać zgłaszanie nieprzyzwoitych zachowań użytkowników
 | Typ: _funkcjonalne_ | Wersja 1.0 (02.03.2025) | Odpowiedzialny: Łukasz Czajka |
 | :--- | :--- | :--- |
 | Priorytet: Istotne || Wydanie: 1.0 |
@@ -441,19 +441,19 @@ W przypadku złamania reguły serwisu zgłaszający wybiera — użytkownika, wy
 
 #### Niski Priorytet
 
-F48: System powinien umożliwiać wystawienie oceny i opinii o wydarzeniu LARP.
+F49: System powinien umożliwiać wystawienie oceny i opinii o wydarzeniu LARP.
 | Typ: _funkcjonalne_ | Wersja: 1.0 (02.03.2026) | Odpowiedzialny: Filobok Hlib |
 | :--- | :--- | :--- |
 | Priorytet: Przydatne || Wydanie: 1.0 |
 | Po zakończeniu wydarzenia użytkownik powinien mieć możliwość wystawienia oceny (np. w skali 1–5 gwiazdek) oraz dodania krótkiej opinii tekstowej. |
 
-F49: System powinien umożliwiać wyświetlanie ocen i opinii wybranego wydarzenia LARP.
+F50: System powinien umożliwiać wyświetlanie ocen i opinii wybranego wydarzenia LARP.
 | Typ: _funkcjonalne_ | Wersja: 1.0 (02.03.2026) | Odpowiedzialny: Filobok Hlib |
 | :--- | :--- | :--- |
 | Priorytet: Przydatne || Wydanie: 1.0 |
 | Podczas wyszukiwania wydarzeń użytkownik powinien mieć możliwość zobaczenia średniej oceny danego wydarzenia (lub organizatora — na podstawie ocen z jego poprzednich wydarzeń) oraz zapoznania się z opiniami w opisie tego wydarzenia. |
 
-F50: System powinien umożliwiać przyznawanie odznak i osiągnięć graczom.
+F51: System powinien umożliwiać przyznawanie odznak i osiągnięć graczom.
 | Typ: _funkcjonalne_ | Wersja: 1.0 (08.03.2026) | Odpowiedzialny: Maksym Andrushchenko |
 | :--- | :--- | :--- |
 | Priorytet: Przydatne || Wydanie: 1.0 |
@@ -463,13 +463,13 @@ F50: System powinien umożliwiać przyznawanie odznak i osiągnięć graczom.
 
 #### Wysoki priorytet
 
-F51: System powinien umożliwiać tworzenie profili postaci.
+F52: System powinien umożliwiać tworzenie profili postaci.
 | Typ: _funkcjonalne_ | Wersja: 1.0 (01.03.2026) | Odpowiedzialny: Polina Nesterova |
 | :--- | :--- | :--- |
 | Priorytet: Kluczowe || Wydanie: 1.0 |
 | Zaimplementowanie funkcjonalności umożliwiającej użytkownikowi tworzenie nowych profili postaci do gry LARP. Użytkownik powinien móc zdefiniować podstawowe atrybuty postaci (imię, klasa/rasa np. elf, krasnolud, rycerz, poziom doświadczenia), dodać opis biografii oraz wybrać wygląd postaci. Każda utworzona postać jest automatycznie powiązana z kontem użytkownika, który ją stworzył. |
 
-F52: System powinien pozwalać użytkownikom na wybór postaci przed rozpoczęciem gry.
+F53: System powinien pozwalać użytkownikom na wybór postaci przed rozpoczęciem gry.
 | Typ: Funkcjonalne | Wersja: 1.0 (2.03.2026) | Odpowiedzialny: Michał Marciniak |
 | :--- | :--- | :--- |
 | Priorytet: Kluczowe || Wydanie: 1.0|
@@ -477,13 +477,13 @@ F52: System powinien pozwalać użytkownikom na wybór postaci przed rozpoczęci
 
 #### Średni priorytet
 
-F53: System powinien umożliwiać edycję i przeglądanie szczegółów postaci.
+F54: System powinien umożliwiać edycję i przeglądanie szczegółów postaci.
 | Typ: _funkcjonalne_ | Wersja: 1.0 (01.03.2026) | Odpowiedzialny: Polina Nesterova |
 | :--- | :--- | :--- |
 | Priorytet: Istotne || Wydanie: 1.0 |
 |Zaimplementowanie funkcjonalności pozwalającej użytkownikowi na edycję wszystkich danych istniejącej postaci (imię, biografia, atrybuty, ekwipunek) oraz przeglądanie jej szczegółowych statystyk. System powinien wyświetlać informacje o poziomie doświadczenia, posiadanych przedmiotach, osiągnięciach z poprzednich sesji oraz historię rozgrywek daną postacią. Edycja postaci powinna być możliwa tylko gdy postać nie bierze aktualnie udziału w trwającej sesji LARP. |
 
-F54: System powinien wspierać mechanizm priorytetyzacji wyboru ról.
+F55: System powinien wspierać mechanizm priorytetyzacji wyboru ról.
 | Typ: Funkcjonalne | Wersja: 1.0 (2.03.2026) | Odpowiedzialny: Michał Marciniak |
 | :--- | :--- | :--- |
 | Priorytet: Istotne || Wydanie: 1.0|
@@ -493,7 +493,7 @@ F54: System powinien wspierać mechanizm priorytetyzacji wyboru ról.
 
 #### Średni Priorytet
 
-F55: System powinien umożliwiać przesyłanie komunikatów do wybranych grup użytkowników.
+F56: System powinien umożliwiać przesyłanie komunikatów do wybranych grup użytkowników.
 | Typ: _funkcjonalne_ | Wersja: 1.0 (02.03.2026) | Odpowiedzialny: Igor Ochocki |
 | :--- | :--- | :--- |
 | Priorytet: Przydatne || Wydanie: 1.0 |
@@ -501,7 +501,7 @@ F55: System powinien umożliwiać przesyłanie komunikatów do wybranych grup u�
 
 #### Niski Priorytet
 
-F56: System powinien umożliwiać komunikację tekstową między graczami.
+F57: System powinien umożliwiać komunikację tekstową między graczami.
 | Typ: _funkcjonalne_ | Wersja: 1.0 (08.03.2026) | Odpowiedzialny: Maksym Andrushchenko |
 | :--- | :--- | :--- |
 | Priorytet: Przydatne || Wydanie: 1.0 |
@@ -511,19 +511,19 @@ F56: System powinien umożliwiać komunikację tekstową między graczami.
 
 #### Priorytet Średni
 
-F57: System powinien pozwalać na zgłaszanie własnych pomysłów na grę.
+F58: System powinien pozwalać na zgłaszanie własnych pomysłów na grę.
 | Typ: _funkcjonalne_ | Wersja: 1.0 (04.03.2026) | Odpowiedzialny: Julian Stefan |
 | :--- | :--- | :--- |
 | Priorytet: Przydatne || Wydanie: 1.0 |
 | Użytkownicy powinni mieć możliwość zgłaszania własnych pomysłów na gry publiczne i prywatne. Przed zatwierdzeniem gra musi zostać zweryfikowana przez pracownika pod względem wykonalności projektu oraz sensowności zgłoszenia.
 
-F58: System powinien udostępniać edytor komnat
+F59: System powinien udostępniać edytor komnat
 | Typ: _funkcjonalne_ | Wersja: 1.0 (04.03.2026) | Odpowiedzialny: Julian Stefan |
 | :--- | :--- | :--- |
 | Priorytet: Przydatne || Wydanie: 1.0 |
 | Stworzenie edytora pozwalającego użytkownikowi na samodzielne dostosowanie komnat do potrzeb gry stworzonej przez siebie. Lista dostępnego wyposażenia, z którym można tworzyć komnaty, musi pokrywać się z dostępnym stanem magazynowym.
 
-F59: System powinien dać możliwość zamówienia niestandardowych obiektów
+F60: System powinien dać możliwość zamówienia niestandardowych obiektów
 | Typ: _funkcjonalne_ | Wersja: 1.0 (04.03.2026) | Odpowiedzialny: Julian Stefan |
 | :--- | :--- | :--- |
 | Priorytet i trudność: Przydatne || Wydanie: 1.0 |
@@ -1060,46 +1060,46 @@ flowchart LR
     Czas --> u7
 ```
 
-**PU1001: Wyświetlenie listy  użytkowników ze zgłoszeniami**
+**PU6: Wyświetlenie listy uŻytkowników ze zgłoszeniami**
 - Wersja: 1.0 (14.04.2026)
 - Odpowiedzialna: Karolina Wiśniewska
 - Wydanie: 1.0
 - Opis: System wyświetla menu administratora. Administrator wybiera opcję wyświetlenia listy użytkowników, którzy zostali zgłoszeni za łamanie regulaminu/ zasad społeczności. system wyświetla listę
 
   
-**PU1002: Zablokowanie konta użytkownika na ograniczony czas**
+**PU7: Zablokowanie konta użytkownika na ograniczony czas**
 - Wersja: 1.0 (14.04.2026)
 - Odpowiedzialna: Karolina Wiśniewska
 - Wydanie: 1.0
-- Opis: Invoked by PU1001. Administrator wybiera wybrane konto uczestnika. System wyświetla zapytanie o blokowanie lub dezaktywację konta. Administrator wybiera opcję zablokowania konta na ustalony czas. System nadaje kontu status zablokowanego na określony czas.
+- Opis: Invoked by PU6. Administrator wybiera wybrane konto uczestnika. System wyświetla zapytanie o blokowanie lub dezaktywację konta. Administrator wybiera opcję zablokowania konta na ustalony czas. System nadaje kontu status zablokowanego na określony czas.
 
   
-**PU1003: Zablokowanie konta użytkownika na ograniczony czas**
+**PU8: Dezaktywacja konta użytkownika**
 - Wersja: 1.0 (14.04.2026)
 - Odpowiedzialna: Karolina Wiśniewska
 - Wydanie: 1.0
-- Opis: Invoked by PU1001. Administrator wybiera wybrane konto uczestnika. System wyświetla zapytanie o blokowanie lub dezaktywację konta. Administrator wybiera opcję dezaktywacji konta. System usuwa konto z listy kont aktywnych. System zmienia status konta na zdezaktywowane
+- Opis: Invoked by PU6. Administrator wybiera wybrane konto uczestnika. System wyświetla zapytanie o blokowanie lub dezaktywację konta. Administrator wybiera opcję dezaktywacji konta. System usuwa konto z listy kont aktywnych. System zmienia status konta na zdezaktywowane
 
   
-**PU1004: Odblokowanie konta po określonym czasie**
+**PU9: Odblokowanie konta po określonym czasie**
 - Wersja: 1.0 (14.04.2026)
 - Odpowiedzialna: Karolina Wiśniewska
 - Wydanie: 1.0
 - Opis: System odblokowuje konto po upływie określonego czasu.
 
-  **PU1005: Wyświetlenie listy błędów systemowych**
+  **PU10: Wyświetlenie listy błędów systemowych**
 
 - Wersja: 1.0 (14.04.2026)
 - Odpowiedzialna: Karolina Wiśniewska
 - Wydanie: 1.0
 - Opis: System wyświetla menu administratora. Administrator wybiera opcję wyświetlenia listy błędów systemowych. System wyświetla listę błędów.
 
-  **PU1006: Wyświetlenie pełnego logu błędu**
+  **PU11: Wyświetlenie pełnego logu błędu**
 
 - Wersja: 1.0 (14.04.2026)
 - Odpowiedzialna: Karolina Wiśniewska
 - Wydanie: 1.0
-- Opis: Invoked by PU1005. Administrator wybiera dowolny log błędu. System wyświetla szczegółowy zapis logu błędu systemowego
+- Opis: Invoked by PU10. Administrator wybiera dowolny log błędu. System wyświetla szczegółowy zapis logu błędu systemowego
 
 ---
 
@@ -1131,69 +1131,69 @@ flowchart LR
     u6 -.->|invoke| u9
 ```
 
-**PU1101: Rejestracja konta**
+**PU12: Rejestracja konta**
 - Wersja: 1.1 (16.04.2026)
 - Odpowiedzialna: Polina Nesterova
 - Wydanie: 1.0
-- Opis: System wyświetla formularz rejestracji. Użytkownik podaje [dane użytkownika]. System weryfikuje poprawność i unikalność podanych [danych użytkownika], zapisuje konto ze statusem „nieaktywne" i wysyła na wskazany kanał kontaktu wiadomość zawierającą link aktywacyjny. Rejestracja kończy się komunikatem o konieczności potwierdzenia konta przed pierwszym logowaniem — faktyczne potwierdzenie realizuje odrębny przypadek użycia PU1102 (Aktywacja konta przez link e-mail), wywoływany przez użytkownika po otrzymaniu wiadomości.
+- Opis: System wyświetla formularz rejestracji. Użytkownik podaje [dane użytkownika]. System weryfikuje poprawność i unikalność podanych [danych użytkownika], zapisuje konto ze statusem „nieaktywne" i wysyła na wskazany kanał kontaktu wiadomość zawierającą link aktywacyjny. Rejestracja kończy się komunikatem o konieczności potwierdzenia konta przed pierwszym logowaniem — faktyczne potwierdzenie realizuje odrębny przypadek użycia PU13 (Aktywacja konta przez link e-mail), wywoływany przez użytkownika po otrzymaniu wiadomości.
 
-**PU1102: Aktywacja konta przez link e-mail**
+**PU13: Aktywacja konta przez link e-mail**
 - Wersja: 1.1 (16.04.2026)
 - Odpowiedzialna: Polina Nesterova
 - Wydanie: 1.0
-- Opis: Przypadek użycia inicjowany przez użytkownika po otrzymaniu wiadomości z linkiem aktywacyjnym wysłanej w ramach PU1101 (Rejestracja konta). Użytkownik klika w link aktywacyjny. System weryfikuje poprawność i ważność linku, zmienia status konta na „aktywne" oraz umożliwia logowanie.
+- Opis: Przypadek użycia inicjowany przez użytkownika po otrzymaniu wiadomości z linkiem aktywacyjnym wysłanej w ramach PU12 (Rejestracja konta). Użytkownik klika w link aktywacyjny. System weryfikuje poprawność i ważność linku, zmienia status konta na „aktywne" oraz umożliwia logowanie.
 
-**PU1103: Logowanie**
+**PU14: Logowanie**
 
 - Wersja: 1.0 (15.04.2026)
 - Odpowiedzialna: Polina Nesterova
 - Wydanie: 1.0
 - Opis: System wyświetla ekran logowania. Użytkownik podaje adres e-mail oraz hasło. System weryfikuje dane uwierzytelniające oraz status konta (aktywne / nieaktywne / zablokowane). Po poprawnej autoryzacji system tworzy sesję użytkownika i przyznaje dostęp do funkcji systemu. Po przekroczeniu 5 nieudanych prób w ciągu 15 minut system tymczasowo blokuje konto.
 
-**PU1104: Reset hasła**
+**PU15: Reset hasła**
 
 - Wersja: 1.0 (15.04.2026)
 - Odpowiedzialna: Polina Nesterova
 - Wydanie: 1.0
 - Opis: Użytkownik wybiera opcję „Nie pamiętam hasła" i podaje adres e-mail. System wysyła na ten adres jednorazowy link do resetu hasła (ważny 1 godzinę). Użytkownik po kliknięciu w link ustala nowe hasło, a system aktualizuje dane konta i unieważnia dotychczasową sesję.
 
-**PU1105: Wylogowanie**
+**PU16: Wylogowanie**
 
 - Wersja: 1.0 (15.04.2026)
 - Odpowiedzialna: Polina Nesterova
 - Wydanie: 1.0
 - Opis: Zalogowany użytkownik wybiera opcję wylogowania. System kończy sesję użytkownika, unieważnia token sesji i przekierowuje na ekran logowania.
 
-**PU1106: Wyświetlenie historii wydarzeń**
+**PU17: Wyświetlenie historii wydarzeń**
 - Wersja: 1.1 (16.04.2026)
 - Odpowiedzialna: Polina Nesterova
 - Wydanie: 1.0
 - Opis: Zalogowany użytkownik wybiera zakładkę „Historia wydarzeń". System pobiera listę wydarzeń, w których użytkownik brał udział, i wyświetla ją w porządku chronologicznym wraz z podstawowymi informacjami (nazwa wydarzenia, data, lokalizacja, odgrywana postać, czas trwania, status). W ramach widoku użytkownik może zawęzić listę za pomocą filtrów (przedział czasowy, typ wydarzenia, status, lokalizacja) oraz zmienić porządek sortowania (data rosnąco/malejąco, nazwa wydarzenia) — system każdorazowo aktualizuje wyświetlaną listę zgodnie z wybranymi kryteriami.
 
-**PU1108: Wyświetlenie statystyk uczestnictwa**
+**PU18: Wyświetlenie statystyk uczestnictwa**
 
 - Wersja: 1.0 (15.04.2026)
 - Odpowiedzialna: Polina Nesterova
 - Wydanie: 1.0
-- Opis: Invoked by PU1106. System agreguje dane z historii użytkownika i prezentuje statystyki: liczbę ukończonych sesji, całkowity czas uczestnictwa, najczęściej grane typy postaci, ulubione scenariusze oraz ranking organizatorów.
+- Opis: Invoked by PU17. System agreguje dane z historii użytkownika i prezentuje statystyki: liczbę ukończonych sesji, całkowity czas uczestnictwa, najczęściej grane typy postaci, ulubione scenariusze oraz ranking organizatorów.
 
-**PU1109: Wyświetlenie szczegółów wydarzenia z historii**
+**PU19: Wyświetlenie szczegółów wydarzenia z historii**
 
 - Wersja: 1.0 (15.04.2026)
 - Odpowiedzialna: Polina Nesterova
 - Wydanie: 1.0
-- Opis: Invoked by PU1106. Użytkownik wybiera konkretne wydarzenie z listy. System wyświetla szczegółowy widok wydarzenia — pełny opis postaci, przebieg sesji, współuczestników oraz dodatkowe materiały powiązane z wydarzeniem.
+- Opis: Invoked by PU17. Użytkownik wybiera konkretne wydarzenie z listy. System wyświetla szczegółowy widok wydarzenia — pełny opis postaci, przebieg sesji, współuczestników oraz dodatkowe materiały powiązane z wydarzeniem.
 
 ### 4.1.4 Obsługa wydarzeń
 
-**PU401: Uruchomienie wydarzenia**
+**PU20: Uruchomienie wydarzenia**
 
 - Wersja: 1.0 (14.04.2026)
 - Odpowiedzialny: Julian Stefan
 - Wydanie: 1.0
 - **Opis:** Po osiągnięciu warunków rozpoczęcia wydarzenia, mistrz wydarzenia rozpoczyna wydarzenie.
 
-**PU402: Zakończenie wydarzenia**
+**PU21: Zakończenie wydarzenia**
 
 - Wersja: 1.0 (14.04.2026)
 - Odpowiedzialny: Julian Stefan
@@ -1219,7 +1219,7 @@ flowchart LR
     UC_QR -.->|«invoke»| UC_Fight
 ```
 
-**PU301: Skanowanie kodu QR**
+**PU22: Skanowanie kodu QR**
 
 - Wersja: 1.0 (14.04.2026)
 - Odpowiedzialny: Tomasz Rogalski
@@ -1227,7 +1227,7 @@ flowchart LR
 - Wydanie: 1.0
 - **Opis:** Gracz skanuje kod QR umieszczony na przedmiocie lub w otoczeniu gry, aby uruchomić mini-grę, albo skanuje kod QR innego gracza, aby zainicjować walkę.
 
-**PU302: Granie w mini-grę**
+**PU23: Granie w mini-grę**
 
 - Wersja: 1.0 (14.04.2026)
 - Odpowiedzialny: Tomasz Rogalski
@@ -1235,7 +1235,7 @@ flowchart LR
 - Wydanie: 1.0
 - **Opis:** System uruchamia mini-grę opartą na szablonie. Gracz musi ukończyć ją w wyznaczonym czasie.
 
-**PU303: Walczenie z innym graczem**
+**PU24: Walczenie z innym graczem**
 
 - Wersja: 1.0 (14.04.2026)
 - Odpowiedzialny: Tomasz Rogalski
@@ -1277,25 +1277,25 @@ pu_recenzja_gry -."&lt;&lt;invoke&gt;&gt;".-> pu_komunikat
 end
 ```
 
-**PU109: Wyświetlenie listy gier przez twórcę**
+**PU25: Wyświetlenie listy gier przez twórcę**
 
 - Wersja: 1.0 (15.04.2026)
 - Odpowiedzialny: Łukasz Czajka
 - **Opis:** Twórcy gier mają możliwość wyświetlania listy gier, których są twórcami. Wybranie pozycji z listy pozwala na czynności takie jak edycja.
 
-**PU110: Wyświetlenie listy gier przez organizatora**
+**PU26: Wyświetlenie listy gier przez organizatora**
 
 - Wersja: 1.0 (15.04.2026)
 - Odpowiedzialny: Łukasz Czajka
 - **Opis:** Organizatorzy mają możliwość wyświetlania gier, które mogą zostać zorganizowane.
 
-**PU111: Przesłanie komunikatu do twórcy**
+**PU27: Przesłanie komunikatu do twórcy**
 
 - Wersja: 1.0 (15.04.2026)
 - Odpowiedzialny: Łukasz Czajka
 - **Opis:** Recenzenci mają możliwość przesłania uwag dotyczących recenzowanej gry.
 
-**PU112: Wyświetlenie listy gier**
+**PU28: Wyświetlenie listy gier**
 
 - Wersja: 1.0 (14.04.2026)
 - Odpowiedzialny: Maciej Bankiewicz
@@ -1303,7 +1303,7 @@ end
 - Wydanie: 1.0
 - **Opis:** System wyświetla listę zawierającą wszystkie stworzone uprzednio [gry].
 
-**PU113: Wyświetlenie listy gier przez recenzenta**
+**PU29: Wyświetlenie listy gier przez recenzenta**
 
 - Wersja: 1.0 (14.04.2026)
 - Odpowiedzialny: Maciej Bankiewicz
@@ -1311,7 +1311,7 @@ end
 - Wydanie: 1.0
 - **Opis:** System wyświetla listę zawierającą wszystkie stworzone uprzednio [gry] dodając do każdego rekordu opcję recenzji [gry].
 
-**PU114: Recenzja gry**
+**PU30: Recenzja gry**
 
 - Wersja: 1.0 (14.04.2026)
 - Odpowiedzialny: Maciej Bankiewicz
@@ -1338,28 +1338,28 @@ flowchart LR
     Player --> u3
 ```
 
-**PU1201: Wysłanie skargi**
+**PU31: Wysłanie skargi**
 
 - Wersja: 1.0 (15.04.2026)
 - Odpowiedzialny: Cezary Rybiński
 - Wydanie: 1.0
 - Opis: Gracz inicjuje proces zgłoszenia poprzez menu aplikacji. System wymaga zdefiniowania kategorii problemu (błąd techniczny, zachowanie gracza, naruszenie bezpieczeństwa) oraz opisania go w dodatkowym polu.
 
-**PU1202: Wyjście z wydarzenia**
+**PU32: Wyjście z wydarzenia**
 
 - Wersja: 1.0 (15.04.2026)
 - Odpowiedzialny: Cezary Rybiński
 - Wydanie: 1.0
 - Opis: Gracz rezygnuje z dalszego udziału przed zakończeniem eventu. System weryfikuje posiadane przez gracza wirtualne przedmioty o znaczeniu krytycznym dla fabuły i przekazuje stosowny komunikat.
 
-**PU1203: Targowanie się**
+**PU33: Targowanie się**
 
 - Wersja: 1.0 (15.04.2026)
 - Odpowiedzialny: Cezary Rybiński
 - Wydanie: 1.0
-- Opis: Gracz inicjujący wybiera zasoby do przekazania. System generuje unikalny kod QR transakcji. Aby sfinalizować proces drugi gracz musi dołączyć do interakcji, co realizowane jest poprzez PU1019: Skanowanie kodu QR. Następnie muszą zaakceptować wymianę lub ją odrzucić (wystarczy aby jedna ze stron się nie zgodziła na wymianę aby nie doszła do skutku).
+- Opis: Gracz inicjujący wybiera zasoby do przekazania. System generuje unikalny kod QR transakcji. Aby sfinalizować proces drugi gracz musi dołączyć do interakcji, co realizowane jest poprzez PU38: Skanowanie kodu QR. Następnie muszą zaakceptować wymianę lub ją odrzucić (wystarczy aby jedna ze stron się nie zgodziła na wymianę aby nie doszła do skutku).
 
-**PU1204: Skanowanie kodu QR**
+**PU34: Skanowanie kodu QR**
 
 - Wersja: 1.0 (15.04.2026)
 - Odpowiedzialny: Cezary Rybiński
@@ -1388,33 +1388,33 @@ flowchart LR
     u3 -.->|invoke| u4
 ```
 
-**PU1016: Wyświetlenie interaktywnej mapy terenu**
+**PU35: Wyświetlenie interaktywnej mapy terenu**
 
 - Wersja: 1.0 (15.04.2026)
 - Odpowiedzialny: Kacper Koziara
 - Wydanie: 1.0
 - Opis: System wyświetla ekran z mapą układu pomieszczeń (komnat). Mapa dynamicznie dostosowuje się do uprawnień posiadanych przez postać, prezentując graczowi ogólny zarys terenu i szczegóły dostępnych dla niego lokacji.
 
-**PU1017: Odkrycie nowej strefy na mapie**
+**PU36: Odkrycie nowej strefy na mapie**
 
 - Wersja: 1.0 (15.04.2026)
 - Odpowiedzialny: Kacper Koziara
 - Wydanie: 1.0
-- Opis: Invoked by PU1016. Po uzyskaniu odpowiedniego uprawnienia (np. zdobycie fizycznego klucza, przedmiotu questowego lub zeskanowaniu kodu QR strefy), system odblokowuje przed graczem wcześniej niedostępną lub ukrytą część mapy.
+- Opis: Invoked by PU35. Po uzyskaniu odpowiedniego uprawnienia (np. zdobycie fizycznego klucza, przedmiotu questowego lub zeskanowaniu kodu QR strefy), system odblokowuje przed graczem wcześniej niedostępną lub ukrytą część mapy.
 
-**PU1018: Zainicjowanie wymiany zasobów**
+**PU37: Zainicjowanie wymiany zasobów**
 
 - Wersja: 1.0 (15.04.2026)
 - Odpowiedzialny: Kacper Koziara
 - Wydanie: 1.0
 - Opis: Gracz wybiera w module handlu przedmioty lub wirtualną walutę ze swojego ekwipunku, które chce przekazać innemu graczowi. System generuje na ekranie jego urządzenia unikalny, jednorazowy kod QR reprezentujący tę ofertę.
 
-**PU1019: Potwierdzenie transakcji wymiany (QR)**
+**PU38: Potwierdzenie transakcji wymiany (QR)**
 
 - Wersja: 1.0 (15.04.2026)
 - Odpowiedzialny: Kacper Koziara
 - Wydanie: 1.0
-- Opis: Invoked by PU1018. Drugi gracz przy użyciu swojej aplikacji skanuje kod QR z ekranu inicjatora. System wyświetla podsumowanie, a po obustronnej akceptacji aktualizuje stany ekwipunków obu postaci i zapisuje transakcję w logach.
+- Opis: Invoked by PU37. Drugi gracz przy użyciu swojej aplikacji skanuje kod QR z ekranu inicjatora. System wyświetla podsumowanie, a po obustronnej akceptacji aktualizuje stany ekwipunków obu postaci i zapisuje transakcję w logach.
 
 ---
 
@@ -1434,26 +1434,26 @@ flowchart TD
     A-.->|<< invoke >>|C
 ```
 
-**PU1016: Dodanie wydarzenia do kalendarza**
+**PU39: Dodanie wydarzenia do kalendarza**
 
 - Wersja: 1.0 (15.04.2026)
 - Odpowiedzialny: Olaf Smoleński
 - Wydanie: 1.0
 - Opis: Organizator dodaje wydarzenie do kalendarza. Przy dodawaniu musi podać najważniejsze informacje na temat wydarzenia - nazwę i ewentualny opis, datę i godzinę, miejsce, maksymalną liczbę graczy oraz wymagania dotyczące postaci. Po dodaniu wydarzenie jest widoczne w kalendarzu dla każdego użytkownika systemu.
 
-**PU1017: Zaproszenie graczy**
+**PU40: Zaproszenie graczy**
 
 - Wersja: 1.0 (15.04.2026)
 - Odpowiedzialny: Olaf Smoleński
 - Wydanie: 1.0
-- Opis: Invoked by PU1016. Organizator wysyła graczom zaproszenia na wydarzenie. Organizator może wybrać graczy, którym wyśle zaproszenie, klikając przycisk _Zaproś graczy_ w menu wydarzenia. Po jego kliknięciu pokazuje się lista zarejestrowanych graczy, spośród których organizator wybiera poszczególne osoby i klika przycisk _Wyślij zaproszenie_. Zaproszony gracz otrzymuje powiadomienie o zaproszeniu na wydarzenie.
+- Opis: Invoked by PU39. Organizator wysyła graczom zaproszenia na wydarzenie. Organizator może wybrać graczy, którym wyśle zaproszenie, klikając przycisk _Zaproś graczy_ w menu wydarzenia. Po jego kliknięciu pokazuje się lista zarejestrowanych graczy, spośród których organizator wybiera poszczególne osoby i klika przycisk _Wyślij zaproszenie_. Zaproszony gracz otrzymuje powiadomienie o zaproszeniu na wydarzenie.
 
-**PU1018: Udostępnienie wydarzenia graczom**
+**PU41: Udostępnienie wydarzenia graczom**
 
 - Wersja: 1.0 (15.04.2026)
 - Odpowiedzialny: Olaf Smoleński
 - Wydanie: 1.0
-- Opis: Invoked by PU1016. Organizator, klikając przycisk _Udostępnij dla graczy_ w menu wydarzenia, otwiera graczom możliwość zapisania się na dane wydarzenie. Gracz będzie mógł dokonać zapisu, jeżeli są jeszcze wolne miejsca na wydarzenie.
+- Opis: Invoked by PU39. Organizator, klikając przycisk _Udostępnij dla graczy_ w menu wydarzenia, otwiera graczom możliwość zapisania się na dane wydarzenie. Gracz będzie mógł dokonać zapisu, jeżeli są jeszcze wolne miejsca na wydarzenie.
 
 ---
 
@@ -1480,7 +1480,7 @@ SIL -..->|&lt;&lt;invoke&gt;&gt;| AI
 
 ```
 
-**PU301: Wyświetlenie listy wydarzeń**
+**PU42: Wyświetlenie listy wydarzeń**
 
 - Wersja: 1.0 (14.04.2026)
 - Odpowiedzialny: Michał Marciniak
@@ -1488,7 +1488,7 @@ SIL -..->|&lt;&lt;invoke&gt;&gt;| AI
 - Wydanie: 1.0
 - **Opis:** System wyświetla listę wydarzeń. Gracz określa filtry wydarzeń. System wyświetla wydarzenia spełniające dane kryteria.
 
-**PU302: Wyświetlenie listy zaproszeń**
+**PU43: Wyświetlenie listy zaproszeń**
 
 - Wersja: 1.0 (14.04.2026)
 - Odpowiedzialny: Michał Marciniak
@@ -1496,7 +1496,7 @@ SIL -..->|&lt;&lt;invoke&gt;&gt;| AI
 - Wydanie: 1.0
 - **Opis:** System wyświetla listę otrzymanych zaproszeń gracza na wydarzenie, które nie zostały jeszcze rozpatrzone.
 
-**PU303: Akceptacja zaproszenia**
+**PU44: Akceptacja zaproszenia**
 
 - Wersja: 1.0 (14.04.2026)
 - Odpowiedzialny: Michał Marciniak
@@ -1504,7 +1504,7 @@ SIL -..->|&lt;&lt;invoke&gt;&gt;| AI
 - Wydanie: 1.0
 - **Opis:** Gracz wybiera zaproszenie do akceptacji. System sprawdza dostępność miejsc. W przypadku wolnych miejsc, system dodaje gracza do listy zarejestrowanych i usuwa zaproszenie z listy. W przeciwnym razie, system informuje o braku miejsc.
 
-**PU304: Wyświetlenie listy zarejestrowanych wydarzeń**
+**PU45: Wyświetlenie listy zarejestrowanych wydarzeń**
 
 - Wersja: 1.0 (14.04.2026)
 - Odpowiedzialny: Michał Marciniak
@@ -1512,7 +1512,7 @@ SIL -..->|&lt;&lt;invoke&gt;&gt;| AI
 - Wydanie: 1.0
 - **Opis:** Gracz wybiera wgląd w swoje rejestracje. System wyświetla wydarzenia, na które gracz jest zarejestrowany.
 
-**PU305: Dołączenie do wydarzenia**
+**PU46: Dołączenie do wydarzenia**
 
 - Wersja: 1.0 (14.04.2026)
 - Odpowiedzialny: Michał Marciniak
@@ -1537,7 +1537,7 @@ o --> uco
 uco --generalization--> uc
 ```
 
-**PU991: Wyświetlenie kalendarza przez organizatora**
+**PU47: Wyświetlenie kalendarza przez organizatora**
 
 - Wersja: 1.0(14.04.2026)
 - Odpowiedzialna: Alicja Rosiak
@@ -1562,7 +1562,7 @@ g --> ucg
 ucg --generalization--> uc
 ```
 
-**PU981: Wyświetlenie kalendarza przez gracza**
+**PU48: Wyświetlenie kalendarza przez gracza**
 
 - Wersja: 1.0(14.04.2026)
 - Odpowiedzialna: Alicja Rosiak
@@ -1597,7 +1597,7 @@ GDF -. "&lt;&lt;invoke&gt;&gt;" .-> SCR
 GDF -. "&lt;&lt;invoke&gt;&gt;" .-> KED 
 ```
 
-**PU201: Zdefiniowanie gry**
+**PU49: Zdefiniowanie gry**
 
 - Wersja: 1.0 (08.04.2026)
 - Odpowiedzialny: Igor Ochocki
@@ -1605,7 +1605,7 @@ GDF -. "&lt;&lt;invoke&gt;&gt;" .-> KED
 - Wydanie: 1.0
 - **Opis:** System wyświetla formularz [opisu ogólnego gry]. Twórca gry wprowadza [dane opisu ogólnego gry] do formularza. Twórca gry może dodać [pozostałe elementy gry]. Twórca gry wciska przycisk zapisz. System zamyka formularz [opisu ogólnego gry] i wyświetla informację o poprawnym zapisie.
 
-**PU202: Zdefiniowanie akcji**
+**PU50: Zdefiniowanie akcji**
 
 - Wersja: 1.0 (08.04.2026)
 - Odpowiedzialny: Igor Ochocki
@@ -1613,7 +1613,7 @@ GDF -. "&lt;&lt;invoke&gt;&gt;" .-> KED
 - Wydanie: 1.0
 - **Opis:** System wyświetla formularz [definicji akcji]. Twórca gry wybiera [typ akcji], a następnie uzupełnia [skutki akcji]. Na koniec twórca gry wciska przycisk `zapisz i zamknij`. System zamyka formularz [definicji akcji].
 
-**PU203: Przesłanie komunikatu do recenzenta**
+**PU51: Przesłanie komunikatu do recenzenta**
 
 - Wersja: 1.0 (08.04.2026)
 - Odpowiedzialny: Igor Ochocki
@@ -1626,24 +1626,24 @@ GDF -. "&lt;&lt;invoke&gt;&gt;" .-> KED
 DIAGRAM:
 ```mermaid
 flowchart LR
-    PU201(("PU201:Zdefiniowanie gry"))
+    PU49(("PU49:Zdefiniowanie gry"))
     PG([Projektant gier])
-    PU205(("PU205: Wyświetlenie scenariusza\ngry w edytorze"))
-    PU204(("PU204: Projektowanie zadań w scenariuszu gry"))
-    PU201 -.->|"<<invoke>>"| PU205
-    PG --> PU205
-    PU205 -->|"<<invoke>>"| PU204
+    PU52(("PU52: Wyświetlenie scenariusza\ngry w edytorze"))
+    PU53(("PU53: Projektowanie zadań w scenariuszu gry"))
+    PU49 -.->|"<<invoke>>"| PU52
+    PG --> PU52
+    PU52 -->|"<<invoke>>"| PU53
 ```
 
-**PU205: Wyświetlenie scenariusza gry w edytorze**
+**PU52: Wyświetlenie scenariusza gry w edytorze**
 - Wersja: 1.0 (29.04.2026)
 - Odpowiedzialny: Igor Ochocki
 - Priorytet i trudność: Istotne
 - Wydanie: 1.0
 - Aktor główny: Projektant gier
-- **Opis:** Projektant wybiera istniejącą grę lub scenariusz i otwiera go w module edycji. System wczytuje zapis scenariusza z bazy i prezentuje widok edytora (struktura scenariusza, m.in. lista zadań i metadane - szczegóły UI w scenopisie). Ten przypadek **poprzedza** projektowanie nowych zadań (**PU204**): dodawanie zadania ma miejsce dopiero przy już wyświetlonym w edytorze scenariuszu.
+- **Opis:** Projektant wybiera istniejącą grę lub scenariusz i otwiera go w module edycji. System wczytuje zapis scenariusza z bazy i prezentuje widok edytora (struktura scenariusza, m.in. lista zadań i metadane - szczegóły UI w scenopisie). Ten przypadek **poprzedza** projektowanie nowych zadań (**PU53**): dodawanie zadania ma miejsce dopiero przy już wyświetlonym w edytorze scenariuszu.
 
-**PU204: Projektowanie zadań w scenariuszu gry**
+**PU53: Projektowanie zadań w scenariuszu gry**
 - Wersja: 1.0 (29.04.2026)
 - Odpowiedzialny: Igor Ochocki
 - Priorytet i trudność: Istotne (zgodnie z F28)
@@ -1658,7 +1658,7 @@ Powiązanie z wymaganiami funkcjonalnymi: **F28**.
 # 5. Scenariusze i scenopisy
 
 
-## 5.4 PU1009: Logowanie
+## 5.2 PU14: Logowanie
 
 - Wersja: 1.0 (15.04.2026)
 - Odpowiedzialna: Polina Nesterova
@@ -1715,11 +1715,11 @@ Powiązanie z wymaganiami funkcjonalnymi: **F28**.
 
 3a. Użytkownik wybiera opcję „Nie pamiętam hasła" zamiast potwierdzania logowania.
 
-1. System przekierowuje do przypadku użycia PU1010 (Reset hasła).
+1. System przekierowuje do przypadku użycia PU15 (Reset hasła).
 
 ---
 
-## 5.5 PU1018/PU1019: Dokonanie wymiany zasobów między graczami
+## 5.4 PU37/PU38: Dokonanie wymiany zasobów między graczami
 
 - Wersja: 1.0 (15.04.2026)
 - Odpowiedzialny: Kacper Koziara
@@ -1760,7 +1760,7 @@ Powiązanie z wymaganiami funkcjonalnymi: **F28**.
 
 ---
 
-## 5.5 PU2: Rezerwacja czasu dla gry
+## 5.1 PU2: Rezerwacja czasu dla gry
 
 - Wersja: 1.0 (15.04.2026)
 - Odpowiedzialna: FilobokHlib i Maksym Andrushchenko
@@ -1855,7 +1855,7 @@ Scenariusz alternatywny H: Wybrany termin stanie się niedostępny
 3. System oferuje organizatorowi powrót do kalendarza w celu wybrania innych dostępnych terminów.
 4. Scenariusz wraca do kroku 9 scenariusza głównego.
 
-#5.9 UC202: Zdefiniowanie akcji
+## 5.8 UC202: Zdefiniowanie akcji
 - Wersja 1.0
 - Odpowiedzialna: Karolina Wiśniewska
 - Aktor Główny: Twórca Gry
@@ -1882,7 +1882,7 @@ Scenariusz Alternatywny B:
 8. Scenariusz wraca do kroku 3 scenariusza głównego
 ---
 
-## 5.5.1 PU205: Wyświetlenie scenariusza gry w edytorze
+## 5.6 PU52: Wyświetlenie scenariusza gry w edytorze
 
 - Wersja: 1.0 (29.04.2026)
 - Odpowiedzialny: Igor Ochocki
@@ -1902,14 +1902,14 @@ Scenariusz Alternatywny B:
 
 ---
 
-## 5.6 PU204: Projektowanie zadań w scenariuszu gry
+## 5.7 PU53: Projektowanie zadań w scenariuszu gry
 
 - Wersja: 1.0 (29.04.2026)
 - Odpowiedzialny: Igor Ochocki
 - Wydanie: 1.0
 - Aktor główny: Projektant gier
-- **Związek z PU205:** Przypadek **PU204** realizuje się **po** otwarciu scenariusza w edytorze (**PU205**). Punkt wyjścia stanowi krok 3 scenariusza PU205 (widok edytora aktywny).
-- Warunek początkowy: Projektant jest zalogowany; w edytorze wyświetlony jest scenariusz gry zgodnie z **PU205** (struktura scenariusza widoczna w module edycji).
+- **Związek z PU52:** Przypadek **PU53** realizuje się **po** otwarciu scenariusza w edytorze (**PU52**). Punkt wyjścia stanowi krok 3 scenariusza PU52 (widok edytora aktywny).
+- Warunek początkowy: Projektant jest zalogowany; w edytorze wyświetlony jest scenariusz gry zgodnie z **PU52** (struktura scenariusza widoczna w module edycji).
 
 **Scenariusz główny (sukces)**
 
@@ -1974,7 +1974,7 @@ Scenariusz Alternatywny B:
 **Warunek końcowy:** Struktura scenariusza gry nie uległa zmianie.
 
 ---
-## 5.8 PU203: Przesłanie komunikatu do recenzenta
+## 5.5 PU51: Przesłanie komunikatu do recenzenta
 - Wersja 1.0 (29.04.2026)
 - Odpowiedzialny: Michał Marciniak
 - Wydanie: 1.0
@@ -2013,7 +2013,7 @@ Powrót do kroku 3. w scenariuszu głównym
 
 ---
 
-## 5.8 PU112: Wyświetlenie listy gier
+## 5.3 PU28: Wyświetlenie listy gier
 
 - Wersja: 1.0 (29.04.2026)
 - Odpowiedzialny: Kacper Koziara
@@ -2065,6 +2065,6 @@ Powrót do kroku 3. w scenariuszu głównym
 2. Aplikacja przechwytuje kod błędu autoryzacji (HTTP 401).
 3. System lokalnie zapisuje stan wyszukiwania (tzw. stan URL z filtrami) w Storage (local/session).
 4. System przekierowuje Użytkownika dyskretnie do widoku logowania z komunikatem: „Twoja sesja przedawniła się dla względów bezpieczeństwa. Zaloguj się, aby kontynuować.”
-5. (Po pomyślnym zalogowaniu poprzez PU1103) System używa zapisanych lokalnie parametrów, automatycznie odświeżając i odtwarzając użytkownikowi widok listy gier z wybranymi opcjami paginacji i filtroania z dokładnego punktu w którym przestał działać.
+5. (Po pomyślnym zalogowaniu poprzez PU14) System używa zapisanych lokalnie parametrów, automatycznie odświeżając i odtwarzając użytkownikowi widok listy gier z wybranymi opcjami paginacji i filtroania z dokładnego punktu w którym przestał działać.
 
 ---
