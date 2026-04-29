@@ -578,8 +578,46 @@ J07: Interfejs aplikacji powinien posiadać tryb 'Dark-Mode'.
 | Interfejs aplikacji mobilnej musi być dostosowany do pracy w warunkach niskiego oświetlenia. |
 
 ## 3.5 Słownik
+**Diagram słownika:**
+```mermaid
+classDiagram
+    class Recenzent
+    class Administrator
+    class Sesja
+    class Gra
+    class Wydarzenie
+    class BazaRecenzji["Baza recenzji"]
+    class Recenzja
+    class TworcaGier["Twórca gier"]
+    class Kalendarz["Kalendarz wydarzeń"]
 
-**Diagram:** Słownik
+    class Czujnik
+    class Mapa
+    class Akcja
+    class Komnata
+    class KodQR["Kod QR"]
+
+    class BlokadaKonta["Blokada konta"]
+
+    TworcaGier <-- Gra
+    Gra <-- Wydarzenie
+
+    BazaRecenzji *-- Recenzja
+    Recenzent <-- Recenzja
+    Gra <-- Recenzja
+
+    Gra *-- Mapa
+    Mapa o-- Czujnik
+    Akcja <-- KodQR
+    Mapa *-- Komnata
+    Akcja <-- Czujnik
+    
+
+    Kalendarz o-- Wydarzenie
+
+    BlokadaKonta <-- Administrator
+
+```
 
 ---
 
@@ -762,6 +800,20 @@ Osoba prowadząca wydarzenie i kontrolująca jego przebieg w trakcie rozgrywki.
 Użytkownik odpowiedzialny za ocenę i weryfikację zgłoszonych gier.
 
 ---
+
+**Recenzja**
+
+- Typ: pojęcie systemowe
+- Wersja: 1.0 (29.04.2026)
+- Odpowiedzialny: Julian Stefan
+- Priorytet i trudność: Przydatne
+- Wydanie: 1.0
+
+Ocena i opinia o złgoszonej grze. Wymagana do uruchamiania gier zgłoszonych przez
+zewnętrznego twórcę gier.
+
+---
+
 
 **Administrator**
 
