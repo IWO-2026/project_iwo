@@ -579,19 +579,16 @@ J07: Interfejs aplikacji powinien posiadać tryb 'Dark-Mode'.
 | Interfejs aplikacji mobilnej musi być dostosowany do pracy w warunkach niskiego oświetlenia. |
 
 ## 3.5 Słownik
-
+**Diagram słownika:**
 ```mermaid
-title: Diagram słownika
----
-
 classDiagram
     class Recenzent
     class Administrator
     class Sesja
     class Gra
     class Wydarzenie
-    class Recenzja
     class BazaRecenzji["Baza recenzji"]
+    class Recenzja
     class TworcaGier["Twórca gier"]
     class Kalendarz["Kalendarz wydarzeń"]
 
@@ -603,6 +600,7 @@ classDiagram
 
     class BlokadaKonta["Blokada konta"]
 
+    TworcaGier <-- Gra
     Gra <-- Wydarzenie
 
     BazaRecenzji *-- Recenzja
@@ -611,9 +609,10 @@ classDiagram
 
     Gra *-- Mapa
     Mapa o-- Czujnik
+    Akcja <-- KodQR
     Mapa *-- Komnata
     Akcja <-- Czujnik
-    Akcja <-- KodQR
+    
 
     Kalendarz o-- Wydarzenie
 
