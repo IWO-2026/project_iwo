@@ -847,6 +847,20 @@ Tyko użytkownik, do którego dana wiadomość została wysłana jest w stanie j
 
 ---
 
+**Komunikat do recenzenta**
+- Typ: pojęcie domenowe
+- Wersja: 1.0 (29.04.2026)
+- Odpowiedzialny: Michał Marciniak
+- Wydanie: 1.0
+Treść tekstowa napisana przez twórcę gier do recenzenta, w celu wyeliminowania niejasności dotyczących mechanik gry lub odpowiedzi na pytanie.
+
+**Okno komunikacji twórcy gry z recenzentem**
+- Typ: pojęcie domenowe
+- Wersja: 1.0 (29.04.2026)
+- Odpowiedzialny: Michał Marciniak
+- Wydanie: 1.0
+Okno zawierające historię kontaktu z recenzentem wraz z funkcją wysłania komunikatów do recenzenta.
+
 # 4. Wymagania użytkownika
 
 - Typ: pojęcie systemowe
