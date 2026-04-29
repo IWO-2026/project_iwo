@@ -1812,49 +1812,24 @@ Scenariusz alternatywny H: Wybrany termin stanie się niedostępny
 
 ---
 
-## 5.7 PU204: Edycja komnaty
-- Wersja: 1.0 (22.04.2026)
-- Odpowiedzialny: Maciej Bankiewicz
+## 5.x PU1: Wyświetlenie kalendarza
+
+- Wersja: 1.0 (29.04.2026)
+- Odpowiedzialny: Olaf Smoleński
 - Wydanie: 1.0
-- Aktor główny: Twórca gier
-- Warunek początkowy: Twórca gry jest zalogowany i jest w oknie definicji gry. 
+- Aktor główny: Użytkownik
+- Warunek początkowy: Użytkownik jest zalogowany na swoje konto w serwisie i jego konto nie jest objęte blokadą.
+- Warunek końcowy (sukces): Strona z kalendarzem wydarzeń została wyświetlona przez system.
 
-**Scenariusz główny**
+Scenariusz główny
 
-1. Twórca gry wybiera opcję edycji komnaty.
-2. System pobiera dane komnaty.
-[dane pobrane pomyślnie]
-3. System wyświetla formularz edycji komnaty.
-4. Twórca gry dokonuje edycji danych komnaty.
-5. Twórca gry wybiera opcję „Zapisz zmiany”.
-6. System sprawdza poprawność danych.
-[dane poprawne]  
-7. System zapisuje zmiany.
-[dane zapisane pomyślnie]
-8. System wyświetla potwierdzenie zapisania zmian.
+1. Użytkownik wybiera opcję *Kalendarz* w głównym menu aplikacji.
+2. System wyświetla użytkownikowi stronę z kalendarzem wydarzeń.
 
-**Scenariusz alternatywny A: Błąd pobierania danych komnaty**
+Scenariusz alternatywny: Sesja użytkownika wygasła przed kliknięciem opcji *Kalendarz*
 
-1-2. Jak w scenriuszu głównym.
-[błąd pobierania danych]
-3. System wyświetla komunikat o błędzie pobierania danych komnaty.
-4. Twórca gry wybiera "Ok".
-5. Dane pozostają bez zmian.
-
-**Scenariusz alternatywny B: Wprowadzone dane są niepoprawne**
-
-1-6. Jak w scenariuszu głównym.  
-[dane niepoprawne]  
-7a. System wyświetla komunikat o braku przedmiotu w magazynie.  
-8a. Twórca gry wybiera „Ok”.  
-Powrót do kroku 3. w scenariuszu głównym.
-
-**Scenariusz alternatywny C: Błąd zapisu zmian**
-
-1-7. Jak w scenariuszu głównym.  
-[błąd zapisu / problem z połączeniem]  
-8c. System wyświetla komunikat o błędzie zapisu zmian.  
-9c. Twórca gry wybiera „Ok”.  
-10c. Zmiany w komnacie nie zostają zapisane, dane pozostają bez zmian.
+2a. System wylogowuje użytkownika.
+1. System wyświetla komunikat "Sesja wygasła. Zaloguj się ponownie" oraz okno logowania.
+2. Strona z kalendarzem nie zostaje wyświetlona.
 
 ---
