@@ -1823,20 +1823,28 @@ Scenariusz alternatywny H: Wybrany termin stanie się niedostępny
 
 1. Twórca gry wybiera opcję edycji komnaty.
 2. System pobiera dane komnaty.
+
 [dane pobrane pomyślnie]
+
 3. System wyświetla formularz edycji komnaty.
 4. Twórca gry dokonuje edycji danych komnaty.
 5. Twórca gry wybiera opcję „Zapisz zmiany”.
 6. System sprawdza poprawność danych.
+
 [dane poprawne]  
+
 7. System zapisuje zmiany.
+
 [dane zapisane pomyślnie]
+
 8. System wyświetla potwierdzenie zapisania zmian.
 
 **Scenariusz alternatywny A: Błąd pobierania danych komnaty**
 
 1-2. Jak w scenriuszu głównym.
+
 [błąd pobierania danych]
+
 3. System wyświetla komunikat o błędzie pobierania danych komnaty.
 4. Twórca gry wybiera "Ok".
 5. Dane pozostają bez zmian.
@@ -1844,7 +1852,9 @@ Scenariusz alternatywny H: Wybrany termin stanie się niedostępny
 **Scenariusz alternatywny B: Wprowadzone dane są niepoprawne**
 
 1-6. Jak w scenariuszu głównym.  
+
 [dane niepoprawne]  
+
 7a. System wyświetla komunikat o braku przedmiotu w magazynie.  
 8a. Twórca gry wybiera „Ok”.  
 Powrót do kroku 3. w scenariuszu głównym.
@@ -1852,7 +1862,9 @@ Powrót do kroku 3. w scenariuszu głównym.
 **Scenariusz alternatywny C: Błąd zapisu zmian**
 
 1-7. Jak w scenariuszu głównym.  
+
 [błąd zapisu / problem z połączeniem]  
+
 8c. System wyświetla komunikat o błędzie zapisu zmian.  
 9c. Twórca gry wybiera „Ok”.  
 10c. Zmiany w komnacie nie zostają zapisane, dane pozostają bez zmian.
