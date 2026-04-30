@@ -2396,3 +2396,72 @@ Powrót do kroku 3. w scenariuszu głównym
 5. (Po pomyślnym zalogowaniu poprzez PU14) System używa zapisanych lokalnie parametrów, automatycznie odświeżając i odtwarzając użytkownikowi widok listy gier z wybranymi opcjami paginacji i filtroania z dokładnego punktu w którym przestał działać.
 
 ---
+
+5.9 PU54: Zdefiniowanie mapy gry
+- Wersja: 1.0 (30.04.2026)
+- Odpowiedzialny: Łukasz Czajka
+- Wydanie: 1.0
+- Aktor główny: Twórca gry
+- Warunek początkowy: Twórca gry jest zalogowany w systemie, posiada uprawnienia do edycji tworzonej gry oraz znajduje się w edytorze gry.
+- Warunek końcowy (sukces): Poprawna mapa gry została zapisana w systemie.
+
+**Scenariusz główny**
+1. Twórca gry wybiera opcję "Zdefiniuj mapę gry" w edytorze gry.
+2. System pobiera obecną mapę gry.
+3. System wyświetla interaktywny edytor mapy gry z aktualną mapę gry.
+4. Twórca gry wprowadza zmiany w mapie gry.
+5. System zapisuje zmiany na bierząco w przeglądarce.
+6. Twórca gry wybiera opcję "Zapisz i wyjdź".
+7. System zapisuje mapę gry w bazie danych.
+8. System automatycznie waliduje poprawnoś mapy gry.
+
+final: success
+
+**Scenariusz alternatywny A: Brak zdefiniowanej mapy gry**
+
+2a. System pobiera domyślną mapę gry.
+
+Powrót do kroku 3 scenariusza głównego.
+
+**Scenariusz alternatywny B: Błąd zapisu mapy gry w przeglądarce użytkownika**
+5a. System wykrywa błąd zapisu mapy gry w przeglądarce.
+6a. System sprawdza czas od ostatniego zapisu.
+7a. System wyświetla komunikat o błędzie zapisu mapy gry w przeglądarce, informuje użytkownika o tym, że ostatni zapis został wykonany [czas] temu, oferuje możliwości wyjścia, ponowienia zapisu lub kontynuowania bez zapisu.
+8a. Twórca gry wybra opcję ponowienia zapisu mapy gry w przeglądarce.
+8a1.1 System ponawia próbę zapisu mapy gry w przeglądarce.
+8a1.2 System powraca do kroku 4 scenariusza głównego.
+
+8a2.1 Twórca gry wybiera opcję kontynuowania bez zapisu mapy gry w przeglądarce.
+8a2.2 System wyłącza funkcję automatycznego zapisu mapy gry w przeglądarce.
+8a2.3 System powraca do kroku 4 scenariusza głównego
+
+8a3.1 Twórca gry wybiera opcję wyjścia z edytora mapy gry.
+8a3.2 System zamyka edytor mapy gry bez zapisywania zmian.
+
+final: failure
+
+**Scenariusz alternatywny C: Bład zapisu mapy w bazie danych**
+7a. System wykrywa błąd zapisu mapy gry w bazie danych.
+8a. System wyświetla komunikat o błędzie zapisu mapy gry w bazie danych, informuje użytkownika o tym, że mapa jest zapisana lokalnie. System oferuje możliwości ponowienia zapisu mapy gry w bazie danych i wyjścia z edytora mapy gry.
+
+9a1.1 Twórca gry wybiera opcję ponowienia zapisu mapy gry w bazie danych.
+9a1.2 System powraca do kroku 7 scenariusza głównego.
+
+9a2.1 Twórca gry wybiera opcję wyjścia z edytora mapy gry.
+9a2.2 System zamyka edytor mapy gry bez zapisywania
+
+final: failure
+
+
+**Scenariusz alternatywny D: Mapa gry jest niepoprawna**
+8a. System informuje użytkownika o błędach w mapie gry (np. brak wymaganych elementów, niespójności) informuje, że mapa gry jest niepoprawna i oznacza mapę jako niepoprawną.
+9a. System oferuje możliwość zapisu z wyjściem lub powrotu do edycji mapy gry.
+
+9a1.1 Twórca gry wybiera opcję powrotu do edycji mapy gry.
+9a1.2 System powraca do kroku 4 scenariusza głównego
+
+9a2.1 Twórca gry wybiera opcję zapisu z wyjściem.
+9a2.2 System skacze do kroku 7 scenariusza głównego, ale mapa gry pozostaje oznaczona jako niepoprawna, co uniemożliwia publikację gry do czasu poprawy mapy gry.
+
+
+---
