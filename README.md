@@ -1206,6 +1206,48 @@ Kod graficzny wykorzystywany do identyfikacji elementów [Gry] oraz inicjowania 
 
 Bezpieczny transfer zasobów wirtualnych z [Ekwipunku] między dwoma [Graczami], autoryzowany za pomocą aplikacji mobilnej (np. poprzez skanowanie [Kodu QR]). Wymaga obecności obu stron [Transakcji wymiany] i zatwierdzenia jej w systemie.
 
+**Komunikat do recenzenta**
+- Typ: pojęcie domenowe
+- Wersja: 1.0 (29.04.2026)
+- Odpowiedzialny: Michał Marciniak
+- Wydanie: 1.0
+
+Treść tekstowa napisana przez twórcę gier do recenzenta, w celu wyeliminowania niejasności dotyczących mechanik gry lub odpowiedzi na pytanie.
+
+---
+
+**Okno komunikacji twórcy gry z recenzentem**
+- Typ: pojęcie domenowe
+- Wersja: 1.0 (29.04.2026)
+- Odpowiedzialny: Michał Marciniak
+- Wydanie: 1.0
+
+Okno zawierające historię kontaktu z recenzentem wraz z funkcją wysłania komunikatów do recenzenta.
+
+
+
+**Czujnik**
+- Typ: pojęcie domenowe
+- Wersja: 1.1 (24.04.2026)
+- Odpowiedzialna: Alicja Rosiak
+- Wydanie: 1.0
+
+Element [mapy] pozwalający na wchodzenie w [interakcje] przez [gracza].
+Ma określony [typ czujnika] oraz pozycję na [mapie]. Aktywowanie czujnika zależy
+od jego typu i powoduje wykonanie powiązanej [akcji].
+
+---
+
+**Typ czujnika**
+- Typ: pojęcie domenowe
+- Wersja: 1.0 (24.04.2026)
+- Odpowiedzialna: Alicja Rosiak
+- Wydanie: 1.0
+
+Sposób, w jaki [czujnik] może być aktywowany. Możliwe typy: NFC, [kod QR],
+czujnik ruchu.
+
+
 ---
 
 
@@ -1218,22 +1260,21 @@ Bezpieczny transfer zasobów wirtualnych z [Ekwipunku] między dwoma [Graczami],
 ```mermaid
 flowchart LR
 
-organizator["Organizator zewnętrzny"]
+organizator(("👤 Organizator zewnętrzny"))
 
-subgraph "Zarządzanie zgłoszeniami i rezerwacją gry"
 
-UC1(("Wyświetlenie kalendarza"))
-UC2(("Rezerwacja czasu dla gry"))
-UC3(("Wyświetlenie listy zgłoszeń do gry"))
-UC4(("Akceptacja / odrzucenie zgłoszenia"))
-UC5(("Wysłanie zaproszenia na grę"))
-UC6(("Płatność"))
+UC1(["Wyświetlenie kalendarza"])
+UC2(["Rezerwacja czasu dla gry"])
+UC3(["Wyświetlenie listy zgłoszeń do gry"])
+UC4(["Akceptacja / odrzucenie zgłoszenia"])
+UC5(["Wysłanie zaproszenia na grę"])
+UC6(["Płatność"])
 
 UC1 -. invoke .-> UC2
 UC3 -. invoke .-> UC4
 UC2 -. invoke .-> UC6
 
-end
+
 
 organizator --> UC1
 organizator --> UC3
@@ -1302,15 +1343,15 @@ DIAGRAM:
 
 ```mermaid
 flowchart LR
-    Admin([Admin])
-    Czas([Czas])
+    Admin(("👤 Admin"))
+    Czas(("⏰ Czas"))
 
-    u1["Wyświetl listę błędów systemowych"]
-    u2["Wyświetl listę użytkowników ze zgłoszeniami"]
-    u3["Zablokuj konto użytkownika na ograniczony czas"]
-    u5["Dezaktywuj konto użytkownika"]
-    u6["Wyświetl pełny log błędu"]
-    u7["Odblokuj konto po określonym czasie"]
+    u1(["Wyświetl listę błędów systemowych"])
+    u2(["Wyświetl listę użytkowników ze zgłoszeniami"])
+    u3(["Zablokuj konto użytkownika na ograniczony czas"])
+    u5(["Dezaktywuj konto użytkownika"])
+    u6(["Wyświetl pełny log błędu"])
+    u7(["Odblokuj konto po określonym czasie"])
 
     Admin --> u1
     Admin --> u2
@@ -1322,41 +1363,41 @@ flowchart LR
     Czas --> u7
 ```
 
-**PU6: Wyświetlenie listy uŻytkowników ze zgłoszeniami**
+#### PU6: Wyświetlenie listy uŻytkowników ze zgłoszeniami
 - Wersja: 1.0 (14.04.2026)
 - Odpowiedzialna: Karolina Wiśniewska
 - Wydanie: 1.0
 - Opis: System wyświetla menu administratora. Administrator wybiera opcję wyświetlenia listy użytkowników, którzy zostali zgłoszeni za łamanie regulaminu/ zasad społeczności. system wyświetla listę
 
   
-**PU7: Zablokowanie konta użytkownika na ograniczony czas**
+#### PU7: Zablokowanie konta użytkownika na ograniczony czas
 - Wersja: 1.0 (14.04.2026)
 - Odpowiedzialna: Karolina Wiśniewska
 - Wydanie: 1.0
 - Opis: Invoked by PU6. Administrator wybiera wybrane konto uczestnika. System wyświetla zapytanie o blokowanie lub dezaktywację konta. Administrator wybiera opcję zablokowania konta na ustalony czas. System nadaje kontu status zablokowanego na określony czas.
 
   
-**PU8: Dezaktywacja konta użytkownika**
+#### PU8: Dezaktywacja konta użytkownika
 - Wersja: 1.0 (14.04.2026)
 - Odpowiedzialna: Karolina Wiśniewska
 - Wydanie: 1.0
 - Opis: Invoked by PU6. Administrator wybiera wybrane konto uczestnika. System wyświetla zapytanie o blokowanie lub dezaktywację konta. Administrator wybiera opcję dezaktywacji konta. System usuwa konto z listy kont aktywnych. System zmienia status konta na zdezaktywowane
 
   
-**PU9: Odblokowanie konta po określonym czasie**
+#### PU9: Odblokowanie konta po określonym czasie
 - Wersja: 1.0 (14.04.2026)
 - Odpowiedzialna: Karolina Wiśniewska
 - Wydanie: 1.0
 - Opis: System odblokowuje konto po upływie określonego czasu.
 
-  **PU10: Wyświetlenie listy błędów systemowych**
+#### PU10: Wyświetlenie listy błędów systemowych
 
 - Wersja: 1.0 (14.04.2026)
 - Odpowiedzialna: Karolina Wiśniewska
 - Wydanie: 1.0
 - Opis: System wyświetla menu administratora. Administrator wybiera opcję wyświetlenia listy błędów systemowych. System wyświetla listę błędów.
 
-  **PU11: Wyświetlenie pełnego logu błędu**
+#### PU11: Wyświetlenie pełnego logu błędu
 
 - Wersja: 1.0 (14.04.2026)
 - Odpowiedzialna: Karolina Wiśniewska
@@ -1371,16 +1412,16 @@ DIAGRAM:
 
 ```mermaid
 flowchart LR
-    User([Użytkownik])
+    User(("👤 Użytkownik"))
 
-    u1["Rejestracja konta"]
-    u2["Aktywacja konta przez link e-mail"]
-    u3["Logowanie"]
-    u4["Reset hasła"]
-    u5["Wylogowanie"]
-    u6["Wyświetl historię wydarzeń"]
-    u8["Wyświetl statystyki uczestnictwa"]
-    u9["Wyświetl szczegóły wydarzenia z historii"]
+    u1(["Rejestracja konta"])
+    u2(["Aktywacja konta przez link e-mail"])
+    u3(["Logowanie"])
+    u4(["Reset hasła"])
+    u5(["Wylogowanie"])
+    u6(["Wyświetl historię wydarzeń"])
+    u8(["Wyświetl statystyki uczestnictwa"])
+    u9(["Wyświetl szczegóły wydarzenia z historii"])
 
     User --> u1
     User --> u2
@@ -1393,53 +1434,53 @@ flowchart LR
     u6 -.->|invoke| u9
 ```
 
-**PU12: Rejestracja konta**
+#### PU12: Rejestracja konta
 - Wersja: 1.1 (16.04.2026)
 - Odpowiedzialna: Polina Nesterova
 - Wydanie: 1.0
 - Opis: System wyświetla formularz rejestracji. Użytkownik podaje [dane użytkownika]. System weryfikuje poprawność i unikalność podanych [danych użytkownika], zapisuje konto ze statusem „nieaktywne" i wysyła na wskazany kanał kontaktu wiadomość zawierającą link aktywacyjny. Rejestracja kończy się komunikatem o konieczności potwierdzenia konta przed pierwszym logowaniem — faktyczne potwierdzenie realizuje odrębny przypadek użycia PU13 (Aktywacja konta przez link e-mail), wywoływany przez użytkownika po otrzymaniu wiadomości.
 
-**PU13: Aktywacja konta przez link e-mail**
+#### PU13: Aktywacja konta przez link e-mail
 - Wersja: 1.1 (16.04.2026)
 - Odpowiedzialna: Polina Nesterova
 - Wydanie: 1.0
 - Opis: Przypadek użycia inicjowany przez użytkownika po otrzymaniu wiadomości z linkiem aktywacyjnym wysłanej w ramach PU12 (Rejestracja konta). Użytkownik klika w link aktywacyjny. System weryfikuje poprawność i ważność linku, zmienia status konta na „aktywne" oraz umożliwia logowanie.
 
-**PU14: Logowanie**
+#### PU14: Logowanie
 
 - Wersja: 1.0 (15.04.2026)
 - Odpowiedzialna: Polina Nesterova
 - Wydanie: 1.0
 - Opis: System wyświetla ekran logowania. Użytkownik podaje adres e-mail oraz hasło. System weryfikuje dane uwierzytelniające oraz status konta (aktywne / nieaktywne / zablokowane). Po poprawnej autoryzacji system tworzy sesję użytkownika i przyznaje dostęp do funkcji systemu. Po przekroczeniu 5 nieudanych prób w ciągu 15 minut system tymczasowo blokuje konto.
 
-**PU15: Reset hasła**
+#### PU15: Reset hasła
 
 - Wersja: 1.0 (15.04.2026)
 - Odpowiedzialna: Polina Nesterova
 - Wydanie: 1.0
 - Opis: Użytkownik wybiera opcję „Nie pamiętam hasła" i podaje adres e-mail. System wysyła na ten adres jednorazowy link do resetu hasła (ważny 1 godzinę). Użytkownik po kliknięciu w link ustala nowe hasło, a system aktualizuje dane konta i unieważnia dotychczasową sesję.
 
-**PU16: Wylogowanie**
+#### PU16: Wylogowanie
 
 - Wersja: 1.0 (15.04.2026)
 - Odpowiedzialna: Polina Nesterova
 - Wydanie: 1.0
 - Opis: Zalogowany użytkownik wybiera opcję wylogowania. System kończy sesję użytkownika, unieważnia token sesji i przekierowuje na ekran logowania.
 
-**PU17: Wyświetlenie historii wydarzeń**
+#### PU17: Wyświetlenie historii wydarzeń
 - Wersja: 1.1 (16.04.2026)
 - Odpowiedzialna: Polina Nesterova
 - Wydanie: 1.0
 - Opis: Zalogowany użytkownik wybiera zakładkę „Historia wydarzeń". System pobiera listę wydarzeń, w których użytkownik brał udział, i wyświetla ją w porządku chronologicznym wraz z podstawowymi informacjami (nazwa wydarzenia, data, lokalizacja, odgrywana postać, czas trwania, status). W ramach widoku użytkownik może zawęzić listę za pomocą filtrów (przedział czasowy, typ wydarzenia, status, lokalizacja) oraz zmienić porządek sortowania (data rosnąco/malejąco, nazwa wydarzenia) — system każdorazowo aktualizuje wyświetlaną listę zgodnie z wybranymi kryteriami.
 
-**PU18: Wyświetlenie statystyk uczestnictwa**
+#### PU18: Wyświetlenie statystyk uczestnictwa
 
 - Wersja: 1.0 (15.04.2026)
 - Odpowiedzialna: Polina Nesterova
 - Wydanie: 1.0
 - Opis: Invoked by PU17. System agreguje dane z historii użytkownika i prezentuje statystyki: liczbę ukończonych sesji, całkowity czas uczestnictwa, najczęściej grane typy postaci, ulubione scenariusze oraz ranking organizatorów.
 
-**PU19: Wyświetlenie szczegółów wydarzenia z historii**
+#### PU19: Wyświetlenie szczegółów wydarzenia z historii
 
 - Wersja: 1.0 (15.04.2026)
 - Odpowiedzialna: Polina Nesterova
@@ -1448,14 +1489,14 @@ flowchart LR
 
 ### 4.1.4 Obsługa wydarzeń
 
-**PU20: Uruchomienie wydarzenia**
+#### PU20: Uruchomienie wydarzenia
 
 - Wersja: 1.0 (14.04.2026)
 - Odpowiedzialny: Julian Stefan
 - Wydanie: 1.0
 - **Opis:** Po osiągnięciu warunków rozpoczęcia wydarzenia, mistrz wydarzenia rozpoczyna wydarzenie.
 
-**PU21: Zakończenie wydarzenia**
+#### PU21: Zakończenie wydarzenia
 
 - Wersja: 1.0 (14.04.2026)
 - Odpowiedzialny: Julian Stefan
@@ -1470,18 +1511,18 @@ flowchart LR
 
 ```mermaid
 flowchart LR
-    Player["Gracz"]
+    Player(("👤 Gracz"))
 
-    UC_QR("Skanowanie kodu QR")
-    UC_MiniGame("Granie w mini-grę")
-    UC_Fight("Walczenie z innym graczem")
+    UC_QR(["Skanowanie kodu QR"])
+    UC_MiniGame(["Granie w mini-grę"])
+    UC_Fight(["Walczenie z innym graczem"])
     Player --> UC_QR
 
     UC_QR -.->|«invoke»| UC_MiniGame
     UC_QR -.->|«invoke»| UC_Fight
 ```
 
-**PU22: Skanowanie kodu QR**
+#### PU22: Skanowanie kodu QR
 
 - Wersja: 1.0 (14.04.2026)
 - Odpowiedzialny: Tomasz Rogalski
@@ -1489,7 +1530,7 @@ flowchart LR
 - Wydanie: 1.0
 - **Opis:** Gracz skanuje kod QR umieszczony na przedmiocie lub w otoczeniu gry, aby uruchomić mini-grę, albo skanuje kod QR innego gracza, aby zainicjować walkę.
 
-**PU23: Granie w mini-grę**
+#### PU23: Granie w mini-grę
 
 - Wersja: 1.0 (14.04.2026)
 - Odpowiedzialny: Tomasz Rogalski
@@ -1497,7 +1538,7 @@ flowchart LR
 - Wydanie: 1.0
 - **Opis:** System uruchamia mini-grę opartą na szablonie. Gracz musi ukończyć ją w wyznaczonym czasie.
 
-**PU24: Walczenie z innym graczem**
+#### PU24: Walczenie z innym graczem
 
 - Wersja: 1.0 (14.04.2026)
 - Odpowiedzialny: Tomasz Rogalski
@@ -1510,19 +1551,17 @@ flowchart LR
 ```mermaid
 flowchart LR
 
-subgraph Aktorzy
-rec((Recenzent))
-org((Organizator))
-tworca((Twórca))
-end
+rec(("👤 Recenzent"))
+org(("👤 Organizator"))
+tworca(("👤 Twórca"))
 
-subgraph Przypadki użycia
-pu_lista_gier_tw([Wyświetlenie listy swoich gier])
-pu_komunikat([Przesłanie komunikatu do twórcy])
-pu_lista_gier_org([Wyświetlenie listy gier przez organizatora])
-pu_lista_gier([Wyświetlenie listy gier])
-pu_recenzja_gry([Recenzja gry])
-pu_lista_recenzent([Wyświetlenie listy gier przez recenzenta])
+
+pu_lista_gier_tw(["Wyświetlenie listy swoich gier"])
+pu_komunikat(["Przesłanie komunikatu do twórcy"])
+pu_lista_gier_org(["Wyświetlenie listy gier przez organizatora"])
+pu_lista_gier(["Wyświetlenie listy gier"])
+pu_recenzja_gry(["Recenzja gry"])
+pu_lista_recenzent(["Wyświetlenie listy gier przez recenzenta"])
 
 tworca --> pu_lista_gier_tw
 org --> pu_lista_gier_org
@@ -1536,28 +1575,28 @@ pu_lista_gier_tw -->|generalization| pu_lista_gier
 pu_lista_recenzent -->|generalization| pu_lista_gier
 pu_recenzja_gry -."&lt;&lt;invoke&gt;&gt;".-> pu_komunikat
 
-end
+
 ```
 
-**PU25: Wyświetlenie listy gier przez twórcę**
+#### PU25: Wyświetlenie listy gier przez twórcę
 
 - Wersja: 1.0 (15.04.2026)
 - Odpowiedzialny: Łukasz Czajka
 - **Opis:** Twórcy gier mają możliwość wyświetlania listy gier, których są twórcami. Wybranie pozycji z listy pozwala na czynności takie jak edycja.
 
-**PU26: Wyświetlenie listy gier przez organizatora**
+#### PU26: Wyświetlenie listy gier przez organizatora
 
 - Wersja: 1.0 (15.04.2026)
 - Odpowiedzialny: Łukasz Czajka
 - **Opis:** Organizatorzy mają możliwość wyświetlania gier, które mogą zostać zorganizowane.
 
-**PU27: Przesłanie komunikatu do twórcy**
+#### PU27: Przesłanie komunikatu do twórcy
 
 - Wersja: 1.0 (15.04.2026)
 - Odpowiedzialny: Łukasz Czajka
 - **Opis:** Recenzenci mają możliwość przesłania uwag dotyczących recenzowanej gry.
 
-**PU28: Wyświetlenie listy gier**
+#### PU28: Wyświetlenie listy gier
 
 - Wersja: 1.0 (14.04.2026)
 - Odpowiedzialny: Maciej Bankiewicz
@@ -1565,7 +1604,7 @@ end
 - Wydanie: 1.0
 - **Opis:** System wyświetla listę zawierającą wszystkie stworzone uprzednio [gry].
 
-**PU29: Wyświetlenie listy gier przez recenzenta**
+#### PU29: Wyświetlenie listy gier przez recenzenta
 
 - Wersja: 1.0 (14.04.2026)
 - Odpowiedzialny: Maciej Bankiewicz
@@ -1573,7 +1612,7 @@ end
 - Wydanie: 1.0
 - **Opis:** System wyświetla listę zawierającą wszystkie stworzone uprzednio [gry] dodając do każdego rekordu opcję recenzji [gry].
 
-**PU30: Recenzja gry**
+#### PU30: Recenzja gry
 
 - Wersja: 1.0 (14.04.2026)
 - Odpowiedzialny: Maciej Bankiewicz
@@ -1589,39 +1628,39 @@ DIAGRAM:
 
 ```mermaid
 flowchart LR
-    Player([Gracz])
+    Player(("👤 Gracz"))
 
-    u1["Wysłanie skargi"]
-    u2["Wyjście z wydarzenia"]
-    u3["Targowanie się"]
+    u1(["Wysłanie skargi"])
+    u2(["Wyjście z wydarzenia"])
+    u3(["Targowanie się"])
 
     Player --> u1
     Player --> u2
     Player --> u3
 ```
 
-**PU31: Wysłanie skargi**
+#### PU31: Wysłanie skargi
 
 - Wersja: 1.0 (15.04.2026)
 - Odpowiedzialny: Cezary Rybiński
 - Wydanie: 1.0
 - Opis: Gracz inicjuje proces zgłoszenia poprzez menu aplikacji. System wymaga zdefiniowania kategorii problemu (błąd techniczny, zachowanie gracza, naruszenie bezpieczeństwa) oraz opisania go w dodatkowym polu.
 
-**PU32: Wyjście z wydarzenia**
+#### PU32: Wyjście z wydarzenia
 
 - Wersja: 1.0 (15.04.2026)
 - Odpowiedzialny: Cezary Rybiński
 - Wydanie: 1.0
 - Opis: Gracz rezygnuje z dalszego udziału przed zakończeniem eventu. System weryfikuje posiadane przez gracza wirtualne przedmioty o znaczeniu krytycznym dla fabuły i przekazuje stosowny komunikat.
 
-**PU33: Targowanie się**
+#### PU33: Targowanie się
 
 - Wersja: 1.0 (15.04.2026)
 - Odpowiedzialny: Cezary Rybiński
 - Wydanie: 1.0
 - Opis: Gracz inicjujący wybiera zasoby do przekazania. System generuje unikalny kod QR transakcji. Aby sfinalizować proces drugi gracz musi dołączyć do interakcji, co realizowane jest poprzez PU38: Skanowanie kodu QR. Następnie muszą zaakceptować wymianę lub ją odrzucić (wystarczy aby jedna ze stron się nie zgodziła na wymianę aby nie doszła do skutku).
 
-**PU34: Skanowanie kodu QR**
+#### PU34: Skanowanie kodu QR
 
 - Wersja: 1.0 (15.04.2026)
 - Odpowiedzialny: Cezary Rybiński
@@ -1636,12 +1675,12 @@ DIAGRAM:
 
 ```mermaid
 flowchart LR
-    Gracz([Gracz])
+    Gracz(("👤 Gracz"))
 
-    u1["Wyświetl interaktywną mapę terenu"]
-    u2["Odkryj nową strefę na mapie"]
-    u3["Zainicjuj wymianę zasobów"]
-    u4["Potwierdź transakcję wymiany (QR)"]
+    u1(["Wyświetl interaktywną mapę terenu"])
+    u2(["Odkryj nową strefę na mapie"])
+    u3(["Zainicjuj wymianę zasobów"])
+    u4(["Potwierdź transakcję wymiany (QR)"])
 
     Gracz --> u1
     Gracz --> u3
@@ -1650,28 +1689,28 @@ flowchart LR
     u3 -.->|invoke| u4
 ```
 
-**PU35: Wyświetlenie interaktywnej mapy terenu**
+#### PU35: Wyświetlenie interaktywnej mapy terenu
 
 - Wersja: 1.0 (15.04.2026)
 - Odpowiedzialny: Kacper Koziara
 - Wydanie: 1.0
 - Opis: System wyświetla ekran z mapą układu pomieszczeń (komnat). Mapa dynamicznie dostosowuje się do uprawnień posiadanych przez postać, prezentując graczowi ogólny zarys terenu i szczegóły dostępnych dla niego lokacji.
 
-**PU36: Odkrycie nowej strefy na mapie**
+#### PU36: Odkrycie nowej strefy na mapie
 
 - Wersja: 1.0 (15.04.2026)
 - Odpowiedzialny: Kacper Koziara
 - Wydanie: 1.0
 - Opis: Invoked by PU35. Po uzyskaniu odpowiedniego uprawnienia (np. zdobycie fizycznego klucza, przedmiotu questowego lub zeskanowaniu kodu QR strefy), system odblokowuje przed graczem wcześniej niedostępną lub ukrytą część mapy.
 
-**PU37: Zainicjowanie wymiany zasobów**
+#### PU37: Zainicjowanie wymiany zasobów
 
 - Wersja: 1.0 (15.04.2026)
 - Odpowiedzialny: Kacper Koziara
 - Wydanie: 1.0
 - Opis: Gracz wybiera w module handlu przedmioty lub wirtualną walutę ze swojego ekwipunku, które chce przekazać innemu graczowi. System generuje na ekranie jego urządzenia unikalny, jednorazowy kod QR reprezentujący tę ofertę.
 
-**PU38: Potwierdzenie transakcji wymiany (QR)**
+#### PU38: Potwierdzenie transakcji wymiany (QR)
 
 - Wersja: 1.0 (15.04.2026)
 - Odpowiedzialny: Kacper Koziara
@@ -1686,31 +1725,31 @@ DIAGRAM:
 
 ```mermaid
 flowchart TD
-    User[👤 Organizator]
-    A([Dodanie wydarzenia do kalendarza])
-    B([Zaproszenie graczy])
-    C([Udostępnienie wydarzenia graczom])
+    User(("👤 Organizator"))
+    A(["Dodanie wydarzenia do kalendarza"])
+    B(["Zaproszenie graczy"])
+    C(["Udostępnienie wydarzenia graczom"])
 
     User-->A
     A-.->|<< invoke >>|B
     A-.->|<< invoke >>|C
 ```
 
-**PU39: Dodanie wydarzenia do kalendarza**
+#### PU39: Dodanie wydarzenia do kalendarza
 
 - Wersja: 1.0 (15.04.2026)
 - Odpowiedzialny: Olaf Smoleński
 - Wydanie: 1.0
 - Opis: Organizator dodaje wydarzenie do kalendarza. Przy dodawaniu musi podać najważniejsze informacje na temat wydarzenia - nazwę i ewentualny opis, datę i godzinę, miejsce, maksymalną liczbę graczy oraz wymagania dotyczące postaci. Po dodaniu wydarzenie jest widoczne w kalendarzu dla każdego użytkownika systemu.
 
-**PU40: Zaproszenie graczy**
+#### PU40: Zaproszenie graczy
 
 - Wersja: 1.0 (15.04.2026)
 - Odpowiedzialny: Olaf Smoleński
 - Wydanie: 1.0
 - Opis: Invoked by PU39. Organizator wysyła graczom zaproszenia na wydarzenie. Organizator może wybrać graczy, którym wyśle zaproszenie, klikając przycisk _Zaproś graczy_ w menu wydarzenia. Po jego kliknięciu pokazuje się lista zarejestrowanych graczy, spośród których organizator wybiera poszczególne osoby i klika przycisk _Wyślij zaproszenie_. Zaproszony gracz otrzymuje powiadomienie o zaproszeniu na wydarzenie.
 
-**PU41: Udostępnienie wydarzenia graczom**
+#### PU41: Udostępnienie wydarzenia graczom
 
 - Wersja: 1.0 (15.04.2026)
 - Odpowiedzialny: Olaf Smoleński
@@ -1724,13 +1763,13 @@ flowchart TD
 ```mermaid
 flowchart LR
 
-G((#128100; \n Gracz))
+G(("👤 Gracz"))
 
-SRG([Wyświetlenie listy zarejestrowanych wydarzeń])
-JG([Dołączenie do wydarzenia])
-SIL([Wyświetlenie listy zaproszeń])
-AI([Akceptacja zaproszenia])
-SEL([Wyświetlenie listy wydarzeń])
+SRG(["Wyświetlenie listy zarejestrowanych wydarzeń"])
+JG(["Dołączenie do wydarzenia"])
+SIL(["Wyświetlenie listy zaproszeń"])
+AI(["Akceptacja zaproszenia"])
+SEL(["Wyświetlenie listy wydarzeń"])
 
 G --> SRG
 G --> SIL
@@ -1742,7 +1781,7 @@ SIL -..->|&lt;&lt;invoke&gt;&gt;| AI
 
 ```
 
-**PU42: Wyświetlenie listy wydarzeń**
+#### PU42: Wyświetlenie listy wydarzeń
 
 - Wersja: 1.0 (14.04.2026)
 - Odpowiedzialny: Michał Marciniak
@@ -1750,7 +1789,7 @@ SIL -..->|&lt;&lt;invoke&gt;&gt;| AI
 - Wydanie: 1.0
 - **Opis:** System wyświetla listę wydarzeń. Gracz określa filtry wydarzeń. System wyświetla wydarzenia spełniające dane kryteria.
 
-**PU43: Wyświetlenie listy zaproszeń**
+#### PU43: Wyświetlenie listy zaproszeń
 
 - Wersja: 1.0 (14.04.2026)
 - Odpowiedzialny: Michał Marciniak
@@ -1758,7 +1797,7 @@ SIL -..->|&lt;&lt;invoke&gt;&gt;| AI
 - Wydanie: 1.0
 - **Opis:** System wyświetla listę otrzymanych zaproszeń gracza na wydarzenie, które nie zostały jeszcze rozpatrzone.
 
-**PU44: Akceptacja zaproszenia**
+#### PU44: Akceptacja zaproszenia
 
 - Wersja: 1.0 (14.04.2026)
 - Odpowiedzialny: Michał Marciniak
@@ -1766,7 +1805,7 @@ SIL -..->|&lt;&lt;invoke&gt;&gt;| AI
 - Wydanie: 1.0
 - **Opis:** Gracz wybiera zaproszenie do akceptacji. System sprawdza dostępność miejsc. W przypadku wolnych miejsc, system dodaje gracza do listy zarejestrowanych i usuwa zaproszenie z listy. W przeciwnym razie, system informuje o braku miejsc.
 
-**PU45: Wyświetlenie listy zarejestrowanych wydarzeń**
+#### PU45: Wyświetlenie listy zarejestrowanych wydarzeń
 
 - Wersja: 1.0 (14.04.2026)
 - Odpowiedzialny: Michał Marciniak
@@ -1774,7 +1813,7 @@ SIL -..->|&lt;&lt;invoke&gt;&gt;| AI
 - Wydanie: 1.0
 - **Opis:** Gracz wybiera wgląd w swoje rejestracje. System wyświetla wydarzenia, na które gracz jest zarejestrowany.
 
-**PU46: Dołączenie do wydarzenia**
+#### PU46: Dołączenie do wydarzenia
 
 - Wersja: 1.0 (14.04.2026)
 - Odpowiedzialny: Michał Marciniak
@@ -1789,7 +1828,7 @@ DIAGRAM:
 ```mermaid
 flowchart LR
 
-o((Organizator))
+o(("👤 Organizator"))
 
 uco(["Wyświetlenie kalendarza przez organizatora"])
 uc(["Wyświetlenie kalendarza"])
@@ -1799,7 +1838,7 @@ o --> uco
 uco --generalization--> uc
 ```
 
-**PU47: Wyświetlenie kalendarza przez organizatora**
+#### PU47: Wyświetlenie kalendarza przez organizatora
 
 - Wersja: 1.0(14.04.2026)
 - Odpowiedzialna: Alicja Rosiak
@@ -1814,7 +1853,7 @@ DIAGRAM:
 ```mermaid
 flowchart LR
 
-g((Gracz))
+g(("👤 Gracz"))
 
 ucg(["Wyświetlenie kalendarza przez gracza"])
 uc(["Wyświetlenie kalendarza"])
@@ -1824,7 +1863,7 @@ g --> ucg
 ucg --generalization--> uc
 ```
 
-**PU48: Wyświetlenie kalendarza przez gracza**
+#### PU48: Wyświetlenie kalendarza przez gracza
 
 - Wersja: 1.0(14.04.2026)
 - Odpowiedzialna: Alicja Rosiak
@@ -1840,26 +1879,26 @@ DIAGRAM:
 flowchart LR
 
 %% ===== AKTORZY =====
-subgraph AKTORZY
-TG((Twórca gier))
-end
+TG(("👤 Twórca gier"))
+
 
 %% ===== FUNKCJE TWORCY =====
-subgraph FUNKCJE_TWORCY
-GDF([Zdefiniowanie gry])
-ADF([Zdefiniowanie akcji])
-SCR([Przesłanie komunikatu do recenzenta])
-KED([Edycja komnaty])
-end
+GDF(["Zdefiniowanie gry"])
+ADF(["Zdefiniowanie akcji"])
+SCR(["Przesłanie komunikatu do recenzenta"])
+KED(["Edycja komnaty"])
+SEDF(["Zdefiniowanie czujnika"])
+
 
 %% ===== RELACJE =====
 TG --> GDF
 GDF -. "&lt;&lt;invoke&gt;&gt;" .-> ADF
 GDF -. "&lt;&lt;invoke&gt;&gt;" .-> SCR
-GDF -. "&lt;&lt;invoke&gt;&gt;" .-> KED 
+GDF -. "&lt;&lt;invoke&gt;&gt;" .-> KED
+GDF -. <&ltinvoke>> .-> SEDF
 ```
 
-**PU49: Zdefiniowanie gry**
+#### PU49: Zdefiniowanie gry
 
 - Wersja: 1.0 (08.04.2026)
 - Odpowiedzialny: Igor Ochocki
@@ -1867,7 +1906,17 @@ GDF -. "&lt;&lt;invoke&gt;&gt;" .-> KED
 - Wydanie: 1.0
 - **Opis:** System wyświetla formularz [opisu ogólnego gry]. Twórca gry wprowadza [dane opisu ogólnego gry] do formularza. Twórca gry może dodać [pozostałe elementy gry]. Twórca gry wciska przycisk zapisz. System zamyka formularz [opisu ogólnego gry] i wyświetla informację o poprawnym zapisie.
 
-**PU50: Zdefiniowanie akcji**
+#### PU50: Zdefiniowanie czujnika
+- Wersja: 1.1 (24.04.2026)
+- Odpowiedzialna: Alicja Rosiak
+- Wydanie: 1.0
+- **Opis:** System wyświetla [formularz definicji czujnika]. Twórca wybiera
+    umiejscowienie [czujnika] na [mapie]. Następnie wybiera [akcję]
+    z [listy akcji]. Po zakończeniu twórca zapisuje zmiany. System zamyka
+    [formularz definicji czujnika].
+
+
+#### PU51: Zdefiniowanie akcji
 
 - Wersja: 1.0 (08.04.2026)
 - Odpowiedzialny: Igor Ochocki
@@ -1875,7 +1924,7 @@ GDF -. "&lt;&lt;invoke&gt;&gt;" .-> KED
 - Wydanie: 1.0
 - **Opis:** System wyświetla formularz [definicji akcji]. Twórca gry wybiera [typ akcji], a następnie uzupełnia [skutki akcji]. Na koniec twórca gry wciska przycisk `zapisz i zamknij`. System zamyka formularz [definicji akcji].
 
-**PU51: Przesłanie komunikatu do recenzenta**
+#### PU52: Przesłanie komunikatu do recenzenta
 
 - Wersja: 1.0 (08.04.2026)
 - Odpowiedzialny: Igor Ochocki
@@ -1884,7 +1933,7 @@ GDF -. "&lt;&lt;invoke&gt;&gt;" .-> KED
 - **Opis:** Twórca gry wprowadza treść [komunikatu do recenzenta] a następnie klika wyślij. System wyświetla informację o potwierdzeniu przesłania komunikatu i dodaje ją do [okna komunikacji twórcy gry z recenzentem].
 
 
-**PU52: Wyświetlenie listy gier**
+#### PU53: Wyświetlenie listy gier
 
 - Wersja: 1.0 (14.04.2026)
 - Odpowiedzialny: Maciej Bankiewicz
@@ -1894,7 +1943,7 @@ GDF -. "&lt;&lt;invoke&gt;&gt;" .-> KED
 
 ---
 
-**PU53: Wyświetlenie listy gier przez recenzenta**
+#### PU54: Wyświetlenie listy gier przez recenzenta
 
 - Wersja: 1.0 (14.04.2026)
 - Odpowiedzialny: Maciej Bankiewicz
@@ -1903,8 +1952,9 @@ GDF -. "&lt;&lt;invoke&gt;&gt;" .-> KED
 - **Opis:** System wyświetla listę zawierającą wszystkie stworzone uprzednio [Gry] dodając do każdego rekordu opcję [Recenzji] [Gry].
 
 ---
+<a name="recenzja"></a>
 
-**PU54: Recenzja gry**
+#### PU55: Recenzja gry
 
 - Wersja: 1.0 (14.04.2026)
 - Odpowiedzialny: Maciej Bankiewicz
@@ -1918,7 +1968,7 @@ GDF -. "&lt;&lt;invoke&gt;&gt;" .-> KED
 
 ```mermaid
 flowchart TB
- A["Recenzent"] --> n1(["Wyświetlenie listy gier przez recenzenta"]) -->|generalization| n2(["Wyświetlenie listy gier"])
+ A(("👤 Recenzent")) --> n1(["Wyświetlenie listy gier przez recenzenta"]) -->|generalization| n2(["Wyświetlenie listy gier"])
  A -->|<<invoke>>| n3(["Recenzja gry"])
 ```
 
@@ -1928,24 +1978,26 @@ flowchart TB
 DIAGRAM:
 ```mermaid
 flowchart LR
-    PU49(("PU49:Zdefiniowanie gry"))
-    PG([Projektant gier])
-    PU52(("PU52: Wyświetlenie scenariusza\ngry w edytorze"))
-    PU53(("PU53: Projektowanie zadań w scenariuszu gry"))
-    PU49 -.->|"<<invoke>>"| PU52
-    PG --> PU52
-    PU52 -->|"<<invoke>>"| PU53
+    PU49(["PU49: Zdefiniowanie gry"])
+    PG(("👤 Projektant gier"))
+    PU56(["PU56: Wyświetlenie scenariusza\\ngry w edytorze"])
+    PU57(["PU57: Projektowanie zadań w scenariuszu gry"])
+    PU49 -.->|"<<invoke>>"| PU56
+    PG --> PU56
+    PU56 -->|"<<invoke>>"| PU57
 ```
 
-**PU55: Wyświetlenie scenariusza gry w edytorze**
+#### PU56: Wyświetlenie scenariusza gry w edytorze
+
 - Wersja: 1.0 (29.04.2026)
 - Odpowiedzialny: Igor Ochocki
 - Priorytet i trudność: Istotne
 - Wydanie: 1.0
 - Aktor główny: Projektant gier
-- **Opis:** Projektant wybiera istniejącą grę lub scenariusz i otwiera go w module edycji. System wczytuje zapis scenariusza z bazy i prezentuje widok edytora (struktura scenariusza, m.in. lista zadań i metadane - szczegóły UI w scenopisie). Ten przypadek **poprzedza** projektowanie nowych zadań (**PU53**): dodawanie zadania ma miejsce dopiero przy już wyświetlonym w edytorze scenariuszu.
+- **Opis:** Projektant wybiera istniejącą grę lub scenariusz i otwiera go w module edycji. System wczytuje zapis scenariusza z bazy i prezentuje widok edytora (struktura scenariusza, m.in. lista zadań i metadane - szczegóły UI w scenopisie). Ten przypadek **poprzedza** projektowanie nowych zadań (**PU57**): dodawanie zadania ma miejsce dopiero przy już wyświetlonym w edytorze scenariuszu.
 
-**PU56: Projektowanie zadań w scenariuszu gry**
+#### PU57: Projektowanie zadań w scenariuszu gry
+
 - Wersja: 1.0 (29.04.2026)
 - Odpowiedzialny: Igor Ochocki
 - Priorytet i trudność: Istotne (zgodnie z F28)
@@ -1959,205 +2011,7 @@ Powiązanie z wymaganiami funkcjonalnymi: **F28**.
 
 # 5. Scenariusze i scenopisy
 
-
-## 5.2 PU14: Logowanie
-
-- Wersja: 1.0 (15.04.2026)
-- Odpowiedzialna: Polina Nesterova
-- Wydanie: 1.0
-- Aktor główny: Użytkownik
-- Warunek początkowy: Użytkownik posiada zarejestrowane i aktywowane konto.
-- Warunek końcowy (sukces): Użytkownik jest zalogowany, system utworzył sesję i wyświetla ekran główny.
-
-**Scenariusz główny**
-
-1. Użytkownik uruchamia aplikację i wybiera opcję „Zaloguj się".
-2. System wyświetla formularz logowania z polami adres e-mail oraz hasło.
-3. Użytkownik wprowadza adres e-mail oraz hasło i potwierdza przyciskiem „Zaloguj".
-4. System weryfikuje poprawność danych uwierzytelniających w bazie użytkowników.
-5. System sprawdza status konta (aktywne / nieaktywne / zablokowane).
-6. System tworzy nową sesję użytkownika i generuje token sesji.
-7. System zapisuje informację o zalogowaniu (data, godzina, adres IP) w historii konta.
-8. System przekierowuje użytkownika na ekran główny i wyświetla powitanie.
-
-**Scenariusz alternatywny A: Niepoprawne dane uwierzytelniające**
-
-4a. System nie znajduje użytkownika o podanym adresie e-mail lub hasło nie pasuje do zapisanego w bazie.
-
-1. System wyświetla komunikat „Niepoprawny adres e-mail lub hasło" bez wskazywania, które pole jest błędne.
-2. System inkrementuje licznik nieudanych prób logowania dla tego konta.
-3. Scenariusz wraca do kroku 2 scenariusza głównego.
-
-**Scenariusz alternatywny B: Konto nieaktywowane**
-
-5a. System stwierdza, że konto ma status „nieaktywne".
-
-1. System wyświetla komunikat „Konto nie zostało jeszcze aktywowane. Sprawdź skrzynkę e-mail i kliknij w link aktywacyjny".
-2. System oferuje opcję ponownego wysłania linku aktywacyjnego.
-3. Użytkownik wybiera opcję wysłania linku lub zamyka formularz.
-
-**Scenariusz alternatywny C: Konto zablokowane**
-
-5b. System stwierdza, że konto ma status „zablokowane".
-
-1. System wyświetla komunikat „Konto zostało tymczasowo zablokowane. Spróbuj ponownie za [pozostały czas] lub zresetuj hasło".
-2. System oferuje opcję resetu hasła.
-3. Logowanie zostaje przerwane.
-
-**Scenariusz alternatywny D: Przekroczenie limitu prób**
-
-4b. Licznik nieudanych prób przekracza 5 w ciągu 15 minut.
-
-1. System zmienia status konta na „zablokowane" na okres 15 minut.
-2. System wysyła na adres e-mail użytkownika powiadomienie o próbach logowania i blokadzie.
-3. System wyświetla komunikat o blokadzie konta.
-4. Logowanie zostaje przerwane.
-
-**Scenariusz alternatywny E: Zapomniane hasło**
-
-3a. Użytkownik wybiera opcję „Nie pamiętam hasła" zamiast potwierdzania logowania.
-
-1. System przekierowuje do przypadku użycia PU15 (Reset hasła).
-
----
-
-## 5.4 PU37/PU38: Dokonanie wymiany zasobów między graczami
-
-- Wersja: 1.0 (15.04.2026)
-- Odpowiedzialny: Kacper Koziara
-- Wydanie: 1.0
-- Aktor główny: Gracz A (Inicjator)
-- Aktor pomocniczy: Gracz B (Odbiorca)
-- Warunek początkowy: Obaj gracze są zalogowani do aplikacji, uczestniczą w tym samym aktywnym wydarzeniu LARP, a Gracz A posiada w ekwipunku zasoby, które chce przekazać.
-- Warunek końcowy (sukces): Wybrane zasoby zostały bezpiecznie przeniesione z ekwipunku Gracza A do ekwipunku Gracza B, a system zapisał log z transakcji.
-
-**Scenariusz główny**
-
-1. Gracz A wybiera w swojej aplikacji moduł „Handel / Wymiana”.
-2. System wyświetla listę dostępnych zasobów w ekwipunku Gracza A.
-3. Gracz A zaznacza przedmioty i/lub wpisuje kwotę wirtualnej waluty, którą chce przekazać, a następnie klika „Generuj ofertę”.
-4. System tymczasowo blokuje wybrane zasoby u Gracza A i wyświetla na jego ekranie jednorazowy kod QR reprezentujący ofertę.
-5. Gracz B otwiera w swojej aplikacji skaner kodów i skanuje kod QR z ekranu Gracza A.
-6. System wyświetla na ekranie Gracza B okno podsumowania („Gracz A chce przekazać Ci: [lista]”) i prosi o akceptację.
-7. Gracz B wybiera przycisk „Zatwierdź transakcję”.
-8. System weryfikuje poprawność danych i dokonuje transferu, aktualizując stany ekwipunków obu postaci w bazie danych.
-9. System zapisuje szczegóły operacji (data, strony transakcji, zasoby) w logach wydarzenia.
-10. System wyświetla obu graczom komunikat o pomyślnym zakończeniu wymiany.
-
-**Scenariusz alternatywny A: Odrzucenie transakcji przez Odbiorcę**
-
-7a. Gracz B wybiera przycisk „Odrzuć”.
-
-1. System przerywa operację i zdejmuje blokadę z zasobów Gracza A.
-2. System wyświetla Graczowi A komunikat „Transakcja została odrzucona przez drugą stronę”.
-3. Wygenerowany kod QR zostaje trwale unieważniony.
-
-**Scenariusz alternatywny B: Przekroczenie limitu czasu (Timeout)**
-
-5a. Gracz B nie zdąży zeskanować kodu lub zatwierdzić operacji w określonym czasie (np. 3 minuty).
-
-1. System automatycznie anuluje ofertę i zdejmuje blokadę z zasobów Gracza A.
-2. System wyświetla Graczowi A komunikat „Czas na akceptację transakcji minął”.
-3. Kod QR zostaje unieważniony, proces wymiany należy zainicjować od nowa.
-
----
-
-## 5.1 PU2: Rezerwacja czasu dla gry
-
-- Wersja: 1.0 (15.04.2026)
-- Odpowiedzialna: FilobokHlib i Maksym Andrushchenko
-- Wydanie: 1.0
-- Aktor główny: Organizator zewnętrzny
-- Warunek początkowy: Organizator zewnętrzny jest zalogowany na stronie głównej i posiada uprawnienia do tworzenia gier, rezerwacji czasu dla gry, zarządzaniem uczęstnikami do gry i komunikacji z nimi.
-- Warunek końcowy (sukces): Rezerwacja czasu została utworzona, terminy są niedostępne dla innych użytkowników, organizator otrzymał potwierdzenie w skrzynce wiadomości, a płatność została przetworzona.
-
-Scenariusz główny
-
-1. Organizator znajduje się na stronie głównej i klika przycisk „Stwórz grę".
-2. System wyświetla formularz tworzenia gry z polami wymaganymi: nazwa gry, typ gry, liczba uczestników, poziom trudności i dodatkowe informacje (opcjonalne).
-3. Organizator wypełnia wszystkie wymagane pola formularza.
-4. System waliduje poprawność danych wpisanych w formularz.
-5. Organizator potwierdza formularz przyciskiem „Dalej".
-6. System pobiera dane z formularza i przekierowuje organizatora do kalendarza.
-7. Kalendarz wyświetla dostępne godziny dostosowane do czasu trwania wybranego typu gry (różne gry mają różny czas trwania).
-8. System uniemożliwia wybranie terminów niedostępnych (zarezerwowane, poza godzinami pracy, itp.).
-9. Organizator wybiera jeden lub więcej dostępnych terminów z kalendarza.
-10. System wyznacza przedział czasowy dla każdego wybranego terminu.
-11. Organizator potwierdza wybór terminów przyciskiem „Potwierdź wybór".
-12. System wyświetla podsumowanie rezerwacji zawierające dane gry, wybrane terminy i całkowity koszt.
-13. Organizator ma możliwość potwierdzenia rezerwacji przyciskiem „Potwierdź i płać" lub cofnięcia operacji przyciskiem „Cofnij".
-14. Organizator potwierdza rezerwację przyciskiem „Potwierdź i płać".
-15. System przenosi organizatora do modułu płatności.
-16. Organizator dokonuje płatności.
-17. System potwierdza wykonanie transakcji.
-18. Po udanej płatności system blokuje wybrane terminy w kalendarzu i rejestruje rezerwację w bazie danych.
-19. System generuje potwierdzenie rezerwacji i wysyła powiadomienie do skrzynki wiadomości organizatora zawierające dane gry, zarezerwowane terminy i numer rezerwacji.
-20. System przekierowuje organizatora na stronę główną.
-
-Scenariusz alternatywny A: Anulowanie na etapie formularza
-
-5a. Organizator klika przycisk „Anuluj" podczas wypełniania formularza.
-
-1. System powraca na stronę główną bez zapisywania danych.
-2. Dane formularza są tracone.
-
-Scenariusz alternatywny B: Brak wymaganych pól w formularzu
-
-4a. System stwierdza, że jedno lub więcej wymaganych pól formularza jest puste.
-
-1. System wyświetla komunikat „Uzupełnij wszystkie wymagane pola" i podświetla brakujące pola.
-2. Scenariusz wraca do kroku 3 scenariusza głównego.
-
-Scenariusz alternatywny C: Brak dostępnych terminów
-
-7a. System nie znalazł dostępnych terminów dla wybranego typu gry.
-
-1. System wyświetla komunikat „Brak dostępnych terminów dla wybranego typu gry".
-2. System oferuje organizatorowi opcje: zmianę danych gry lub powrót do strony głównej.
-3. Organizator wybiera jedną z opcji.
-
-Scenariusz alternatywny D: Cofnięcie operacji przed potwierdzeniem
-
-13a. Organizator klika przycisk „Cofnij" w podsumowaniu rezerwacji.
-
-1. System powraca do kalendarza.
-2. Wcześniej wybrane terminy są odznaczane.
-3. Organizator może wybrać inne terminy lub anulować operację przyciskiem „Anuluj".
-
-Scenariusz alternatywny E: Brak zaznaczonych terminów
-
-11a. Organizator klika przycisk „Potwierdź wybór" bez wybrania żadnego terminu.
-
-1. System wyświetla komunikat „Wybierz co najmniej jeden termin".
-2. Scenariusz wraca do kroku 9 scenariusza głównego.
-
-Scenariusz alternatywny F: Błąd płatności
-17a. Płatność nie powiodła się z powodu błędu systemu płatności, braku środków lub innych przyczyn.
-
-1. System wyświetla komunikat o błędzie płatności.
-2. System oferuje organizatorowi opcje: ponowienie próby płatności lub anulowanie rezerwacji.
-3. Jeśli organizator wybierze anulowanie, rezerwacja nie jest tworzona i terminy pozostają dostępne.
-4. Jeśli organizator wybierze ponowienie próby, system przenosi go do modułu płatności (scenariusz wraca do kroku 15 scenariusza głównego).
-
-Scenariusz alternatywny G: Timeout sesji
-
-(W dowolnym momencie scenariusza głównego lub alternatywnego) Sesja organizatora wygasa z powodu nieaktywności.
-
-1. System wylogowuje użytkownika.
-2. System wyświetla komunikat „Sesja wygasła. Zaloguj się ponownie".
-3. System przekierowuje organizatora na ekran logowania.
-4. Rezerwacja nie jest tworzona i terminy pozostają dostępne.
-
-Scenariusz alternatywny H: Wybrany termin stanie się niedostępny
-
-9a. Między momentem wyświetlenia kalendarza a potwierdzeniem rezerwacji (krok 11) wybrany termin zostaje zarezerwowany przez innego użytkownika.
-
-1. System wykrywa konflikt dostępności podczas potwierdzania rezerwacji.
-2. System wyświetla komunikat „Wybrany termin jest już niedostępny. Dostępne są inne terminy".
-3. System oferuje organizatorowi powrót do kalendarza w celu wybrania innych dostępnych terminów.
-4. Scenariusz wraca do kroku 9 scenariusza głównego.
-
-## 5.8 UC202: Zdefiniowanie akcji
+## 5.1 [PU51: Zdefiniowanie akcji](#pu51-zdefiniowanie-akcji)
 - Wersja 1.0
 - Odpowiedzialna: Karolina Wiśniewska
 - Aktor Główny: Twórca Gry
@@ -2182,36 +2036,17 @@ Scenariusz Alternatywny B:
 6a. System nie zapisał akcji
 7. System wyświetla informację o błędzie zapisu
 8. Scenariusz wraca do kroku 3 scenariusza głównego
+
 ---
 
-## 5.6 PU52: Wyświetlenie scenariusza gry w edytorze
+## 5.2 [PU57: Projektowanie zadań w scenariuszu gry](#pu57-projektowanie-zadań-w-scenariuszu-gry)
 
 - Wersja: 1.0 (29.04.2026)
 - Odpowiedzialny: Igor Ochocki
 - Wydanie: 1.0
 - Aktor główny: Projektant gier
-- Warunek początkowy: Projektant jest zalogowany i ma uprawnienie do edycji wybranej gry lub scenariusza.
-
-**Scenariusz główny**
-
-1. Projektant wybiera z poziomu aplikacji grę lub scenariusz do edycji i potwierdza wejście do modułu edytora scenariusza (np. z listy gier lub ze ścieżki powiązanej z definicją gry).
-2. System pobiera z bazy dane scenariusza przypisane do wybranej gry.
-3. System wyświetla widok edytora ze strukturą scenariusza (w tym istniejące zadania i elementy konfiguracji - szczegóły prezentacji w scenopisie).
-
-**Warunek końcowy:** Wybrany scenariusz jest wczytany i wyświetlony w edytorze.
-
-**Finalny rezultat:** success
-
----
-
-## 5.7 PU53: Projektowanie zadań w scenariuszu gry
-
-- Wersja: 1.0 (29.04.2026)
-- Odpowiedzialny: Igor Ochocki
-- Wydanie: 1.0
-- Aktor główny: Projektant gier
-- **Związek z PU52:** Przypadek **PU53** realizuje się **po** otwarciu scenariusza w edytorze (**PU52**). Punkt wyjścia stanowi krok 3 scenariusza PU52 (widok edytora aktywny).
-- Warunek początkowy: Projektant jest zalogowany; w edytorze wyświetlony jest scenariusz gry zgodnie z **PU52** (struktura scenariusza widoczna w module edycji).
+- **Związek z [PU56: Wyświetlenie scenariusza gry w edytorze](#pu56-wyświetlenie-scenariusza-gry-w-edytorze):** Przypadek **PU57** realizuje się **po** otwarciu scenariusza w edytorze (PU56). Punkt wyjścia stanowi krok 3 scenariusza PU56 (widok edytora aktywny).
+- Warunek początkowy: Projektant jest zalogowany; w edytorze wyświetlony jest scenariusz gry zgodnie z **[PU56](#pu56-wyświetlenie-scenariusza-gry-w-edytorze)** (struktura scenariusza widoczna w module edycji).
 
 **Scenariusz główny (sukces)**
 
@@ -2275,8 +2110,9 @@ Scenariusz Alternatywny B:
 
 **Warunek końcowy:** Struktura scenariusza gry nie uległa zmianie.
 
+
 ---
-## 5.5 PU51: Przesłanie komunikatu do recenzenta
+## 5.3 [PU52: Przesłanie komunikatu do recenzenta](#pu52-przeslanie-komunikatu-do-recenzenta)
 - Wersja 1.0 (29.04.2026)
 - Odpowiedzialny: Michał Marciniak
 - Wydanie: 1.0
@@ -2341,7 +2177,7 @@ Powrót do kroku 3. w scenariuszu głównym
 
 ---
 
-## 5.3 PU28: Wyświetlenie listy gier
+## 5.4 [PU53: Wyświetlenie listy gier](#pu53-wyświetlenie-listy-gier)
 
 - Wersja: 1.0 (29.04.2026)
 - Odpowiedzialny: Kacper Koziara
@@ -2393,6 +2229,380 @@ Powrót do kroku 3. w scenariuszu głównym
 2. Aplikacja przechwytuje kod błędu autoryzacji (HTTP 401).
 3. System lokalnie zapisuje stan wyszukiwania (tzw. stan URL z filtrami) w Storage (local/session).
 4. System przekierowuje Użytkownika dyskretnie do widoku logowania z komunikatem: „Twoja sesja przedawniła się dla względów bezpieczeństwa. Zaloguj się, aby kontynuować.”
-5. (Po pomyślnym zalogowaniu poprzez PU14) System używa zapisanych lokalnie parametrów, automatycznie odświeżając i odtwarzając użytkownikowi widok listy gier z wybranymi opcjami paginacji i filtroania z dokładnego punktu w którym przestał działać.
+5. (Po pomyślnym zalogowaniu poprzez [PU14: Logowanie](#pu14-logowanie)) System używa zapisanych lokalnie parametrów, automatycznie odświeżając i odtwarzając użytkownikowi widok listy gier z wybranymi opcjami paginacji i filtroania z dokładnego punktu w którym przestał działać.
+
+
+## 5.5 [Definiowanie warunków zwycięstwa w scenariuszu gry]
+
+- Wersja: 1.0 (21.04.2026)
+- Odpowiedzialny: Tomasz Rogalski
+- Wydanie: 1.0
+- Aktor główny: Organizator wydarzenia
+- Warunek początkowy: Organizator jest zalogowany w aplikacji i znajduje się w panelu edycji wybranego scenariusza gry.
+- Warunek końcowy (sukces): Warunki zwycięstwa dla graczy lub frakcji zostały pomyślnie zdefiniowane i zapisane w scenariuszu gry.
+
+**Scenariusz główny**
+
+1. Organizator wybiera opcję „Warunki zwycięstwa”.
+2. System wyświetla formularz definiowania warunków.
+3. Organizator wprowadza dane warunku i zatwierdza formularz.
+4. System waliduje poprawność dodanego warunku.
+   [dane poprawne]
+5. System zapisuje dodane warunki.
+6. System wyświetla potwierdzenie poprawnego zdefiniowania warunków.
+
+**Scenariusz alternatywny 1: Błędne lub niekompletne wartości w formularzu**
+
+1.-4. tak jak w scenariuszu głównym
+[dane niepoprawne]
+5a. System podświetla błędne pola i wyświetla komunikat o błędnych danych.
+Powrót do zdania 3. w scenariuszu głównym.
+
+**Scenariusz alternatywny 2: Logiczna sprzeczność warunków gry**
+
+1.-4. tak jak w scenariuszu głównym
+[konflikt warunków]
+5b. System wymusza edycję przed zapisaniem i wyświetla komunikat o sprzeczności z istniejącymi warunkami.
+Powrót do zdania 2. w scenariuszu głównym.
+
+**Scenopis:**
+![Scenopis - Definiowanie warunków zwycięstwa](scenopisy/scenopis_tr.png)
+
+
+
+
+## 5.6 [PU55: Recenzja gry](#recenzja)
+
+- Wersja: 1.0 (22.04.2026)
+- Odpowiedzialna: Polina Nesterova
+- Wydanie: 1.0
+- Aktor główny: Recenzent gry
+- Warunek początkowy: Recenzent jest zalogowany w systemie, posiada uprawnienia recenzenta i znajduje się na liście gier wyświetlonej w ramach [PU29: Wyświetlenie listy gier przez recenzenta](#pu29-wyświetlenie-listy-gier-przez-recenzenta).
+- Warunek końcowy (sukces): Recenzja została zapisana, powiązana z wybraną grą oraz kontem recenzenta, a jej status zmienia się na „przesłana do twórcy”.
+
+**Scenariusz główny**
+
+1. Recenzent wybiera opcję „Recenzuj grę” przy wybranym rekordzie na liście gier.
+2. System wyświetla okno recenzji zawierające tytuł gry, pole tekstowe na treść recenzji, pole oceny liczbowej (skala 1–10) oraz przyciski „Zapisz szkic”, „Wyślij” i „Anuluj”.
+3. Recenzent wprowadza treść recenzji oraz ocenę liczbową.
+4. Recenzent wybiera przycisk „Wyślij”.
+5. System waliduje treść recenzji (wymagana długość minimalna, obecność oceny, brak zakazanych słów).
+[treść recenzji poprawna]
+6. System zapisuje recenzję w bazie recenzji i wiąże ją z grą oraz kontem recenzenta.
+7. System aktualizuje status recenzji na „przesłana do twórcy”.
+8. System wyświetla potwierdzenie „Recenzja została zapisana i przesłana do twórcy gry”.
+`<<invoke>>` Przesłanie komunikatu do twórcy
+9. System zamyka okno recenzji i wraca do listy gier.
+
+final: success
+POST: recenzja została zapisana w bazie recenzji, powiązana z grą i kontem recenzenta, a jej status to „przesłana do twórcy”.
+
+**Scenariusz alternatywny A: Zapisanie szkicu recenzji**
+
+1.-3. tak jak w scenariuszu głównym.
+
+4a. Recenzent wybiera przycisk „Zapisz szkic” zamiast „Wyślij”.
+5a. System zapisuje treść recenzji ze statusem „szkic”, bez walidacji długości i bez wysyłania powiadomienia.
+6a. System wyświetla komunikat „Szkic recenzji został zapisany. Możesz wrócić do niego później”.
+7a. System zamyka okno recenzji i wraca do listy gier.
+
+final: success
+POST: recenzja została zapisana w bazie recenzji ze statusem „szkic”, powiązana z kontem recenzenta; powiadomienie do twórcy nie zostało wysłane.
+
+**Scenariusz alternatywny B: Niepoprawna treść recenzji**
+
+1.-4. tak jak w scenariuszu głównym.
+
+[treść recenzji niepoprawna]
+5b. System stwierdza, że treść recenzji jest pusta, krótsza niż wymagane minimum lub brakuje oceny liczbowej.
+6b. System wyświetla komunikat „Uzupełnij treść recenzji oraz ocenę przed wysłaniem” i podświetla brakujące pola.
+7b. System nie zapisuje recenzji.
+
+Powrót do kroku 3 scenariusza głównego.
+
+**Scenariusz alternatywny C: Anulowanie recenzji**
+
+1.-2. tak jak w scenariuszu głównym.
+
+3a. Recenzent wybiera przycisk „Anuluj” przed wysłaniem recenzji.
+4a. System wyświetla pytanie „Czy na pewno chcesz zamknąć okno bez zapisania recenzji?”.
+5a. Recenzent potwierdza anulowanie.
+6a. System porzuca wprowadzone dane bez zapisywania.
+7a. System zamyka okno recenzji i wraca do listy gier.
+
+final: failure
+POST: recenzja nie została zapisana w systemie.
+
+**Scenariusz alternatywny D: Recenzent już zrecenzował tę grę**
+
+1a. System wykrywa, że recenzent posiada już zapisaną recenzję dla tej gry.
+2a. System wyświetla komunikat „Posiadasz już recenzję dla tej gry. Możesz ją edytować zamiast tworzyć nową”.
+3a. System oferuje opcje „Edytuj istniejącą recenzję” lub „Anuluj”.
+4a. Recenzent wybiera jedną z opcji.
+[wybrano „Edytuj istniejącą recenzję”]
+5a. System wczytuje poprzednią treść i ocenę do okna recenzji.
+
+Powrót do kroku 3 scenariusza głównego.
+
+**Scenariusz alternatywny E: Anulowanie edycji istniejącej recenzji**
+
+1a.-4a. tak jak w scenariuszu alternatywnym D.
+
+[wybrano „Anuluj”]
+5b. System zamyka komunikat i wraca do listy gier.
+
+final: failure
+POST: nowa recenzja nie została utworzona; istniejąca recenzja pozostaje bez zmian.
+
+**Scenariusz alternatywny F: Błąd zapisu recenzji**
+
+1.-5. tak jak w scenariuszu głównym.
+
+[błąd bazy danych lub braku połączenia]
+6c. System nie jest w stanie zapisać recenzji.
+7c. System wyświetla komunikat „Nie udało się zapisać recenzji. Spróbuj ponownie za chwilę”.
+8c. System zachowuje wprowadzoną treść w oknie recenzji, aby recenzent nie stracił pracy.
+
+Powrót do kroku 4 scenariusza głównego.
+
+**Scenariusz alternatywny G: Wygaśnięcie sesji**
+
+(W dowolnym momencie scenariusza głównego lub alternatywnego) Sesja recenzenta wygasa z powodu nieaktywności.
+
+1g. System zapisuje lokalnie wprowadzoną treść jako szkic powiązany z kontem recenzenta.
+2g. System wylogowuje użytkownika.
+3g. System wyświetla komunikat „Sesja wygasła. Zaloguj się ponownie — szkic recenzji został zachowany”.
+4g. System przekierowuje recenzenta na ekran logowania.
+
+final: failure
+POST: recenzja nie została przesłana; wprowadzona treść zachowana jako szkic powiązany z kontem recenzenta.
+
+
+
+## 5.7 [PU50: Zdefiniowanie czujnika](#pu50-zdefiniowanie-czujnika)
+
+- Wersja: 1.1 (24.04.2026)
+- Odpowiedzialna: Alicja Rosiak
+- Wydanie: 1.0
+- Aktor główny: Twórca gry
+- Warunek początkowy: Twórca gry jest zalogowany
+  i jest w menu definiowania gry
+  i conajmniej jedna akcja została zdefiniowana dla danej gry
+  i mapa gry została została zdefiniowana dla danej gry
+
+**Scenariusz główny**
+
+1. Twórca wybiera opcję dodania nowego czujnika.
+2. System wyświetla formularz definicji czujnika.
+3. Twórca wybiera opcję wybrania pozycji czujnika.
+4. System wyświetla okno podglądu mapy.
+5. Twórca wybiera pozycję nowego czujnika.
+6. System zamyka okno podglądu mapy.
+7. Twórca uzupełnia pozostałe dane czujnika.
+8. Twórca wybiera opcję zapisu i zamknięcia formularza.  
+[dane poprawne]
+9. System zapisuje nowy czujnik.  
+[zapis pomyślny]
+10. System wyświetla komunikat o pomyślnym dodaniu czujnika.
+
+Warunek końcowy: nowy czujnik jest zarejestrowany dla danej gry
+
+**Scenariusz alternatywny 1**
+
+1.-8. jak w Scenariuszu głównym  
+[dane niepoprawne]  
+9a. System wyświetla komunikat o błędnych danych.  
+Powrót do kroku 3. w Scenariuszu głównym
+
+**Scenariusz alternatywny 2**
+
+1.-9. jak w Scenariuszu głównym  
+[zapis niepomyślny]  
+10b. System wyświetla komunikat o błędzie zapisu.  
+11b. System zamyka formularz definicji czujnika.
+
+Warunek końcowy: nowy czujnik nie został zarejestrowany dla danej gry
+
+
+## 5.8 [PU49: Zdefiniowanie gry](#pu49-zdefiniowanie-gry)
+
+- Wersja: 1.0 (22.04.2026)
+- Odpowiedzialny: Cezary Rybiński
+- Wydanie: 1.0
+- Aktor główny: Twórca gry
+- Warunek początkowy: Twórca gry jest zalogowany w systemie i posiada uprawnienia do tworzenia gier.
+- Warunek końcowy (sukces): Nowa gra zostaje zapisana w systemie ze statusem „Oczekuje na weryfikację", a gra jest widoczna na liście gier twórcy.
+
+**Scenariusz główny**
+
+1. Twórca gry wybiera opcję „Utwórz nową grę" w panelu twórcy.
+2. System wyświetla formularz opisu ogólnego gry z polami: nazwa gry, opis fabularny, poziom trudności, minimalna i maksymalna liczba graczy oraz szacowany czas trwania.
+3. Twórca gry wypełnia wymagane pola formularza.
+4. Twórca gry dodaje pozostałe elementy gry — definiuje dostępne postaci (role graczy), układ mapy (pomieszczenia i strefy) oraz przedmioty dostępne w świecie gry.
+5. Twórca gry klika przycisk „Zapisz".
+6. System waliduje poprawność i kompletność danych formularza.
+7. System zapisuje grę ze statusem „Oczekuje na weryfikację".
+8. System zamyka formularz opisu ogólnego gry i wyświetla komunikat o poprawnym zapisie oraz informację, że gra oczekuje na weryfikację recenzenta.
+9. System przekierowuje twórcę do widoku listy jego gier, gdzie nowa gra jest widoczna.
+
+**Scenariusz alternatywny A: Brakujące lub błędne dane formularza**
+
+6a. System stwierdza, że jedno lub więcej wymaganych pól formularza jest puste lub zawiera nieprawidłowe wartości (np. maksymalna liczba graczy mniejsza niż minimalna).
+1. System wyświetla komunikat „Uzupełnij wszystkie wymagane pola" i podświetla błędne pola.
+2. Formularz pozostaje otwarty z zaznaczonymi błędami.
+3. Scenariusz wraca do kroku 3 scenariusza głównego.
+
+**Scenariusz alternatywny B: Twórca definiuje akcje gry**
+
+4a. Twórca gry chce zdefiniować akcje dostępne w rozgrywce.
+1. Twórca wybiera opcję „Dodaj akcję" w formularzu gry.
+2. System wywołuje [UC202: Zdefiniowanie akcji](#uc202-zdefiniowanie-akcji).
+3. Po zakończeniu definiowania akcji system powraca do formularza opisu ogólnego gry.
+4. Scenariusz wraca do kroku 4 scenariusza głównego.
+
+**Scenariusz alternatywny C: Twórca przesyła komunikat do recenzenta**
+
+4b. Twórca gry chce skontaktować się z recenzentem w trakcie tworzenia gry.
+1. Twórca wybiera opcję „Wyślij komunikat do recenzenta".
+2. System wywołuje [PU51: Przesłanie komunikatu do recenzenta](#pu51-przeslanie-komunikatu-do-recenzenta).
+3. Po wysłaniu komunikatu system powraca do formularza opisu ogólnego gry.
+4. Scenariusz wraca do kroku 4 scenariusza głównego.
+
+**Scenariusz alternatywny D: Anulowanie tworzenia gry**
+
+(W dowolnym momencie kroków 2–4) Twórca gry klika przycisk „Anuluj".
+1. System wyświetla komunikat ostrzegający „Niezapisane zmiany zostaną utracone. Czy chcesz kontynuować?".
+2. Twórca potwierdza anulowanie.
+3. System zamyka formularz bez zapisywania danych i przekierowuje twórcę do listy jego gier.
+
+
+## 5.9 [PU1: Wyświetlenie kalendarza](#pu1-wyświetlenie-kalendarza)
+
+- Wersja: 1.0 (29.04.2026)
+- Odpowiedzialny: Olaf Smoleński
+
+Scenariusz główny
+
+1. Użytkownik wybiera opcję *Kalendarz* w głównym menu aplikacji.
+2. System wyświetla użytkownikowi stronę z kalendarzem wydarzeń.
+
+Scenariusz alternatywny: Sesja użytkownika wygasła przed kliknięciem opcji *Kalendarz*
+
+2a. System wylogowuje użytkownika.
+1. System wyświetla komunikat "Sesja wygasła. Zaloguj się ponownie" oraz okno logowania.
+2. Strona z kalendarzem nie zostaje wyświetlona.
+
+
+## 5.10 [Edycja komnaty]
+
+- Wersja: 1.0 (22.04.2026)
+- Odpowiedzialny: Maciej Bankiewicz
+- Wydanie: 1.0
+- Aktor główny: Twórca gier
+- Warunek początkowy: Twórca gry jest zalogowany i jest w oknie definicji gry.
+
+**Scenariusz główny**
+
+1. Twórca gry wybiera opcję edycji komnaty.
+2. System pobiera dane komnaty.
+[dane pobrane pomyślnie]
+3. System wyświetla formularz edycji komnaty.
+4. Twórca gry dokonuje edycji danych komnaty.
+5. Twórca gry wybiera opcję „Zapisz zmiany”.
+6. System sprawdza poprawność danych.
+[dane poprawne]  
+7. System zapisuje zmiany.
+[dane zapisane pomyślnie]
+8. System wyświetla potwierdzenie zapisania zmian.
+
+**Scenariusz alternatywny A: Błąd pobierania danych komnaty**
+
+1-2. Jak w scenriuszu głównym.
+[błąd pobierania danych]
+3. System wyświetla komunikat o błędzie pobierania danych komnaty.
+4. Twórca gry wybiera "Ok".
+5. Dane pozostają bez zmian.
+
+**Scenariusz alternatywny B: Wprowadzone dane są niepoprawne**
+
+1-6. Jak w scenariuszu głównym.  
+7a. System wyświetla komunikat o braku przedmiotu w magazynie.  
+8a. Twórca gry wybiera „Ok”.  
+Powrót do kroku 3. w scenariuszu głównym.
+
+**Scenariusz alternatywny C: Błąd zapisu zmian**
+
+1-7. Jak w scenariuszu głównym.  
+[błąd zapisu / problem z połączeniem]  
+8c. System wyświetla komunikat o błędzie zapisu zmian.  
+9c. Twórca gry wybiera „Ok”.  
+10c. Zmiany w komnacie nie zostają zapisane, dane pozostają bez zmian.
+
+## 5.11 [Zdefiniowanie mapy gry]
+
+- Wersja: 1.0 (30.04.2026)
+- Odpowiedzialny: Łukasz Czajka
+- Wydanie: 1.0
+- Aktor główny: Twórca gry
+- Warunek początkowy: Twórca gry jest zalogowany w systemie, posiada uprawnienia do edycji tworzonej gry oraz znajduje się w edytorze gry.
+- Warunek końcowy (sukces): Poprawna mapa gry została zapisana w systemie.
+
+**Scenariusz główny**
+1. Twórca gry wybiera opcję "Zdefiniuj mapę gry" w edytorze gry.
+2. System pobiera obecną mapę gry.
+3. System wyświetla interaktywny edytor mapy gry z aktualną mapę gry.
+4. Twórca gry wprowadza zmiany w mapie gry.
+5. System zapisuje zmiany na bierząco w przeglądarce.
+6. Twórca gry wybiera opcję "Zapisz i wyjdź".
+7. System zapisuje mapę gry w bazie danych.
+8. System automatycznie waliduje poprawnoś mapy gry.
+
+final: success
+
+**Scenariusz alternatywny A: Brak zdefiniowanej mapy gry**
+
+2a. System pobiera domyślną mapę gry.
+
+Powrót do kroku 3 scenariusza głównego.
+
+**Scenariusz alternatywny B: Błąd zapisu mapy gry w przeglądarce użytkownika**
+5a. System wykrywa błąd zapisu mapy gry w przeglądarce.
+6a. System sprawdza czas od ostatniego zapisu.
+7a. System wyświetla komunikat o błędzie zapisu mapy gry w przeglądarce, informuje użytkownika o tym, że ostatni zapis został wykonany [czas] temu, oferuje możliwości wyjścia, ponowienia zapisu lub kontynuowania bez zapisu.
+8a. Twórca gry wybra opcję ponowienia zapisu mapy gry w przeglądarce.
+8a1.1 System ponawia próbę zapisu mapy gry w przeglądarce.
+8a1.2 System powraca do kroku 4 scenariusza głównego.
+
+8a2.1 Twórca gry wybiera opcję kontynuowania bez zapisu mapy gry w przeglądarce.
+8a2.2 System wyłącza funkcję automatycznego zapisu mapy gry w przeglądarce.
+8a2.3 System powraca do kroku 4 scenariusza głównego
+
+8a3.1 Twórca gry wybiera opcję wyjścia z edytora mapy gry.
+8a3.2 System zamyka edytor mapy gry bez zapisywania zmian.
+
+final: failure
+
+**Scenariusz alternatywny C: Bład zapisu mapy w bazie danych**
+7a. System wykrywa błąd zapisu mapy gry w bazie danych.
+8a. System wyświetla komunikat o błędzie zapisu mapy gry w bazie danych, informuje użytkownika o tym, że mapa jest zapisana lokalnie. System oferuje możliwości ponowienia zapisu mapy gry w bazie danych i wyjścia z edytora mapy gry.
+
+9a1.1 Twórca gry wybiera opcję ponowienia zapisu mapy gry w bazie danych.
+9a1.2 System powraca do kroku 7 scenariusza głównego.
+
+9a2.1 Twórca gry wybiera opcję wyjścia z edytora mapy gry.
+9a2.2 System zamyka edytor mapy gry bez zapisywania
+
+final: failure
+
+
+**Scenariusz alternatywny D: Mapa gry jest niepoprawna**
+8a. System informuje użytkownika o błędach w mapie gry (np. brak wymaganych elementów, niespójności) informuje, że mapa gry jest niepoprawna i oznacza mapę jako niepoprawną.
+9a. System oferuje możliwość zapisu z wyjściem lub powrotu do edycji mapy gry.
+
+9a1.1 Twórca gry wybiera opcję powrotu do edycji mapy gry.
+9a1.2 System powraca do kroku 4 scenariusza głównego
+
+9a2.1 Twórca gry wybiera opcję zapisu z wyjściem.
+9a2.2 System skacze do kroku 7 scenariusza głównego, ale mapa gry pozostaje oznaczona jako niepoprawna, co uniemożliwia publikację gry do czasu poprawy mapy gry.
 
 ---
