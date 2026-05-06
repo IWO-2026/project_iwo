@@ -2301,7 +2301,7 @@ Powrót do zdania 2. w scenariuszu głównym.
 
 1. Recenzent wybiera opcję recenzji wybranej gry.
 2. System wyświetla okno recenzji.
-3. Recenzent wprowadza recenzję.
+3. Recenzent wprowadza treść recenzji.
 4. Recenzent wysyła recenzję.
 5. System waliduje recenzję.
 [recenzja poprawna]
@@ -2309,7 +2309,7 @@ Powrót do zdania 2. w scenariuszu głównym.
 7. System aktualizuje [Status recenzji].
 8. System wyświetla potwierdzenie wysłania.
 `<<invoke>>` Przesłanie komunikatu do twórcy
-9. System wraca do listy gier.
+9. System przekierowuje recenzenta do listy gier.
 
 **final:** success
 **POST:** recenzja została zapisana i powiązana z grą oraz kontem recenzenta.
@@ -2320,13 +2320,13 @@ Powrót do zdania 2. w scenariuszu głównym.
 
 1.-3. tak jak w scenariuszu głównym.
 
-4a. Recenzent zapisuje szkic recenzji.
-5a. System zapisuje szkic recenzji.
+4a. Recenzent zapisuje szkic [Recenzji].
+5a. System zapisuje szkic [Recenzji].
 6a. System wyświetla potwierdzenie zapisu szkicu.
-7a. System wraca do listy gier.
+7a. System przekierowuje recenzenta do listy gier.
 
 **final:** success
-**POST:** szkic recenzji został zapisany i powiązany z kontem recenzenta.
+**POST:** szkic [Recenzji] został zapisany i powiązany z kontem recenzenta.
 
 ---
 
@@ -2351,7 +2351,7 @@ Powrót do kroku 3 scenariusza głównego.
 4a. System wyświetla prośbę o potwierdzenie.
 5a. Recenzent potwierdza anulowanie.
 6a. System porzuca dane recenzji.
-7a. System wraca do listy gier.
+7a. System przekierowuje recenzenta do listy gier.
 
 **final:** failure
 **POST:** recenzja nie została zapisana w systemie.
@@ -2400,13 +2400,13 @@ Powrót do kroku 4 scenariusza głównego.
 
 (W dowolnym momencie scenariusza głównego lub alternatywnego) Sesja recenzenta wygasa z powodu nieaktywności.
 
-1g. System zapisuje szkic recenzji.
+1g. System zapisuje szkic [Recenzji].
 2g. System wylogowuje recenzenta.
 3g. System wyświetla komunikat o wygaśnięciu sesji.
-4g. System przekierowuje recenzenta na ekran logowania.
+4g. System przekierowuje recenzenta do ekranu logowania.
 
 **final:** failure
-**POST:** recenzja nie została przesłana; treść zachowana jako szkic recenzji.
+**POST:** recenzja nie została przesłana; treść zachowana jako szkic [Recenzji].
 
 
 
