@@ -1888,6 +1888,8 @@ ADF(["Zdefiniowanie akcji"])
 SCR(["Przesłanie komunikatu do recenzenta"])
 KED(["Edycja komnaty"])
 SEDF(["Zdefiniowanie czujnika"])
+DGSCE(["Wyświetlenie scenariusza gry w edytorze"])
+TPGS(["Projektowanie zadania w scenariuszu gry"])
 
 
 %% ===== RELACJE =====
@@ -1896,6 +1898,8 @@ GDF -. "&lt;&lt;invoke&gt;&gt;" .-> ADF
 GDF -. "&lt;&lt;invoke&gt;&gt;" .-> SCR
 GDF -. "&lt;&lt;invoke&gt;&gt;" .-> KED
 GDF -. <&ltinvoke>> .-> SEDF
+GDF -. "&lt;&lt;invoke&gt;&gt;" .-> DGSCE
+DGSCE -. "&lt;&lt;invoke&gt;&gt;" .-> TPGS
 ```
 
 #### PU49: Zdefiniowanie gry
@@ -1972,38 +1976,23 @@ flowchart TB
  A -->|<<invoke>>| n3(["Recenzja gry"])
 ```
 
-
-### 4.1.11 Edycja scenariusza gry (projektant gier)
-
-DIAGRAM:
-```mermaid
-flowchart LR
-    PU49(["PU49: Zdefiniowanie gry"])
-    PG(("👤 Projektant gier"))
-    PU56(["PU56: Wyświetlenie scenariusza\\ngry w edytorze"])
-    PU57(["PU57: Projektowanie zadań w scenariuszu gry"])
-    PU49 -.->|"<<invoke>>"| PU56
-    PG --> PU56
-    PU56 -->|"<<invoke>>"| PU57
-```
-
 #### PU56: Wyświetlenie scenariusza gry w edytorze
 
 - Wersja: 1.0 (29.04.2026)
 - Odpowiedzialny: Igor Ochocki
 - Priorytet i trudność: Istotne
 - Wydanie: 1.0
-- Aktor główny: Projektant gier
-- **Opis:** Projektant wybiera istniejącą grę lub scenariusz i otwiera go w module edycji. System wczytuje zapis scenariusza z bazy i prezentuje widok edytora (struktura scenariusza, m.in. lista zadań i metadane - szczegóły UI w scenopisie). Ten przypadek **poprzedza** projektowanie nowych zadań (**PU57**): dodawanie zadania ma miejsce dopiero przy już wyświetlonym w edytorze scenariuszu.
+- Aktor główny: Twórca gier
+- **Opis:** Twórca wybiera istniejącą grę lub scenariusz i otwiera go w module edycji. System wczytuje zapis scenariusza z bazy i prezentuje widok edytora.
 
-#### PU57: Projektowanie zadań w scenariuszu gry
+#### PU57: Projektowanie zadania w scenariuszu gry
 
 - Wersja: 1.0 (29.04.2026)
 - Odpowiedzialny: Igor Ochocki
 - Priorytet i trudność: Istotne (zgodnie z F28)
 - Wydanie: 1.0
-- Aktor główny: Projektant gier
-- **Opis:** Przy aktywnym widoku edytora scenariusza projektant dodaje nowe zadanie fabularne: wypełnia formularz z treścią dla gracza, parametrami mechanicznymi, opcjonalnym obiektem interakcji oraz nagrodami. System waliduje kompletność i spójność powiązań, zapisuje zadanie w strukturze scenariusza i informuje o powodzeniu; przy błędach lub konfliktach prezentuje odpowiednie komunikaty. Szczegóły scenariusza krok po kroku: rozdział 5.
+- Aktor główny: Twórca gier
+- **Opis:** Przy aktywnym widoku edytora scenariusza twórca dodaje nowe zadanie fabularne: wypełnia formularz z [danymi zadania]. System waliduje dane, zapisuje zadanie w strukturze scenariusza i informuje o powodzeniu; przy błędach lub konfliktach prezentuje odpowiednie komunikaty.
 
 Powiązanie z wymaganiami funkcjonalnymi: **F28**.
 
@@ -2039,26 +2028,26 @@ Scenariusz Alternatywny B:
 
 ---
 
-## 5.2 [PU57: Projektowanie zadań w scenariuszu gry](#pu57-projektowanie-zadań-w-scenariuszu-gry)
+## 5.2 [PU57: Projektowanie zadania w scenariuszu gry](#pu57-projektowanie-zadania-w-scenariuszu-gry)
 
 - Wersja: 1.0 (29.04.2026)
 - Odpowiedzialny: Igor Ochocki
 - Wydanie: 1.0
 - Aktor główny: Projektant gier
-- **Związek z [PU56: Wyświetlenie scenariusza gry w edytorze](#pu56-wyświetlenie-scenariusza-gry-w-edytorze):** Przypadek **PU57** realizuje się **po** otwarciu scenariusza w edytorze (PU56). Punkt wyjścia stanowi krok 3 scenariusza PU56 (widok edytora aktywny).
-- Warunek początkowy: Projektant jest zalogowany; w edytorze wyświetlony jest scenariusz gry zgodnie z **[PU56](#pu56-wyświetlenie-scenariusza-gry-w-edytorze)** (struktura scenariusza widoczna w module edycji).
+- **Związek z [PU56: Wyświetlenie scenariusza gry w edytorze](#pu56-wyświetlenie-scenariusza-gry-w-edytorze):** Przypadek **PU57** realizuje się **po** otwarciu scenariusza w edytorze (PU56).
+- Warunek początkowy: Projektant jest zalogowany; w edytorze wyświetlony jest scenariusz gry zgodnie z **[PU56](#pu56-wyświetlenie-scenariusza-gry-w-edytorze)**.
 
 **Scenariusz główny (sukces)**
 
-1. Projektant wybiera <opcję dodania zadania>.
-2. System wyświetla <formularz definicji zadania>.
-3. Projektant wprowadza <dane zadania>.
-4. System waliduje dane pod kątem <kompletności> oraz <spójności powiązań>.
+1. Projektant wybiera [opcję dodania zadania].
+2. System wyświetla [formularz definicji zadania].
+3. Projektant wprowadza [dane zadania].
+4. System waliduje dane.
 
 [dane poprawne]
 
-5. System zapisuje <nowe zadanie> w bazie scenariusza.
-6. System wyświetla <potwierdzenie zapisu>.
+5. System zapisuje [zadanie].
+6. System wyświetla [potwierdzenie zapisu].
 
 **Warunek końcowy:** Nowe zadanie jest dostępne w strukturze scenariusza gry.
 
@@ -2070,13 +2059,13 @@ Scenariusz Alternatywny B:
 
 1–4. Tak jak w scenariuszu głównym.
 
-[dane niepoprawne - <brak wymaganych pól>]
+[dane niepoprawne - [brak wymaganych pól]]
 
-5a. System wyświetla <komunikat o błędach> z wskazaniem pól wymagających uzupełnienia.
+5a. System wyświetla [komunikat o błędach].
 
 6a. Scenariusz wraca do kroku 3 scenariusza głównego.
 
-**final:** failure (brak zapisu do momentu poprawy danych)
+**final:** failure (brak zapisu)
 
 ---
 
@@ -2084,15 +2073,15 @@ Scenariusz Alternatywny B:
 
 1–4. Tak jak w scenariuszu głównym.
 
-[dane niepoprawne - <konflikt powiązań>]
+[dane niepoprawne - [konflikt powiązań]]
 
-5b. System wyświetla <ostrzeżenie o duplikacji / konflikcie powiązań>.
+5b. System wyświetla [ostrzeżenie o konflikcie powiązań].
 
-6b. Projektant wybiera <inny obiekt interakcji> albo modyfikuje istniejące powiązanie zgodnie z możliwościami formularza.
+6b. Projektant wybiera [inny obiekt interakcji].
 
-7b. Scenariusz wraca do kroku 3 scenariusza głównego (po edycji projektant ponownie zatwierdza lub kontynuuje wprowadzanie).
+7b. Scenariusz wraca do kroku 3 scenariusza głównego.
 
-**final:** failure do czasu usunięcia konfliktu (brak zapisu)
+**final:** failure (brak zapisu)
 
 ---
 
@@ -2100,16 +2089,19 @@ Scenariusz Alternatywny B:
 
 1–2. Tak jak w scenariuszu głównym.
 
-3c. Projektant wybiera <opcję anuluj>.
+3c. Projektant wybiera [opcję anuluj].
 
-4c. System wyświetla <zapytanie o porzucenie zmian>.
+4c. System wyświetla [zapytanie o porzucenie zmian].
 
-5c. Projektant potwierdza <chęć wyjścia bez zapisu>.
+5c. Projektant potwierdza [wyjście bez zapisu].
 
-6c. System zamyka <formularz> bez zapisywania zmian.
+6c. System zamyka [formularz definicji zadania].
 
 **Warunek końcowy:** Struktura scenariusza gry nie uległa zmianie.
 
+
+**Scenopis**
+![](./scenopisy/PU57_Projektowanie_zadania_w_scenariuszu_gry.png)
 
 ---
 ## 5.3 [PU52: Przesłanie komunikatu do recenzenta](#pu52-przeslanie-komunikatu-do-recenzenta)
