@@ -2041,6 +2041,7 @@ Scenariusz Alternatywny B:
 7. System wyświetla informację o błędzie zapisu
 8. Scenariusz wraca do kroku 3 scenariusza głównego
 
+![](./scenopisy/Scenopis_Scenariusz5.1_PU51.png)
 ---
 
 ## 5.2 [PU57: Projektowanie zadań w scenariuszu gry](#pu57-projektowanie-zadań-w-scenariuszu-gry)
