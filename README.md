@@ -2544,49 +2544,56 @@ Warunek końcowy: nowy czujnik nie został zarejestrowany dla danej gry
 
 **Scenariusz główny**
 
-1. Twórca gry wybiera opcję „Utwórz nową grę" w panelu twórcy.
-2. System wyświetla formularz opisu ogólnego gry z polami: nazwa gry, opis fabularny, poziom trudności, minimalna i maksymalna liczba graczy oraz szacowany czas trwania.
-3. Twórca gry wypełnia wymagane pola formularza.
-4. Twórca gry dodaje pozostałe elementy gry — definiuje dostępne postaci (role graczy), układ mapy (pomieszczenia i strefy) oraz przedmioty dostępne w świecie gry.
-5. Twórca gry klika przycisk „Zapisz".
-6. System waliduje poprawność i kompletność danych formularza.
-7. System zapisuje grę ze statusem „Oczekuje na weryfikację".
-8. System zamyka formularz opisu ogólnego gry i wyświetla komunikat o poprawnym zapisie oraz informację, że gra oczekuje na weryfikację recenzenta.
-9. System przekierowuje twórcę do widoku listy jego gier, gdzie nowa gra jest widoczna.
+1. Twórca gry wybiera opcję **„Utwórz nową grę”** w Panelu Twórcy.
+2. System wyświetla główny formularz zarządzania grą: **„Definicja gry”**.
+3. Twórca wybiera opcję **„Edytuj podstawowe parametry”**.
+4. System wyświetla formularz **„Podstawowe parametry gry”**.
+5. Twórca wypełnia wymagane pola i klika przycisk **„Zapisz”**.
+6. System waliduje dane i wyświetla komunikat **„Poprawnie zapisano parametry”**.
+7. Twórca klika przycisk **„OK”** na komunikacie sukcesu; system powraca do widoku **„Definicja gry”**.
+8. Twórca klika przycisk **„Zapisz i wyślij”**.
+9. System zapisuje grę ze statusem „Oczekuje na weryfikację”.
+10. System wyświetla komunikat **„Poprawnie zapisano grę i wysłano do recenzenta”**.
+11. Twórca klika przycisk **„OK”**; system przekierowuje go do widoku **„Lista gier”**, gdzie nowa gra jest widoczna.
 
-**Scenariusz alternatywny A: Brakujące lub błędne dane formularza**
+**Scenariusz alternatywny A: Błędne dane w parametrach**
 
-6a. System stwierdza, że jedno lub więcej wymaganych pól formularza jest puste lub zawiera nieprawidłowe wartości (np. maksymalna liczba graczy mniejsza niż minimalna).
+5a. System stwierdza, że dane w formularzu parametrów są nieprawidłowe lub niekompletne.
+1. System wyświetla komunikat **„Błąd: Podane dane są błędne”**.
+2. Twórca klika przycisk **„OK”**.
+3. Formularz parametrów pozostaje otwarty, a błędne pola zostają wyróżnione.
+4. Scenariusz wraca do kroku 5 scenariusza głównego.
 
-1. System wyświetla komunikat „Uzupełnij wszystkie wymagane pola" i podświetla błędne pola.
-2. Formularz pozostaje otwarty z zaznaczonymi błędami.
-3. Scenariusz wraca do kroku 3 scenariusza głównego.
+**Scenariusz alternatywny B: Definiowanie elementów szczegółowych (Czujniki)**
 
-**Scenariusz alternatywny B: Twórca definiuje akcje gry**
+7a. Twórca chce zdefiniować czujniki dla gry.
+1. Twórca wybiera opcję **„Dodaj nowy czujnik”** w widoku „Definicja gry”.
+2. System wywołuje **PU50: Zdefiniowanie czujnika**.
+3. Po zakończeniu definiowania czujnika system powraca do widoku **„Definicja gry”**.
+4. Scenariusz wraca do kroku 8 scenariusza głównego.
 
-4a. Twórca gry chce zdefiniować akcje dostępne w rozgrywce.
+**Scenariusz alternatywny C: Definiowanie elementów szczegółowych (Scenariusz)**
 
-1. Twórca wybiera opcję „Dodaj akcję" w formularzu gry.
-2. System wywołuje [UC202: Zdefiniowanie akcji](#uc202-zdefiniowanie-akcji).
-3. Po zakończeniu definiowania akcji system powraca do formularza opisu ogólnego gry.
-4. Scenariusz wraca do kroku 4 scenariusza głównego.
+7b. Twórca chce edytować zadania lub mapę w scenariuszu.
+1. Twórca wybiera opcję **„Edytuj scenariusz gry”** w widoku „Definicja gry”.
+2. System wywołuje **PU56: Wyświetlenie scenariusza gry w edytorze**.
+3. Po zakończeniu edycji scenariusza system powraca do widoku **„Definicja gry”**.
+4. Scenariusz wraca do kroku 8 scenariusza głównego.
 
-**Scenariusz alternatywny C: Twórca przesyła komunikat do recenzenta**
+**Scenariusz alternatywny D: Zapis lokalny (bez wysyłki do recenzji)**
 
-4b. Twórca gry chce skontaktować się z recenzentem w trakcie tworzenia gry.
+8a. Twórca klika przycisk **„Zapisz”**.
+1. System zapisuje grę ze statusem „W edycji”.
+2. System wyświetla komunikat **„Poprawnie zapisano grę”**.
+3. Twórca klika przycisk **„OK”**; system przekierowuje go do widoku **„Lista gier”**.
 
-1. Twórca wybiera opcję „Wyślij komunikat do recenzenta".
-2. System wywołuje [PU51: Przesłanie komunikatu do recenzenta](#pu51-przeslanie-komunikatu-do-recenzenta).
-3. Po wysłaniu komunikatu system powraca do formularza opisu ogólnego gry.
-4. Scenariusz wraca do kroku 4 scenariusza głównego.
+**Scenariusz alternatywny E: Anulowanie tworzenia gry**
 
-**Scenariusz alternatywny D: Anulowanie tworzenia gry**
+(W dowolnym momencie przebywania w widoku „Definicja gry”) Twórca klika przycisk **„Anuluj”**.
+1. System zamyka formularz i przekierowuje twórcę do widoku **„Panel Twórcy”** bez zapisywania żadnych zmian.
 
-(W dowolnym momencie kroków 2–4) Twórca gry klika przycisk „Anuluj".
-
-1. System wyświetla komunikat ostrzegający „Niezapisane zmiany zostaną utracone. Czy chcesz kontynuować?".
-2. Twórca potwierdza anulowanie.
-3. System zamyka formularz bez zapisywania danych i przekierowuje twórcę do listy jego gier.
+**Scenopis**
+![](./scenopisy/PU49_Zdefiniowanie_gry.png)
 
 ## 5.9 [PU1: Wyświetlenie kalendarza](#pu1-wyświetlenie-kalendarza)
 
