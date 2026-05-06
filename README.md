@@ -2559,7 +2559,7 @@ Warunek końcowy: nowy czujnik nie został zarejestrowany dla danej gry
 **Scenariusz alternatywny A: Błędne dane w parametrach**
 
 5a. System stwierdza, że dane w formularzu parametrów są nieprawidłowe lub niekompletne.
-1. System wyświetla komunikat **„Błąd: Podane dane zadania są błędne”**.
+1. System wyświetla komunikat **„Błąd: Podane dane są błędne”**.
 2. Twórca klika przycisk **„OK”**.
 3. Formularz parametrów pozostaje otwarty, a błędne pola zostają wyróżnione.
 4. Scenariusz wraca do kroku 5 scenariusza głównego.
@@ -2591,6 +2591,9 @@ Warunek końcowy: nowy czujnik nie został zarejestrowany dla danej gry
 
 (W dowolnym momencie przebywania w widoku „Definicja gry”) Twórca klika przycisk **„Anuluj”**.
 1. System zamyka formularz i przekierowuje twórcę do widoku **„Panel Twórcy”** bez zapisywania żadnych zmian.
+
+**Scenopis**
+![](./scenopisy/PU49_Zdefiniowanie_gry.png)
 
 ## 5.9 [PU1: Wyświetlenie kalendarza](#pu1-wyświetlenie-kalendarza)
 
