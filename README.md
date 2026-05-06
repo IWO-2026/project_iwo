@@ -2034,7 +2034,7 @@ Scenariusz Alternatywny B:
 - Odpowiedzialny: Igor Ochocki
 - Wydanie: 1.0
 - Aktor główny: Projektant gier
-- **Związek z [PU56: Wyświetlenie scenariusza gry w edytorze](#pu56-wyświetlenie-scenariusza-gry-w-edytorze):** Przypadek **PU57** realizuje się **po** otwarciu scenariusza w edytorze (PU56). Punkt wyjścia stanowi krok 3 scenariusza PU56 (widok edytora aktywny).
+- **Związek z [PU56: Wyświetlenie scenariusza gry w edytorze](#pu56-wyświetlenie-scenariusza-gry-w-edytorze):** Przypadek **PU57** realizuje się **po** otwarciu scenariusza w edytorze (PU56).
 - Warunek początkowy: Projektant jest zalogowany; w edytorze wyświetlony jest scenariusz gry zgodnie z **[PU56](#pu56-wyświetlenie-scenariusza-gry-w-edytorze)**.
 
 **Scenariusz główny (sukces)**
@@ -2052,9 +2052,6 @@ Scenariusz Alternatywny B:
 **Warunek końcowy:** Nowe zadanie jest dostępne w strukturze scenariusza gry.
 
 **final:** success
-
-**Scenopis**
-![](./scenopisy/PU57_Projektowanie_zadania_w_scenariuszu_gry.png)
 
 ---
 
@@ -2102,6 +2099,9 @@ Scenariusz Alternatywny B:
 
 **Warunek końcowy:** Struktura scenariusza gry nie uległa zmianie.
 
+
+**Scenopis**
+![](./scenopisy/PU57_Projektowanie_zadania_w_scenariuszu_gry.png)
 
 ---
 ## 5.3 [PU52: Przesłanie komunikatu do recenzenta](#pu52-przeslanie-komunikatu-do-recenzenta)
