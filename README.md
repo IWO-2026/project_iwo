@@ -2239,6 +2239,8 @@ Powrót do kroku 5 w scenariuszu głównym.
 
 Powrót do kroku 5 w scenariuszu głównym.
 
+**Scenopis:**
+![Scenopis - Wyświetlenie listy gier](scenopisy/scenopis_pu53.png)
 
 ## 5.5 [Definiowanie warunków zwycięstwa w scenariuszu gry]
 
