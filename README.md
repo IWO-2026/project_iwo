@@ -2121,6 +2121,7 @@ Scenariusz Alternatywny B:
 - Odpowiedzialny: Michał Marciniak
 - Wydanie: 1.0
 - Aktor główny: Twórca gry
+- Wywoływany z: [PU49: Zdefiniowanie gry](#pu49-zdefiniowanie-gry)
 - Warunek początkowy: Twórca gry jest zalogowany i znajduje się w formularzu opisu ogólnego gry.
 - Warunek końcowy (success): Komunikat do recenzenta został wysłany i jest widoczny w oknie komunikacji twórcy gry z recenzentem.
 - Warunek końcowy (failure): Komunikat do recenzenta nie został wysłany, treść pozostaje w polu edycji.
