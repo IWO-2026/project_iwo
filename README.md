@@ -2423,6 +2423,9 @@ Powrót do kroku 3. w Scenariuszu głównym
 
 Warunek końcowy: nowy czujnik nie został zarejestrowany dla danej gry
 
+**Scenopis**
+![](./scenopisy/PU50_Zdefiniowanie_czujnika.png)
+
 
 ## 5.8 [PU49: Zdefiniowanie gry](#pu49-zdefiniowanie-gry)
 
