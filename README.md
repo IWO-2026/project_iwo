@@ -2408,12 +2408,7 @@ Powrót do zdania 2. w scenariuszu głównym.
 
 **Scenariusz główny**
 
-![Scenopis PU55 — Lista gier do recenzji](scenopisy/recenzja/lista-gier.png)
-
 1. Recenzent wybiera opcję recenzji wybranej gry.
-
-![Scenopis PU55 — Okno recenzji](scenopisy/recenzja/recenzja-okno.png)
-
 2. System wyświetla okno recenzji.
 3. Recenzent wprowadza treść recenzji.
 4. Recenzent wysyła recenzję.
@@ -2421,9 +2416,6 @@ Powrót do zdania 2. w scenariuszu głównym.
 [recenzja poprawna]
 6. System zapisuje recenzję.
 7. System aktualizuje [Status recenzji].
-
-![Scenopis PU55 — Potwierdzenie wysłania recenzji](scenopisy/recenzja/recenzja-zapis.png)
-
 8. System wyświetla potwierdzenie wysłania.
 `<<invoke>>` Przesłanie komunikatu do twórcy
 9. System przekierowuje recenzenta do listy gier.
@@ -2439,9 +2431,6 @@ Powrót do zdania 2. w scenariuszu głównym.
 
 4a. Recenzent zapisuje szkic [Recenzji].
 5a. System zapisuje szkic [Recenzji].
-
-![Scenopis PU55 — Potwierdzenie zapisu szkicu (alt. A)](scenopisy/recenzja/recenzja-szkic-zapis.png)
-
 6a. System wyświetla potwierdzenie zapisu szkicu.
 7a. System przekierowuje recenzenta do listy gier.
 
@@ -2456,9 +2445,6 @@ Powrót do zdania 2. w scenariuszu głównym.
 
 [recenzja niepoprawna]
 5b. System stwierdza błąd walidacji recenzji.
-
-![Scenopis PU55 — Błąd walidacji recenzji (alt. B)](scenopisy/recenzja/szkic-brakinfo.png)
-
 6b. System wyświetla komunikat o błędzie walidacji.
 7b. System nie zapisuje recenzji.
 
@@ -2471,9 +2457,6 @@ Powrót do kroku 3 scenariusza głównego.
 1.-2. tak jak w scenariuszu głównym.
 
 3a. Recenzent anuluje recenzję.
-
-![Scenopis PU55 — Dialog potwierdzenia anulowania (alt. C)](scenopisy/recenzja/chcesz-anulowac.png)
-
 4a. System wyświetla prośbę o potwierdzenie.
 5a. Recenzent potwierdza anulowanie.
 6a. System porzuca dane recenzji.
@@ -2487,16 +2470,10 @@ Powrót do kroku 3 scenariusza głównego.
 **Scenariusz alternatywny D: Recenzent już zrecenzował tę grę**
 
 1a. System wykrywa istniejącą recenzję dla wybranej gry.
-
-![Scenopis PU55 — Komunikat o istniejącej recenzji (alt. D, krok 2a)](scenopisy/recenzja/recenzja-istnieje.png)
-
 2a. System wyświetla komunikat o istniejącej recenzji.
 3a. System oferuje edycję istniejącej recenzji.
 4a. Recenzent wybiera edycję recenzji.
 [edycja wybrana]
-
-![Scenopis PU55 — Edycja istniejącej recenzji (alt. D, krok 5a)](scenopisy/recenzja/recenzja-edycja.png)
-
 5a. System wczytuje istniejącą recenzję.
 
 Powrót do kroku 3 scenariusza głównego.
@@ -2521,9 +2498,6 @@ Powrót do kroku 3 scenariusza głównego.
 
 [błąd zapisu]
 6c. System zgłasza błąd zapisu.
-
-![Scenopis PU55 — Błąd zapisu recenzji (alt. F, krok 7c)](scenopisy/recenzja/recenzja-blad.png)
-
 7c. System wyświetla komunikat o błędzie.
 8c. System zachowuje treść recenzji.
 
@@ -2537,14 +2511,14 @@ Powrót do kroku 4 scenariusza głównego.
 
 1g. System zapisuje szkic [Recenzji].
 2g. System wylogowuje recenzenta.
-
-![Scenopis PU55 — Wygaśnięcie sesji (alt. G, krok 3g)](scenopisy/recenzja/sesja-wygasla.png)
-
 3g. System wyświetla komunikat o wygaśnięciu sesji.
 4g. System przekierowuje recenzenta do ekranu logowania.
 
 **final:** failure
 **POST:** recenzja nie została przesłana; treść zachowana jako szkic [Recenzji].
+
+**Scenopis**
+![Scenopis PU55 — Recenzja gry](./scenopisy/Scenopis_PU55_Recenzja_gry.png)
 
 ---
 
