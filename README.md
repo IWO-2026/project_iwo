@@ -1833,15 +1833,17 @@ flowchart LR
 DIAGRAM:
 
 ```mermaid
-flowchart TD
+flowchart LR
     User(("👤 Organizator"))
     A(["Dodanie wydarzenia do kalendarza"])
     B(["Zaproszenie graczy"])
     C(["Udostępnienie wydarzenia graczom"])
+    D(["Wyświetlenie kalendarza przez organizatora"])
 
-    User-->A
-    A-.->|<< invoke >>|B
-    A-.->|<< invoke >>|C
+    User-->D
+    D-.->|<< invoke >>|A
+    D-.->|<< invoke >>|B
+    D-.->|<< invoke >>|C
 ```
 
 #### PU39: Dodanie wydarzenia do kalendarza
