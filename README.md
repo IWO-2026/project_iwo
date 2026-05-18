@@ -2761,3 +2761,198 @@ final: failure
 
 9a2.1 Twórca gry wybiera opcję zapisu z wyjściem.
 9a2.2 System skacze do kroku 7 scenariusza głównego, ale mapa gry pozostaje oznaczona jako niepoprawna, co uniemożliwia publikację gry do czasu poprawy mapy gry.
+
+## 5.12 [PU40: Zaproszenie graczy](#pu40-zaproszenie-graczy)
+
+- Wersja: 1.0 (18.05.2026)
+- Odpowiedzialna: Polina Nesterova
+- Wydanie: 1.0
+- Aktor główny: Organizator wydarzenia
+- **Związek z [PU39: Dodanie wydarzenia do kalendarza](#pu39-dodanie-wydarzenia-do-kalendarza):** Przypadek **PU40** realizuje się **po** utworzeniu [Wydarzenia] zgodnie z PU39.
+- Warunek początkowy: Organizator jest zalogowany; w menu zarządzania utworzonym [Wydarzeniem] dostępna jest opcja [zaproszenia graczy].
+
+**Scenariusz główny (sukces)**
+
+1. Organizator wybiera [opcję zaproszenia graczy].
+2. System wyświetla [okno zapraszania graczy] z [listą zarejestrowanych graczy] oraz [polem wyszukiwania].
+3. Organizator wybiera [graczy] z [listy zarejestrowanych graczy].
+4. Organizator wybiera [opcję wysłania zaproszenia].
+5. System waliduje wybór.
+
+[wybór poprawny]
+
+6. System tworzy [Zaproszenia] i powiązuje je z wybranymi [Graczami] oraz [Wydarzeniem].
+7. System wysyła [powiadomienia o zaproszeniu] do wybranych [Graczy].
+8. System wyświetla [potwierdzenie wysłania zaproszeń].
+
+**Warunek końcowy:** [Zaproszenia] zostały zapisane i powiązane z wybranymi [Graczami] oraz [Wydarzeniem]; zaproszeni [Gracze] otrzymali [powiadomienie o zaproszeniu].
+
+**final:** success
+
+---
+
+**Scenariusz alternatywny 1: Filtrowanie listy graczy**
+
+1–2. Tak jak w scenariuszu głównym.
+
+3a. Organizator wprowadza [kryteria wyszukiwania] w [polu wyszukiwania].
+
+4a. System filtruje [listę zarejestrowanych graczy].
+
+[wyniki znalezione]
+
+5a. Organizator wybiera [graczy] z [przefiltrowanej listy].
+
+6a. Scenariusz wraca do kroku 4 scenariusza głównego.
+
+**final:** success (kontynuacja scenariusza głównego)
+**POST:** [Lista zarejestrowanych graczy] została przefiltrowana zgodnie z [kryteriami wyszukiwania].
+
+---
+
+**Scenariusz alternatywny 2: Brak wyników wyszukiwania**
+
+1–3a. Tak jak w scenariuszu alternatywnym 1.
+
+[brak wyników]
+
+4b. System wyświetla [komunikat o braku wyników] oraz [opcję wyczyszczenia filtra].
+
+5b. Organizator wybiera [opcję wyczyszczenia filtra].
+
+6b. System przywraca pełną [listę zarejestrowanych graczy].
+
+7b. Scenariusz wraca do kroku 3 scenariusza głównego.
+
+**final:** failure (brak wysłania)
+**POST:** [Zaproszenia] nie zostały wysłane; filtr został wyczyszczony, pełna [lista zarejestrowanych graczy] jest ponownie widoczna.
+
+---
+
+**Scenariusz alternatywny 3: Brak wybranych graczy**
+
+1–4. Tak jak w scenariuszu głównym.
+
+[wybór niepoprawny - [brak zaznaczonych graczy]]
+
+5a. System wyświetla [komunikat o konieczności wybrania gracza].
+
+6a. Organizator zamyka [komunikat].
+
+7a. Scenariusz wraca do kroku 3 scenariusza głównego.
+
+**final:** failure (brak wysłania)
+**POST:** [Zaproszenia] nie zostały wysłane; [okno zapraszania graczy] pozostaje otwarte.
+
+---
+
+**Scenariusz alternatywny 4: Gracz już zaproszony**
+
+1–5. Tak jak w scenariuszu głównym.
+
+[wybór niepoprawny - [aktywne zaproszenie istnieje]]
+
+6a. System wyświetla [komunikat o istniejących zaproszeniach] z [listą zaproszonych graczy] oraz oferuje [opcję pominięcia zaproszonych] lub [opcję anulowania].
+
+7a. Organizator wybiera [opcję pominięcia zaproszonych].
+
+8a. System tworzy [Zaproszenia] wyłącznie dla [Graczy] bez aktywnego [Zaproszenia].
+
+9a. Scenariusz wraca do kroku 7 scenariusza głównego.
+
+**final:** success (zaproszono tylko nowych graczy)
+**POST:** [Zaproszenia] zostały wysłane wyłącznie do [Graczy] bez aktywnego [Zaproszenia]; wcześniej zaproszeni [Gracze] pozostali bez zmian.
+
+---
+
+**Scenariusz alternatywny 5: Gracz już zarejestrowany na wydarzenie**
+
+1–5. Tak jak w scenariuszu głównym.
+
+[wybór niepoprawny - [gracz zarejestrowany na wydarzenie]]
+
+6b. System wyświetla [komunikat o już zarejestrowanych graczach] i wyklucza ich z [wyboru].
+
+7b. Organizator wybiera [opcję kontynuacji].
+
+8b. Scenariusz wraca do kroku 6 scenariusza głównego (z pominięciem już zarejestrowanych [Graczy]).
+
+**final:** success (zaproszono tylko niezarejestrowanych graczy)
+**POST:** [Zaproszenia] zostały wysłane wyłącznie do [Graczy], którzy nie byli zarejestrowani na [Wydarzenie].
+
+---
+
+**Scenariusz alternatywny 6: Przekroczenie limitu miejsc**
+
+1–5. Tak jak w scenariuszu głównym.
+
+[wybór niepoprawny - [przekroczony limit uczestników]]
+
+6c. System wyświetla [ostrzeżenie o przekroczeniu limitu miejsc] z [opcją skorygowania wyboru] lub [opcją wysłania mimo to].
+
+7c. Organizator wybiera [opcję skorygowania wyboru].
+
+8c. Scenariusz wraca do kroku 3 scenariusza głównego.
+
+**final:** failure (brak wysłania)
+**POST:** [Zaproszenia] nie zostały wysłane; [wybór graczy] pozostaje aktywny w [oknie zapraszania graczy].
+
+---
+
+**Scenariusz alternatywny 7: Anulowanie zaproszenia**
+
+1–3. Tak jak w scenariuszu głównym.
+
+4d. Organizator wybiera [opcję anuluj].
+
+5d. System wyświetla [zapytanie o porzucenie wyboru].
+
+6d. Organizator potwierdza [wyjście bez wysłania].
+
+7d. System zamyka [okno zapraszania graczy].
+
+**Warunek końcowy:** Żadne [Zaproszenie] nie zostało utworzone; system wraca do menu [Wydarzenia].
+
+**final:** failure (brak wysłania)
+**POST:** [Wybór graczy] został porzucony; stan [Wydarzenia] pozostaje bez zmian.
+
+---
+
+**Scenariusz alternatywny 8: Błąd zapisu zaproszeń**
+
+1–5. Tak jak w scenariuszu głównym.
+
+[błąd zapisu]
+
+6e. System zgłasza [błąd zapisu zaproszeń].
+
+7e. System wyświetla [komunikat o błędzie wysłania] z [opcją ponowienia próby].
+
+8e. System zachowuje [wybór graczy].
+
+9e. Organizator wybiera [opcję ponowienia próby].
+
+10e. Scenariusz wraca do kroku 5 scenariusza głównego.
+
+**final:** failure (brak zapisu)
+**POST:** [Zaproszenia] nie zostały zapisane; [wybór graczy] pozostaje zachowany w [oknie zapraszania graczy].
+
+---
+
+**Scenariusz alternatywny 9: Wygaśnięcie sesji**
+
+(W dowolnym momencie scenariusza głównego lub alternatywnego) [Sesja] organizatora wygasa z powodu nieaktywności.
+
+1f. System wyświetla [komunikat o wygaśnięciu sesji].
+
+2f. System wylogowuje organizatora.
+
+3f. System przekierowuje organizatora do [ekranu logowania].
+
+**Warunek końcowy:** [Zaproszenia] nie zostały utworzone; [wybór graczy] zostaje porzucony.
+
+**final:** failure (brak zapisu)
+**POST:** Organizator został wylogowany; [wybór graczy] nie został zachowany.
+
+**Scenopis**
+![Scenopis PU40 — Zaproszenie graczy](./scenopisy/Scenopis_PU40_Zaproszenie_graczy.svg)
