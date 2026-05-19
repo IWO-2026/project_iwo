@@ -2726,8 +2726,9 @@ final: success
 
 Powrót do kroku 3 scenariusza głównego.
 
-**Scenariusz alternatywny B: Błąd zapisu mapy gry w przeglądarce użytkownika**     
-5a. System wykrywa błąd zapisu mapy gry w przeglądarce.    
+**Scenariusz alternatywny B: Błąd zapisu mapy gry w przeglądarce użytkownika**
+
+5a. System wykrywa błąd zapisu mapy gry w przeglądarce.
 6a. System sprawdza czas od ostatniego zapisu.    
 7a. System wyświetla komunikat o błędzie zapisu mapy gry w przeglądarce, informuje użytkownika o tym, że ostatni zapis został wykonany [czas] temu, oferuje możliwości wyjścia, ponowienia zapisu lub kontynuowania bez zapisu.    
 8a. Twórca gry wybra opcję ponowienia zapisu mapy gry w przeglądarce.    
@@ -2784,14 +2785,21 @@ final: failure
 8. System zamyka komunikat i powraca do zaktualizowanego ekranu "Lista zaproszeń" (zaproszenie znika z listy).
 
 **Scenariusz alternatywny A: Odrzucenie zaproszenia**
+
 5a. Gracz wybiera opcję "Odrzuć".
+
 6a. System rejestruje odrzucenie zaproszenia i wyświetla komunikat o sukcesie: "Zaproszenie zostało odrzucone".
+
 7a. Gracz klika przycisk "OK".
+
 8a. System zamyka komunikat i powraca do zaktualizowanego ekranu "Lista zaproszeń" (zaproszenie znika z listy).
 
 **Scenariusz alternatywny B: Anulowanie akcji w oknie decyzji**
+
 5b. Gracz wybiera opcję "Anuluj".
+
 6b. System zamyka okno decyzji bez wprowadzania jakichkolwiek zmian w statusie zaproszenia.
+
 7b. System powraca bezpośrednio do ekranu "Lista zaproszeń".
 
 **Scenopis**
