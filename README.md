@@ -2245,13 +2245,14 @@ Scenariusz Alternatywny B:
 
 **Scenariusz główny**
 
-1. Twórca gry wybiera opcję przesłania komunikatu do recenzenta.
-2. System wyświetla okno komunikacji twórcy gry z recenzentem.
-3. Twórca gry wpisuje komunikat do recenzenta.
-4. Twórca gry wybiera opcję wysłania. \
+1. Twórca gry wybiera [opcję przesłania komunikatu do recenzenta].
+2. System wyświetla [okno komunikacji twórcy gry z recenzentem].
+3. Twórca gry wpisuje [komunikat do recenzenta].
+4. Twórca gry wybiera [opcję wysłania].
+5. System waliduje dane. \
 [komunikat do recenzenta poprawny]
-5. System wysyła komunikat do recenzenta.
-6. System dodaje wiadomość do okna komunikacji twórcy gry z recenzentem.
+6. System wysyła komunikat do recenzenta.
+7. System dodaje wiadomość do okna komunikacji twórcy gry z recenzentem.
 
 **final:** success
 
@@ -2259,10 +2260,9 @@ Scenariusz Alternatywny B:
 
 **Scenariusz alternatywny A: Pusty komunikat**
 
-1-4. Jak w scenariuszu głównym. \
+1-5. Jak w scenariuszu głównym. \
 [komunikat do recenzenta pusty] \
-5a. System wyświetla komunikat o braku danych. \
-6a. Twórca gry wybiera "Ok".
+6a. System wyświetla [komunikat o braku danych].
 
 Powrót do kroku 3. w scenariuszu głównym
 
@@ -2272,10 +2272,9 @@ Powrót do kroku 3. w scenariuszu głównym
 
 **Scenariusz alternatywny B: Przekroczenie limitu znaków**
 
-1-4. Jak w scenariuszu głównym. \
+1-5. Jak w scenariuszu głównym. \
 [komunikat do recenzenta zbyt długi] \
-5b. System wyświetla komunikat o przekroczeniu limitu znaków. \
-6b. Twórca gry wybiera "Ok".
+6b. System wyświetla [komunikat o przekroczeniu limitu znaków].
 
 Powrót do kroku 3. w scenariuszu głównym
 
@@ -2287,8 +2286,7 @@ Powrót do kroku 3. w scenariuszu głównym
 
 1-5. Jak w scenariuszu głównym. \
 [błąd połączenia / brak odpowiedzi serwera] \
-6c. System wyświetla komunikat o błędzie wysłania. \
-7c. Twórca gry wybiera "Ok".
+6c. System wyświetla [komunikat o błędzie wysłania].
 
 Powrót do kroku 3. w scenariuszu głównym
 
@@ -2770,19 +2768,20 @@ final: failure
 - Odpowiedzialny: Michał Marciniak
 - Wydanie: 1.0
 - Aktor główny: Organizator
-- Wywoływany z: [PU47: Wyświetlenie kalendarza przez ogranizatora](#pu47-wyświetlenie-kalendarza-przez-organizatora)
+- Wywoływany z: [PU47: Wyświetlenie kalendarza przez organizatora](#pu47-wyświetlenie-kalendarza-przez-organizatora)
 - Warunek początkowy: Organizator jest zalogowany i znajduje się w kalendarzu.
 - Warunek końcowy (success): Wydarzenie zostało dodane do kalendarza i jest widoczne w kalendarzu.
 - Warunek końcowy (failure): Wydarzenie nie zostało dodane do kalendarza.
 
 **Scenariusz główny**
 
-1. Organizator wybiera opcję dodania wydarzenia do kalendarza
-2. System wyświetla formularz dodania wydarzenia do kalendarza
-3. Organizator wprowadza dane wydarzenia
-4. Organizator wybiera opcję dodania. \
+1. Organizator wybiera [opcję dodania wydarzenia].
+2. System wyświetla [formularz dodania wydarzenia do kalendarza].
+3. Organizator wprowadza [dane wydarzenia].
+4. Organizator wybiera [opcję dodania].
+5. System waliduje dane. \
 [dane poprawne i termin wolny]
-5. System dodaje wydarzenie do kalendarza
+6. System dodaje [wydarzenie] do [kalendarza].
 
 **final:** success
 
@@ -2790,10 +2789,10 @@ final: failure
 
 **Scenariusz alternatywny A: Błędne dane**
 
-1-4. Jak w scenariuszu głównym. \
+1-5. Jak w scenariuszu głównym. \
 [dane niepoprawne] \
-5a. System wyświetla komunikat o niepoprawnych danych. \
-6a. Organizator wybiera "Ok".
+6a. System wyświetla [komunikat o błędnych danych wydarzenia]. \
+7a. Organizator wybiera "OK".
 
 Powrót do kroku 3. w scenariuszu głównym
 
@@ -2803,10 +2802,10 @@ Powrót do kroku 3. w scenariuszu głównym
 
 **Scenariusz alternatywny B: Zajęty termin**
 
-1-4. Jak w scenariuszu głównym. \
+1-5. Jak w scenariuszu głównym. \
 [termin wydarzenia zajęty] \
-5b. System wyświetla komunikat o zajętym terminie. \
-6b. Organizator wybiera "Ok".
+6b. System wyświetla [komunikat o zajętej dacie]. \
+7b. Organizator wybiera "OK".
 
 Powrót do kroku 3. w scenariuszu głównym
 
@@ -2829,8 +2828,8 @@ Powrót do kroku 3. w scenariuszu głównym
 
 **Scenariusz główny**
 
-1. Organizator wybiera opcję wyświetlenia kalendarza.
-2. System wyświetla kalendarz wydarzeń z opcją dodania wydarzenia.
+1. Organizator wybiera [opcję wyświetlenia kalendarza].
+2. System wyświetla [kalendarz] z [opcją dodania wydarzenia].
 
 **final:** success
 
