@@ -2758,6 +2758,45 @@ final: failure
 9a2.1 Twórca gry wybiera opcję zapisu z wyjściem.
 9a2.2 System skacze do kroku 7 scenariusza głównego, ale mapa gry pozostaje oznaczona jako niepoprawna, co uniemożliwia publikację gry do czasu poprawy mapy gry.
 
+
+
+## 5.xx PU41: Udostępnienie wydarzenia graczom
+
+- Wersja 1.0 (19.05.2026)
+- Odpowiedzialny: Olaf Smoleński
+- Wydanie: 1.0
+- Aktor główny: Organizator
+- Wywoływany z: [PU39: Dodanie wydarzenia do kalendarza](#pu39-dodanie-wydarzenia-do-kalendarza)
+- Warunek początkowy: Organizator jest zalogowany i ma otwarte menu danego wydarzenia.
+- Warunek końcowy (success): Wydarzenie zostało udostępnione graczom.
+- Warunek końcowy (failure): Wydarzenie nie zostało udostępnione graczom.
+
+**Scenariusz główny**
+
+1. Organizator wybiera opcję udostępnienia wydarzenia graczom.
+2. System wyświetla formularz udostępnienia wydarzenia.
+3. Organizator wprowadza datę otwarcia i zamknięcia zapisów na wydarzenie.
+4. Organizator wybiera opcję dodania.
+5. System udostępnia wydarzenie dla graczy.
+6. System wyświetla komunikat o udostępnieniu wydarzenia.
+
+**final**: success \
+**POST**: Wydarzenie zostało udostępnione, gracze mogą dokonywać zapisów w określonym terminie.
+
+**Scenariusz alternatywny A**: Brak lub niepoprawna data otwarcia i/lub zamknięcia
+
+1-4. Jak w scenariuszu głównym. \
+\[brak lub niepoprawna data] \
+5a. System wyświetla komunikat o niepoprawnej dacie. \
+6a. Organizator wybiera "OK". \
+(powrót do kroku 3. w scenariuszu głównym)
+
+**final**: failure \
+**POST**: Wydarzenie nie zostało udostępnione.
+
+**Scenopis**
+
+![](./scenopisy/scenopis-pu41.png)
 ## 5.12 [PU40: Zaproszenie graczy](#pu40-zaproszenie-graczy)
 
 - Wersja: 1.0 (18.05.2026)
