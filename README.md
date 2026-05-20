@@ -2798,21 +2798,35 @@ final: failure
 
 **Scenariusz główny**
 
-1. System wyświetla formularz z [Danymi warunku rozpoczęcia].
-2. Mistrz Wydarzenia uzupełnia formularz.
-3. System waliduje poprawność wprowadzonych danych.
+1. Mistrz Wydarzenia wybiera opcję Uruchom [Wydarzenie].
+2. System wyświetla formularz z [Danymi warunku rozpoczęcia].
+3. Mistrz Wydarzenia uzupełnia formularz.
+4. System waliduje poprawność wprowadzonych danych.
    [dane poprawne]
-4. System wyświetla potwierdzenie uruchomienia [Wydarzenia].
+5. System wyświetla potwierdzenie uruchomienia [Wydarzenia].
 
 **final:** success
 
 **Scenariusz alternatywny A: Niespełnione warunki rozpoczęcia**
 
-1.-3. tak jak w scenariuszu głównym.  
-[warunki niespełnione]  
-4a. System wyświetla komunikat o niespełnionych warunkach rozpoczęcia.
+1.-4. tak jak w scenariuszu głównym.  
+[dane niepopranwe]  
+5a. System wyświetla komunikat o niespełnionych warunkach rozpoczęcia.
 
-Powrót do zdania 2 scenariusza głównego.
+Powrót do zdania 3 scenariusza głównego.
+
+---
+
+**Scenariusz alternatywny B: Anulowanie uruchomienia wydarzenia**
+
+1.-2. tak jak w scenariuszu głównym.
+
+3b. Mistrz Wydarzenia anuluje uruchomienie [Wydarzenia].  
+4b. System wyświetla prośbę o potwierdzenie.  
+5b. Mistrz Wydarzenia potwierdza anulowanie.  
+6b. System zamyka formularz uruchomienia [Wydarzenia]
+
+**final:** failure
 
 **Scenopis:**
 ![Scenopis - Definiowanie warunków zwycięstwa](scenopisy/scenopis_PU20.png)
