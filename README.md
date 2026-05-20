@@ -1377,10 +1377,6 @@ Konkretny zbiór informacji konfiguracyjnych i kryteriów niezbędnych do urucho
 
 # 4. Wymagania użytkownika
 
----
-
-# 4. Wymagania użytkownika
-
 ## 4.1 Wymagania funkcjonalne
 
 ### 4.1.1 Zarządzanie wydarzeniami
