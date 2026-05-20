@@ -744,8 +744,7 @@ classDiagram
         +wartoscSkutow: String
     }
 
-    TworcaGier "1" --> "0..*" Gra       : definiuje
-    OrganizatorZewnetrzny "1" --> "0..*" Gra   : tworzy
+    TworcaGier "1" --> "0..*" Gra : definiuje
 
     Gra "1" *-- "1"    Mapa    : zawiera
     Gra "1" *-- "1..*"    ScenariuszGry    : zawiera
@@ -761,8 +760,8 @@ classDiagram
     Komnata "1" *-- "0..*" Czujnik : zawiera
     Komnata "1" *-- "0..*" KodQR : zawiera
 
-    Czujnik "1" --> "1" "Akcja" : wywołuje
-    KodQR "1" --> "1" "Akcja" : wywołuje
+    Czujnik "1" --> "1" Akcja : wywołuje
+    KodQR "1" --> "1" Akcja : wywołuje
 
     Postac "1" *-- "1"    Ekwipunek  : posiada
     Postac "1" --> "0..*" Przedmiot  : nosi
@@ -800,7 +799,7 @@ classDiagram
         +data: DateTime
     }
 
-    class KalendarzWydarzeń {
+    class KalendarzWydarzen {
         +wybranyMiesiac: Enum
     }
 
@@ -872,15 +871,9 @@ classDiagram
     direction TB
 
     class Uzytkownik {
-        +imie: String
-        +nazwisko: String
-        +email: String
     }
 
     class Wydarzenie {
-        +data: DateTime
-        +organizator: User
-        +miejsce: String
     }
 
     class Zaproszenie {
