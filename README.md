@@ -3383,3 +3383,6 @@ final: failure
 2c. System usuwa zaproszenie z listy zaproszeń gracza.
 
 3c. System wyświetla komunikat z potwierdzeniem pomyślnego odrzucenia zaproszenia.
+
+<img width="1422" height="738" alt="image" src="https://github.com/user-attachments/assets/6ed81d14-ef12-4e3b-8792-8467ce30c028" />
+![](./scenopisy/PU31_Wysłanie_skargi.png)
