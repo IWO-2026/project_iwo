@@ -595,15 +595,7 @@ classDiagram
         +email: String
         +haslo: String
         +numerTelefonu: String
-    }
-
-    class DaneUzytkownika {
-        +imie: String
-        +nazwisko: String
-        +email: String
-        +haslo: String
-        +numerTelefonu: String
-        +zmianaWymagaAutoryzacji: Boolean
+        #dataRejestracji: DateTime
     }
 
     class Sesja {
@@ -614,8 +606,8 @@ classDiagram
 
     class BlokadaKonta {
         +przyczyna: String
-        +dataBlokady: DateTime
-        +czyAktywna: Boolean
+        +dataRozpoczęcia: DateTime
+        +dataZakończenia: DateTime | None
     }
 
     class Gracz {
@@ -647,7 +639,6 @@ classDiagram
     Uzytkownik <|-- Administrator
     Uzytkownik <|-- OrganizatorZewnetrzny
 
-    Uzytkownik "1" *-- "1"  DaneUzytkownika : przechowuje
     Uzytkownik "1" *-- "0..*" Sesja : posiada
     Uzytkownik "1" *-- "0..*" BlokadaKonta : moze miec
 ```
@@ -663,26 +654,36 @@ classDiagram
     class TworcaGier {
     }
 
-    class OrganizatorZewnetrzny {
-    }
-
     class Gra {
-        +zasady: String
+        +nazwa: String
+        +opis: String
+        +minLiczbaGraczy: Int
+        +maxLiczbaGraczy: Int
+        +czasTrwania: Int
+        +wymagaZaproszenia: Boolean
+        +tagi: list[String]
     }
 
     class ScenariuszGry {
-        +idScenariusza
+    }
+
+    class WarunekZwycięstwa {
+        +nazwaWarunku: String
+        +podmiot: Enum
+        +typWarunku: Enum
+        +wartosc: String
     }
 
     class Zadanie {
         +idZadania
-        +tytulOpcjonalny
+        +tytul: String
+        +fabula: String
+
+        +nagroda: Nagroda
 
         +wymaganyPoziomGracza
         +typInterakcji
         +ograniczeniaCzasowe
-
-        +daneZadania
     }
 
     class Nagroda {
@@ -691,29 +692,44 @@ classDiagram
     }
 
     class Mapa {
+        +pozycjeKomnat
+        +pozycjeDrzwi
+    }
+
+
+    class Komnata {
+        +nazwa: String
+        +ukryta: Boolean
+        +ograniczeniaDostepu: Enum
+        +przedmioty: list[Przedmiot]
+        +pozycjeCzujnikow
+        +pozycjeKodowQR
     }
 
     class Czujnik {
         +typ: String
     }
 
-    class Pomieszczenie {
-    }
-
-    class Strefa {
-        +ukryta: Boolean
-        +ograniczeniaDostepu: Boolean
+    class KodQR {
+        +typ: String
     }
 
     class Postac {
-        +atrybuty: Map
+        +nazwa: String
+        +rasa: Enum
+        +zdrowie: Int
+        +aktywneEfekty: list[String]
+        +miejsceStartowe: Pozycja
     }
 
     class Ekwipunek {
-        +wirtualnaWaluta: Number
+        +waluta: Int
     }
 
     class Przedmiot {
+        +nazwa: String
+        +typ: Enum
+        +obrazenia: Int
         +efekty: String
     }
 
@@ -722,27 +738,37 @@ classDiagram
     }
 
     class Akcja {
-        +typ: String
+        +nazwa: String
+        +rodzaj: Enum
+        +rodzajSkutkow: Enum
+        +wartoscSkutow: String
     }
 
-    TworcaGier "1"        --> "0..*" Gra       : definiuje
+    TworcaGier "1" --> "0..*" Gra       : definiuje
     OrganizatorZewnetrzny "1" --> "0..*" Gra   : tworzy
 
     Gra "1" *-- "1"    Mapa    : zawiera
-    Gra "1" *-- "1"    ScenariuszGry    : zawiera
+    Gra "1" *-- "1..*"    ScenariuszGry    : zawiera
     Gra "1" *-- "0..*" Postac  : zawiera
     Gra "1" *-- "0..*" Akcja   : dopuszcza
 
     ScenariuszGry "1" --> "*" Zadanie : zawiera
+    ScenariuszGry "1" --> "1..*" WarunekZwycięstwa : zawiera
     Zadanie "1" --> "*" Nagroda : przyznaje po ukonczeniu
 
-    Mapa "1" *-- "0..*" Pomieszczenie : zawiera
-    Mapa "1" *-- "0..*" Strefa        : zawiera
-    Mapa "1" *-- "0..*" Czujnik : zawiera
+    Mapa "1" *-- "1..*" Komnata : składa sie z
+
+    Komnata "1" *-- "0..*" Czujnik : zawiera
+    Komnata "1" *-- "0..*" KodQR : zawiera
+
+    Czujnik "1" --> "1" "Akcja" : wywołuje
+    KodQR "1" --> "1" "Akcja" : wywołuje
 
     Postac "1" *-- "1"    Ekwipunek  : posiada
     Postac "1" --> "0..*" Przedmiot  : nosi
     Postac "1" --> "0..*" Akcja      : moze wykonac
+
+    Akcja "0..*" --> "1" MiniGra : uruchamia
 
     Ekwipunek "1" *-- "0..*" Przedmiot : zawiera
 
@@ -758,7 +784,6 @@ classDiagram
     direction TB
 
     class Gra {
-        +zasady: String
     }
 
     class Organizator {
@@ -771,21 +796,25 @@ classDiagram
     }
 
     class Wydarzenie {
-        +czas: DateTime
         +miejsce: String
+        +data: DateTime
     }
 
-    class KalendarzWydarzen {
+    class KalendarzWydarzeń {
+        +wybranyMiesiac: Enum
     }
 
     class Zaproszenie {
+        +wygasa: DateTime
+        +status: Enum
+        #czasWyslania: DateTime
     }
 
     Organizator    "1" --> "0..*" Wydarzenie : zarzadza
     MistrzWydarzenia "1" --> "0..*" Wydarzenie : prowadzi
 
     Wydarzenie "0..*" --> "1"    Gra    : jest instancja
-    Wydarzenie "1"    -- "0..*" Gracz  : uczestnicza
+    Wydarzenie "1"    -- "0..*" Gracz  : uczestniczy
 
     KalendarzWydarzen "1" --> "0..*" Wydarzenie : prezentuje
 
@@ -849,7 +878,8 @@ classDiagram
     }
 
     class Wydarzenie {
-        +czas: DateTime
+        +data: DateTime
+        +organizator: User
         +miejsce: String
     }
 
@@ -863,10 +893,11 @@ classDiagram
     }
 
     class Skarga {
+        +typSkargi: Enum
         +tresc: String
-        +dataZgloszenia: DateTime
+        #dataZgloszenia: DateTime
     }
-    
+
     class KomunikatDoRecenzenta {
     }
 
@@ -875,7 +906,7 @@ classDiagram
 
     Wiadomosc "0..*" --> "1" Uzytkownik : nadawca
     Wiadomosc "0..*" --> "1" Uzytkownik : odbiorca
-    KomunikatDoRecenzenta --|> Wiadomosc
+    Wiadomosc <|-- KomunikatDoRecenzenta
 
     Skarga "0..*" --> "1" Uzytkownik : zglaszajacy
 ```
@@ -893,17 +924,15 @@ classDiagram
 
     class Recenzja {
         +tresc: String
+        +ocena: Int[0-10]
+        +status: Enum[StatusRecenzji]
         +dataWyslania: DateTime
-    }
-
-    class StatusRecenzji {
-        +status: String
     }
 
     class Gra {
     }
 
-    TworcaGier "1" --> "0..*" Gra : definiuje
+    TworcaGier "1" --> "0..*" Gra : tworzy
     Recenzent "1" --> "0..*" Recenzja : tworzy
     Recenzja "1" --> "1" Gra : dotyczy
     StatusRecenzji "1" --> "1" Recenzja : opisuje
