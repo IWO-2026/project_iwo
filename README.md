@@ -2824,6 +2824,32 @@ final: failure
 9a2.1 Twórca gry wybiera opcję zapisu z wyjściem.
 9a2.2 System skacze do kroku 7 scenariusza głównego, ale mapa gry pozostaje oznaczona jako niepoprawna, co uniemożliwia publikację gry do czasu poprawy mapy gry.
 
+---
+
+## 5.12 [PU46: Dołączenie do wydarzenia](#pu46-dołączenie-do-wydarzenia)
+
+
+![](scenopisy/Scenopis_PU46_Dołączenie_do_wydarzenia.svg)
+
+- Wersja: 1.0 (19.05.2026)
+- Odpowiedzialny: Igor Ochocki
+- Wydanie: 1.0
+- Aktor główny: [Gracz]
+- **Związek z [PU45: Wyświetlenie listy zarejestrowanych wydarzeń](#pu45-wyświetlenie-listy-zarejestrowanych-wydarzeń):** Przypadek **PU46** jest wywoływany z listy zarejestrowanych [Wydarzeń] (PU45).
+- Warunek początkowy: [Gracz] jest zalogowany; na liście z PU45 widoczne jest [Wydarzenie].
+
+**Scenariusz główny**
+
+1. [Gracz] wybiera opcję [Dołącz] z listy zarejestrowanych wydarzeń (PU45).
+2. System wyświetla [komunikat potwierdzenia dołączenia do wydarzenia].
+3. [Gracz] wybiera jedną z dwóch opcji na [komunikacie potwierdzenia dołączenia do wydarzenia].
+[wybrano opcję "Dołącz do wydarzenia"]
+4. System sprawdza status [Wydarzenia], dostępność miejsc oraz brak aktywnej [Blokady konta] u [Gracza].
+   [warunki spełnione]
+5. System rejestruje obecność [Gracza] w [Wydarzeniu].
+6. System wyświetla [potwierdzenie dołączenia].
+
+**Warunek końcowy (sukces):** System zarejestrował obecność [Gracza] w wybranym [Wydarzeniu].
 ## 5.12 [PU20: Uruchomienie wydarzenia](#pu20-uruchomienie-wydarzenia)
 
 - Wersja: 1.0 (19.05.2026)
@@ -2926,6 +2952,65 @@ Warunek końcowy: Nie wyświetlono listy wydarzeń
 
 ---
 
+**Scenariusz alternatywny A: Przekroczony maksymalny limit graczy**
+
+1.-4. Jak w scenariuszu głównym.
+
+[osiągnięto maksymalną liczbę uczestników [Wydarzenia]]
+
+4a. System wyświetla [komunikat o braku wolnych miejsc].
+
+5a. [Gracz] wybiera opcję [OK].
+
+6a. System wyświetla [listę zarejestrowanych wydarzeń] (powrót do PU45)
+
+**Warunek końcowy (sukces):** [Gracz] nie jest zarejestrowany w wybranym wcześniej [Wydarzeniu].
+
+**final:** failure
+
+---
+
+**Scenariusz alternatywny B: [Wydarzenie] nieaktualne**
+
+1.-4. Jak w scenariuszu głównym.
+
+[wydarzenie zakończone, odwołane lub jeszcze nierozpoczęte]
+
+4b. System wyświetla [komunikat o niemożności dołączenia do wydarzenia].
+
+5b. [Gracz] wybiera opcję [OK].
+
+6b. System wyświetla [listę zarejestrowanych wydarzeń] (powrót do PU45)
+
+**Warunek końcowy (sukces):** [Gracz] nie jest zarejestrowany w wybranym wcześniej [Wydarzeniu].
+
+**final:** failure
+
+---
+
+**Scenariusz alternatywny C: Aktywna [Blokada konta]**
+
+1.-4. Jak w scenariuszu głównym.
+
+[aktywna [Blokada konta] u [Gracza]]
+
+4c. System wyświetla [komunikat o zablokowanym koncie].
+
+5c. [Gracz] wybiera opcję [OK].
+
+6c. System wyświetla [listę zarejestrowanych wydarzeń] (powrót do PU45)
+
+**Warunek końcowy (sukces):** [Gracz] nie jest zarejestrowany w wybranym wcześniej [Wydarzeniu].
+
+**final:** failure
+
+**Scenariusz alternatywny D: Anulowano dołączanie do wydarzenia**
+
+1.3. Jak w scenariuszu głównym.
+
+[wybrano opcję "Anuluj"]
+
+4d. System wyświetla [listę zarejestrowanych wydarzeń] (powrót do PU45)
 ### Scenariusz alternatywny A: Automatyczne zakończenie gry (Upływ limitu czasu)
 
 1a. System wykrywa, że zdefiniowany w scenariuszu limit czasu trwania rozgrywki upłynął.
