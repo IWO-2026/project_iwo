@@ -2577,57 +2577,56 @@ Warunek końcowy: nowy czujnik nie został zarejestrowany dla danej gry
 - Wydanie: 1.0
 - Aktor główny: Twórca gry
 - Warunek początkowy: Twórca gry jest zalogowany w systemie i posiada uprawnienia do tworzenia gier.
-- Warunek końcowy (sukces): Nowa gra zostaje zapisana w systemie ze statusem „Oczekuje na weryfikację", a gra jest widoczna na liście gier twórcy.
+- Warunek końcowy (sukces): Nowa gra zostaje zapisana w systemie ze statusem „Oczekuje na weryfikację".
 
 **Scenariusz główny**
 
-1. Twórca gry wybiera opcję **„Utwórz nową grę”** w Panelu Twórcy.
-2. System wyświetla główny formularz zarządzania grą: **„Definicja gry”**.
-3. Twórca wybiera opcję **„Edytuj podstawowe parametry”**.
-4. System wyświetla formularz **„Podstawowe parametry gry”**.
-5. Twórca wypełnia wymagane pola i klika przycisk **„Zapisz”**.
-6. System waliduje dane i wyświetla komunikat **„Poprawnie zapisano parametry”**.
-7. Twórca klika przycisk **„OK”** na komunikacie sukcesu; system powraca do widoku **„Definicja gry”**.
-8. Twórca klika przycisk **„Zapisz i wyślij”**.
-9. System zapisuje grę ze statusem „Oczekuje na weryfikację”.
-10. System wyświetla komunikat **„Poprawnie zapisano grę i wysłano do recenzenta”**.
-11. Twórca klika przycisk **„OK”**; system przekierowuje go do widoku **„Lista gier”**, gdzie nowa gra jest widoczna.
+1. Twórca gry wybiera opcję **„Utwórz nową grę"** w Panelu Twórcy.
+2. System wyświetla główny formularz zarządzania grą: **„Definicja gry"**.
+3. Twórca wybiera opcję **„Edytuj podstawowe parametry"**.
+4. System wyświetla formularz **„Podstawowe parametry gry"**.
+5. Twórca wypełnia wymagane pola i klika przycisk **„Zapisz"**.
+6. System waliduje dane i wyświetla komunikat **„Poprawnie zapisano parametry"**.
+7. Twórca klika przycisk **„OK"**.
+8. System powraca do widoku **„Definicja gry"**.
+9. Twórca klika przycisk **„Zapisz i wyślij"**.
+10. System zapisuje grę ze statusem „Oczekuje na weryfikację" i wyświetla komunikat **„Poprawnie zapisano grę i wysłano do recenzenta"**.
+11. Twórca klika przycisk **„OK"**.
+12. System przekierowuje twórcę do widoku **„Panel Twórcy"**.
 
 **Scenariusz alternatywny A: Błędne dane w parametrach**
 
 5a. System stwierdza, że dane w formularzu parametrów są nieprawidłowe lub niekompletne.
-1. System wyświetla komunikat **„Błąd: Podane dane są błędne”**.
-2. Twórca klika przycisk **„OK”**.
+1. System wyświetla komunikat **„Błąd: Podane dane są błędne"**.
+2. Twórca klika przycisk **„OK"**.
 3. Formularz parametrów pozostaje otwarty, a błędne pola zostają wyróżnione.
 4. Scenariusz wraca do kroku 5 scenariusza głównego.
 
 **Scenariusz alternatywny B: Definiowanie elementów szczegółowych (Czujniki)**
 
-7a. Twórca chce zdefiniować czujniki dla gry.
-1. Twórca wybiera opcję **„Dodaj nowy czujnik”** w widoku „Definicja gry”.
-2. System wywołuje **PU50: Zdefiniowanie czujnika**.
-3. Po zakończeniu definiowania czujnika system powraca do widoku **„Definicja gry”**.
-4. Scenariusz wraca do kroku 8 scenariusza głównego.
+8b. Twórca wybiera opcję **„Zdefiniuj akcję"** w widoku „Definicja gry".
+1. System wywołuje **PU50: Zdefiniowanie czujnika**.
+2. Po zakończeniu definiowania czujnika system powraca do widoku **„Definicja gry"**.
+3. Scenariusz wraca do kroku 9 scenariusza głównego.
 
 **Scenariusz alternatywny C: Definiowanie elementów szczegółowych (Scenariusz)**
 
-7b. Twórca chce edytować zadania lub mapę w scenariuszu.
-1. Twórca wybiera opcję **„Edytuj scenariusz gry”** w widoku „Definicja gry”.
-2. System wywołuje **PU56: Wyświetlenie scenariusza gry w edytorze**.
-3. Po zakończeniu edycji scenariusza system powraca do widoku **„Definicja gry”**.
-4. Scenariusz wraca do kroku 8 scenariusza głównego.
+8c. Twórca wybiera opcję **„Edytuj scenariusz gry"** w widoku „Definicja gry".
+1. System wywołuje **PU56: Wyświetlenie scenariusza gry w edytorze**.
+2. Po zakończeniu edycji scenariusza system powraca do widoku **„Definicja gry"**.
+3. Scenariusz wraca do kroku 9 scenariusza głównego.
 
 **Scenariusz alternatywny D: Zapis lokalny (bez wysyłki do recenzji)**
 
-8a. Twórca klika przycisk **„Zapisz”**.
-1. System zapisuje grę ze statusem „W edycji”.
-2. System wyświetla komunikat **„Poprawnie zapisano grę”**.
-3. Twórca klika przycisk **„OK”**; system przekierowuje go do widoku **„Lista gier”**.
+9d. Twórca klika przycisk **„Zapisz"**.
+1. System zapisuje grę ze statusem „W edycji" i wyświetla komunikat **„Poprawnie zapisano grę"**.
+2. Twórca klika przycisk **„OK"**.
+3. System przekierowuje twórcę do widoku **„Panel Twórcy"**.
 
 **Scenariusz alternatywny E: Anulowanie tworzenia gry**
 
-(W dowolnym momencie przebywania w widoku „Definicja gry”) Twórca klika przycisk **„Anuluj”**.
-1. System zamyka formularz i przekierowuje twórcę do widoku **„Panel Twórcy”** bez zapisywania żadnych zmian.
+(W dowolnym momencie przebywania w widoku „Definicja gry") Twórca klika przycisk **„Anuluj"**.
+1. System przekierowuje twórcę do widoku **„Panel Twórcy"** bez zapisywania żadnych zmian.
 
 **Scenopis**
 ![](./scenopisy/PU49_Zdefiniowanie_gry.png)
@@ -2766,41 +2765,21 @@ final: failure
 9a2.1 Twórca gry wybiera opcję zapisu z wyjściem.
 9a2.2 System skacze do kroku 7 scenariusza głównego, ale mapa gry pozostaje oznaczona jako niepoprawna, co uniemożliwia publikację gry do czasu poprawy mapy gry.
 
-## 5.12 [PU43: Wyświetlenie listy zaproszeń](#pu43-wyswietlenie-listy-zaproszen)
+## 5.12 [PU43: Wyświetlenie listy zaproszeń]
 - Wersja: 1.0 (19.05.2026)
 - Odpowiedzialny: Cezary Rybiński
 - Wydanie: 1.0
 - Aktor główny: Gracz
-- Warunek początkowy: Gracz jest zalogowany w systemie i znajduje się w widoku "Menu gracza". Posiada nierozpatrzone zaproszenia na wydarzenia.
-- Warunek końcowy (sukces): System wyświetla listę zaproszeń, a gracz pomyślnie podejmuje decyzję dotyczącą wybranego zaproszenia, po czym wraca do widoku listy.
+- Warunek początkowy: Gracz jest zalogowany w systemie i znajduje się w widoku "Menu gracza".
+- Warunek końcowy (sukces): System wyświetla ekran "Lista zaproszeń".
 
-**Scenariusz główny (Akceptacja zaproszenia)**
+**Scenariusz główny**
 1. Gracz wybiera opcję "Moje zaproszenia" w Menu gracza.
-2. System pobiera dane i wyświetla ekran "Lista zaproszeń", prezentujący tabelę z nierozpatrzonymi zaproszeniami (Nazwa wydarzenia, Data, Liczba uczestników, Akcja).
-3. Gracz klika przycisk "Więcej" w kolumnie akcji przy wybranym zaproszeniu.
-4. System wyświetla okno decyzji "Zaproszenie na wydarzenie" z dostępnymi opcjami: "Zaakceptuj", "Odrzuć" oraz "Anuluj".
-5. Gracz wybiera opcję "Zaakceptuj".
-6. System rejestruje akceptację zaproszenia i wyświetla komunikat o sukcesie: "Zaproszenie zostało zaakceptowane".
-7. Gracz klika przycisk "OK".
-8. System zamyka komunikat i powraca do zaktualizowanego ekranu "Lista zaproszeń" (zaproszenie znika z listy).
+2. System pobiera dane i wyświetla ekran "Lista zaproszeń".
 
-**Scenariusz alternatywny A: Odrzucenie zaproszenia**
+**Scenariusz alternatywny A: Brak zaproszeń**
 
-5a. Gracz wybiera opcję "Odrzuć".
-
-6a. System rejestruje odrzucenie zaproszenia i wyświetla komunikat o sukcesie: "Zaproszenie zostało odrzucone".
-
-7a. Gracz klika przycisk "OK".
-
-8a. System zamyka komunikat i powraca do zaktualizowanego ekranu "Lista zaproszeń" (zaproszenie znika z listy).
-
-**Scenariusz alternatywny B: Anulowanie akcji w oknie decyzji**
-
-5b. Gracz wybiera opcję "Anuluj".
-
-6b. System zamyka okno decyzji bez wprowadzania jakichkolwiek zmian w statusie zaproszenia.
-
-7b. System powraca bezpośrednio do ekranu "Lista zaproszeń".
+2a. System wyświetla ekran "Lista zaproszeń" z komunikatem o braku dostępnych zaproszeń.
 
 **Scenopis**
 ![](./scenopisy/PU43_wyswietlenie_listy_zaproszen.png)
