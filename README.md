@@ -2758,6 +2758,38 @@ final: failure
 9a2.1 Twórca gry wybiera opcję zapisu z wyjściem.
 9a2.2 System skacze do kroku 7 scenariusza głównego, ale mapa gry pozostaje oznaczona jako niepoprawna, co uniemożliwia publikację gry do czasu poprawy mapy gry.
 
+
+# 5.X PU21: Zakończenie wydarzenia
+
+- **Wersja:** 1.0 (18.05.2026)
+- **Odpowiedzialny:** Kacper Koziara
+- **Wydanie:** 1.0
+- **Aktor główny:** Mistrz wydarzenia / System (w przypadku automatu)
+- **Warunek początkowy:** Wydarzenie LARP posiada status „W trakcie rozgrywki” (jest uruchomione). Warunki zakończenia scenariusza (np. fabularne lub czasowe) zostały osiągnięte LUB Mistrz wydarzenia decyduje o wcześniejszym przerwaniu gry.
+- **Warunek końcowy (sukces):** Rozgrywka zostaje pomyślnie zamknięta, status wydarzenia zmienia się na „Zakończone”, punkty doświadczenia (XP) oraz odznaki zostają naliczone, wyniki są zapisane w bazie danych, a gracze otrzymują podsumowanie gry.
+
+---
+
+### Scenariusz główny (Ręczne zakończenie przez Mistrza Wydarzenia)
+
+1. Mistrz wydarzenia wybiera opcję **„Zakończ wydarzenie”** w panelu sterowania grą.
+2. System wyświetla okno potwierdzenia z podsumowaniem aktualnego stanu rozgrywki (np. osiągnięte cele, aktualna punktacja frakcji).
+3. Mistrz wydarzenia klika przycisk **„Potwierdź zakończenie”**.
+4. System automatycznie blokuje graczom możliwość wykonywania dalszych akcji w aplikacji (np. skanowanie kodów QR, handel, interakcje z czujnikami).
+5. System zmienia status wydarzenia na „Zakończone”.
+6. System automatycznie oblicza i przyznaje graczom punkty doświadczenia (XP) oraz odznaki na podstawie ich aktywności w trakcie gry.
+7. System zapisuje ostateczne wyniki i statystyki gry w bazie danych.
+8. System generuje i wyświetla wszystkim uczestnikom ekran **„Podsumowanie wydarzenia”** (zawierający statystyki, zdobyte punkty i osiągnięcia).
+
+**final:** success
+
+---
+
+### Scenariusz alternatywny A: Automatyczne zakończenie gry (Upływ limitu czasu)
+
+1a. System wykrywa, że zdefiniowany w scenariuszu limit czasu trwania rozgrywki upłynął.
+2a. System automatycznie wywołuje blokadę akcji graczy.
+3a. Scenariusz przechodzi do kroku 5 scenariusza głównego (automatyczna zmiana statusu na „Zakończone”, naliczenie XP i wygenerowanie podsumowania).
 ## 5.12 [PU39: Dodanie wydarzenia do kalendarza](#pu39-dodanie-wydarzenia-do-kalendarza)
 
 - Wersja 1.0 (20.05.2026)
@@ -2899,6 +2931,34 @@ Powrót do kroku 3. w scenariuszu głównym
 **final:** success
 
 ---
+
+### Scenariusz alternatywny B: Awaryjne przymusowe zakończenie gry (Sytuacja awaryjna)
+
+1b. Mistrz wydarzenia (lub Organizator) wybiera opcję **„Awaryjne zatrzymanie gry”** w panelu sterowania.
+2b. System wyświetla ostrzeżenie o natychmiastowym przerwaniu rozgrywki i prosi o potwierdzenie.
+3b. Mistrz wydarzenia potwierdza przymusowe zakończenie.
+4b. System zmienia status wydarzenia na „Przerwane awaryjnie”.
+5b. System zapisuje aktualny, cząstkowy stan rozgrywki w bazie danych, aby nie utracić dotychczasowych postępów graczy.
+6b. System wysyła do aplikacji mobilnych wszystkich uczestników natychmiastowy komunikat push o przerwaniu gry ze względów bezpieczeństwa/technicznych.
+
+**final:** success
+
+---
+
+### Scenariusz alternatywny C: Błąd zapisu ostatecznych wyników w bazie danych
+
+1.–6. Tak jak w scenariuszu głównym.
+7c. System wykrywa błąd połączenia z serwerem lub błąd zapisu ostatecznych statystyk w bazie danych.
+8c. System wyświetla Mistrzowi wydarzenia komunikat: **„Błąd zapisu danych. Czy chcesz ponowić próbę?”**.
+9c. Mistrz wydarzenia wybiera opcję **„Ponów próbę”**.
+10c. System pomyślnie zapisuje dane.
+11c. Scenariusz wraca do kroku 8 scenariusza głównego (wyświetlenie podsumowania).
+
+**final:** success
+
+
+**Scenopis**
+![](./scenopisy/scenopis-pu21.png)
 
 **Scenariusz alternatywny 1: Filtrowanie listy graczy**
 
