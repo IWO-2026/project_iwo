@@ -2804,3 +2804,45 @@ final: failure
 
 **Scenopis**
 ![](./scenopisy/PU43_wyswietlenie_listy_zaproszen.png)
+
+## 5.13 PU22: Skanowanie kodu QR
+
+![](scenopisy/22.svg)
+
+- Wersja: 1.0 (20.05.2026)
+- Odpowiedzialny: Łuukasz Czajka
+- Wydanie: 1.0
+- Aktor główny: Gracz
+- Warunek początkowy: Gracz jest zalogowany w aplikacji i znajduje się na ekranie startowym
+- Warunek końcowy (sukces): Użytkownik rozpoczął walkę lub mini-grę.
+
+**Scenariusz główny (Skan kodu QR)**
+1. Gracz naciska przycisk skanowania kodów QR.
+2. System wyświetla okno skanowania kodów.
+3. Gracz umieszcza kod QR w oknie.
+4. System sprawdza kod.
+5. System prosi gracza o potwierdzenie chęci wykonania akcji.
+6. Gracz potwierdza.
+7. System wykonuje akcję.
+
+final: success
+
+**Scenarusz alternatywny A: Anulowanie skanu kodu QR**
+
+
+3a. Gracz naciska przycisk wtecz    
+4a. System wraca do menu głównego aplikacji
+
+final: failure
+
+**Scenariusz alternatywny B: Błędny kod QR**
+
+5b. System wyświetla kod o błędzie z przyciskiem OK
+6b. Gracz naciska przycisk OK
+7b. System wraca do kroku 2
+
+**Scenariusz alternatywny C: Gracz anulował wykonanie akcji**
+
+6c. Gracz naciska przycisk "Anuluj"    
+
+final: failure
