@@ -870,6 +870,7 @@ classDiagram
 
     class Skarga {
         +tresc: String
+        +typ: String
         +dataZgloszenia: DateTime
     }
 
@@ -2026,7 +2027,7 @@ TG --> GDF
 GDF -. "&lt;&lt;invoke&gt;&gt;" .-> ADF
 GDF -. "&lt;&lt;invoke&gt;&gt;" .-> SCR
 GDF -. "&lt;&lt;invoke&gt;&gt;" .-> KED
-GDF -. <&ltinvoke>> .-> SEDF
+KED -. <&ltinvoke>> .-> SEDF
 GDF -. "&lt;&lt;invoke&gt;&gt;" .-> DGSCE
 DGSCE -. "&lt;&lt;invoke&gt;&gt;" .-> TPGS
 ```
@@ -2545,12 +2546,12 @@ Powrót do kroku 4 scenariusza głównego.
 
 ## 5.7 [PU50: Zdefiniowanie czujnika](#pu50-zdefiniowanie-czujnika)
 
-- Wersja: 1.1 (24.04.2026)
+- Wersja: 1.2 (20.05.2026)
 - Odpowiedzialna: Alicja Rosiak
 - Wydanie: 1.0
 - Aktor główny: Twórca gry
 - Warunek początkowy: Twórca gry jest zalogowany
-  i jest w menu definiowania gry
+  i jest w menu edycji komnaty
   i conajmniej jedna akcja została zdefiniowana dla danej gry
   i mapa gry została została zdefiniowana dla danej gry
 
@@ -3176,6 +3177,47 @@ Powrót do kroku 3. w scenariuszu głównym
 **Scenopis**
 ![](./scenopisy/PU43_wyswietlenie_listy_zaproszen.png)
 
+## 5.13 [PU31: Wysłanie skargi](#pu31-wyslanie-skargi)
+
+- Wersja: 1.0 (20.05.2026)
+- Odpowiedzialna: Alicja Rosiak
+- Wydanie: 1.0
+- Aktor główny: Gracz
+- Warunek początkowy: Gracz jest zalogowany
+  i jest w menu głównym
+
+**Scenariusz główny**
+
+1. Gracz wybiera opcję wysłania skargi.
+2. System wyświetla formularz wysyłania skargi.
+3. Gracz wypełnia dane skargi.
+4. Gracz wybiera opcję wysłania skargi.  
+[dane poprawne]
+5. System wysyła skargę.  
+[wysłanie pomyślne]
+6. System wyświetla komunikat o pomyślnym wysłaniu skargi.
+
+Warunek końcowy: skarga jest wysłana
+
+**Scenariusz alternatywny 1**
+
+1.-4. jak w Scenariuszu głównym  
+[dane niepoprawne]  
+5a. System wyświetla komunikat o błędnych danych.  
+Powrót do kroku 3. w Scenariuszu głównym
+
+**Scenariusz alternatywny 2**
+
+1.-5. jak w Scenariuszu głównym  
+[wysłanie niepomyślne]  
+6b. System wyświetla komunikat o błędzie wysyłania.  
+7b. System zamyka formularz wysyłania skargi.
+
+Warunek końcowy: skarga nie została wysłana
+
+**Scenopis**
+
+![](./scenopisy/PU31_Wysłanie_skargi.png)
 ## 5.13 PU22: Skanowanie kodu QR
 
 ![](scenopisy/22.svg)
