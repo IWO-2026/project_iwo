@@ -595,15 +595,7 @@ classDiagram
         +email: String
         +haslo: String
         +numerTelefonu: String
-    }
-
-    class DaneUzytkownika {
-        +imie: String
-        +nazwisko: String
-        +email: String
-        +haslo: String
-        +numerTelefonu: String
-        +zmianaWymagaAutoryzacji: Boolean
+        #dataRejestracji: DateTime
     }
 
     class Sesja {
@@ -614,8 +606,8 @@ classDiagram
 
     class BlokadaKonta {
         +przyczyna: String
-        +dataBlokady: DateTime
-        +czyAktywna: Boolean
+        +dataRozpoczęcia: DateTime
+        +dataZakończenia: DateTime | None
     }
 
     class Gracz {
@@ -647,7 +639,6 @@ classDiagram
     Uzytkownik <|-- Administrator
     Uzytkownik <|-- OrganizatorZewnetrzny
 
-    Uzytkownik "1" *-- "1"  DaneUzytkownika : przechowuje
     Uzytkownik "1" *-- "0..*" Sesja : posiada
     Uzytkownik "1" *-- "0..*" BlokadaKonta : moze miec
 ```
@@ -663,26 +654,36 @@ classDiagram
     class TworcaGier {
     }
 
-    class OrganizatorZewnetrzny {
-    }
-
     class Gra {
-        +zasady: String
+        +nazwa: String
+        +opis: String
+        +minLiczbaGraczy: Int
+        +maxLiczbaGraczy: Int
+        +czasTrwania: Int
+        +wymagaZaproszenia: Boolean
+        +tagi: list[String]
     }
 
     class ScenariuszGry {
-        +idScenariusza
+    }
+
+    class WarunekZwycięstwa {
+        +nazwaWarunku: String
+        +podmiot: Enum
+        +typWarunku: Enum
+        +wartosc: String
     }
 
     class Zadanie {
         +idZadania
-        +tytulOpcjonalny
+        +tytul: String
+        +fabula: String
+
+        +nagroda: Nagroda
 
         +wymaganyPoziomGracza
         +typInterakcji
         +ograniczeniaCzasowe
-
-        +daneZadania
     }
 
     class Nagroda {
@@ -691,29 +692,44 @@ classDiagram
     }
 
     class Mapa {
+        +pozycjeKomnat
+        +pozycjeDrzwi
+    }
+
+
+    class Komnata {
+        +nazwa: String
+        +ukryta: Boolean
+        +ograniczeniaDostepu: Enum
+        +przedmioty: list[Przedmiot]
+        +pozycjeCzujnikow
+        +pozycjeKodowQR
     }
 
     class Czujnik {
         +typ: String
     }
 
-    class Pomieszczenie {
-    }
-
-    class Strefa {
-        +ukryta: Boolean
-        +ograniczeniaDostepu: Boolean
+    class KodQR {
+        +typ: String
     }
 
     class Postac {
-        +atrybuty: Map
+        +nazwa: String
+        +rasa: Enum
+        +zdrowie: Int
+        +aktywneEfekty: list[String]
+        +miejsceStartowe: Pozycja
     }
 
     class Ekwipunek {
-        +wirtualnaWaluta: Number
+        +waluta: Int
     }
 
     class Przedmiot {
+        +nazwa: String
+        +typ: Enum
+        +obrazenia: Int
         +efekty: String
     }
 
@@ -722,27 +738,36 @@ classDiagram
     }
 
     class Akcja {
-        +typ: String
+        +nazwa: String
+        +rodzaj: Enum
+        +rodzajSkutkow: Enum
+        +wartoscSkutow: String
     }
 
-    TworcaGier "1"        --> "0..*" Gra       : definiuje
-    OrganizatorZewnetrzny "1" --> "0..*" Gra   : tworzy
+    TworcaGier "1" --> "0..*" Gra : definiuje
 
     Gra "1" *-- "1"    Mapa    : zawiera
-    Gra "1" *-- "1"    ScenariuszGry    : zawiera
+    Gra "1" *-- "1..*"    ScenariuszGry    : zawiera
     Gra "1" *-- "0..*" Postac  : zawiera
     Gra "1" *-- "0..*" Akcja   : dopuszcza
 
     ScenariuszGry "1" --> "*" Zadanie : zawiera
+    ScenariuszGry "1" --> "1..*" WarunekZwycięstwa : zawiera
     Zadanie "1" --> "*" Nagroda : przyznaje po ukonczeniu
 
-    Mapa "1" *-- "0..*" Pomieszczenie : zawiera
-    Mapa "1" *-- "0..*" Strefa        : zawiera
-    Mapa "1" *-- "0..*" Czujnik : zawiera
+    Mapa "1" *-- "1..*" Komnata : składa sie z
+
+    Komnata "1" *-- "0..*" Czujnik : zawiera
+    Komnata "1" *-- "0..*" KodQR : zawiera
+
+    Czujnik "1" --> "1" Akcja : wywołuje
+    KodQR "1" --> "1" Akcja : wywołuje
 
     Postac "1" *-- "1"    Ekwipunek  : posiada
     Postac "1" --> "0..*" Przedmiot  : nosi
     Postac "1" --> "0..*" Akcja      : moze wykonac
+
+    Akcja "0..*" --> "1" MiniGra : uruchamia
 
     Ekwipunek "1" *-- "0..*" Przedmiot : zawiera
 
@@ -758,7 +783,6 @@ classDiagram
     direction TB
 
     class Gra {
-        +zasady: String
     }
 
     class Organizator {
@@ -771,15 +795,18 @@ classDiagram
     }
 
     class Wydarzenie {
-        +czas: DateTime
         +miejsce: String
         +status: String
     }
 
     class KalendarzWydarzen {
+        +wybranyMiesiac: Enum
     }
 
     class Zaproszenie {
+        +wygasa: DateTime
+        +status: Enum
+        #czasWyslania: DateTime
     }
 
     class DaneWarunkuRozpoczecia {
@@ -849,14 +876,9 @@ classDiagram
     direction TB
 
     class Uzytkownik {
-        +imie: String
-        +nazwisko: String
-        +email: String
     }
 
     class Wydarzenie {
-        +czas: DateTime
-        +miejsce: String
     }
 
     class Zaproszenie {
@@ -869,7 +891,9 @@ classDiagram
     }
 
     class Skarga {
+        +typSkargi: Enum
         +tresc: String
+        +typ: String
         +dataZgloszenia: DateTime
     }
 
@@ -881,7 +905,7 @@ classDiagram
 
     Wiadomosc "0..*" --> "1" Uzytkownik : nadawca
     Wiadomosc "0..*" --> "1" Uzytkownik : odbiorca
-    KomunikatDoRecenzenta --|> Wiadomosc
+    Wiadomosc <|-- KomunikatDoRecenzenta
 
     Skarga "0..*" --> "1" Uzytkownik : zglaszajacy
 ```
@@ -900,17 +924,15 @@ classDiagram
 
     class Recenzja {
         +tresc: String
+        +ocena: Int[0-10]
+        +status: Enum[StatusRecenzji]
         +dataWyslania: DateTime
-    }
-
-    class StatusRecenzji {
-        +status: String
     }
 
     class Gra {
     }
 
-    TworcaGier "1" --> "0..*" Gra : definiuje
+    TworcaGier "1" --> "0..*" Gra : tworzy
     Recenzent "1" --> "0..*" Recenzja : tworzy
     Recenzja "1" --> "1" Gra : dotyczy
     StatusRecenzji "1" --> "1" Recenzja : opisuje
@@ -2026,7 +2048,7 @@ TG --> GDF
 GDF -. "&lt;&lt;invoke&gt;&gt;" .-> ADF
 GDF -. "&lt;&lt;invoke&gt;&gt;" .-> SCR
 GDF -. "&lt;&lt;invoke&gt;&gt;" .-> KED
-GDF -. <&ltinvoke>> .-> SEDF
+KED -. <&ltinvoke>> .-> SEDF
 GDF -. "&lt;&lt;invoke&gt;&gt;" .-> DGSCE
 DGSCE -. "&lt;&lt;invoke&gt;&gt;" .-> TPGS
 GDF -. "&lt;&lt;invoke;&gt&gt;" .-> DFMP
@@ -2215,7 +2237,7 @@ Scenariusz Alternatywny B:
 
 **Scenariusz alternatywny 1: Dane niepoprawne - brak wymaganych pól**
 
-1–4. Tak jak w scenariuszu głównym.
+1.-4. Jak w scenariuszu głównym.
 
 [dane niepoprawne - [brak wymaganych pól]]
 
@@ -2229,7 +2251,7 @@ Scenariusz Alternatywny B:
 
 **Scenariusz alternatywny 2: Dane niepoprawne - konflikt powiązań**
 
-1–4. Tak jak w scenariuszu głównym.
+1.-4. Jak w scenariuszu głównym.
 
 [dane niepoprawne - [konflikt powiązań]]
 
@@ -2274,14 +2296,6 @@ Scenariusz Alternatywny B:
 - Warunek końcowy (failure): Komunikat do recenzenta nie został wysłany, treść pozostaje w polu edycji.
 
 **Scenariusz główny**
-
-1. Twórca gry wybiera opcję przesłania komunikatu do recenzenta.
-2. System wyświetla okno komunikacji twórcy gry z recenzentem.
-3. Twórca gry wpisuje komunikat do recenzenta.
-4. Twórca gry wybiera opcję wysłania. \
-   [komunikat do recenzenta poprawny]
-5. System wysyła komunikat do recenzenta.
-6. System dodaje wiadomość do okna komunikacji twórcy gry z recenzentem.
 1. Twórca gry wybiera [opcję przesłania komunikatu do recenzenta].
 2. System wyświetla [okno komunikacji twórcy gry z recenzentem].
 3. Twórca gry wpisuje [komunikat do recenzenta].
@@ -2357,7 +2371,7 @@ Powrót do kroku 3. w scenariuszu głównym
 
 **Scenariusz alternatywny A: Brak wyników (Pusta lista po filtrach)**
 
-1.-4. tak jak w scenariuszu głównym.
+1.-4. Jak w scenariuszu głównym.
 [brak wyników]
 5a. System nie znajduje [Gier] spełniających wybrane kryteria.
 6a. System wyświetla komunikat o braku wyników oraz udostępnia opcję wyczyszczenia filtrów.
@@ -2378,7 +2392,7 @@ Powrót do kroku 3 w scenariuszu głównym.
 
 **Scenariusz alternatywny C: Awaria łączności po stronie klienta**
 
-1.-4. tak jak w scenariuszu głównym.
+1.-4. Jak w scenariuszu głównym.
 [brak połączenia z siecią]
 5c. System wykrywa brak połączenia z siecią podczas próby aktualizacji listy.
 6c. System wstrzymuje aktualizację, zachowuje dotychczasowy widok listy [Gier] i wyświetla komunikat o braku połączenia.
@@ -2482,7 +2496,7 @@ Powrót do zdania 2. w scenariuszu głównym.
 
 **Scenariusz alternatywny B: Puste pola formularza recenzji**
 
-1.-4. tak jak w scenariuszu głównym.
+1.-4. Jak w scenariuszu głównym.
 
 [pola formularza puste]
 
@@ -2554,12 +2568,12 @@ Powrót do kroku 4 scenariusza głównego.
 
 ## 5.7 [PU50: Zdefiniowanie czujnika](#pu50-zdefiniowanie-czujnika)
 
-- Wersja: 1.1 (24.04.2026)
+- Wersja: 1.2 (20.05.2026)
 - Odpowiedzialna: Alicja Rosiak
 - Wydanie: 1.0
 - Aktor główny: Twórca gry
 - Warunek początkowy: Twórca gry jest zalogowany
-  i jest w menu definiowania gry
+  i jest w menu edycji komnaty
   i conajmniej jedna akcja została zdefiniowana dla danej gry
   i mapa gry została została zdefiniowana dla danej gry
 
@@ -2606,21 +2620,22 @@ Warunek końcowy: nowy czujnik nie został zarejestrowany dla danej gry
 - Wydanie: 1.0
 - Aktor główny: Twórca gry
 - Warunek początkowy: Twórca gry jest zalogowany w systemie i posiada uprawnienia do tworzenia gier.
-- Warunek końcowy (sukces): Nowa gra zostaje zapisana w systemie ze statusem „Oczekuje na weryfikację", a gra jest widoczna na liście gier twórcy.
+- Warunek końcowy (sukces): Nowa gra zostaje zapisana w systemie ze statusem „Oczekuje na weryfikację".
 
 **Scenariusz główny**
 
-1. Twórca gry wybiera opcję **„Utwórz nową grę”** w Panelu Twórcy.
-2. System wyświetla główny formularz zarządzania grą: **„Definicja gry”**.
-3. Twórca wybiera opcję **„Edytuj podstawowe parametry”**.
-4. System wyświetla formularz **„Podstawowe parametry gry”**.
-5. Twórca wypełnia wymagane pola i klika przycisk **„Zapisz”**.
-6. System waliduje dane i wyświetla komunikat **„Poprawnie zapisano parametry”**.
-7. Twórca klika przycisk **„OK”** na komunikacie sukcesu; system powraca do widoku **„Definicja gry”**.
-8. Twórca klika przycisk **„Zapisz i wyślij”**.
-9. System zapisuje grę ze statusem „Oczekuje na weryfikację”.
-10. System wyświetla komunikat **„Poprawnie zapisano grę i wysłano do recenzenta”**.
-11. Twórca klika przycisk **„OK”**; system przekierowuje go do widoku **„Lista gier”**, gdzie nowa gra jest widoczna.
+1. Twórca gry wybiera opcję **„Utwórz nową grę"** w Panelu Twórcy.
+2. System wyświetla główny formularz zarządzania grą: **„Definicja gry"**.
+3. Twórca wybiera opcję **„Edytuj podstawowe parametry"**.
+4. System wyświetla formularz **„Podstawowe parametry gry"**.
+5. Twórca wypełnia wymagane pola i klika przycisk **„Zapisz"**.
+6. System waliduje dane i wyświetla komunikat **„Poprawnie zapisano parametry"**.
+7. Twórca klika przycisk **„OK"**.
+8. System powraca do widoku **„Definicja gry"**.
+9. Twórca klika przycisk **„Zapisz i wyślij"**.
+10. System zapisuje grę ze statusem „Oczekuje na weryfikację" i wyświetla komunikat **„Poprawnie zapisano grę i wysłano do recenzenta"**.
+11. Twórca klika przycisk **„OK"**.
+12. System przekierowuje twórcę do widoku **„Panel Twórcy"**.
 
 **Scenariusz alternatywny A: Błędne dane w parametrach**
 
@@ -2757,7 +2772,7 @@ Powrót do kroku 3. w scenariuszu głównym.
 2. System pobiera obecną mapę gry.
 3. System wyświetla interaktywny edytor mapy gry z aktualną mapę gry.
 4. Twórca gry wprowadza zmiany w mapie gry.
-5. System zapisuje zmiany na bierząco w przeglądarce.
+5. System zapisuje zmiany na bieżąco w przeglądarce.
 6. Twórca gry wybiera opcję "Zapisz i wyjdź".
 7. System zapisuje mapę gry.
 8. System automatycznie waliduje poprawnoś mapy gry.
@@ -2811,8 +2826,92 @@ final: failure
 9a2.1 Twórca gry wybiera opcję zapisu z wyjściem.   
 9a2.2 System skacze do kroku 7 scenariusza głównego, ale mapa gry pozostaje oznaczona jako niepoprawna, co uniemożliwia publikację gry do czasu poprawy mapy gry.   
 
-![](scenopisy/Zefiniowanie_mapy2.svg)
-## 5.12 [PU20: Uruchomienie wydarzenia](#pu20-uruchomienie-wydarzenia)
+---
+
+## 5.12 [PU46: Dołączenie do wydarzenia](#pu46-dołączenie-do-wydarzenia)
+
+
+![](scenopisy/Scenopis_PU46_Dołączenie_do_wydarzenia.svg)
+
+- Wersja: 1.0 (19.05.2026)
+- Odpowiedzialny: Igor Ochocki
+- Wydanie: 1.0
+- Aktor główny: [Gracz]
+- **Związek z [PU45: Wyświetlenie listy zarejestrowanych wydarzeń](#pu45-wyświetlenie-listy-zarejestrowanych-wydarzeń):** Przypadek **PU46** jest wywoływany z listy zarejestrowanych [Wydarzeń] (PU45).
+- Warunek początkowy: [Gracz] jest zalogowany; na liście z PU45 widoczne jest [Wydarzenie].
+
+**Scenariusz główny**
+
+1. [Gracz] wybiera opcję [Dołącz] z listy zarejestrowanych wydarzeń (PU45).
+2. System wyświetla [komunikat potwierdzenia dołączenia do wydarzenia].
+3. [Gracz] wybiera jedną z dwóch opcji na [komunikacie potwierdzenia dołączenia do wydarzenia].
+[wybrano opcję "Dołącz do wydarzenia"]
+4. System sprawdza status [Wydarzenia], dostępność miejsc oraz brak aktywnej [Blokady konta] u [Gracza].
+   [warunki spełnione]
+5. System rejestruje obecność [Gracza] w [Wydarzeniu].
+6. System wyświetla [potwierdzenie dołączenia].
+
+**Warunek końcowy (sukces):** System zarejestrował obecność [Gracza] w wybranym [Wydarzeniu].
+**Scenariusz alternatywny A: Przekroczony maksymalny limit graczy**
+
+1.-4. Jak w scenariuszu głównym.
+
+[osiągnięto maksymalną liczbę uczestników [Wydarzenia]]
+
+4a. System wyświetla [komunikat o braku wolnych miejsc].
+
+5a. [Gracz] wybiera opcję [OK].
+
+6a. System wyświetla [listę zarejestrowanych wydarzeń] (powrót do PU45)
+
+**Warunek końcowy (sukces):** [Gracz] nie jest zarejestrowany w wybranym wcześniej [Wydarzeniu].
+
+**final:** failure
+
+---
+
+**Scenariusz alternatywny B: [Wydarzenie] nieaktualne**
+
+1.-4. Jak w scenariuszu głównym.
+
+[wydarzenie zakończone, odwołane lub jeszcze nierozpoczęte]
+
+4b. System wyświetla [komunikat o niemożności dołączenia do wydarzenia].
+
+5b. [Gracz] wybiera opcję [OK].
+
+6b. System wyświetla [listę zarejestrowanych wydarzeń] (powrót do PU45)
+
+**Warunek końcowy (sukces):** [Gracz] nie jest zarejestrowany w wybranym wcześniej [Wydarzeniu].
+
+**final:** failure
+
+---
+
+**Scenariusz alternatywny C: Aktywna [Blokada konta]**
+
+1.-4. Jak w scenariuszu głównym.
+
+[aktywna [Blokada konta] u [Gracza]]
+
+4c. System wyświetla [komunikat o zablokowanym koncie].
+
+5c. [Gracz] wybiera opcję [OK].
+
+6c. System wyświetla [listę zarejestrowanych wydarzeń] (powrót do PU45)
+
+**Warunek końcowy (sukces):** [Gracz] nie jest zarejestrowany w wybranym wcześniej [Wydarzeniu].
+
+**final:** failure
+
+**Scenariusz alternatywny D: Anulowano dołączanie do wydarzenia**
+
+1.3. Jak w scenariuszu głównym.
+
+[wybrano opcję "Anuluj"]
+
+4d. System wyświetla [listę zarejestrowanych wydarzeń] (powrót do PU45)
+## 5.13 [PU20: Uruchomienie wydarzenia](#pu20-uruchomienie-wydarzenia)
 
 - Wersja: 1.0 (19.05.2026)
 - Odpowiedzialny: Tomasz Rogalski
@@ -2834,7 +2933,7 @@ final: failure
 
 **Scenariusz alternatywny A: Niespełnione warunki rozpoczęcia**
 
-1.-4. tak jak w scenariuszu głównym.  
+1.-4. Jak w scenariuszu głównym.  
 [dane niepopranwe]  
 5a. System wyświetla komunikat o niespełnionych warunkach rozpoczęcia.
 
@@ -2856,7 +2955,7 @@ Powrót do zdania 3 scenariusza głównego.
 **Scenopis:**
 ![Scenopis - Definiowanie warunków zwycięstwa](scenopisy/scenopis_PU20.png)
 
-## 5.xx[PU42 Wyświetlenie listy wydarzeń]
+## 5.14 [PU42: Wyświetlenie listy wydarzeń](#pu42-wyświetlenie-listy-wydarzeń)
 
 Wersja: 1.0 (19.05.2026)
 Odpowiedzialny: Karolina Wiśniewska
@@ -2888,7 +2987,7 @@ Warunek końcowy: Nie wyświetlono listy wydarzeń
 
 
 
-# 5.X PU21: Zakończenie wydarzenia
+## 5.15 [PU21: Zakończenie wydarzenia](#pu21-zakończenie-wydarzenia)
 
 - **Wersja:** 1.0 (18.05.2026)
 - **Odpowiedzialny:** Kacper Koziara
@@ -2912,14 +3011,44 @@ Warunek końcowy: Nie wyświetlono listy wydarzeń
 
 **final:** success
 
----
-
 ### Scenariusz alternatywny A: Automatyczne zakończenie gry (Upływ limitu czasu)
 
 1a. System wykrywa, że zdefiniowany w scenariuszu limit czasu trwania rozgrywki upłynął.
 2a. System automatycznie wywołuje blokadę akcji graczy.
 3a. Scenariusz przechodzi do kroku 5 scenariusza głównego (automatyczna zmiana statusu na „Zakończone”, naliczenie XP i wygenerowanie podsumowania).
-## 5.12 [PU39: Dodanie wydarzenia do kalendarza](#pu39-dodanie-wydarzenia-do-kalendarza)
+### Scenariusz alternatywny B: Awaryjne przymusowe zakończenie gry (Sytuacja awaryjna)
+
+1b. Mistrz wydarzenia (lub Organizator) wybiera opcję **„Awaryjne zatrzymanie gry”** w panelu sterowania.
+2b. System wyświetla ostrzeżenie o natychmiastowym przerwaniu rozgrywki i prosi o potwierdzenie.
+3b. Mistrz wydarzenia potwierdza przymusowe zakończenie.
+4b. System zmienia status wydarzenia na „Przerwane awaryjnie”.
+5b. System zapisuje aktualny, cząstkowy stan rozgrywki w bazie danych, aby nie utracić dotychczasowych postępów graczy.
+6b. System wysyła do aplikacji mobilnych wszystkich uczestników natychmiastowy komunikat push o przerwaniu gry ze względów bezpieczeństwa/technicznych.
+
+**final:** success
+
+---
+
+### Scenariusz alternatywny C: Błąd zapisu ostatecznych wyników w bazie danych
+
+1.–6. Tak jak w scenariuszu głównym.
+7c. System wykrywa błąd połączenia z serwerem lub błąd zapisu ostatecznych statystyk w bazie danych.
+8c. System wyświetla Mistrzowi wydarzenia komunikat: **„Błąd zapisu danych. Czy chcesz ponowić próbę?”**.
+9c. Mistrz wydarzenia wybiera opcję **„Ponów próbę”**.
+10c. System pomyślnie zapisuje dane.
+11c. Scenariusz wraca do kroku 8 scenariusza głównego (wyświetlenie podsumowania).
+
+**final:** success
+
+
+
+
+
+
+**Scenopis**
+![](./scenopisy/scenopis-pu21.png)
+
+## 5.16 [PU39: Dodanie wydarzenia do kalendarza](#pu39-dodanie-wydarzenia-do-kalendarza)
 
 - Wersja 1.0 (20.05.2026)
 - Odpowiedzialny: Michał Marciniak
@@ -2973,7 +3102,7 @@ Powrót do kroku 3. w scenariuszu głównym
 **Scenopis**:
 ![](./scenopisy/PU39_Dodanie_wydarzenia_do_kalendarza.png)
 
-## 5.13 [PU47: Wyświetlenie kalendarza przez organizatora](#pu47-wyświetlenie-kalendarza-przez-organizatora)
+## 5.17 [PU47: Wyświetlenie kalendarza przez organizatora](#pu47-wyświetlenie-kalendarza-przez-organizatora)
 
 - Wersja 1.0 (20.05.2026)
 - Odpowiedzialny: Michał Marciniak
@@ -2995,7 +3124,7 @@ Powrót do kroku 3. w scenariuszu głównym
 ![](./scenopisy/PU47_Wyswietlenie_kalendarza_przez_organizatora.png)
 
 
-## 5.xx PU41: Udostępnienie wydarzenia graczom
+## 5.18 [PU41: Udostępnienie wydarzenia graczom](#pu41-udostępnienie-wydarzenia-graczom)
 
 - Wersja 1.0 (19.05.2026)
 - Odpowiedzialny: Olaf Smoleński
@@ -3020,7 +3149,7 @@ Powrót do kroku 3. w scenariuszu głównym
 
 **Scenariusz alternatywny A**: Brak lub niepoprawna data otwarcia i/lub zamknięcia
 
-1-4. Jak w scenariuszu głównym. \
+1.-4. Jak w scenariuszu głównym. \
 \[brak lub niepoprawna data] \
 5a. System wyświetla komunikat o niepoprawnej dacie. \
 6a. Organizator wybiera "OK". \
@@ -3032,7 +3161,7 @@ Powrót do kroku 3. w scenariuszu głównym
 **Scenopis**
 
 ![](./scenopisy/scenopis-pu41.png)
-## 5.12 [PU40: Zaproszenie graczy](#pu40-zaproszenie-graczy)
+## 5.19 [PU40: Zaproszenie graczy](#pu40-zaproszenie-graczy)
 
 - Wersja: 1.0 (18.05.2026)
 - Odpowiedzialna: Polina Nesterova
@@ -3059,36 +3188,6 @@ Powrót do kroku 3. w scenariuszu głównym
 
 **final:** success
 
----
-
-### Scenariusz alternatywny B: Awaryjne przymusowe zakończenie gry (Sytuacja awaryjna)
-
-1b. Mistrz wydarzenia (lub Organizator) wybiera opcję **„Awaryjne zatrzymanie gry”** w panelu sterowania.
-2b. System wyświetla ostrzeżenie o natychmiastowym przerwaniu rozgrywki i prosi o potwierdzenie.
-3b. Mistrz wydarzenia potwierdza przymusowe zakończenie.
-4b. System zmienia status wydarzenia na „Przerwane awaryjnie”.
-5b. System zapisuje aktualny, cząstkowy stan rozgrywki w bazie danych, aby nie utracić dotychczasowych postępów graczy.
-6b. System wysyła do aplikacji mobilnych wszystkich uczestników natychmiastowy komunikat push o przerwaniu gry ze względów bezpieczeństwa/technicznych.
-
-**final:** success
-
----
-
-### Scenariusz alternatywny C: Błąd zapisu ostatecznych wyników w bazie danych
-
-1.–6. Tak jak w scenariuszu głównym.
-7c. System wykrywa błąd połączenia z serwerem lub błąd zapisu ostatecznych statystyk w bazie danych.
-8c. System wyświetla Mistrzowi wydarzenia komunikat: **„Błąd zapisu danych. Czy chcesz ponowić próbę?”**.
-9c. Mistrz wydarzenia wybiera opcję **„Ponów próbę”**.
-10c. System pomyślnie zapisuje dane.
-11c. Scenariusz wraca do kroku 8 scenariusza głównego (wyświetlenie podsumowania).
-
-**final:** success
-
-
-**Scenopis**
-![](./scenopisy/scenopis-pu21.png)
-
 **Scenariusz alternatywny 1: Filtrowanie listy graczy**
 
 1–2. Tak jak w scenariuszu głównym.
@@ -3110,7 +3209,7 @@ Powrót do kroku 3. w scenariuszu głównym
 
 **Scenariusz alternatywny 2: Brak wybranych graczy**
 
-1–4. Tak jak w scenariuszu głównym.
+1.-4. Jak w scenariuszu głównym.
 
 [wybór niepoprawny - [brak zaznaczonych graczy]]
 
@@ -3147,50 +3246,70 @@ Powrót do kroku 3. w scenariuszu głównym
 
 ---
 
-## 5.13 [PU43: Wyświetlenie listy zaproszeń](#pu43-wyswietlenie-listy-zaproszen)
+## 5.20 [PU43: Wyświetlenie listy zaproszeń](#pu43-wyświetlenie-listy-zaproszeń)
 - Wersja: 1.0 (19.05.2026)
 - Odpowiedzialny: Cezary Rybiński
 - Wydanie: 1.0
 - Aktor główny: Gracz
-- Warunek początkowy: Gracz jest zalogowany w systemie i znajduje się w widoku "Menu gracza". Posiada nierozpatrzone zaproszenia na wydarzenia.
-- Warunek końcowy (sukces): System wyświetla listę zaproszeń, a gracz pomyślnie podejmuje decyzję dotyczącą wybranego zaproszenia, po czym wraca do widoku listy.
+- Warunek początkowy: Gracz jest zalogowany w systemie i znajduje się w widoku "Menu gracza".
+- Warunek końcowy (sukces): System wyświetla ekran "Lista zaproszeń".
 
-**Scenariusz główny (Akceptacja zaproszenia)**
+**Scenariusz główny**
 1. Gracz wybiera opcję "Moje zaproszenia" w Menu gracza.
-2. System pobiera dane i wyświetla ekran "Lista zaproszeń", prezentujący tabelę z nierozpatrzonymi zaproszeniami (Nazwa wydarzenia, Data, Liczba uczestników, Akcja).
-3. Gracz klika przycisk "Więcej" w kolumnie akcji przy wybranym zaproszeniu.
-4. System wyświetla okno decyzji "Zaproszenie na wydarzenie" z dostępnymi opcjami: "Zaakceptuj", "Odrzuć" oraz "Anuluj".
-5. Gracz wybiera opcję "Zaakceptuj".
-6. System rejestruje akceptację zaproszenia i wyświetla komunikat o sukcesie: "Zaproszenie zostało zaakceptowane".
-7. Gracz klika przycisk "OK".
-8. System zamyka komunikat i powraca do zaktualizowanego ekranu "Lista zaproszeń" (zaproszenie znika z listy).
+2. System pobiera dane i wyświetla ekran "Lista zaproszeń".
 
-**Scenariusz alternatywny A: Odrzucenie zaproszenia**
+**Scenariusz alternatywny A: Brak zaproszeń**
 
-5a. Gracz wybiera opcję "Odrzuć".
-
-6a. System rejestruje odrzucenie zaproszenia i wyświetla komunikat o sukcesie: "Zaproszenie zostało odrzucone".
-
-7a. Gracz klika przycisk "OK".
-
-8a. System zamyka komunikat i powraca do zaktualizowanego ekranu "Lista zaproszeń" (zaproszenie znika z listy).
-
-**Scenariusz alternatywny B: Anulowanie akcji w oknie decyzji**
-
-5b. Gracz wybiera opcję "Anuluj".
-
-6b. System zamyka okno decyzji bez wprowadzania jakichkolwiek zmian w statusie zaproszenia.
-
-7b. System powraca bezpośrednio do ekranu "Lista zaproszeń".
+2a. System wyświetla ekran "Lista zaproszeń" z komunikatem o braku dostępnych zaproszeń.
 
 **Scenopis**
 ![](./scenopisy/PU43_wyswietlenie_listy_zaproszen.png)
+
+## 5.21 [PU31: Wysłanie skargi](#pu31-wysłanie-skargi)
+
+- Wersja: 1.0 (20.05.2026)
+- Odpowiedzialna: Alicja Rosiak
+- Wydanie: 1.0
+- Aktor główny: Gracz
+- Warunek początkowy: Gracz jest zalogowany
+  i jest w menu głównym
+
+**Scenariusz główny**
+
+1. Gracz wybiera opcję wysłania skargi.
+2. System wyświetla formularz wysyłania skargi.
+3. Gracz wypełnia dane skargi.
+4. Gracz wybiera opcję wysłania skargi.  
+[dane poprawne]
+5. System wysyła skargę.  
+[wysłanie pomyślne]
+6. System wyświetla komunikat o pomyślnym wysłaniu skargi.
+
+Warunek końcowy: skarga jest wysłana
+
+**Scenariusz alternatywny 1**
+
+1.-4. jak w Scenariuszu głównym  
+[dane niepoprawne]  
+5a. System wyświetla komunikat o błędnych danych.  
+Powrót do kroku 3. w Scenariuszu głównym
+
+**Scenariusz alternatywny 2**
+
+1.-5. jak w Scenariuszu głównym  
+[wysłanie niepomyślne]  
+6b. System wyświetla komunikat o błędzie wysyłania.  
+7b. System zamyka formularz wysyłania skargi.
+
+Warunek końcowy: skarga nie została wysłana
+
+**Scenopis**
 
 ## 5.13 [PU22: Skanowanie kodu QR](#pu22%3A-skanowanie-kodu-qr)
 
 
 - Wersja: 1.0 (20.05.2026)
-- Odpowiedzialny: Łuukasz Czajka
+- Odpowiedzialny: Łukasz Czajka
 - Wydanie: 1.0
 - Aktor główny: Gracz
 - Warunek początkowy: Gracz jest zalogowany w aplikacji i znajduje się na ekranie startowym
@@ -3210,7 +3329,7 @@ Powrót do kroku 3. w scenariuszu głównym
 
 final: success
 
-**Scenarusz alternatywny A: Anulowanie skanu kodu QR**
+**Scenariusz alternatywny A: Anulowanie skanu kodu QR**
 
 1-2: Tak jak w scenariuszu głównym    
 3a. Gracz naciska przycisk wstecz    
@@ -3231,9 +3350,7 @@ final: failure
 6c. Gracz naciska przycisk "Anuluj"    
 
 final: failure
-
-![](scenopisy/22.svg)
-## 5.13 [PU44: Akceptacja zaproszenia](#pu44-akceptacja-zaproszenia)
+## 5.23 [PU44: Akceptacja zaproszenia](#pu44-akceptacja-zaproszenia)
 
 - Wersja: 1.0 (14.04.2026)
 - Odpowiedzialny: Maciej Bankiewicz
