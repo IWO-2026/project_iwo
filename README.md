@@ -3188,7 +3188,6 @@ Powrót do kroku 3. w scenariuszu głównym
 
 ## 5.13 [PU22: Skanowanie kodu QR](#pu22%3A-skanowanie-kodu-qr)
 
-![](scenopisy/22.svg)
 
 - Wersja: 1.0 (20.05.2026)
 - Odpowiedzialny: Łuukasz Czajka
@@ -3232,6 +3231,8 @@ final: failure
 6c. Gracz naciska przycisk "Anuluj"    
 
 final: failure
+
+![](scenopisy/22.svg)
 ## 5.13 [PU44: Akceptacja zaproszenia](#pu44-akceptacja-zaproszenia)
 
 - Wersja: 1.0 (14.04.2026)
