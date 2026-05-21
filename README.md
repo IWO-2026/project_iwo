@@ -3202,17 +3202,17 @@ Powrót do kroku 3. w scenariuszu głównym
 3. Gracz umieszcza kod QR w oknie.
 4. System sprawdza kod.
 
-[kod QR poprawny]
-5. System sprawdza typ akcji powiązanej z kodem QR (walka/mini-gra)
-6. System wyświetla komunikat z prośbą o potwierdzenie akcji danego typu
-7. Gracz potwierdza
-8. System wykonuje akcję
+[kod QR poprawny]     
+5. System sprawdza typ akcji powiązanej z kodem QR (walka/mini-gra)    
+6. System wyświetla komunikat z prośbą o potwierdzenie akcji danego typu    
+7. Gracz potwierdza    
+8. System wykonuje akcję    
 
 final: success
 
 **Scenarusz alternatywny A: Anulowanie skanu kodu QR**
 
-1-2: Tak jak w scenariuszu głównym
+1-2: Tak jak w scenariuszu głównym    
 3a. Gracz naciska przycisk wstecz    
 4a. System wraca do menu głównego aplikacji    
 
