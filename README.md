@@ -3195,7 +3195,7 @@ Powrót do kroku 3. w scenariuszu głównym
 
 [kod QR poprawny]
 
-5. System prosi gracza o potwierdzenie chęci wykonania akcji.
+5. System wyświetla komuunikat z prośbą o potwierdzenie
 6. Gracz potwierdza.
 7. System wykonuje akcję.
 
@@ -3213,7 +3213,7 @@ final: failure
 
 1-4: Tak jak w scenariuszu głównym    
 [Kod QR błędny]    
-5b. System wyświetla kod o błędzie    
+5b. System wyświetla komunikat o błędzie   
 6b. Gracz naciska przycisk OK    
 7b. System wraca do kroku     
 
