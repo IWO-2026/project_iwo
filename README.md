@@ -3192,6 +3192,9 @@ Powrót do kroku 3. w scenariuszu głównym
 2. System wyświetla okno skanowania kodów.
 3. Gracz umieszcza kod QR w oknie.
 4. System sprawdza kod.
+
+[kod QR poprawny]
+
 5. System prosi gracza o potwierdzenie chęci wykonania akcji.
 6. Gracz potwierdza.
 7. System wykonuje akcję.
@@ -3200,17 +3203,19 @@ final: success
 
 **Scenarusz alternatywny A: Anulowanie skanu kodu QR**
 
-
-3a. Gracz naciska przycisk wtecz    
-4a. System wraca do menu głównego aplikacji
+1-2: Tak jak w scenariuszu głównym
+3a. Gracz naciska przycisk wstecz    
+4a. System wraca do menu głównego aplikacji    
 
 final: failure
 
 **Scenariusz alternatywny B: Błędny kod QR**
 
-5b. System wyświetla kod o błędzie z przyciskiem OK
-6b. Gracz naciska przycisk OK
-7b. System wraca do kroku 2
+1-4: Tak jak w scenariuszu głównym    
+[Kod QR błędny]    
+5b. System wyświetla kod o błędzie    
+6b. Gracz naciska przycisk OK    
+7b. System wraca do kroku     
 
 **Scenariusz alternatywny C: Gracz anulował wykonanie akcji**
 
