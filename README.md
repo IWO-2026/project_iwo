@@ -2019,7 +2019,7 @@ KED(["Edycja komnaty"])
 SEDF(["Zdefiniowanie czujnika"])
 DGSCE(["Wyświetlenie scenariusza gry w edytorze"])
 TPGS(["Projektowanie zadania w scenariuszu gry"])
-
+DFMP(["Definicja mapy gry"])
 
 %% ===== RELACJE =====
 TG --> GDF
@@ -2029,6 +2029,7 @@ GDF -. "&lt;&lt;invoke&gt;&gt;" .-> KED
 GDF -. <&ltinvoke>> .-> SEDF
 GDF -. "&lt;&lt;invoke&gt;&gt;" .-> DGSCE
 DGSCE -. "&lt;&lt;invoke&gt;&gt;" .-> TPGS
+GDF -. "&lt;&lt;invoke;&gt&gt;" .-> DFMP
 ```
 
 #### PU49: Zdefiniowanie gry
@@ -2092,6 +2093,14 @@ Powiązanie z wymaganiami funkcjonalnymi: **F28**.
 - Priorytet i trudność: Istotne
 - Wydanie: 1.0
 - **Opis:** Twórca gry przechodzi do edycji wybranej [komnaty]. System pobiera [dane komnaty] i udostępnia formularz edycyjny. Po wprowadzeniu modyfikacji i zleceniu zapisu, system weryfikuje poprawność [danych]. Jeżeli [dane] są poprawne, system aktualizuje [komnatę]. W przypadku wystąpienia błędów, system wyświetla komunikat o błędzie, a zmiany nie zostają zapisane.
+
+
+#### PU60: Definicja mapy gry
+- Wersja 1.0 (21.05.2026)
+- Odpowiedzialny: Łukasz Czajka
+- Priorytet i trudność: Istotne
+- Wydanie: 1.0
+- **Opis** Twórca gry w trybie edycji [mapy gry], definiuje obszar zajmowany przez [komnaty] i [przejścia]. Zmiany są zapisywane na bierząco lokalnie, a następnie po udanej weryfikacji poprawności, zapisywane przez system. W przypadku błędu zapisu syem informuje użytkownika o błędzie.
 
 ---
 
@@ -2732,9 +2741,8 @@ Powrót do kroku 3. w scenariuszu głównym.
 
 <img width="1104" height="698" alt="image" src="https://github.com/user-attachments/assets/6284c041-97bb-42a1-8b38-89b98fbf6a3a" />
 
-## 5.11 [Zdefiniowanie mapy gry]
+## 5.11 [Zdefiniowanie mapy gry](#pu60%3A-definicja-mapy-gry)
 
-![](scenopisy/Zefiniowanie_mapy2.svg)
 
 - Wersja: 1.0 (30.04.2026)
 - Odpowiedzialny: Łukasz Czajka
@@ -2751,7 +2759,7 @@ Powrót do kroku 3. w scenariuszu głównym.
 4. Twórca gry wprowadza zmiany w mapie gry.
 5. System zapisuje zmiany na bierząco w przeglądarce.
 6. Twórca gry wybiera opcję "Zapisz i wyjdź".
-7. System zapisuje mapę gry w bazie danych.
+7. System zapisuje mapę gry.
 8. System automatycznie waliduje poprawnoś mapy gry.
 
 final: success
@@ -2780,28 +2788,30 @@ Powrót do kroku 3 scenariusza głównego.
 
 final: failure
 
-**Scenariusz alternatywny C: Bład zapisu mapy w bazie danych**
-7a. System wykrywa błąd zapisu mapy gry w bazie danych.
-8a. System wyświetla komunikat o błędzie zapisu mapy gry w bazie danych, informuje użytkownika o tym, że mapa jest zapisana lokalnie. System oferuje możliwości ponowienia zapisu mapy gry w bazie danych i wyjścia z edytora mapy gry.
+**Scenariusz alternatywny C: Bład zapisu mapy**
 
-9a1.1 Twórca gry wybiera opcję ponowienia zapisu mapy gry w bazie danych.
-9a1.2 System powraca do kroku 7 scenariusza głównego.
+7a. System wykrywa błąd zapisu mapy gry.    
+8a. System wyświetla komunikat o błędzie zapisu mapy gry, informuje użytkownika o tym, że mapa jest zapisana lokalnie. System oferuje możliwości ponowienia zapisu mapy gry i wyjścia z edytora mapy gry.
 
-9a2.1 Twórca gry wybiera opcję wyjścia z edytora mapy gry.
+9a1.1 Twórca gry wybiera opcję ponowienia zapisu mapy gry.   
+9a1.2 System powraca do kroku 7 scenariusza głównego.   
+
+9a2.1 Twórca gry wybiera opcję wyjścia z edytora mapy gry.   
 9a2.2 System zamyka edytor mapy gry bez zapisywania
 
 final: failure
 
-**Scenariusz alternatywny D: Mapa gry jest niepoprawna**
-8a. System informuje użytkownika o błędach w mapie gry (np. brak wymaganych elementów, niespójności) informuje, że mapa gry jest niepoprawna i oznacza mapę jako niepoprawną.
-9a. System oferuje możliwość zapisu z wyjściem lub powrotu do edycji mapy gry.
+**Scenariusz alternatywny D: Mapa gry jest niepoprawna**   
+8a. System informuje użytkownika o błędach w mapie gry (np. brak wymaganych elementów, niespójności) informuje, że mapa gry jest niepoprawna i oznacza mapę jako niepoprawną.   
+9a. System oferuje możliwość zapisu z wyjściem lub powrotu do edycji mapy gry.   
 
-9a1.1 Twórca gry wybiera opcję powrotu do edycji mapy gry.
+9a1.1 Twórca gry wybiera opcję powrotu do edycji mapy gry.   
 9a1.2 System powraca do kroku 4 scenariusza głównego
 
-9a2.1 Twórca gry wybiera opcję zapisu z wyjściem.
-9a2.2 System skacze do kroku 7 scenariusza głównego, ale mapa gry pozostaje oznaczona jako niepoprawna, co uniemożliwia publikację gry do czasu poprawy mapy gry.
+9a2.1 Twórca gry wybiera opcję zapisu z wyjściem.   
+9a2.2 System skacze do kroku 7 scenariusza głównego, ale mapa gry pozostaje oznaczona jako niepoprawna, co uniemożliwia publikację gry do czasu poprawy mapy gry.   
 
+![](scenopisy/Zefiniowanie_mapy2.svg)
 ## 5.12 [PU20: Uruchomienie wydarzenia](#pu20-uruchomienie-wydarzenia)
 
 - Wersja: 1.0 (19.05.2026)
