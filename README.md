@@ -2587,7 +2587,7 @@ Powrót do kroku 3 scenariusza głównego.
 Powrót do kroku 4 scenariusza głównego.
 
 **Scenopis**
-![Scenopis PU55 — Recenzja gry](./scenopisy/Scenopis_PU55_Recenzja_gry.png)
+![Scenopis PU55 — Recenzja gry](./scenopisy/Scenopis_PU55_Recenzja_gry.svg)
 
 ---
 
