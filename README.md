@@ -3330,6 +3330,8 @@ Warunek końcowy: skarga nie została wysłana
 
 **Scenopis**
 
+![](./scenopisy/PU31_Wysłanie_skargi.png)
+
 ## 5.13 [PU22: Skanowanie kodu QR](#pu22%3A-skanowanie-kodu-qr)
 
 - Wersja: 1.0 (20.05.2026)
