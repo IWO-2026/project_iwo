@@ -3073,7 +3073,7 @@ Warunek końcowy: Nie wyświetlono listy wydarzeń
 **final:** success
 
 **Scenopis**
-![](./scenopisy/scenopis-pu21.png)
+![](./scenopisy/scenopis-pu212.png)
 
 ## 5.16 [PU39: Dodanie wydarzenia do kalendarza](#pu39-dodanie-wydarzenia-do-kalendarza)
 
