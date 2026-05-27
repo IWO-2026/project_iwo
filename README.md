@@ -706,6 +706,11 @@ classDiagram
         +pozycjeKodowQR
     }
 
+    class Przejście {
+        +komnata 1
+        +komnata 2
+    }
+
     class Czujnik {
         +typ: String
     }
@@ -763,6 +768,8 @@ classDiagram
 
     Mapa "1" *-- "1..*" Strefa : składa sie z
     Strefa "1" *-- "1..*" Komnata : może zawierać
+    Strefa "1" *-- "1..*" Przejście : może zawierać
+    Przejście "1.." *-- "2..*" Komnata : łączy
 
     Komnata "1" *-- "0..*" Czujnik : zawiera
     Komnata "1" *-- "0..*" KodQR : zawiera
@@ -804,6 +811,7 @@ classDiagram
     class Wydarzenie {
         +miejsce: String
         +status: String
+        +data: DateTime
     }
 
     class KalendarzWydarzen {
