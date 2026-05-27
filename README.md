@@ -3139,7 +3139,11 @@ Powrót do kroku 3. w scenariuszu głównym
 **Scenariusz główny**
 
 1. Organizator wybiera [opcję wyświetlenia kalendarza].
-2. System wyświetla [kalendarz] z [opcją dodania wydarzenia].
+2. System wyświetla [kalendarz] z [opcją dodania wydarzenia]
+
+`<<invoke>>` [PU39: Dodanie wydarzenia do kalendarza](#pu39-dodanie-wydarzenia-do-kalendarza) \
+`<<invoke>>` [PU40: Zaproszenie graczy](#pu40-zaproszenie-graczy) \
+`<<invoke>>` [PU41: Udostępnienie wydarzenia graczom](#pu41-udostępnienie-wydarzenia-graczom)
 
 **final:** success
 
