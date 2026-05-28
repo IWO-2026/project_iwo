@@ -3340,51 +3340,6 @@ Warunek końcowy: skarga nie została wysłana
 
 ![](./scenopisy/PU31_Wysłanie_skargi.png)
 
-## 5.13 [PU22: Skanowanie kodu QR](#pu22%3A-skanowanie-kodu-qr)
-
-- Wersja: 1.0 (20.05.2026)
-- Odpowiedzialny: Łukasz Czajka
-- Wydanie: 1.0
-- Aktor główny: Gracz
-- Warunek początkowy: Gracz jest zalogowany w aplikacji i znajduje się na ekranie startowym
-- Warunek końcowy (sukces): Użytkownik rozpoczął walkę lub mini-grę.
-
-**Scenariusz główny (Skan kodu QR)**
-
-1. Gracz naciska przycisk skanowania kodów QR.
-2. System wyświetla okno skanowania kodów.
-3. Gracz umieszcza kod QR w oknie.
-4. System sprawdza kod.
-
-[kod QR poprawny]  
-5. System sprawdza typ akcji powiązanej z kodem QR (walka/mini-gra)  
-6. System wyświetla komunikat z prośbą o potwierdzenie akcji danego typu  
-7. Gracz potwierdza  
-8. System wykonuje akcję
-
-final: success
-
-**Scenariusz alternatywny A: Anulowanie skanu kodu QR**
-
-1-2: Tak jak w scenariuszu głównym  
-3a. Gracz naciska przycisk wstecz  
-4a. System wraca do menu głównego aplikacji
-
-final: failure
-
-**Scenariusz alternatywny B: Błędny kod QR**
-
-1-4: Tak jak w scenariuszu głównym  
-[Kod QR błędny]  
-5b. System wyświetla komunikat o błędzie  
-6b. Gracz naciska przycisk OK  
-7b. System wraca do kroku
-
-**Scenariusz alternatywny C: Gracz anulował wykonanie akcji**
-
-6c. Gracz naciska przycisk "Anuluj"
-
-final: failure
 
 ## 5.23 [PU44: Akceptacja zaproszenia](#pu44-akceptacja-zaproszenia)
 
@@ -3434,3 +3389,52 @@ final: failure
 3c. System wyświetla komunikat z potwierdzeniem pomyślnego odrzucenia zaproszenia.
 
 ![](./scenopisy/pu44_akceptacja_zaproszenia.png)
+
+## 5.24 [PU22: Skanowanie kodu QR](#pu22%3A-skanowanie-kodu-qr)
+
+- Wersja: 1.0 (20.05.2026)
+- Odpowiedzialny: Łukasz Czajka
+- Wydanie: 1.0
+- Aktor główny: Gracz
+- Warunek początkowy: Gracz jest zalogowany w aplikacji i znajduje się na ekranie startowym
+- Warunek końcowy (sukces): Użytkownik rozpoczął walkę lub mini-grę.
+
+**Scenariusz główny (Skan kodu QR)**
+
+1. Gracz naciska przycisk skanowania kodów QR.
+2. System wyświetla okno skanowania kodów.
+3. Gracz umieszcza kod QR w oknie.
+4. System sprawdza kod.
+
+[kod QR poprawny]     
+5. System sprawdza typ akcji powiązanej z kodem QR (walka/mini-gra)    
+6. System wyświetla komunikat z prośbą o potwierdzenie akcji danego typu    
+7. Gracz potwierdza    
+8. Jeżeli akcja typu mini-gra: Invoke [PU23: Granie w mini-grę](#pu23-granie-w-mini-grę)    
+Jeżeli akcja typu walka: Invoke [PU24: Walczenie z innym graczem](#pu24-walczenie-z-innym-graczem)
+
+final: success
+
+**Scenariusz alternatywny A: Anulowanie skanu kodu QR**
+
+1-2: Tak jak w scenariuszu głównym  
+3a. Gracz naciska przycisk wstecz  
+4a. System wraca do menu głównego aplikacji
+
+final: failure
+
+**Scenariusz alternatywny B: Błędny kod QR**
+
+1-4: Tak jak w scenariuszu głównym    
+[Kod QR błędny]    
+5b. System wyświetla komunikat o błędzie   
+6b. Gracz naciska przycisk OK    
+7b. System przechodzi do kroku 2     
+
+**Scenariusz alternatywny C: Gracz anulował wykonanie akcji**
+
+6c. Gracz naciska przycisk "Anuluj"
+
+final: failure
+
+![Scenopis dla PU22](scenopisy/22.svg)
